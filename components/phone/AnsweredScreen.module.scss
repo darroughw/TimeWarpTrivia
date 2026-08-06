@@ -1,0 +1,44 @@
+@use "theme" as *;
+@use "mixins" as *;
+
+.screen {
+  position: relative;
+  min-height: 100vh;
+  padding: $space-xl $space-md;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $space-lg;
+  text-align: center;
+  z-index: $z-content;
+}
+
+.check {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background: rgba(45, 212, 191, 0.12);
+  border: $border-width solid $teal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: $teal;
+}
+
+.title {
+  @include marquee-heading;
+  font-size: 1.75rem;
+}
+
+.pickedLetter {
+  @include mono-figure;
+  color: $marigold;
+}
+
+.status {
+  color: $text-lo;
+  font-family: $paper-font;
+  font-size: 1.1rem;
+}

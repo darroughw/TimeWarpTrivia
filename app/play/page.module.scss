@@ -1,0 +1,19 @@
+@use "theme" as *;
+
+.shell {
+  min-height: 100vh;
+  background: $void;
+  display: flex;
+  justify-content: center;
+}
+
+// Phones are already the target width; on a wider viewport (desktop
+// testing) this keeps the controller readable as a centered phone frame
+// instead of stretching full-bleed.
+.frame {
+  width: 100%;
+  max-width: 480px;
+  min-height: 100vh;
+  position: relative;
+  background: $void;
+}

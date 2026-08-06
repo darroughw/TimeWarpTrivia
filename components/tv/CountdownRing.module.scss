@@ -1,0 +1,63 @@
+@use "theme" as *;
+@use "mixins" as *;
+
+.wrap {
+  position: relative;
+  width: 9rem;
+  height: 9rem;
+  flex-shrink: 0;
+}
+
+.svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.track {
+  fill: none;
+  stroke: $void-line;
+  stroke-width: 10;
+}
+
+.progress {
+  fill: none;
+  stroke: $marigold;
+  stroke-width: 10;
+  stroke-linecap: round;
+  transition:
+    stroke-dashoffset 1s linear,
+    stroke 0.3s ease;
+
+  &.urgent {
+    stroke: $coral;
+  }
+}
+
+.readout {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.seconds {
+  @include mono-figure;
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: $text-hi;
+
+  &.urgent {
+    color: $coral;
+  }
+}
+
+.label {
+  font-family: $paper-font;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $text-lo;
+}

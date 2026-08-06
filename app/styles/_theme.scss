@@ -1,0 +1,67 @@
+// ---------------------------------------------------------------------------
+// TimeWarp Trivia — design tokens
+// Fonts are loaded as Google Fonts in app/layout.tsx via next/font, which
+// exposes them as CSS custom properties. These SCSS variables just give the
+// rest of the app a stable, semantic name to reach for.
+// ---------------------------------------------------------------------------
+
+// Typography ------------------------------------------------------------
+$paper-font: var(--font-paper), "Helvetica Neue", Arial, sans-serif; // Archivo — body/UI copy
+$head-font: var(--font-head), "Arial Black", sans-serif; // Archivo Black — marquee headlines
+$mono-font: var(--font-mono), "Courier New", monospace; // Space Mono — timers, scores, room codes
+
+// Color — "broadcast void" palette ---------------------------------------
+// A dark, CRT-glow base with warm game-show marigold as the hero accent,
+// coral for urgency/heat, and teal for correctness/success.
+$void: #0b0e1a; // background — the "off-air" black
+$void-raised: #131829; // panels/cards sitting on the void
+$void-line: #262c46; // hairline borders on dark surfaces
+
+$paper: #f4ecd8; // warm paper surface (cards, podium, lobby chrome)
+$paper-dim: #e4d9bd; // secondary paper surface / hover
+$ink: #171425; // near-black text on paper surfaces
+
+$marigold: #ffb238; // primary accent — marquee, focus, room code
+$marigold-dim: #8a5f18; // marigold at low emphasis (borders, dividers)
+$coral: #ff5a5f; // secondary accent — timer running out, wrong answer
+$teal: #2dd4bf; // tertiary accent — correct answer, success, points
+
+$text-hi: #fbf6ec; // primary text on void
+$text-lo: #a7abc4; // secondary/muted text on void
+
+// Decade accents — the UI recolors its highlight per decade -------------
+$decade-80s: #ff3fa4;
+$decade-90s: #7c5cff;
+$decade-2000s: #33d6ff;
+$decade-2010s: #ff8a3d;
+$decade-all: $marigold;
+
+// Spacing (10-foot UI — generous, legible from a couch) -------------------
+$space-xs: 0.5rem;
+$space-sm: 1rem;
+$space-md: 1.75rem;
+$space-lg: 3rem;
+$space-xl: 5rem;
+$space-2xl: 8rem;
+
+// Radius / borders --------------------------------------------------------
+$radius-sm: 0.5rem;
+$radius-md: 1rem;
+$radius-lg: 1.75rem;
+$border-width: 3px;
+
+// Focus ring — the on-screen "remote cursor" -------------------------------
+$focus-ring-color: $marigold;
+$focus-ring-width: 4px;
+$focus-ring-offset: 6px;
+
+// Elevation -----------------------------------------------------------------
+$shadow-panel: 0 20px 60px rgba(0, 0, 0, 0.45);
+$shadow-glow-marigold: 0 0 40px rgba(255, 178, 56, 0.35);
+$shadow-glow-teal: 0 0 40px rgba(45, 212, 191, 0.35);
+$shadow-glow-coral: 0 0 40px rgba(255, 90, 95, 0.35);
+
+// Z-index scale ---------------------------------------------------------
+$z-scanlines: 1;
+$z-content: 2;
+$z-overlay: 10;

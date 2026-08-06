@@ -1,0 +1,61 @@
+@use "theme" as *;
+@use "mixins" as *;
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-xs;
+  text-align: center;
+}
+
+.ring {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: $void-raised;
+  border: $border-width solid var(--player-color, #{$marigold});
+  box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.25);
+  flex-shrink: 0;
+
+  &.sm {
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 1.5rem;
+  }
+
+  &.md {
+    width: 5.5rem;
+    height: 5.5rem;
+    font-size: 2.5rem;
+  }
+
+  &.lg {
+    width: 8rem;
+    height: 8rem;
+    font-size: 3.75rem;
+  }
+}
+
+.name {
+  font-family: $paper-font;
+  font-weight: 700;
+  color: $text-hi;
+  max-width: 10rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.score {
+  @include mono-figure;
+  color: var(--player-color, #{$marigold});
+  font-size: 1rem;
+}
+
+.rank {
+  font-family: $mono-font;
+  color: $text-lo;
+  font-size: 0.9rem;
+}

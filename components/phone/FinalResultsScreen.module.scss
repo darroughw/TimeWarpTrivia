@@ -1,0 +1,70 @@
+@use "theme" as *;
+@use "mixins" as *;
+
+.screen {
+  position: relative;
+  min-height: 100vh;
+  padding: $space-xl $space-md;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $space-md;
+  text-align: center;
+  z-index: $z-content;
+}
+
+.eyebrow {
+  font-family: $paper-font;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: $marigold;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.medal {
+  font-size: 3.5rem;
+  line-height: 1;
+}
+
+.rank {
+  @include mono-figure;
+  font-size: 3rem;
+  font-weight: 700;
+  color: $marigold;
+}
+
+.playerName {
+  @include marquee-heading;
+  font-size: 1.75rem;
+}
+
+.score {
+  @include mono-figure;
+  font-size: 1.5rem;
+  color: $teal;
+}
+
+.comparison {
+  color: $text-lo;
+  font-family: $paper-font;
+  font-size: 1rem;
+  max-width: 22rem;
+}
+
+.playAgainButton {
+  @include tappable;
+  margin-top: $space-lg;
+  width: 100%;
+  font-family: $head-font;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 1.25rem;
+  padding: $space-md;
+  border-radius: $radius-lg;
+  background: $marigold;
+  color: $ink;
+  border: $border-width solid $marigold;
+  box-shadow: $shadow-glow-marigold;
+}

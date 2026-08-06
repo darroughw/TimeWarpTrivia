@@ -1,0 +1,147 @@
+@use "theme" as *;
+@use "mixins" as *;
+
+.screen {
+  position: relative;
+  min-height: 100vh;
+  padding: $space-xl $space-2xl;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-xl;
+  z-index: $z-content;
+  text-align: center;
+}
+
+.eyebrow {
+  font-family: $paper-font;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: $marigold;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.title {
+  @include marquee-heading;
+  font-size: 4.5rem;
+}
+
+.podium {
+  display: flex;
+  align-items: flex-end;
+  gap: $space-lg;
+}
+
+.podiumSpot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-sm;
+}
+
+.podiumBlock {
+  width: 12rem;
+  border-radius: $radius-md $radius-md 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: $space-md;
+  gap: $space-xs;
+  border: $border-width solid $void-line;
+  border-bottom: none;
+
+  .place {
+    @include mono-figure;
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+}
+
+.first {
+  order: 2;
+
+  .podiumBlock {
+    height: 14rem;
+    background: linear-gradient(180deg, rgba(255, 178, 56, 0.25), $void-raised);
+    border-color: $marigold;
+    box-shadow: $shadow-glow-marigold;
+
+    .place {
+      color: $marigold;
+    }
+  }
+}
+
+.second {
+  order: 1;
+
+  .podiumBlock {
+    height: 10rem;
+    background: linear-gradient(180deg, rgba(244, 236, 216, 0.15), $void-raised);
+    border-color: $paper-dim;
+
+    .place {
+      color: $paper;
+    }
+  }
+}
+
+.third {
+  order: 3;
+
+  .podiumBlock {
+    height: 7.5rem;
+    background: linear-gradient(180deg, rgba(255, 90, 95, 0.2), $void-raised);
+    border-color: $coral;
+
+    .place {
+      color: $coral;
+    }
+  }
+}
+
+.rest {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+  width: 100%;
+  max-width: 36rem;
+}
+
+.restRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $space-sm $space-md;
+  background: $void-raised;
+  border: 1px solid $void-line;
+  border-radius: $radius-sm;
+  font-family: $paper-font;
+}
+
+.restRank {
+  @include mono-figure;
+  color: $text-lo;
+  margin-right: $space-sm;
+}
+
+.restScore {
+  @include mono-figure;
+  color: $teal;
+}
+
+.playAgainButton {
+  @include dpad-focusable;
+  font-family: $head-font;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 1.75rem;
+  padding: $space-md $space-2xl;
+  border-radius: $radius-lg;
+  background: $marigold;
+  color: $ink;
+  border: $border-width solid $marigold;
+  box-shadow: $shadow-glow-marigold;
+}

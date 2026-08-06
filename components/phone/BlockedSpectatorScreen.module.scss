@@ -1,0 +1,87 @@
+@use "theme" as *;
+@use "mixins" as *;
+
+.screen {
+  position: relative;
+  min-height: 100vh;
+  padding: $space-lg $space-md;
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+  z-index: $z-content;
+}
+
+.banner {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+  padding: $space-sm $space-md;
+  border-radius: $radius-md;
+  background: rgba(255, 90, 95, 0.12);
+  border: $border-width solid $coral;
+  color: $coral;
+  font-family: $paper-font;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.roundLabel {
+  font-family: $paper-font;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: $text-lo;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.questionText {
+  @include marquee-heading;
+  font-size: 1.6rem;
+  margin-top: $space-xs;
+  opacity: 0.65;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+  flex: 1;
+}
+
+.option {
+  @include touch-target;
+  display: flex;
+  align-items: center;
+  gap: $space-md;
+  width: 100%;
+  min-height: 4.5rem;
+  padding: $space-md;
+  background: $void-raised;
+  border: $border-width solid $void-line;
+  border-radius: $radius-md;
+  text-align: left;
+  opacity: 0.5;
+}
+
+.optionLetter {
+  @include mono-figure;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: $text-lo;
+  background: $void;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid $void-line;
+}
+
+.optionText {
+  font-family: $paper-font;
+  font-size: 1.1rem;
+  color: $text-lo;
+  font-weight: 500;
+}

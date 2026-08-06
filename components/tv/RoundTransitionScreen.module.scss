@@ -1,0 +1,120 @@
+@use "theme" as *;
+@use "mixins" as *;
+
+.screen {
+  position: relative;
+  min-height: 100vh;
+  padding: $space-xl $space-2xl;
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+  z-index: $z-content;
+}
+
+.eyebrow {
+  font-family: $paper-font;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: $teal;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.answerCard {
+  display: flex;
+  align-items: center;
+  gap: $space-md;
+  padding: $space-lg;
+  background: $void-raised;
+  border: $border-width solid $teal;
+  border-radius: $radius-md;
+  box-shadow: $shadow-glow-teal;
+}
+
+.answerLetter {
+  @include mono-figure;
+  font-weight: 700;
+  font-size: 2rem;
+  color: $ink;
+  background: $teal;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.answerText {
+  @include marquee-heading;
+  font-size: 2rem;
+  color: $paper;
+}
+
+.resultsGrid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-md;
+  align-content: flex-start;
+}
+
+.resultCard {
+  display: flex;
+  align-items: center;
+  gap: $space-md;
+  padding: $space-md;
+  border-radius: $radius-md;
+  background: $void-raised;
+  border: $border-width solid $void-line;
+
+  &.correct {
+    border-color: $teal;
+  }
+}
+
+.resultInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.resultName {
+  font-family: $paper-font;
+  font-weight: 700;
+  color: $text-hi;
+}
+
+.resultPoints {
+  @include mono-figure;
+  font-size: 1.3rem;
+
+  &.gained {
+    color: $teal;
+  }
+
+  &.zero {
+    color: $text-lo;
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: $space-lg;
+  border-top: 1px solid $void-line;
+}
+
+.nextLabel {
+  font-family: $paper-font;
+  color: $text-lo;
+  font-size: 1.2rem;
+}
+
+.nextRound {
+  @include marquee-heading;
+  font-size: 1.75rem;
+  color: $marigold;
+}

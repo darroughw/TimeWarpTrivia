@@ -1,0 +1,104 @@
+@use "theme" as *;
+@use "mixins" as *;
+
+.screen {
+  position: relative;
+  min-height: 100vh;
+  padding: $space-xl $space-md $space-lg;
+  display: flex;
+  flex-direction: column;
+  z-index: $z-content;
+}
+
+.brand {
+  text-align: center;
+  margin-bottom: $space-xl;
+}
+
+.eyebrow {
+  font-family: $paper-font;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: $marigold;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.title {
+  @include marquee-heading;
+  font-size: 2.5rem;
+  margin-top: $space-xs;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+  flex: 1;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+}
+
+.label {
+  font-family: $paper-font;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: $text-lo;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.input {
+  @include touch-target;
+  font-family: $mono-font;
+  font-size: 1.25rem;
+  color: $text-hi;
+  background: $void-raised;
+  border: $border-width solid $void-line;
+  border-radius: $radius-md;
+  padding: $space-sm $space-md;
+  letter-spacing: 0.05em;
+
+  &::placeholder {
+    color: $text-lo;
+    letter-spacing: normal;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $marigold;
+  }
+}
+
+.nameInput {
+  font-family: $paper-font;
+  letter-spacing: normal;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.joinButton {
+  @include tappable;
+  width: 100%;
+  font-family: $head-font;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 1.25rem;
+  padding: $space-md;
+  border-radius: $radius-lg;
+  background: $marigold;
+  color: $ink;
+  border: $border-width solid $marigold;
+  box-shadow: $shadow-glow-marigold;
+
+  &:disabled {
+    opacity: 0.4;
+    box-shadow: none;
+  }
+}

@@ -1,0 +1,79 @@
+@use "theme" as *;
+@use "mixins" as *;
+
+.screen {
+  position: relative;
+  min-height: 100vh;
+  padding: $space-lg $space-md;
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+  z-index: $z-content;
+}
+
+.roundLabel {
+  font-family: $paper-font;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: $marigold;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.questionText {
+  @include marquee-heading;
+  font-size: 1.6rem;
+  margin-top: $space-xs;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+  flex: 1;
+}
+
+.option {
+  @include tappable;
+  display: flex;
+  align-items: center;
+  gap: $space-md;
+  width: 100%;
+  min-height: 4.5rem;
+  padding: $space-md;
+  background: $void-raised;
+  border: $border-width solid $void-line;
+  border-radius: $radius-md;
+  text-align: left;
+
+  &.selected {
+    border-color: $marigold;
+    background: rgba(255, 178, 56, 0.12);
+  }
+}
+
+.optionLetter {
+  @include mono-figure;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: $ink;
+  background: $paper;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  .selected & {
+    background: $marigold;
+  }
+}
+
+.optionText {
+  font-family: $paper-font;
+  font-size: 1.1rem;
+  color: $text-hi;
+  font-weight: 500;
+}

@@ -1,0 +1,5 @@
+@use "mixins" as *;
+
+.overlay {
+  @include scanline-overlay;
+}

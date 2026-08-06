@@ -1,0 +1,118 @@
+@use "theme" as *;
+@use "mixins" as *;
+
+.screen {
+  position: relative;
+  min-height: 100vh;
+  padding: $space-xl $space-2xl;
+  display: flex;
+  flex-direction: column;
+  gap: $space-xl;
+  z-index: $z-content;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: $space-lg;
+}
+
+.roundLabel {
+  font-family: $paper-font;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: $marigold;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.questionText {
+  @include marquee-heading;
+  font-size: 3.25rem;
+  max-width: 56rem;
+  margin-top: $space-sm;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: $space-2xl;
+}
+
+.options {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-md;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: $space-md;
+  padding: $space-md $space-lg;
+  background: $void-raised;
+  border: $border-width solid $void-line;
+  border-radius: $radius-md;
+}
+
+.optionLetter {
+  @include mono-figure;
+  font-weight: 700;
+  font-size: 1.75rem;
+  color: $ink;
+  background: $paper;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.optionText {
+  font-family: $paper-font;
+  font-size: 1.4rem;
+  color: $text-hi;
+  font-weight: 500;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $space-lg;
+  padding-top: $space-lg;
+  border-top: 1px solid $void-line;
+}
+
+.answeredLabel {
+  font-family: $paper-font;
+  font-size: 1.3rem;
+  color: $text-lo;
+
+  strong {
+    @include mono-figure;
+    color: $teal;
+    font-size: 1.6rem;
+  }
+}
+
+.progressBarTrack {
+  width: 16rem;
+  height: 0.9rem;
+  border-radius: 999px;
+  background: $void-raised;
+  border: 1px solid $void-line;
+  overflow: hidden;
+}
+
+.progressBarFill {
+  height: 100%;
+  background: $teal;
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}

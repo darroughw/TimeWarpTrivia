@@ -1,0 +1,26 @@
+@use "theme" as *;
+@use "mixins" as *;
+
+.row {
+  display: flex;
+  gap: $space-sm;
+  flex-wrap: wrap;
+}
+
+.pill {
+  @include dpad-focusable;
+  font-family: $paper-font;
+  font-weight: 700;
+  font-size: 1.15rem;
+  padding: $space-sm $space-md;
+  border-radius: $radius-lg;
+  border: $border-width solid $void-line;
+  background: $void-raised;
+  color: $text-lo;
+
+  &.selected {
+    color: $ink;
+    background: var(--decade-color, #{$marigold});
+    border-color: var(--decade-color, #{$marigold});
+  }
+}

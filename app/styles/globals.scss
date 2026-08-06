@@ -1,0 +1,42 @@
+@use "theme" as *;
+@use "mixins" as *;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  height: 100%;
+}
+
+body {
+  background: $void;
+  color: $text-hi;
+  font-family: $paper-font;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+// Numeric/data readouts (timers, scores, room codes) always use the mono
+// face with tabular figures so digits don't jitter as they tick.
+.mono-figure {
+  @include mono-figure;
+}

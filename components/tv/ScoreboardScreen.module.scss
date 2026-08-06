@@ -1,0 +1,81 @@
+@use "theme" as *;
+@use "mixins" as *;
+
+.screen {
+  position: relative;
+  min-height: 100vh;
+  padding: $space-xl $space-2xl;
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+  z-index: $z-content;
+}
+
+.eyebrow {
+  font-family: $paper-font;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: $marigold;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.title {
+  @include marquee-heading;
+  font-size: 3rem;
+}
+
+.list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+  overflow: hidden;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 4rem 1fr auto;
+  align-items: center;
+  gap: $space-md;
+  padding: $space-md $space-lg;
+  background: $void-raised;
+  border: $border-width solid $void-line;
+  border-radius: $radius-md;
+
+  &.first {
+    border-color: $marigold;
+    box-shadow: $shadow-glow-marigold;
+  }
+}
+
+.rank {
+  @include mono-figure;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: $text-lo;
+
+  .first & {
+    color: $marigold;
+  }
+}
+
+.player {
+  display: flex;
+  align-items: center;
+  gap: $space-md;
+}
+
+.name {
+  font-family: $paper-font;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: $text-hi;
+}
+
+.score {
+  @include mono-figure;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: $teal;
+}
