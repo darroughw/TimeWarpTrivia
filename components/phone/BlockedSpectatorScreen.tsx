@@ -7,7 +7,8 @@ import styles from "./BlockedSpectatorScreen.module.scss";
 
 interface BlockedSpectatorScreenProps {
   question: Question;
-  onRoundEnd: () => void;
+  // Only used by the scripted mock flow — see AnsweredScreen for why.
+  onRoundEnd?: () => void;
 }
 
 const OPTION_LETTERS = ["A", "B", "C", "D"] as const;
@@ -15,6 +16,7 @@ const AUTO_ADVANCE_DELAY_MS = 4000;
 
 export default function BlockedSpectatorScreen({ question, onRoundEnd }: BlockedSpectatorScreenProps) {
   useEffect(() => {
+    if (!onRoundEnd) return;
     const timer = window.setTimeout(onRoundEnd, AUTO_ADVANCE_DELAY_MS);
     return () => window.clearTimeout(timer);
   }, [onRoundEnd]);

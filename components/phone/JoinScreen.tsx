@@ -6,13 +6,15 @@ import styles from "./JoinScreen.module.scss";
 
 interface JoinScreenProps {
   onJoin: (name: string, roomCode: string) => void;
+  error?: string;
+  submitting?: boolean;
 }
 
-export default function JoinScreen({ onJoin }: JoinScreenProps) {
+export default function JoinScreen({ onJoin, error, submitting = false }: JoinScreenProps) {
   const [roomCode, setRoomCode] = useState("");
   const [name, setName] = useState("");
 
-  const canJoin = roomCode.trim().length > 0 && name.trim().length > 0;
+  const canJoin = roomCode.trim().length > 0 && name.trim().length > 0 && !submitting;
 
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
@@ -63,10 +65,12 @@ export default function JoinScreen({ onJoin }: JoinScreenProps) {
           />
         </div>
 
+        {error && <p className={styles.error}>{error}</p>}
+
         <div className={styles.spacer} />
 
         <button type="submit" className={styles.joinButton} disabled={!canJoin}>
-          Join Game
+          {submitting ? "Joining…" : "Join Game"}
         </button>
       </form>
     </div>

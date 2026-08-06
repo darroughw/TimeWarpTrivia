@@ -6,14 +6,16 @@ import styles from "./AnsweredScreen.module.scss";
 
 interface AnsweredScreenProps {
   pickedLetter: string;
-  onRoundEnd: () => void;
+  // Only used by the scripted mock flow. The live flow leaves this unset —
+  // it re-renders based on the room's real status over Realtime instead.
+  onRoundEnd?: () => void;
 }
 
 const AUTO_ADVANCE_DELAY_MS = 3000;
 
 export default function AnsweredScreen({ pickedLetter, onRoundEnd }: AnsweredScreenProps) {
-  // Stands in for the realtime "round over" event once everyone's answered.
   useEffect(() => {
+    if (!onRoundEnd) return;
     const timer = window.setTimeout(onRoundEnd, AUTO_ADVANCE_DELAY_MS);
     return () => window.clearTimeout(timer);
   }, [onRoundEnd]);

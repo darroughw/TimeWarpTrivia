@@ -1,8 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { useDpadNavigation } from "@/hooks/useDpadNavigation";
-import { DECADES, MOCK_PLAYERS, ROOM_CODE } from "@/lib/mockData";
+import { DECADES } from "@/lib/mockData";
 import type { DecadeId, Player } from "@/lib/types";
 import DecadeFilter from "./DecadeFilter";
 import PlayerAvatar from "./PlayerAvatar";
@@ -10,32 +9,21 @@ import ScanlineOverlay from "./ScanlineOverlay";
 import styles from "./LobbyScreen.module.scss";
 
 interface LobbyScreenProps {
+  roomCode: string;
+  players: Player[];
+  selectedDecade: DecadeId;
+  onSelectDecade: (id: DecadeId) => void;
   onStartGame: () => void;
 }
 
-const JOIN_INTERVAL_MS = 900;
-
-export default function LobbyScreen({ onStartGame }: LobbyScreenProps) {
-  const [joinedPlayers, setJoinedPlayers] = useState<Player[]>([]);
-  const [selectedDecade, setSelectedDecade] = useState<DecadeId>("all");
+export default function LobbyScreen({
+  roomCode,
+  players,
+  selectedDecade,
+  onSelectDecade,
+  onStartGame,
+}: LobbyScreenProps) {
   const containerRef = useDpadNavigation<HTMLDivElement>();
-
-  // Simulate the lobby's live "players joining" feed.
-  useEffect(() => {
-    setJoinedPlayers([]);
-    let cancelled = false;
-
-    MOCK_PLAYERS.forEach((player, index) => {
-      window.setTimeout(() => {
-        if (cancelled) return;
-        setJoinedPlayers((current) => [...current, player]);
-      }, JOIN_INTERVAL_MS * (index + 1));
-    });
-
-    return () => {
-      cancelled = true;
-    };
-  }, []);
 
   return (
     <div className={styles.screen} ref={containerRef}>
@@ -47,7 +35,7 @@ export default function LobbyScreen({ onStartGame }: LobbyScreenProps) {
         </div>
         <div className={styles.codeBlock}>
           <span className={styles.codeLabel}>Room Code</span>
-          <span className={styles.code}>{ROOM_CODE}</span>
+          <span className={styles.code}>{roomCode}</span>
         </div>
       </header>
 
@@ -55,10 +43,10 @@ export default function LobbyScreen({ onStartGame }: LobbyScreenProps) {
         <section className={styles.playersPanel}>
           <span className={styles.sectionLabel}>Players in the room</span>
           <div className={styles.playerGrid}>
-            {joinedPlayers.length === 0 && (
+            {players.length === 0 && (
               <p className={styles.empty}>Waiting for the first player to join…</p>
             )}
-            {joinedPlayers.map((player) => (
+            {players.map((player) => (
               <div key={player.id} className={styles.playerChip}>
                 <PlayerAvatar player={player} size="md" showName />
               </div>
@@ -68,19 +56,19 @@ export default function LobbyScreen({ onStartGame }: LobbyScreenProps) {
 
         <aside className={styles.sidebar}>
           <span className={styles.sectionLabel}>Decade filter</span>
-          <DecadeFilter decades={DECADES} selectedId={selectedDecade} onSelect={setSelectedDecade} />
+          <DecadeFilter decades={DECADES} selectedId={selectedDecade} onSelect={onSelectDecade} />
         </aside>
       </div>
 
       <footer className={styles.footer}>
         <span className={styles.countLabel}>
-          <strong>{joinedPlayers.length}</strong> of {MOCK_PLAYERS.length} players joined
+          <strong>{players.length}</strong> player{players.length === 1 ? "" : "s"} joined
         </span>
         <button
           type="button"
           data-dpad-focusable
           className={styles.startButton}
-          disabled={joinedPlayers.length === 0}
+          disabled={players.length === 0}
           onClick={onStartGame}
         >
           Start Game

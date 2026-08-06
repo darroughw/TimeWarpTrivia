@@ -142,3 +142,14 @@ export const MOCK_FINAL_STANDING: FinalStanding = {
   winnerName: "Cassette Ghost",
   winnerScore: 740,
 };
+
+// All question content the live (Supabase-backed) flow can reference by
+// id. There's no `questions` table — `rooms.current_question_id` just
+// stores one of these ids, and both routes resolve it from this bank.
+export const QUESTION_BANK: Record<string, Question> = Object.fromEntries(
+  [MOCK_QUESTION, MOCK_FINAL_QUESTION, ...MOCK_BLOCK_CANDIDATE_QUESTIONS].map((q) => [q.id, q]),
+);
+
+export function getQuestionById(id: string): Question | undefined {
+  return QUESTION_BANK[id];
+}

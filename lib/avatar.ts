@@ -1,3 +1,6 @@
+import type { PlayerRow } from "./database.types";
+import type { Player } from "./types";
+
 const AVATAR_EMOJIS = ["🎮", "🕹️", "📼", "💾", "📟", "🛸", "🦖", "👾"];
 const AVATAR_COLORS = ["#ff3fa4", "#7c5cff", "#33d6ff", "#ff8a3d", "#2dd4bf", "#ffb238"];
 
@@ -17,4 +20,12 @@ export function getAvatarForName(name: string): { emoji: string; color: string }
     emoji: AVATAR_EMOJIS[hash % AVATAR_EMOJIS.length],
     color: AVATAR_COLORS[hash % AVATAR_COLORS.length],
   };
+}
+
+// players.avatar only stores the emoji (see supabase/migrations/0001_init.sql)
+// — color is re-derived from the name so it stays deterministic without
+// needing its own column.
+export function playerRowToPlayer(row: PlayerRow): Player {
+  const { color } = getAvatarForName(row.name);
+  return { id: row.id, name: row.name, emoji: row.avatar, color, score: row.score };
 }

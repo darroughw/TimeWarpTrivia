@@ -1,0 +1,17 @@
+@use "theme" as *;
+@use "mixins" as *;
+
+.screen {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: $z-content;
+}
+
+.message {
+  @include marquee-heading;
+  font-size: 1.5rem;
+  color: $text-lo;
+}

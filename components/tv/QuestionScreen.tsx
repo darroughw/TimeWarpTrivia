@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Player, Question } from "@/lib/types";
 import CountdownRing from "./CountdownRing";
 import ScanlineOverlay from "./ScanlineOverlay";
@@ -13,6 +13,10 @@ interface QuestionScreenProps {
   // When set, this is a solo round — only this player can answer, and the
   // footer/simulation reflect a single answerer instead of the whole room.
   soloPlayer?: Player;
+  // When provided (the live, Supabase-backed flow), this is the real count
+  // of submitted answers and the internal simulation is skipped entirely.
+  // Left undefined, the mock flow simulates players answering over time.
+  answeredCount?: number;
 }
 
 const OPTION_LETTERS = ["A", "B", "C", "D"] as const;
@@ -22,10 +26,13 @@ export default function QuestionScreen({
   totalPlayers,
   onTimeUp,
   soloPlayer,
+  answeredCount: liveAnsweredCount,
 }: QuestionScreenProps) {
   const [secondsRemaining, setSecondsRemaining] = useState(question.timeLimitSeconds);
-  const [answeredCount, setAnsweredCount] = useState(0);
+  const [simulatedAnsweredCount, setSimulatedAnsweredCount] = useState(0);
   const effectiveTotal = soloPlayer ? 1 : totalPlayers;
+  const isLive = liveAnsweredCount !== undefined;
+  const answeredCount = isLive ? liveAnsweredCount : simulatedAnsweredCount;
 
   // Countdown tick.
   useEffect(() => {
@@ -36,27 +43,41 @@ export default function QuestionScreen({
     return () => window.clearInterval(interval);
   }, [question]);
 
+  // onTimeUp is re-created every render by both flows (the live flow's
+  // closure captures room/answers state, so it can't be memoized away).
+  // Keeping only the latest one in a ref means this effect depends on
+  // secondsRemaining alone — otherwise, once secondsRemaining hits 0, every
+  // re-render would put a *new* onTimeUp in the dependency array, re-fire
+  // the effect, and call onTimeUp again — and calling it changes state,
+  // triggering the next re-render. Infinite loop.
+  const onTimeUpRef = useRef(onTimeUp);
   useEffect(() => {
-    if (secondsRemaining === 0) onTimeUp();
-  }, [secondsRemaining, onTimeUp]);
+    onTimeUpRef.current = onTimeUp;
+  }, [onTimeUp]);
 
-  // Simulate players answering in on their phones as time passes.
   useEffect(() => {
-    setAnsweredCount(0);
+    if (secondsRemaining === 0) onTimeUpRef.current();
+  }, [secondsRemaining]);
+
+  // Simulate players answering in on their phones as time passes — only
+  // for the mock flow. The live flow passes real counts via `answeredCount`.
+  useEffect(() => {
+    if (isLive) return;
+    setSimulatedAnsweredCount(0);
     let cancelled = false;
 
     for (let i = 0; i < effectiveTotal; i += 1) {
       const delay = 600 + Math.random() * (question.timeLimitSeconds * 700);
       window.setTimeout(() => {
         if (cancelled) return;
-        setAnsweredCount((current) => Math.min(effectiveTotal, current + 1));
+        setSimulatedAnsweredCount((current) => Math.min(effectiveTotal, current + 1));
       }, delay);
     }
 
     return () => {
       cancelled = true;
     };
-  }, [question, effectiveTotal]);
+  }, [question, effectiveTotal, isLive]);
 
   return (
     <div className={styles.screen}>
