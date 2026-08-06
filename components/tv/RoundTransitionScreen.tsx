@@ -1,16 +1,16 @@
-import { MOCK_PLAYERS } from "@/lib/mockData";
-import type { RoundResult } from "@/lib/types";
+import type { Player, RoundResult } from "@/lib/types";
 import PlayerAvatar from "./PlayerAvatar";
 import ScanlineOverlay from "./ScanlineOverlay";
 import styles from "./RoundTransitionScreen.module.scss";
 
 interface RoundTransitionScreenProps {
   result: RoundResult;
+  players: Player[];
 }
 
 const OPTION_LETTERS = ["A", "B", "C", "D"] as const;
 
-export default function RoundTransitionScreen({ result }: RoundTransitionScreenProps) {
+export default function RoundTransitionScreen({ result, players }: RoundTransitionScreenProps) {
   const { question, results, nextRoundLabel } = result;
 
   return (
@@ -24,7 +24,7 @@ export default function RoundTransitionScreen({ result }: RoundTransitionScreenP
 
       <div className={styles.resultsGrid}>
         {results.map((pointResult) => {
-          const player = MOCK_PLAYERS.find((p) => p.id === pointResult.playerId);
+          const player = players.find((p) => p.id === pointResult.playerId);
           if (!player) return null;
           return (
             <div

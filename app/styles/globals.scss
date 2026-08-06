@@ -1,5 +1,4 @@
 @use "theme" as *;
-@use "mixins" as *;
 
 * {
   box-sizing: border-box;
@@ -33,10 +32,4 @@ button {
   background: none;
   border: none;
   cursor: pointer;
-}
-
-// Numeric/data readouts (timers, scores, room codes) always use the mono
-// face with tabular figures so digits don't jitter as they tick.
-.mono-figure {
-  @include mono-figure;
 }

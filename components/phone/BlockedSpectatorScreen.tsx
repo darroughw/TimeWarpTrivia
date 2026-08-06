@@ -31,7 +31,7 @@ export default function BlockedSpectatorScreen({ question, onRoundEnd }: Blocked
 
       <div className={styles.options} aria-hidden="true">
         {question.options.map((option, index) => (
-          <div className={styles.option} key={option}>
+          <div className={styles.option} key={index}>
             <span className={styles.optionLetter}>{OPTION_LETTERS[index]}</span>
             <span className={styles.optionText}>{option}</span>
           </div>

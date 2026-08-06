@@ -50,6 +50,10 @@
     border-color: $marigold;
     background: rgba(255, 178, 56, 0.12);
   }
+
+  &:disabled:not(.selected) {
+    opacity: 0.4;
+  }
 }
 
 .optionLetter {

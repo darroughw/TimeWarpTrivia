@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ScanlineOverlay from "@/components/tv/ScanlineOverlay";
 import type { Question } from "@/lib/types";
 import styles from "./QuestionScreen.module.scss";
@@ -15,11 +15,14 @@ const LOCK_IN_DELAY_MS = 400;
 
 export default function QuestionScreen({ question, onAnswer }: QuestionScreenProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const lockInTimer = useRef<number>();
+
+  useEffect(() => () => window.clearTimeout(lockInTimer.current), []);
 
   function handleSelect(index: number) {
     if (selectedIndex !== null) return;
     setSelectedIndex(index);
-    window.setTimeout(() => onAnswer(index), LOCK_IN_DELAY_MS);
+    lockInTimer.current = window.setTimeout(() => onAnswer(index), LOCK_IN_DELAY_MS);
   }
 
   return (
@@ -33,7 +36,7 @@ export default function QuestionScreen({ question, onAnswer }: QuestionScreenPro
       <div className={styles.options}>
         {question.options.map((option, index) => (
           <button
-            key={option}
+            key={index}
             type="button"
             className={`${styles.option} ${selectedIndex === index ? styles.selected : ""}`}
             disabled={selectedIndex !== null}

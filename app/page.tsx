@@ -79,7 +79,7 @@ export default function Home() {
         />
       )}
 
-      {stage === "transition" && <RoundTransitionScreen result={MOCK_ROUND_RESULT} />}
+      {stage === "transition" && <RoundTransitionScreen result={MOCK_ROUND_RESULT} players={players} />}
 
       {stage === "scoreboard" && <ScoreboardScreen players={players} roundLabel={MOCK_QUESTION.roundLabel} />}
 
@@ -98,7 +98,9 @@ export default function Home() {
         />
       )}
 
-      {stage === "finalTransition" && <RoundTransitionScreen result={MOCK_FINAL_ROUND_RESULT} />}
+      {stage === "finalTransition" && (
+        <RoundTransitionScreen result={MOCK_FINAL_ROUND_RESULT} players={players} />
+      )}
 
       {stage === "end" && <EndGameScreen players={players} onPlayAgain={handlePlayAgain} />}
 

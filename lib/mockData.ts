@@ -77,8 +77,9 @@ export const MOCK_FINAL_ROUND_RESULT: RoundResult = {
   ],
 };
 
-// Players ranked lowest-to-highest by score — the lowest scorer is the one
-// choosing a block target before the final round.
+// Players ranked highest-to-lowest by score (ranked[0] is the leader).
+// The lowest scorer — ranked[ranked.length - 1] — is the one choosing a
+// block target before the final round.
 export function rankedByScore(players: Player[]): Player[] {
   return [...players].sort((a, b) => b.score - a.score);
 }
@@ -103,11 +104,14 @@ export const MOCK_BLOCKED_QUESTION: Question = {
   timeLimitSeconds: 15,
 };
 
+// Matches the TV flow's actual computed standings: Cassette Ghost (740)
+// finishes 1st, Blorbo (710) finishes 2nd — see MOCK_ROUND_RESULT /
+// MOCK_FINAL_ROUND_RESULT.
 export const MOCK_FINAL_STANDING: FinalStanding = {
   playerName: "You",
   rank: 2,
   totalPlayers: 6,
-  score: 740,
+  score: 710,
   winnerName: "Cassette Ghost",
-  winnerScore: 760,
+  winnerScore: 740,
 };

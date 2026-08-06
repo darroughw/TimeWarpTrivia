@@ -63,7 +63,7 @@ export default function QuestionScreen({ question, totalPlayers, onTimeUp }: Que
       <div className={styles.main}>
         <div className={styles.options}>
           {question.options.map((option, index) => (
-            <div className={styles.option} key={option}>
+            <div className={styles.option} key={index}>
               <span className={styles.optionLetter}>{OPTION_LETTERS[index]}</span>
               <span className={styles.optionText}>{option}</span>
             </div>

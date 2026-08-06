@@ -15,7 +15,7 @@ export default function CountdownRing({ totalSeconds, secondsRemaining }: Countd
   const urgent = clamped <= 5;
 
   return (
-    <div className={styles.wrap} role="timer" aria-live="polite">
+    <div className={styles.wrap} aria-hidden="true">
       <svg className={styles.svg} viewBox="0 0 100 100">
         <circle className={styles.track} cx="50" cy="50" r={RADIUS} />
         <circle
