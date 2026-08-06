@@ -26,6 +26,13 @@
   margin-top: $space-xs;
 }
 
+.subtitle {
+  font-family: $paper-font;
+  color: $text-lo;
+  font-size: 0.95rem;
+  margin-top: $space-sm;
+}
+
 .candidates {
   display: flex;
   flex-direction: column;

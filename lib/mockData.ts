@@ -1,4 +1,4 @@
-import type { BlockCandidate, Decade, FinalStanding, Player, Question, RoundResult } from "./types";
+import type { Decade, FinalStanding, Player, Question, RoundResult } from "./types";
 
 export const ROOM_CODE = "WARP-72";
 
@@ -84,24 +84,51 @@ export function rankedByScore(players: Player[]): Player[] {
   return [...players].sort((a, b) => b.score - a.score);
 }
 
-// Candidate questions the lowest-scoring player can veto before the final
-// round. Only a category preview is shown — not the real question text.
-export const MOCK_BLOCK_CANDIDATES: BlockCandidate[] = [
-  { id: "bq1", decadeId: "2010s", preview: "Viral memes & internet culture" },
-  { id: "bq2", decadeId: "90s", preview: "90s Saturday morning cartoons" },
-  { id: "bq3", decadeId: "2000s", preview: "Early 2000s reality TV" },
+// Full candidate questions the lowest-scoring player chooses from — they
+// read the real question text and pick the one they're most confident
+// answering alone. Whichever one they pick is played solo: only they get
+// answer controls, everyone else spectates, and only they can score on it.
+export const MOCK_BLOCK_CANDIDATE_QUESTIONS: Question[] = [
+  {
+    id: "bq1",
+    roundLabel: "Solo Round",
+    decadeId: "80s",
+    text: "Which 1985 film introduced the phrase \"Great Scott!\" into pop culture?",
+    options: ["Back to the Future", "The Goonies", "Weird Science", "Ghostbusters"],
+    correctIndex: 0,
+    timeLimitSeconds: 15,
+  },
+  {
+    id: "bq2",
+    roundLabel: "Solo Round",
+    decadeId: "90s",
+    text: "What was the must-have holiday toy of 1996, notorious for nationwide shortages?",
+    options: ["Tickle Me Elmo", "Furby", "Beanie Babies", "Polly Pocket"],
+    correctIndex: 0,
+    timeLimitSeconds: 15,
+  },
+  {
+    id: "bq3",
+    roundLabel: "Solo Round",
+    decadeId: "2000s",
+    text: "Which social network was the most-visited site in the U.S. before Facebook overtook it in 2008?",
+    options: ["Myspace", "Friendster", "Bebo", "Xanga"],
+    correctIndex: 0,
+    timeLimitSeconds: 15,
+  },
 ];
 
-// The question that gets played out once blocked — everyone (including
-// the player who blocked it) watches, nobody can answer it.
-export const MOCK_BLOCKED_QUESTION: Question = {
-  id: "q-2010s-blocked",
-  roundLabel: "Final Round — Blocked",
-  decadeId: "2010s",
-  text: "Which app was the first to popularize the disappearing \"Story\" format, in 2013?",
-  options: ["Snapchat", "Instagram", "Facebook", "BeReal"],
-  correctIndex: 0,
-  timeLimitSeconds: 15,
+// The demo's stand-in for "the lowest scorer picked this one." In the real
+// app this comes from the player's actual tap on /play; here it's fixed so
+// both routes' scripted flows have something concrete to show.
+export const MOCK_PICKED_BLOCK_QUESTION: Question = MOCK_BLOCK_CANDIDATE_QUESTIONS[1];
+
+// Only the chooser (p6, the lowest scorer under MOCK_PLAYERS) appears in
+// results — nobody else could answer this question, so nobody else scores.
+export const MOCK_BLOCK_ROUND_RESULT: RoundResult = {
+  question: MOCK_PICKED_BLOCK_QUESTION,
+  nextRoundLabel: "Final Round — 2010s",
+  results: [{ playerId: "p6", pointsGained: 200, correct: true, answeredIndex: 0 }],
 };
 
 // Matches the TV flow's actual computed standings: Cassette Ghost (740)

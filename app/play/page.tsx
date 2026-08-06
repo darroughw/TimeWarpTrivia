@@ -9,9 +9,9 @@ import JoinScreen from "@/components/phone/JoinScreen";
 import QuestionScreen from "@/components/phone/QuestionScreen";
 import WaitingScreen from "@/components/phone/WaitingScreen";
 import {
-  MOCK_BLOCK_CANDIDATES,
-  MOCK_BLOCKED_QUESTION,
+  MOCK_BLOCK_CANDIDATE_QUESTIONS,
   MOCK_FINAL_STANDING,
+  MOCK_PICKED_BLOCK_QUESTION,
   MOCK_QUESTION,
 } from "@/lib/mockData";
 import styles from "./page.module.scss";
@@ -71,14 +71,14 @@ export default function PlayPage() {
 
         {stage === "blockChoice" && (
           <BlockChoiceScreen
-            candidates={MOCK_BLOCK_CANDIDATES}
+            candidates={MOCK_BLOCK_CANDIDATE_QUESTIONS}
             onConfirm={() => setStage("blockedSpectator")}
           />
         )}
 
         {stage === "blockedSpectator" && (
           <BlockedSpectatorScreen
-            question={MOCK_BLOCKED_QUESTION}
+            question={MOCK_PICKED_BLOCK_QUESTION}
             onRoundEnd={() => setStage("final")}
           />
         )}

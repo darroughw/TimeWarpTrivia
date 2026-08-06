@@ -1,34 +1,30 @@
-"use client";
-
-import { useState } from "react";
-import { useDpadNavigation } from "@/hooks/useDpadNavigation";
+import type { CSSProperties } from "react";
+import { DECADE_COLORS } from "@/lib/decadeColors";
 import { rankedByScore } from "@/lib/mockData";
-import type { Player } from "@/lib/types";
+import type { Player, Question } from "@/lib/types";
 import PlayerAvatar from "./PlayerAvatar";
 import ScanlineOverlay from "./ScanlineOverlay";
 import styles from "./BlockScreen.module.scss";
 
 interface BlockScreenProps {
   players: Player[];
-  onConfirm: (targetId: string) => void;
+  candidates: Question[];
 }
 
-export default function BlockScreen({ players, onConfirm }: BlockScreenProps) {
+// Purely a display — the lowest scorer makes this choice on their phone.
+// The TV just shows the room who's choosing and what they're choosing from.
+export default function BlockScreen({ players, candidates }: BlockScreenProps) {
   const ranked = rankedByScore(players);
   const chooser = ranked[ranked.length - 1];
-  const targets = players.filter((p) => p.id !== chooser.id);
-
-  const [selectedTargetId, setSelectedTargetId] = useState<string | null>(null);
-  const containerRef = useDpadNavigation<HTMLDivElement>();
 
   return (
-    <div className={styles.screen} ref={containerRef}>
+    <div className={styles.screen}>
       <ScanlineOverlay />
       <div>
         <span className={styles.eyebrow}>Before the Final Round</span>
         <h1 className={styles.title}>
-          <span className={styles.highlight}>{chooser.name}</span> is in last place and gets to
-          block one rival from scoring.
+          <span className={styles.highlight}>{chooser.name}</span> is in last place and is
+          picking one question to answer alone.
         </h1>
       </div>
 
@@ -38,36 +34,24 @@ export default function BlockScreen({ players, onConfirm }: BlockScreenProps) {
           <PlayerAvatar player={chooser} size="lg" showScore />
         </div>
 
-        <div className={styles.targets} role="radiogroup" aria-label="Block target">
-          {targets.map((player) => {
-            const selected = player.id === selectedTargetId;
+        <div className={styles.candidates}>
+          {candidates.map((candidate) => {
+            const style = { "--decade-color": DECADE_COLORS[candidate.decadeId] } as CSSProperties;
             return (
-              <button
-                key={player.id}
-                type="button"
-                data-dpad-focusable
-                role="radio"
-                aria-checked={selected}
-                className={`${styles.target} ${selected ? styles.selected : ""}`}
-                onClick={() => setSelectedTargetId(player.id)}
-              >
-                <PlayerAvatar player={player} size="md" showScore />
-              </button>
+              <div className={styles.candidate} key={candidate.id} style={style}>
+                <span className={styles.decadeTag}>{candidate.decadeId}</span>
+                <span className={styles.candidateText}>{candidate.text}</span>
+              </div>
             );
           })}
         </div>
       </div>
 
       <footer className={styles.footer}>
-        <button
-          type="button"
-          data-dpad-focusable
-          className={styles.confirmButton}
-          disabled={!selectedTargetId}
-          onClick={() => selectedTargetId && onConfirm(selectedTargetId)}
-        >
-          Confirm Block
-        </button>
+        <p className={styles.rule}>
+          Whichever one they pick, <strong>only {chooser.name} can answer it</strong> — everyone
+          else sits this one out. Correct and fast still scores full points.
+        </p>
       </footer>
     </div>
   );

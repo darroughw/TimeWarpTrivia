@@ -36,15 +36,6 @@ export interface RoundResult {
   nextRoundLabel: string;
 }
 
-// A candidate final-round question the lowest-scoring player can veto
-// ("block") before it's played. Only a preview is shown at choice time —
-// the full question text stays hidden until it's actually asked.
-export interface BlockCandidate {
-  id: string;
-  decadeId: DecadeId;
-  preview: string;
-}
-
 export interface FinalStanding {
   playerName: string;
   rank: number;

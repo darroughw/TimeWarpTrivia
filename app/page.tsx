@@ -8,24 +8,39 @@ import QuestionScreen from "@/components/tv/QuestionScreen";
 import RoundTransitionScreen from "@/components/tv/RoundTransitionScreen";
 import ScoreboardScreen from "@/components/tv/ScoreboardScreen";
 import {
+  MOCK_BLOCK_CANDIDATE_QUESTIONS,
+  MOCK_BLOCK_ROUND_RESULT,
   MOCK_FINAL_QUESTION,
   MOCK_FINAL_ROUND_RESULT,
   MOCK_PLAYERS,
   MOCK_QUESTION,
   MOCK_ROUND_RESULT,
+  rankedByScore,
 } from "@/lib/mockData";
 import type { Player, RoundResult } from "@/lib/types";
 import styles from "./page.module.scss";
 
 // The stages a round of TimeWarp Trivia moves through on the TV. Screens
-// with their own controls (lobby, block, end) advance themselves; the
-// passive reveal screens (transition, scoreboard) advance on ArrowRight/Enter
-// so a producer can pace the broadcast with a remote.
-type Stage = "lobby" | "question" | "transition" | "scoreboard" | "block" | "finalQuestion" | "finalTransition" | "end";
+// with their own controls (lobby, end) advance themselves; the passive
+// reveal/display screens (transition, scoreboard, block, ...) advance on
+// ArrowRight/Enter so a producer can pace the broadcast with a remote.
+type Stage =
+  | "lobby"
+  | "question"
+  | "transition"
+  | "scoreboard"
+  | "block"
+  | "soloQuestion"
+  | "soloTransition"
+  | "finalQuestion"
+  | "finalTransition"
+  | "end";
 
 const PASSIVE_ADVANCE: Partial<Record<Stage, Stage>> = {
   transition: "scoreboard",
   scoreboard: "block",
+  block: "soloQuestion",
+  soloTransition: "finalQuestion",
   finalTransition: "end",
 };
 
@@ -64,6 +79,9 @@ export default function Home() {
     setStage("lobby");
   }
 
+  // The lowest scorer — the one who picked the solo question being played.
+  const soloPlayer = rankedByScore(players)[players.length - 1];
+
   return (
     <>
       {stage === "lobby" && <LobbyScreen onStartGame={() => setStage("question")} />}
@@ -84,7 +102,23 @@ export default function Home() {
       {stage === "scoreboard" && <ScoreboardScreen players={players} roundLabel={MOCK_QUESTION.roundLabel} />}
 
       {stage === "block" && (
-        <BlockScreen players={players} onConfirm={() => setStage("finalQuestion")} />
+        <BlockScreen players={players} candidates={MOCK_BLOCK_CANDIDATE_QUESTIONS} />
+      )}
+
+      {stage === "soloQuestion" && (
+        <QuestionScreen
+          question={MOCK_BLOCK_ROUND_RESULT.question}
+          totalPlayers={players.length}
+          soloPlayer={soloPlayer}
+          onTimeUp={() => {
+            setPlayers((current) => applyRoundResult(current, MOCK_BLOCK_ROUND_RESULT));
+            setStage("soloTransition");
+          }}
+        />
+      )}
+
+      {stage === "soloTransition" && (
+        <RoundTransitionScreen result={MOCK_BLOCK_ROUND_RESULT} players={players} />
       )}
 
       {stage === "finalQuestion" && (

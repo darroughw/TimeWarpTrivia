@@ -18,6 +18,21 @@
   gap: $space-lg;
 }
 
+.soloBanner {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-sm;
+  padding: $space-xs $space-md;
+  border-radius: $radius-md;
+  background: rgba(255, 90, 95, 0.12);
+  border: $border-width solid $coral;
+  color: $coral;
+  font-family: $paper-font;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: $space-sm;
+}
+
 .roundLabel {
   font-family: $paper-font;
   text-transform: uppercase;

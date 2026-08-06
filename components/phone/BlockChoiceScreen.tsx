@@ -3,12 +3,12 @@
 import { useState, type CSSProperties } from "react";
 import ScanlineOverlay from "@/components/tv/ScanlineOverlay";
 import { DECADE_COLORS } from "@/lib/decadeColors";
-import type { BlockCandidate } from "@/lib/types";
+import type { Question } from "@/lib/types";
 import styles from "./BlockChoiceScreen.module.scss";
 
 interface BlockChoiceScreenProps {
-  candidates: BlockCandidate[];
-  onConfirm: (candidateId: string) => void;
+  candidates: Question[];
+  onConfirm: (questionId: string) => void;
 }
 
 export default function BlockChoiceScreen({ candidates, onConfirm }: BlockChoiceScreenProps) {
@@ -19,10 +19,14 @@ export default function BlockChoiceScreen({ candidates, onConfirm }: BlockChoice
       <ScanlineOverlay />
       <div>
         <span className={styles.eyebrow}>You&rsquo;re in Last Place</span>
-        <h1 className={styles.title}>Pick one question to block from the Final Round</h1>
+        <h1 className={styles.title}>Pick one question to answer on your own</h1>
+        <p className={styles.subtitle}>
+          Only you can answer it — everyone else just watches. Get it right, and it scores like
+          any other question.
+        </p>
       </div>
 
-      <div className={styles.candidates} role="radiogroup" aria-label="Block a question">
+      <div className={styles.candidates} role="radiogroup" aria-label="Pick a question to answer solo">
         {candidates.map((candidate) => {
           const selected = candidate.id === selectedId;
           const style = { "--decade-color": DECADE_COLORS[candidate.decadeId] } as CSSProperties;
@@ -37,7 +41,7 @@ export default function BlockChoiceScreen({ candidates, onConfirm }: BlockChoice
               onClick={() => setSelectedId(candidate.id)}
             >
               <span className={styles.decadeTag}>{candidate.decadeId}</span>
-              <span className={styles.preview}>{candidate.preview}</span>
+              <span className={styles.preview}>{candidate.text}</span>
             </button>
           );
         })}
@@ -49,7 +53,7 @@ export default function BlockChoiceScreen({ candidates, onConfirm }: BlockChoice
         disabled={!selectedId}
         onClick={() => selectedId && onConfirm(selectedId)}
       >
-        Confirm Block
+        Answer This One
       </button>
     </div>
   );

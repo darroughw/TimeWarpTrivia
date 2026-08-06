@@ -91,15 +91,31 @@ lib/
   supabaseClient.ts          # Supabase client (unused until wired up)
 ```
 
+## The block mechanic
+
+Before the final round, the lowest-scoring player picks one specific
+question (not a rival, not a category) to answer alone:
+
+- That question gets shown to everyone — the TV displays it like any
+  other question.
+- Only the picker gets answer controls (`components/phone/QuestionScreen`,
+  reused as-is); everyone else's phone shows the read-only
+  `BlockedSpectatorScreen`.
+- The picker scores normally if they're correct; nobody else can score on
+  that question.
+
+`components/tv/BlockScreen` and `components/phone/BlockChoiceScreen`
+both read from the same `MOCK_BLOCK_CANDIDATE_QUESTIONS` list in
+`lib/mockData.ts` — the TV shows the room who's choosing and what they
+could choose from (read-only), while the phone is where the actual pick
+happens.
+
 ## Current limitations
 
 - **No Supabase wiring.** Both routes use `lib/mockData.ts`; nothing
   reads or writes a real room, player, or question.
 - **TV and phone don't sync.** Each route runs its own local, scripted
   demo sequence — starting the TV game doesn't do anything on a phone,
-  and vice versa.
-- **The "block" mechanic differs between routes.** The TV's block screen
-  has the lowest scorer pick a *rival player* to block from scoring; the
-  phone's block-choice screen has them veto a *question category*
-  instead. These need to converge on one real rule before real data gets
-  wired in.
+  and vice versa. In particular, the TV's demo always plays out the same
+  hardcoded `MOCK_PICKED_BLOCK_QUESTION` regardless of what you actually
+  tap on the phone's block-choice screen.

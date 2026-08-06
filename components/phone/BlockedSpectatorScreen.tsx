@@ -22,7 +22,9 @@ export default function BlockedSpectatorScreen({ question, onRoundEnd }: Blocked
   return (
     <div className={styles.screen}>
       <ScanlineOverlay />
-      <div className={styles.banner}>👀 Blocked round — sit back and watch</div>
+      <div className={styles.banner}>
+        👀 The last-place player is answering this one solo — sit back and watch
+      </div>
 
       <div>
         <span className={styles.roundLabel}>{question.roundLabel}</span>
