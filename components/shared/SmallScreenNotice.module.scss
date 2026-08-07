@@ -1,0 +1,55 @@
+@use "theme" as *;
+@use "mixins" as *;
+
+.screen {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: $space-md;
+  padding: $space-xl $space-md;
+  z-index: $z-content;
+}
+
+.eyebrow {
+  font-family: $paper-font;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: $marigold;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.title {
+  @include marquee-heading;
+  font-size: 2rem;
+  max-width: 22rem;
+}
+
+.body {
+  font-family: $paper-font;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: $text-lo;
+  max-width: 26rem;
+}
+
+.joinButton {
+  @include tappable;
+  margin-top: $space-sm;
+  display: inline-flex;
+  align-items: center;
+  font-family: $head-font;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 1.1rem;
+  color: $ink;
+  background: $marigold;
+  border: $border-width solid $marigold;
+  border-radius: $radius-lg;
+  padding: $space-sm $space-xl;
+  box-shadow: $shadow-glow-marigold;
+}
