@@ -18,6 +18,10 @@
 
 .header {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: $space-sm $space-md;
 }
 
 .eyebrow {
@@ -27,6 +31,26 @@
   color: $marigold;
   font-size: 1rem;
   font-weight: 700;
+}
+
+// The primary CTA below is "Host a Game" — this needs to read as the
+// secondary path, but still be immediately visible without scrolling.
+// Most landing-page visitors on a phone are there to join an existing
+// game, not start one, so burying this in the footer (as it used to be)
+// meant the exact audience most likely to need it had to scroll past
+// the whole page to find it.
+.joinLink {
+  @include tappable;
+  display: inline-flex;
+  align-items: center;
+  font-family: $paper-font;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: $text-hi;
+  background: $void-raised;
+  border: $border-width solid $void-line;
+  border-radius: $radius-lg;
+  padding: $space-xs $space-md;
 }
 
 .hero {
@@ -88,6 +112,12 @@
   &:not(:last-child) {
     border-right: $border-width solid $void;
   }
+}
+
+.stripCaption {
+  font-family: $paper-font;
+  font-size: 0.9rem;
+  color: $text-lo;
 }
 
 .hostButton {
@@ -161,27 +191,3 @@
   color: $text-lo;
 }
 
-.footer {
-  margin-top: auto;
-  display: flex;
-  align-items: center;
-  gap: $space-sm;
-  padding-top: $space-lg;
-  border-top: 1px solid $void-line;
-  font-family: $paper-font;
-  color: $text-lo;
-  font-size: 1rem;
-
-  @media (max-width: 640px) {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: $space-xs;
-  }
-}
-
-.playLink {
-  @include dpad-focusable;
-  color: $marigold;
-  font-weight: 700;
-  border-radius: $radius-sm;
-}

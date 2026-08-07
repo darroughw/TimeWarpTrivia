@@ -28,6 +28,7 @@ $teal: #2dd4bf; // tertiary accent — correct answer, success, points
 
 $text-hi: #fbf6ec; // primary text on void
 $text-lo: #a7abc4; // secondary/muted text on void
+$text-placeholder: #666b87; // form placeholder text — dim enough not to read as already-filled-in
 
 // Decade accent colors live in lib/decadeColors.ts (a TS map, since
 // components set them at runtime as CSS custom properties per-decade) —

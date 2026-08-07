@@ -13,7 +13,7 @@ const DECADE_STRIP: DecadeId[] = ["80s", "90s", "2000s", "2010s"];
 const STEPS = [
   {
     title: "Host picks a decade",
-    body: "Put it on the big screen — TV, laptop, whatever's around. Filter to one decade or throw all four in the pot.",
+    body: "Put it on the big screen — TV, laptop, whatever's around. Once you're in the lobby, filter to one decade or open it up to all four.",
   },
   {
     title: "Everyone joins from their phone",
@@ -32,6 +32,9 @@ export default function Landing() {
 
       <header className={styles.header}>
         <span className={styles.eyebrow}>TimeWarp Trivia</span>
+        <Link href="/play" className={styles.joinLink}>
+          Have a code? Join →
+        </Link>
       </header>
 
       <main className={styles.hero}>
@@ -52,6 +55,10 @@ export default function Landing() {
             </span>
           ))}
         </div>
+        <p className={styles.stripCaption}>
+          Every era&rsquo;s in play — your host filters to one (or all four) once the lobby&rsquo;s
+          open.
+        </p>
 
         <Link href="/host" className={styles.hostButton}>
           Host a Game
@@ -72,13 +79,6 @@ export default function Landing() {
           </div>
         ))}
       </section>
-
-      <footer className={styles.footer}>
-        <span>Already have a room code?</span>
-        <Link href="/play" className={styles.playLink}>
-          Join from your phone →
-        </Link>
-      </footer>
     </div>
   );
 }
