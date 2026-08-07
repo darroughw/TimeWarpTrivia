@@ -14,12 +14,11 @@ import {
   MOCK_PICKED_BLOCK_QUESTION,
   MOCK_QUESTION,
 } from "@/lib/mockData";
+import { OPTION_LETTERS } from "@/lib/types";
 
 // The scripted, no-backend version of the phone flow — used when
 // Supabase isn't configured. See LivePlayFlow for the real one.
 type Stage = "join" | "waiting" | "question" | "answered" | "blockChoice" | "blockedSpectator" | "final";
-
-const OPTION_LETTERS = ["A", "B", "C", "D"] as const;
 
 export default function MockPlayFlow() {
   const [stage, setStage] = useState<Stage>("join");

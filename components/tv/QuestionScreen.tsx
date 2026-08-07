@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useCountdown } from "@/hooks/useCountdown";
-import type { Player, Question } from "@/lib/types";
+import { OPTION_LETTERS, type Player, type Question } from "@/lib/types";
 import CountdownRing from "./CountdownRing";
 import ScanlineOverlay from "./ScanlineOverlay";
 import styles from "./QuestionScreen.module.scss";
@@ -19,8 +19,6 @@ interface QuestionScreenProps {
   // Left undefined, the mock flow simulates players answering over time.
   answeredCount?: number;
 }
-
-const OPTION_LETTERS = ["A", "B", "C", "D"] as const;
 
 export default function QuestionScreen({
   question,
@@ -87,7 +85,9 @@ export default function QuestionScreen({
       <header className={styles.header}>
         <div>
           {soloPlayer && (
-            <div className={styles.soloBanner}>⚡ Solo round — only {soloPlayer.name} can answer</div>
+            <div className={styles.soloBanner}>
+              <span aria-hidden="true">⚡</span> Solo round — only {soloPlayer.name} can answer
+            </div>
           )}
           <span className={styles.roundLabel}>{question.roundLabel}</span>
           <h1 className={styles.questionText}>{question.text}</h1>
@@ -111,7 +111,7 @@ export default function QuestionScreen({
       </div>
 
       <footer className={styles.footer}>
-        <span className={styles.answeredLabel}>
+        <span className={styles.answeredLabel} aria-live="polite">
           {soloPlayer ? (
             answeredCount > 0 ? (
               <>{soloPlayer.name} has answered</>

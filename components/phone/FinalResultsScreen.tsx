@@ -24,13 +24,17 @@ export default function FinalResultsScreen({ standing, onPlayAgain }: FinalResul
   return (
     <div className={styles.screen}>
       <ScanlineOverlay />
-      <span className={styles.eyebrow}>Game Over</span>
+      <h1 className={styles.eyebrow}>Game Over</h1>
 
-      {MEDALS[rank] && <div className={styles.medal}>{MEDALS[rank]}</div>}
+      {MEDALS[rank] && (
+        <div className={styles.medal} aria-hidden="true">
+          {MEDALS[rank]}
+        </div>
+      )}
       <div className={styles.rank}>
         {ordinal(rank)} of {totalPlayers}
       </div>
-      <h1 className={styles.playerName}>{playerName}</h1>
+      <p className={styles.playerName}>{playerName}</p>
       <div className={styles.score}>{score.toLocaleString()} pts</div>
 
       <p className={styles.comparison}>

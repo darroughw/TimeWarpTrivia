@@ -23,7 +23,7 @@ export const MOCK_PLAYERS: Player[] = [
 
 export const MOCK_QUESTION: Question = {
   id: "q-90s-4",
-  roundLabel: "Round 3",
+  roundLabel: "Round 1",
   decadeId: "90s",
   text: "In 1997, what did you have to do to keep a Tamagotchi from “dying”?",
   options: [
@@ -39,7 +39,7 @@ export const MOCK_QUESTION: Question = {
 
 export const MOCK_ROUND_RESULT: RoundResult = {
   question: MOCK_QUESTION,
-  nextRoundLabel: "Round 4 — 2000s",
+  nextRoundLabel: "Scoreboard",
   results: [
     { playerId: "p1", pointsGained: 120, correct: true, answeredIndex: 0 },
     { playerId: "p2", pointsGained: 0, correct: false, answeredIndex: 2 },
@@ -132,7 +132,7 @@ export const MOCK_PICKED_BLOCK_QUESTION: Question = MOCK_BLOCK_CANDIDATE_QUESTIO
 // results — nobody else could answer this question, so nobody else scores.
 export const MOCK_BLOCK_ROUND_RESULT: RoundResult = {
   question: MOCK_PICKED_BLOCK_QUESTION,
-  nextRoundLabel: "Final Round — 2010s",
+  nextRoundLabel: "Final Round",
   results: [{ playerId: "p6", pointsGained: 200, correct: true, answeredIndex: 0 }],
 };
 
@@ -147,14 +147,3 @@ export const MOCK_FINAL_STANDING: FinalStanding = {
   winnerName: "Cassette Ghost",
   winnerScore: 740,
 };
-
-// All question content the live (Supabase-backed) flow can reference by
-// id. There's no `questions` table — `rooms.current_question_id` just
-// stores one of these ids, and both routes resolve it from this bank.
-export const QUESTION_BANK: Record<string, Question> = Object.fromEntries(
-  [MOCK_QUESTION, MOCK_FINAL_QUESTION, ...MOCK_BLOCK_CANDIDATE_QUESTIONS].map((q) => [q.id, q]),
-);
-
-export function getQuestionById(id: string): Question | undefined {
-  return QUESTION_BANK[id];
-}

@@ -1,4 +1,4 @@
-import type { Player, RoundResult } from "@/lib/types";
+import { OPTION_LETTERS, type Player, type RoundResult } from "@/lib/types";
 import PlayerAvatar from "./PlayerAvatar";
 import ScanlineOverlay from "./ScanlineOverlay";
 import styles from "./RoundTransitionScreen.module.scss";
@@ -8,15 +8,13 @@ interface RoundTransitionScreenProps {
   players: Player[];
 }
 
-const OPTION_LETTERS = ["A", "B", "C", "D"] as const;
-
 export default function RoundTransitionScreen({ result, players }: RoundTransitionScreenProps) {
   const { question, results, nextRoundLabel } = result;
 
   return (
     <div className={styles.screen}>
       <ScanlineOverlay />
-      <span className={styles.eyebrow}>Correct Answer</span>
+      <h1 className={styles.eyebrow}>Correct Answer</h1>
       <div className={styles.answerCard}>
         <span className={styles.answerLetter}>{OPTION_LETTERS[question.correctIndex]}</span>
         <span className={styles.answerText}>{question.options[question.correctIndex]}</span>

@@ -15,9 +15,7 @@ import { getAvatarForName, playerRowToPlayer } from "@/lib/avatar";
 import { rankedByScore } from "@/lib/mockData";
 import { fetchRoomByCode, joinRoom, submitAnswer, updateRoom } from "@/lib/roomService";
 import { computeScore } from "@/lib/scoring";
-import type { FinalStanding } from "@/lib/types";
-
-const OPTION_LETTERS = ["A", "B", "C", "D"] as const;
+import { OPTION_LETTERS, type FinalStanding } from "@/lib/types";
 
 export default function LivePlayFlow() {
   const [playerName, setPlayerName] = useState("");

@@ -45,7 +45,7 @@ export default function LobbyScreen({
 
       <div className={styles.body}>
         <section className={styles.playersPanel}>
-          <span className={styles.sectionLabel}>Players in the room</span>
+          <h2 className={styles.sectionLabel}>Players in the room</h2>
           <div className={styles.playerGrid}>
             {players.length === 0 && (
               <p className={styles.empty}>Waiting for the first player to join…</p>
@@ -59,13 +59,13 @@ export default function LobbyScreen({
         </section>
 
         <aside className={styles.sidebar}>
-          <span className={styles.sectionLabel}>Decade filter</span>
+          <h2 className={styles.sectionLabel}>Decade filter</h2>
           <DecadeFilter decades={decades} selectedId={selectedDecade} onSelect={onSelectDecade} />
         </aside>
       </div>
 
       <footer className={styles.footer}>
-        <span className={styles.countLabel}>
+        <span className={styles.countLabel} aria-live="polite">
           <strong>{players.length}</strong> player{players.length === 1 ? "" : "s"} joined
         </span>
         <button

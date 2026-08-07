@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import CountdownRing from "@/components/tv/CountdownRing";
 import ScanlineOverlay from "@/components/tv/ScanlineOverlay";
 import { useCountdown } from "@/hooks/useCountdown";
-import type { Question } from "@/lib/types";
+import { OPTION_LETTERS, type Question } from "@/lib/types";
 import styles from "./QuestionScreen.module.scss";
 
 interface QuestionScreenProps {
@@ -12,7 +12,6 @@ interface QuestionScreenProps {
   onAnswer: (index: number) => void;
 }
 
-const OPTION_LETTERS = ["A", "B", "C", "D"] as const;
 const LOCK_IN_DELAY_MS = 400;
 
 export default function QuestionScreen({ question, onAnswer }: QuestionScreenProps) {
@@ -47,11 +46,13 @@ export default function QuestionScreen({ question, onAnswer }: QuestionScreenPro
         />
       </div>
 
-      <div className={styles.options}>
+      <div className={styles.options} role="radiogroup" aria-label="Answer options">
         {question.options.map((option, index) => (
           <button
             key={index}
             type="button"
+            role="radio"
+            aria-checked={selectedIndex === index}
             className={`${styles.option} ${selectedIndex === index ? styles.selected : ""}`}
             disabled={selectedIndex !== null}
             onClick={() => handleSelect(index)}

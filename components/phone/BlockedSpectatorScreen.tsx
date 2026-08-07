@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import ScanlineOverlay from "@/components/tv/ScanlineOverlay";
-import type { Question } from "@/lib/types";
+import { OPTION_LETTERS, type Question } from "@/lib/types";
 import styles from "./BlockedSpectatorScreen.module.scss";
 
 interface BlockedSpectatorScreenProps {
@@ -11,7 +11,6 @@ interface BlockedSpectatorScreenProps {
   onRoundEnd?: () => void;
 }
 
-const OPTION_LETTERS = ["A", "B", "C", "D"] as const;
 const AUTO_ADVANCE_DELAY_MS = 4000;
 
 export default function BlockedSpectatorScreen({ question, onRoundEnd }: BlockedSpectatorScreenProps) {
@@ -25,7 +24,8 @@ export default function BlockedSpectatorScreen({ question, onRoundEnd }: Blocked
     <div className={styles.screen}>
       <ScanlineOverlay />
       <div className={styles.banner}>
-        👀 The last-place player is answering this one solo — sit back and watch
+        <span aria-hidden="true">👀</span> The last-place player is answering this one solo — sit
+        back and watch
       </div>
 
       <div>

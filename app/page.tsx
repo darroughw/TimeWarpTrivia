@@ -1,9 +1,84 @@
-"use client";
+import Link from "next/link";
+import type { CSSProperties } from "react";
+import ScanlineOverlay from "@/components/tv/ScanlineOverlay";
+import { DECADE_COLORS } from "@/lib/decadeColors";
+import type { DecadeId } from "@/lib/types";
+import styles from "./page.module.scss";
 
-import LiveTvFlow from "./_game/LiveTvFlow";
-import MockTvFlow from "./_game/MockTvFlow";
-import { isSupabaseConfigured } from "@/lib/supabaseClient";
+// The four playable decades, in order — "all" is a filter option, not a
+// decade in its own right, so it's excluded from this purely decorative
+// strip. Colors come from the same DECADE_COLORS map the live app uses.
+const DECADE_STRIP: DecadeId[] = ["80s", "90s", "2000s", "2010s"];
 
-export default function Home() {
-  return isSupabaseConfigured ? <LiveTvFlow /> : <MockTvFlow />;
+const STEPS = [
+  {
+    title: "Host picks a decade",
+    body: "Put it on the big screen — TV, laptop, whatever's around. Filter to one decade or throw all four in the pot.",
+  },
+  {
+    title: "Everyone joins from their phone",
+    body: "No app, no download. Just a room code and a name — 2 to 10 players.",
+  },
+  {
+    title: "Answer fast, answer right",
+    body: "3 rounds, a merciless final twist for whoever's in last, and a scoreboard that remembers everything.",
+  },
+];
+
+export default function Landing() {
+  return (
+    <div className={styles.screen}>
+      <ScanlineOverlay />
+
+      <header className={styles.header}>
+        <span className={styles.eyebrow}>TimeWarp Trivia</span>
+      </header>
+
+      <main className={styles.hero}>
+        <h1 className={styles.title}>Nostalgia, weaponized.</h1>
+        <p className={styles.subtitle}>
+          Four decades of pop culture trivia on one shared screen, everyone else&rsquo;s phone as
+          the buzzer. Answer fast, answer right, or don&rsquo;t — we&rsquo;ll remember either way.
+        </p>
+
+        <div className={styles.decadeStrip} aria-hidden="true">
+          {DECADE_STRIP.map((decade) => (
+            <span
+              key={decade}
+              className={styles.decadeSegment}
+              style={{ "--decade-color": DECADE_COLORS[decade] } as CSSProperties}
+            >
+              {decade}
+            </span>
+          ))}
+        </div>
+
+        <Link href="/host" className={styles.hostButton}>
+          Host a Game
+        </Link>
+        <p className={styles.playerNote}>
+          Best with 2&ndash;10 players. Everyone else just needs a phone and something to prove.
+        </p>
+      </main>
+
+      <section className={styles.steps} aria-label="How it works">
+        {STEPS.map((step, index) => (
+          <div className={styles.step} key={step.title}>
+            <span className={styles.stepNumber}>{index + 1}</span>
+            <div>
+              <h2 className={styles.stepTitle}>{step.title}</h2>
+              <p className={styles.stepBody}>{step.body}</p>
+            </div>
+          </div>
+        ))}
+      </section>
+
+      <footer className={styles.footer}>
+        <span>Already have a room code?</span>
+        <Link href="/play" className={styles.playLink}>
+          Join from your phone →
+        </Link>
+      </footer>
+    </div>
+  );
 }

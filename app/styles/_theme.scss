@@ -29,12 +29,10 @@ $teal: #2dd4bf; // tertiary accent — correct answer, success, points
 $text-hi: #fbf6ec; // primary text on void
 $text-lo: #a7abc4; // secondary/muted text on void
 
-// Decade accents — the UI recolors its highlight per decade -------------
-$decade-80s: #ff3fa4;
-$decade-90s: #7c5cff;
-$decade-2000s: #33d6ff;
-$decade-2010s: #ff8a3d;
-$decade-all: $marigold;
+// Decade accent colors live in lib/decadeColors.ts (a TS map, since
+// components set them at runtime as CSS custom properties per-decade) —
+// not duplicated here as SCSS variables, since nothing in this stylesheet
+// layer ever referenced them directly.
 
 // Spacing (10-foot UI — generous, legible from a couch) -------------------
 $space-xs: 0.5rem;

@@ -25,6 +25,11 @@ export interface Question {
   pointsMultiplier: number;
 }
 
+// Answer-choice labels for Question.options, in order. Shared by every
+// screen that renders a lettered option list (TV/phone question screens,
+// the spectator view, the round-transition reveal).
+export const OPTION_LETTERS = ["A", "B", "C", "D"] as const;
+
 export interface PlayerPointResult {
   playerId: string;
   pointsGained: number;
