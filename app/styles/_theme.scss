@@ -21,8 +21,19 @@ $paper: #f4ecd8; // warm paper surface (cards, podium, lobby chrome)
 $paper-dim: #e4d9bd; // secondary paper surface / hover
 $ink: #171425; // near-black text on paper surfaces
 
-$marigold: #ffb238; // primary accent — marquee, focus, room code
-$marigold-dim: #8a5f18; // marigold at low emphasis (borders, dividers)
+// The primary/marquee accent is routed through a CSS custom property with
+// the base value as its fallback — see _decade-themes.scss. Every existing
+// `$marigold`/`$marigold-dim`/`$shadow-glow-marigold` usage compiles to
+// `var(--marigold, #ffb238)` etc., so a decade theme can override the
+// custom property at runtime (per-session, once a decade's picked in the
+// lobby — TIM-14) without touching any component's SCSS.
+//
+// $coral and $teal stay fixed hex, not themeable — they're semantic
+// (wrong/urgent, correct/success), and letting a decade theme recolor
+// "correct answer" would undermine the gameplay feedback those colors
+// carry.
+$marigold: var(--marigold, #ffb238); // primary accent — marquee, focus, room code
+$marigold-dim: var(--marigold-dim, #8a5f18); // marigold at low emphasis (borders, dividers)
 $coral: #ff5a5f; // secondary accent — timer running out, wrong answer
 $teal: #2dd4bf; // tertiary accent — correct answer, success, points
 
@@ -56,7 +67,7 @@ $focus-ring-offset: 6px;
 
 // Elevation -----------------------------------------------------------------
 $shadow-panel: 0 20px 60px rgba(0, 0, 0, 0.45);
-$shadow-glow-marigold: 0 0 40px rgba(255, 178, 56, 0.35);
+$shadow-glow-marigold: var(--shadow-glow-marigold, 0 0 40px rgba(255, 178, 56, 0.35));
 $shadow-glow-teal: 0 0 40px rgba(45, 212, 191, 0.35);
 $shadow-glow-coral: 0 0 40px rgba(255, 90, 95, 0.35);
 

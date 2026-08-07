@@ -12,6 +12,7 @@ import WaitingScreen from "@/components/phone/WaitingScreen";
 import { useBlockCandidates } from "@/hooks/useBlockCandidates";
 import { useCountdown } from "@/hooks/useCountdown";
 import { useCurrentQuestion } from "@/hooks/useCurrentQuestion";
+import { useDecadeTheme } from "@/hooks/useDecadeTheme";
 import { useRoomRealtime } from "@/hooks/useRoomRealtime";
 import { getAvatarForName, playerRowToPlayer } from "@/lib/avatar";
 import { rankedByScore } from "@/lib/mockData";
@@ -39,6 +40,7 @@ export default function LivePlayFlow() {
   const player = players.find((p) => p.id === playerId);
   const currentQuestion = useCurrentQuestion(room);
   const blockCandidates = useBlockCandidates(room);
+  useDecadeTheme(room?.decade_filter);
   const posthog = usePostHog();
 
   // Purely cosmetic here — only the TV writes the status change that ends

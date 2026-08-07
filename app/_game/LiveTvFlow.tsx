@@ -14,6 +14,7 @@ import LoadingState from "@/components/shared/LoadingState";
 import { useBlockCandidates } from "@/hooks/useBlockCandidates";
 import { useCountdown } from "@/hooks/useCountdown";
 import { useCurrentQuestion } from "@/hooks/useCurrentQuestion";
+import { useDecadeTheme } from "@/hooks/useDecadeTheme";
 import { useRoomRealtime } from "@/hooks/useRoomRealtime";
 import { playerRowToPlayer } from "@/lib/avatar";
 import type { AnswerRow, RoomStatus } from "@/lib/database.types";
@@ -93,6 +94,7 @@ export default function LiveTvFlow() {
   const players = playerRows.map(playerRowToPlayer);
   const currentQuestion = useCurrentQuestion(room);
   const blockCandidates = useBlockCandidates(room);
+  useDecadeTheme(room?.decade_filter);
 
   // Create a fresh room the moment the TV boots up.
   useEffect(() => {

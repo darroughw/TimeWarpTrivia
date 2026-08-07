@@ -1,0 +1,42 @@
+@use "theme" as *;
+
+// Decade-based visual theming (TIM-14). Once a decade is picked in the
+// lobby, `[data-decade-theme]` gets set on <html> (see
+// hooks/useDecadeTheme.ts) and these overrides cascade through every
+// existing `$marigold`/`$marigold-dim`/`$shadow-glow-marigold` usage in
+// the app — see the CSS custom property fallback in _theme.scss. No
+// component SCSS needs to know a theme exists.
+//
+// 80s — Saved By The Bell: hot pink swapped in for the marigold accent
+// (matches lib/decadeColors.ts's own 80s color, so the lobby's decade
+// picker and the themed session agree). $coral/$teal (wrong/correct
+// feedback) are deliberately left alone — see _theme.scss.
+[data-decade-theme="80s"] {
+  --marigold: #ff3fa4;
+  --marigold-dim: #8f2063;
+  --shadow-glow-marigold: 0 0 40px rgba(255, 63, 164, 0.45);
+}
+
+// Signature motif: a diagonal pink/teal/yellow color-block band, the
+// Bayside-High-poster look, applied as a fixed backdrop behind every
+// screen's content — same layer as ScanlineOverlay, no per-screen
+// component wiring needed since it hangs off <body> directly via a
+// pseudo-element.
+[data-decade-theme="80s"] body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: $z-scanlines;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    135deg,
+    rgba(255, 63, 164, 0.16) 0px,
+    rgba(255, 63, 164, 0.16) 48px,
+    rgba(51, 214, 255, 0.14) 48px,
+    rgba(51, 214, 255, 0.14) 96px,
+    rgba(255, 224, 61, 0.12) 96px,
+    rgba(255, 224, 61, 0.12) 144px,
+    transparent 144px,
+    transparent 192px
+  );
+}
