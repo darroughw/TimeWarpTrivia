@@ -83,6 +83,36 @@ npm run migrate            # applies supabase/migrations/ if the DB is fresh
 npm run import:questions     # loads the 728 seeded questions, if the table is empty
 ```
 
+PostHog (analytics + heatmaps/session recording) is also provisioned
+through the Vercel Marketplace, but its env vars are only attached to
+the Production/Preview environments — not Development — since you
+generally don't want your own localhost testing polluting real event
+data. `app/providers.tsx`/`lib/posthog.ts` no-op cleanly if these
+aren't set, so this is optional for local dev:
+
+```bash
+vercel env pull .env.local --environment production
+```
+
+## Analytics & heatmaps
+
+- **Vercel Web Analytics** (`app/layout.tsx`) — pageviews and Web
+  Vitals, shows up directly in the Vercel dashboard, zero config beyond
+  the `<Analytics />` component.
+- **PostHog** (`app/providers.tsx`, `lib/posthog.ts`) — product
+  analytics, heatmaps, and session recording. Pageviews are captured
+  manually on route change (`PostHogPageView`, using
+  `usePathname`/`useSearchParams`) since Next.js App Router navigations
+  don't fire a real page load, which is what posthog-js's automatic
+  capture relies on. Heatmaps and session recording are project-level
+  toggles in the PostHog dashboard, not code — nothing in this repo
+  turns them on or off.
+- **Custom events** — `room_created`, `decade_selected`,
+  `game_started`, `player_joined`, `question_answered`, `block_chosen`,
+  `game_ended`, each fired from whichever of `LiveTvFlow`/`LivePlayFlow`
+  owns that moment. All client-side, all best-effort (`posthog?.capture`
+  — never blocks or throws if PostHog isn't configured).
+
 ## Data model
 
 Six tables across three migrations, all RLS-enabled:
@@ -132,6 +162,7 @@ app/
   page.tsx                    # landing page (static, no Supabase dependency)
   host/page.tsx                  # shared-display route switcher
   play/page.tsx                    # phone route switcher
+  providers.tsx                      # PostHog init + pageview-on-route-change
   _game/
     LiveTvFlow.tsx                    # real room/Realtime-driven host flow
     MockTvFlow.tsx                      # scripted demo host flow (no backend)
@@ -158,6 +189,7 @@ lib/
   decadeColors.ts                             # per-decade accent color map
   avatar.ts                                      # deterministic emoji/color from a name
   supabaseClient.ts                                 # Supabase client + isSupabaseConfigured
+  posthog.ts                                           # PostHog env vars + isPostHogConfigured
 data/
   questions-{80s,90s,2000s,2010s}-seed.json           # 728 fact-checked questions, source of truth
 supabase/migrations/

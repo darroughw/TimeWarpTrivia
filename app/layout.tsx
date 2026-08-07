@@ -1,5 +1,7 @@
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Archivo, Archivo_Black, Space_Mono } from "next/font/google";
+import { Providers } from "./providers";
 import "./styles/globals.scss";
 
 const paperFont = Archivo({
@@ -35,7 +37,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${paperFont.variable} ${headFont.variable} ${monoFont.variable}`}>
-        {children}
+        <Providers>{children}</Providers>
+        <Analytics />
       </body>
     </html>
   );

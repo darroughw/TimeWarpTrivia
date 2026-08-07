@@ -1,5 +1,6 @@
 "use client";
 
+import { usePostHog } from "posthog-js/react";
 import { useEffect, useRef, useState } from "react";
 import AnsweredScreen from "@/components/phone/AnsweredScreen";
 import BlockChoiceScreen from "@/components/phone/BlockChoiceScreen";
@@ -37,6 +38,7 @@ export default function LivePlayFlow() {
   const player = players.find((p) => p.id === playerId);
   const currentQuestion = useCurrentQuestion(room);
   const blockCandidates = useBlockCandidates(room);
+  const posthog = usePostHog();
 
   useEffect(() => {
     if (!room?.current_question_id) return;
@@ -60,6 +62,7 @@ export default function LivePlayFlow() {
       setPlayerName(name);
       setPlayerId(newPlayer.id);
       setRoomId(foundRoom.id);
+      posthog?.capture("player_joined", { room_code: foundRoom.code });
     } catch {
       setJoinError("Something went wrong joining — try again.");
     } finally {
@@ -86,6 +89,14 @@ export default function LivePlayFlow() {
       responseTimeMs,
       pointsGained,
     });
+    posthog?.capture("question_answered", {
+      room_code: room.code,
+      decade: question.decadeId,
+      round_label: question.roundLabel,
+      correct,
+      points_gained: pointsGained,
+      response_time_ms: responseTimeMs,
+    });
   }
 
   async function handleBlockChoice(questionId: string) {
@@ -95,6 +106,7 @@ export default function LivePlayFlow() {
       current_question_id: questionId,
       blocker_player_id: playerId,
     });
+    posthog?.capture("block_chosen", { room_code: room.code });
   }
 
   function handlePlayAgain() {

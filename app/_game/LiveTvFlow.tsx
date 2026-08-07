@@ -1,5 +1,6 @@
 "use client";
 
+import { usePostHog } from "posthog-js/react";
 import { useCallback, useEffect, useState } from "react";
 import BlockScreen from "@/components/tv/BlockScreen";
 import EndGameScreen from "@/components/tv/EndGameScreen";
@@ -83,6 +84,7 @@ export default function LiveTvFlow() {
   const [answers, setAnswers] = useState<AnswerRow[]>([]);
   const [lastRoundResult, setLastRoundResult] = useState<RoundResult | null>(null);
   const [decades, setDecades] = useState<Decade[]>([]);
+  const posthog = usePostHog();
 
   const { room, players: playerRows } = useRoomRealtime(roomId);
   const players = playerRows.map(playerRowToPlayer);
@@ -93,12 +95,15 @@ export default function LiveTvFlow() {
   useEffect(() => {
     let cancelled = false;
     createRoom(hostId).then((newRoom) => {
-      if (!cancelled) setRoomId(newRoom.id);
+      if (!cancelled) {
+        setRoomId(newRoom.id);
+        posthog?.capture("room_created", { room_code: newRoom.code });
+      }
     });
     return () => {
       cancelled = true;
     };
-  }, [hostId]);
+  }, [hostId, posthog]);
 
   // The lobby's decade filter is data-driven — fetched once, not
   // hardcoded — so a new decade becomes a data change, not a code deploy.
@@ -155,9 +160,12 @@ export default function LiveTvFlow() {
         current_question_id: room.question_ids[step.questionIndex],
       });
     } else {
+      if (step.status === "end") {
+        posthog?.capture("game_ended", { room_code: room.code, player_count: players.length });
+      }
       updateRoom(room.id, { status: step.status });
     }
-  }, [room]);
+  }, [room, players.length, posthog]);
 
   // Picks the whole game's question set at once — 15 main questions (3
   // rounds of 5) plus the 3 block candidates — all respecting the room's
@@ -173,6 +181,11 @@ export default function LiveTvFlow() {
       question_ids: questionIds,
       current_question_id: questionIds[0],
       block_candidate_ids: blockCandidateIds,
+    });
+    posthog?.capture("game_started", {
+      room_code: room.code,
+      decade_filter: room.decade_filter,
+      player_count: players.length,
     });
   }
 
@@ -240,7 +253,10 @@ export default function LiveTvFlow() {
           roomCode={room.code}
           players={players}
           selectedDecade={room.decade_filter}
-          onSelectDecade={(id) => setDecadeFilter(room.id, id)}
+          onSelectDecade={(id) => {
+            setDecadeFilter(room.id, id);
+            posthog?.capture("decade_selected", { decade: id });
+          }}
           onStartGame={handleStartGame}
           decades={[...decades, ALL_DECADES_OPTION]}
         />
