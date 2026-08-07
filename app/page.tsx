@@ -31,7 +31,7 @@ export default function Landing() {
       <ScanlineOverlay />
 
       <header className={styles.header}>
-        <span className={styles.eyebrow}>TimeWarp Trivia</span>
+        <img src="/logo.svg" alt="TimeWarp Trivia" className={styles.logo} />
         <Link href="/play" className={styles.joinLink}>
           Join a Game
         </Link>

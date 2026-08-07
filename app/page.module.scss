@@ -24,13 +24,13 @@
   gap: $space-sm $space-md;
 }
 
-.eyebrow {
-  font-family: $paper-font;
-  text-transform: uppercase;
-  letter-spacing: 0.3em;
-  color: $marigold;
-  font-size: 1rem;
-  font-weight: 700;
+.logo {
+  height: 2.5rem;
+  width: auto;
+
+  @media (max-width: 640px) {
+    height: 2rem;
+  }
 }
 
 // The primary CTA below is "Host a Game" — this needs to read as the

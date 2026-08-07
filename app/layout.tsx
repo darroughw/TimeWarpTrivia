@@ -24,9 +24,23 @@ const monoFont = Space_Mono({
   display: "swap",
 });
 
+const description =
+  "Decade-hopping party trivia. Host on the big screen, everyone else plays from their phone.";
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.timewarptrivia.com"),
   title: "TimeWarp Trivia",
-  description: "Decade-hopping party trivia — host on the big screen, everyone else plays from their phone.",
+  description,
+  openGraph: {
+    title: "TimeWarp Trivia",
+    description,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "TimeWarp Trivia",
+    description,
+  },
 };
 
 export default function RootLayout({
