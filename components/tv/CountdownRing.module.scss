@@ -6,6 +6,19 @@
   width: 9rem;
   height: 9rem;
   flex-shrink: 0;
+
+  &.sm {
+    width: 4rem;
+    height: 4rem;
+
+    .seconds {
+      font-size: 1.3rem;
+    }
+
+    .label {
+      font-size: 0.55rem;
+    }
+  }
 }
 
 .svg {

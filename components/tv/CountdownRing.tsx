@@ -3,19 +3,22 @@ import styles from "./CountdownRing.module.scss";
 interface CountdownRingProps {
   totalSeconds: number;
   secondsRemaining: number;
+  // "lg" (default) is the TV's 10-foot size; "sm" is a compact variant
+  // sized for the phone controller's QuestionScreen.
+  size?: "lg" | "sm";
 }
 
 const RADIUS = 42;
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 
-export default function CountdownRing({ totalSeconds, secondsRemaining }: CountdownRingProps) {
+export default function CountdownRing({ totalSeconds, secondsRemaining, size = "lg" }: CountdownRingProps) {
   const clamped = Math.max(0, Math.min(secondsRemaining, totalSeconds));
   const ratio = totalSeconds > 0 ? clamped / totalSeconds : 0;
   const offset = CIRCUMFERENCE * (1 - ratio);
   const urgent = clamped <= 5;
 
   return (
-    <div className={styles.wrap} aria-hidden="true">
+    <div className={`${styles.wrap} ${size === "sm" ? styles.sm : ""}`} aria-hidden="true">
       <svg className={styles.svg} viewBox="0 0 100 100">
         <circle className={styles.track} cx="50" cy="50" r={RADIUS} />
         <circle

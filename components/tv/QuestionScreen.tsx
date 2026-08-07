@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import { useCountdown } from "@/hooks/useCountdown";
 import type { Player, Question } from "@/lib/types";
 import CountdownRing from "./CountdownRing";
 import ScanlineOverlay from "./ScanlineOverlay";
@@ -28,36 +29,12 @@ export default function QuestionScreen({
   soloPlayer,
   answeredCount: liveAnsweredCount,
 }: QuestionScreenProps) {
-  const [secondsRemaining, setSecondsRemaining] = useState(question.timeLimitSeconds);
   const [simulatedAnsweredCount, setSimulatedAnsweredCount] = useState(0);
   const effectiveTotal = soloPlayer ? 1 : totalPlayers;
   const isLive = liveAnsweredCount !== undefined;
   const answeredCount = isLive ? liveAnsweredCount : simulatedAnsweredCount;
 
-  // Countdown tick.
-  useEffect(() => {
-    setSecondsRemaining(question.timeLimitSeconds);
-    const interval = window.setInterval(() => {
-      setSecondsRemaining((current) => Math.max(0, current - 1));
-    }, 1000);
-    return () => window.clearInterval(interval);
-  }, [question]);
-
-  // onTimeUp is re-created every render by both flows (the live flow's
-  // closure captures room/answers state, so it can't be memoized away).
-  // Keeping only the latest one in a ref means this effect depends on
-  // secondsRemaining alone — otherwise, once secondsRemaining hits 0, every
-  // re-render would put a *new* onTimeUp in the dependency array, re-fire
-  // the effect, and call onTimeUp again — and calling it changes state,
-  // triggering the next re-render. Infinite loop.
-  const onTimeUpRef = useRef(onTimeUp);
-  useEffect(() => {
-    onTimeUpRef.current = onTimeUp;
-  }, [onTimeUp]);
-
-  useEffect(() => {
-    if (secondsRemaining === 0) onTimeUpRef.current();
-  }, [secondsRemaining]);
+  const secondsRemaining = useCountdown(question.timeLimitSeconds, question.id, onTimeUp);
 
   // Simulate players answering in on their phones as time passes — only
   // for the mock flow. The live flow passes real counts via `answeredCount`.

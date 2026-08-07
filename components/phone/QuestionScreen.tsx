@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import CountdownRing from "@/components/tv/CountdownRing";
 import ScanlineOverlay from "@/components/tv/ScanlineOverlay";
+import { useCountdown } from "@/hooks/useCountdown";
 import type { Question } from "@/lib/types";
 import styles from "./QuestionScreen.module.scss";
 
@@ -16,6 +18,10 @@ const LOCK_IN_DELAY_MS = 400;
 export default function QuestionScreen({ question, onAnswer }: QuestionScreenProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const lockInTimer = useRef<number>();
+  // Purely presentational — the phone doesn't own the "time's up" state
+  // transition (the TV does, via its own identical countdown), so no
+  // onTimeUp callback is passed here.
+  const secondsRemaining = useCountdown(question.timeLimitSeconds, question.id);
 
   useEffect(() => () => window.clearTimeout(lockInTimer.current), []);
 
@@ -28,9 +34,12 @@ export default function QuestionScreen({ question, onAnswer }: QuestionScreenPro
   return (
     <div className={styles.screen}>
       <ScanlineOverlay />
-      <div>
-        <span className={styles.roundLabel}>{question.roundLabel}</span>
-        <h1 className={styles.questionText}>{question.text}</h1>
+      <div className={styles.header}>
+        <div>
+          <span className={styles.roundLabel}>{question.roundLabel}</span>
+          <h1 className={styles.questionText}>{question.text}</h1>
+        </div>
+        <CountdownRing totalSeconds={question.timeLimitSeconds} secondsRemaining={secondsRemaining} size="sm" />
       </div>
 
       <div className={styles.options}>

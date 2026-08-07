@@ -11,6 +11,13 @@
   z-index: $z-content;
 }
 
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: $space-md;
+}
+
 .roundLabel {
   font-family: $paper-font;
   text-transform: uppercase;
