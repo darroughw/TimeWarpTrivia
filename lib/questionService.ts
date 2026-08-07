@@ -5,6 +5,7 @@ import type { Decade, DecadeId, Question } from "./types";
 export interface QuestionMeta {
   roundLabel: string;
   timeLimitSeconds: number;
+  pointsMultiplier: number;
 }
 
 function questionRowToQuestion(row: QuestionRow, meta: QuestionMeta): Question {
@@ -16,22 +17,31 @@ function questionRowToQuestion(row: QuestionRow, meta: QuestionMeta): Question {
     options: row.options as [string, string, string, string],
     correctIndex: row.correct_index as 0 | 1 | 2 | 3,
     timeLimitSeconds: meta.timeLimitSeconds,
+    pointsMultiplier: meta.pointsMultiplier,
   };
 }
 
-// Which stage-context (roundLabel / timeLimitSeconds) a given question id
-// represents for this room. Keyed off the room's own fields rather than
-// room.status, so it stays correct regardless of exactly when a re-fetch
-// happens relative to a status transition — final_question_id and
-// block_candidate_ids are both set once at Start Game and don't change
-// again for the life of the room.
+// Which stage-context (roundLabel / timeLimitSeconds / pointsMultiplier) a
+// given question id represents for this room. Keyed off the room's own
+// fields rather than room.status, so it stays correct regardless of
+// exactly when a re-fetch happens relative to a status transition —
+// question_ids and block_candidate_ids are both set once at Start Game
+// and don't change again for the life of the room.
 export function questionMetaForRoom(
-  room: Pick<RoomRow, "final_question_id" | "block_candidate_ids">,
+  room: Pick<RoomRow, "question_ids" | "block_candidate_ids">,
   questionId: string,
 ): QuestionMeta {
-  if (questionId === room.final_question_id) return { roundLabel: "Final Round", timeLimitSeconds: 15 };
-  if (room.block_candidate_ids?.includes(questionId)) return { roundLabel: "Solo Round", timeLimitSeconds: 15 };
-  return { roundLabel: "Round 3", timeLimitSeconds: 20 };
+  if (room.block_candidate_ids?.includes(questionId)) {
+    return { roundLabel: "Solo Round", timeLimitSeconds: 15, pointsMultiplier: 1 };
+  }
+  const idx = room.question_ids?.indexOf(questionId) ?? -1;
+  const round = idx === -1 ? 1 : Math.floor(idx / 5) + 1; // 1, 2, or 3
+  const isFinal = round === 3;
+  return {
+    roundLabel: isFinal ? "Final Round" : `Round ${round}`,
+    timeLimitSeconds: isFinal ? 15 : 20,
+    pointsMultiplier: isFinal ? 2 : 1,
+  };
 }
 
 export async function fetchQuestionById(id: string, meta: QuestionMeta): Promise<Question | null> {

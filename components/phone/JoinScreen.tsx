@@ -10,6 +10,16 @@ interface JoinScreenProps {
   submitting?: boolean;
 }
 
+// Room codes are generated as 4 letters + 2 digits, e.g. "WARP-72" (see
+// lib/roomService.generateRoomCode). Strip anything the user types that
+// isn't alphanumeric, uppercase it, and insert the "-" for them once
+// they're past the 4-letter block, so they never have to type it.
+function formatRoomCode(raw: string): string {
+  const cleaned = raw.toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 6);
+  if (cleaned.length <= 4) return cleaned;
+  return `${cleaned.slice(0, 4)}-${cleaned.slice(4)}`;
+}
+
 export default function JoinScreen({ onJoin, error, submitting = false }: JoinScreenProps) {
   const [roomCode, setRoomCode] = useState("");
   const [name, setName] = useState("");
@@ -43,9 +53,9 @@ export default function JoinScreen({ onJoin, error, submitting = false }: JoinSc
             autoCapitalize="characters"
             autoComplete="off"
             placeholder="WARP-72"
-            maxLength={12}
+            maxLength={7}
             value={roomCode}
-            onChange={(e) => setRoomCode(e.target.value)}
+            onChange={(e) => setRoomCode(formatRoomCode(e.target.value))}
           />
         </div>
 

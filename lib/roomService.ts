@@ -65,12 +65,12 @@ export async function updateRoom(
     Pick<
       RoomRow,
       | "status"
-      | "current_round"
       | "current_question_id"
       | "blocker_player_id"
       | "decade_filter"
       | "block_candidate_ids"
-      | "final_question_id"
+      | "question_ids"
+      | "question_index"
     >
   >,
 ): Promise<void> {

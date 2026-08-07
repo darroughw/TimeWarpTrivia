@@ -39,7 +39,12 @@ export default function QuestionScreen({ question, onAnswer }: QuestionScreenPro
           <span className={styles.roundLabel}>{question.roundLabel}</span>
           <h1 className={styles.questionText}>{question.text}</h1>
         </div>
-        <CountdownRing totalSeconds={question.timeLimitSeconds} secondsRemaining={secondsRemaining} size="sm" />
+        <CountdownRing
+          totalSeconds={question.timeLimitSeconds}
+          secondsRemaining={secondsRemaining}
+          pointsMultiplier={question.pointsMultiplier}
+          size="sm"
+        />
       </div>
 
       <div className={styles.options}>

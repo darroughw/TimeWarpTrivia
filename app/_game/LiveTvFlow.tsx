@@ -21,21 +21,61 @@ import { computeScore } from "@/lib/scoring";
 import { supabase } from "@/lib/supabaseClient";
 import type { Decade, PlayerPointResult, RoundResult } from "@/lib/types";
 
-// Reveal screens the host paces manually with Enter/→. "block" is
-// deliberately absent — that transition is triggered externally, by
-// whichever phone is the lowest scorer picking their solo question.
-const PASSIVE_ADVANCE: Partial<Record<RoomStatus, RoomStatus>> = {
-  transition: "scoreboard",
-  scoreboard: "block",
-  soloTransition: "finalQuestion",
-  finalTransition: "end",
-};
+// 3 rounds of 5 questions each, in question_ids: round 1 = [0,5), round
+// 2 = [5,10), round 3 (final, double points) = [10,15). Which round is
+// "live" is always derived from question_index — see
+// lib/questionService.questionMetaForRoom, the single source of truth
+// this mirrors.
+const QUESTIONS_PER_ROUND = 5;
+const TOTAL_MAIN_QUESTIONS = QUESTIONS_PER_ROUND * 3;
 
-const NEXT_ROUND_LABEL: Partial<Record<RoomStatus, string>> = {
-  question: "Scoreboard",
-  soloQuestion: "Final Round",
-  finalQuestion: "Final Results",
-};
+interface PassiveStep {
+  status: RoomStatus;
+  questionIndex?: number;
+}
+
+// What comes next from a "passive" stage — one the host advances manually
+// with Enter/→ — given the room's current status and question_index.
+// Unlike the old flat status->status map, "what's next" now depends on
+// *where in the question sequence* the room is, not just its status.
+function nextPassiveStep(fromStatus: RoomStatus, questionIndex: number | null): PassiveStep | null {
+  switch (fromStatus) {
+    case "transition": {
+      if (questionIndex === null) return null;
+      if (questionIndex === TOTAL_MAIN_QUESTIONS - 1) return { status: "end" }; // last question of round 3
+      if (questionIndex % QUESTIONS_PER_ROUND === QUESTIONS_PER_ROUND - 1) return { status: "scoreboard" }; // last of round 1 or 2
+      return { status: "question", questionIndex: questionIndex + 1 };
+    }
+    case "scoreboard": {
+      if (questionIndex === null) return null;
+      const justFinishedRound = Math.floor(questionIndex / QUESTIONS_PER_ROUND) + 1;
+      if (justFinishedRound === 1) return { status: "question", questionIndex: QUESTIONS_PER_ROUND };
+      if (justFinishedRound === 2) return { status: "block" }; // block happens once, right before round 3
+      return null;
+    }
+    case "soloTransition":
+      return { status: "question", questionIndex: QUESTIONS_PER_ROUND * 2 }; // round 3 / final starts here
+    default:
+      return null;
+  }
+}
+
+function labelForStep(step: PassiveStep | null): string {
+  if (!step) return "";
+  if (step.status === "question") {
+    const round = Math.floor((step.questionIndex ?? 0) / QUESTIONS_PER_ROUND) + 1;
+    return round === 3 ? "Final Round" : `Round ${round}`;
+  }
+  if (step.status === "scoreboard") return "Scoreboard";
+  if (step.status === "block") return "Block Round";
+  if (step.status === "end") return "Final Results";
+  return "";
+}
+
+// Stages the host paces manually with Enter/→. "block" is deliberately
+// absent — that transition is triggered externally, by whichever phone
+// is the lowest scorer picking their solo question.
+const PASSIVE_STATUSES: RoomStatus[] = ["transition", "scoreboard", "soloTransition"];
 
 export default function LiveTvFlow() {
   const [hostId] = useState(() => crypto.randomUUID());
@@ -106,35 +146,38 @@ export default function LiveTvFlow() {
 
   const handleAdvance = useCallback(() => {
     if (!room) return;
-    const next = PASSIVE_ADVANCE[room.status];
-    if (!next) return;
-    // The one passive transition that also needs to point at a new
-    // question — every other one keeps current_question_id as-is.
-    if (next === "finalQuestion") {
-      if (!room.final_question_id) return;
-      updateRoom(room.id, { status: next, current_question_id: room.final_question_id, current_round: 4 });
+    const step = nextPassiveStep(room.status, room.question_index);
+    if (!step) return;
+    if (step.status === "question" && step.questionIndex !== undefined && room.question_ids) {
+      updateRoom(room.id, {
+        status: "question",
+        question_index: step.questionIndex,
+        current_question_id: room.question_ids[step.questionIndex],
+      });
     } else {
-      updateRoom(room.id, { status: next });
+      updateRoom(room.id, { status: step.status });
     }
   }, [room]);
 
-  // Picks the whole game's question set at once — the main question, the
-  // 3 block candidates, and the final question — all respecting the
-  // room's decade filter, and all guaranteed distinct from one another.
+  // Picks the whole game's question set at once — 15 main questions (3
+  // rounds of 5) plus the 3 block candidates — all respecting the room's
+  // decade filter, and all guaranteed distinct from one another.
   async function handleStartGame() {
     if (!room) return;
-    const [mainRow, c1, c2, c3, finalRow] = await fetchRandomQuestionSet(room.decade_filter, 5);
+    const picks = await fetchRandomQuestionSet(room.decade_filter, TOTAL_MAIN_QUESTIONS + 3);
+    const questionIds = picks.slice(0, TOTAL_MAIN_QUESTIONS).map((q) => q.id);
+    const blockCandidateIds = picks.slice(TOTAL_MAIN_QUESTIONS).map((q) => q.id);
     await updateRoom(room.id, {
       status: "question",
-      current_round: 3,
-      current_question_id: mainRow.id,
-      block_candidate_ids: [c1.id, c2.id, c3.id],
-      final_question_id: finalRow.id,
+      question_index: 0,
+      question_ids: questionIds,
+      current_question_id: questionIds[0],
+      block_candidate_ids: blockCandidateIds,
     });
   }
 
   useEffect(() => {
-    if (!room || !PASSIVE_ADVANCE[room.status]) return;
+    if (!room || !PASSIVE_STATUSES.includes(room.status)) return;
 
     function onKeyDown(event: KeyboardEvent) {
       if (event.key === "ArrowRight" || event.key === "Enter" || event.key === " ") {
@@ -172,13 +215,14 @@ export default function LiveTvFlow() {
       const correct = answer.answer === question.correctIndex;
       return {
         playerId: p.id,
-        pointsGained: computeScore(correct, answer.response_time_ms, question.timeLimitSeconds),
+        pointsGained: computeScore(correct, answer.response_time_ms, question.timeLimitSeconds, question.pointsMultiplier),
         correct,
         answeredIndex: answer.answer,
       };
     });
 
-    setLastRoundResult({ question, results, nextRoundLabel: NEXT_ROUND_LABEL[room.status] ?? "" });
+    const nextRoundLabel = labelForStep(nextPassiveStep(nextStatus, room.question_index));
+    setLastRoundResult({ question, results, nextRoundLabel });
     await updateRoom(room.id, { status: nextStatus });
   }
 
@@ -240,22 +284,9 @@ export default function LiveTvFlow() {
         <RoundTransitionScreen result={lastRoundResult} players={players} />
       )}
 
-      {room.status === "finalQuestion" && currentQuestion && (
-        <QuestionScreen
-          question={currentQuestion}
-          totalPlayers={players.length}
-          answeredCount={answeredCount}
-          onTimeUp={() => handleQuestionTimeUp("finalTransition")}
-        />
-      )}
-
-      {room.status === "finalTransition" && lastRoundResult && (
-        <RoundTransitionScreen result={lastRoundResult} players={players} />
-      )}
-
       {room.status === "end" && <EndGameScreen players={players} onPlayAgain={handlePlayAgain} />}
 
-      {PASSIVE_ADVANCE[room.status] && <PassiveAdvanceHint />}
+      {PASSIVE_STATUSES.includes(room.status) && <PassiveAdvanceHint />}
     </>
   );
 }

@@ -75,7 +75,7 @@ export default function LivePlayFlow() {
 
     const responseTimeMs = questionShownAtRef.current ? Date.now() - questionShownAtRef.current : 0;
     const correct = index === question.correctIndex;
-    const pointsGained = computeScore(correct, responseTimeMs, question.timeLimitSeconds);
+    const pointsGained = computeScore(correct, responseTimeMs, question.timeLimitSeconds, question.pointsMultiplier);
 
     setLastPickedLetter(OPTION_LETTERS[index]);
     setAnsweredQuestionIds((current) => new Set(current).add(question.id));
@@ -120,7 +120,7 @@ export default function LivePlayFlow() {
   const isBlocker = playerId === room.blocker_player_id;
   const alreadyAnswered = currentQuestion ? answeredQuestionIds.has(currentQuestion.id) : false;
 
-  if ((room.status === "question" || room.status === "finalQuestion" || isSoloStage) && currentQuestion) {
+  if ((room.status === "question" || isSoloStage) && currentQuestion) {
     if (isSoloStage && !isBlocker) {
       return <BlockedSpectatorScreen question={currentQuestion} />;
     }
@@ -149,12 +149,6 @@ export default function LivePlayFlow() {
 
   if (room.status === "transition" || room.status === "soloTransition" || room.status === "scoreboard") {
     return <WaitingScreen playerName={playerName} roomCode={room.code} message="Check the TV screen!" />;
-  }
-
-  if (room.status === "finalTransition") {
-    return (
-      <WaitingScreen playerName={playerName} roomCode={room.code} message="Check the TV for the final results!" />
-    );
   }
 
   if (room.status === "end") {

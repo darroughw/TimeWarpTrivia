@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useCountdown } from "@/hooks/useCountdown";
 import type { Player, Question } from "@/lib/types";
 import CountdownRing from "./CountdownRing";
@@ -34,7 +34,32 @@ export default function QuestionScreen({
   const isLive = liveAnsweredCount !== undefined;
   const answeredCount = isLive ? liveAnsweredCount : simulatedAnsweredCount;
 
-  const secondsRemaining = useCountdown(question.timeLimitSeconds, question.id, onTimeUp);
+  // Two different things can end the question early — the clock running
+  // out, or every player already having locked in an answer — and either
+  // one should only ever call onTimeUp once. hasFiredRef is shared by both
+  // paths below and reset per question.
+  const hasFiredRef = useRef(false);
+  useEffect(() => {
+    hasFiredRef.current = false;
+  }, [question.id]);
+
+  function fireTimeUpOnce() {
+    if (hasFiredRef.current) return;
+    hasFiredRef.current = true;
+    onTimeUp();
+  }
+
+  const secondsRemaining = useCountdown(question.timeLimitSeconds, question.id, fireTimeUpOnce);
+
+  // Nobody left to wait on — don't burn the rest of the clock.
+  // fireTimeUpOnce is a plain function, recreated every render — adding it
+  // here would refire this effect on every render instead of only when
+  // answeredCount/effectiveTotal actually change; hasFiredRef inside it
+  // already guards against calling onTimeUp more than once regardless.
+  useEffect(() => {
+    if (effectiveTotal > 0 && answeredCount >= effectiveTotal) fireTimeUpOnce();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [answeredCount, effectiveTotal]);
 
   // Simulate players answering in on their phones as time passes — only
   // for the mock flow. The live flow passes real counts via `answeredCount`.
@@ -67,7 +92,11 @@ export default function QuestionScreen({
           <span className={styles.roundLabel}>{question.roundLabel}</span>
           <h1 className={styles.questionText}>{question.text}</h1>
         </div>
-        <CountdownRing totalSeconds={question.timeLimitSeconds} secondsRemaining={secondsRemaining} />
+        <CountdownRing
+          totalSeconds={question.timeLimitSeconds}
+          secondsRemaining={secondsRemaining}
+          pointsMultiplier={question.pointsMultiplier}
+        />
       </header>
 
       <div className={styles.main}>

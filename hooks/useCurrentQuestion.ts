@@ -24,7 +24,7 @@ export function useCurrentQuestion(room: RoomRow | null): Question | null {
     return () => {
       cancelled = true;
     };
-  }, [room?.current_question_id, room?.final_question_id, room?.block_candidate_ids]);
+  }, [room?.current_question_id, room?.question_ids, room?.block_candidate_ids]);
 
   return question;
 }

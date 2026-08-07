@@ -2,6 +2,9 @@ import type { DecadeId } from "./types";
 
 // Mirrors the TV route's Stage union — a room's status is the single
 // source of truth for which screen every connected client renders.
+// Round 3 (the final, double-points round) reuses "question"/"transition"
+// like rounds 1-2 — which round is live is derived from question_index,
+// not a separate status. See supabase/migrations/0003_round_structure.sql.
 export type RoomStatus =
   | "lobby"
   | "question"
@@ -10,23 +13,24 @@ export type RoomStatus =
   | "block"
   | "soloQuestion"
   | "soloTransition"
-  | "finalQuestion"
-  | "finalTransition"
   | "end";
 
-// Row shapes for supabase/migrations/0001_init.sql.
+// Row shapes for supabase/migrations/0001_init.sql and
+// supabase/migrations/0003_round_structure.sql.
 
 export interface RoomRow {
   id: string;
   code: string;
   host_id: string;
   status: RoomStatus;
-  current_round: number | null;
   current_question_id: string | null;
   blocker_player_id: string | null;
   decade_filter: DecadeId;
   block_candidate_ids: string[] | null;
-  final_question_id: string | null;
+  // 15 ids in play order: round 1 = [0,5), round 2 = [5,10), round 3
+  // (final, double points) = [10,15).
+  question_ids: string[] | null;
+  question_index: number | null;
   created_at: string;
 }
 

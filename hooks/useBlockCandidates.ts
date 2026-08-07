@@ -19,7 +19,7 @@ export function useBlockCandidates(room: RoomRow | null): Question[] {
       return;
     }
     let cancelled = false;
-    fetchQuestionsByIds(ids, { roundLabel: "Solo Round", timeLimitSeconds: 15 }).then((qs) => {
+    fetchQuestionsByIds(ids, { roundLabel: "Solo Round", timeLimitSeconds: 15, pointsMultiplier: 1 }).then((qs) => {
       if (!cancelled) setCandidates(qs);
     });
     return () => {

@@ -21,6 +21,8 @@ export interface Question {
   options: [string, string, string, string];
   correctIndex: 0 | 1 | 2 | 3;
   timeLimitSeconds: number;
+  // 2 for the final round (Double Points), 1 everywhere else.
+  pointsMultiplier: number;
 }
 
 export interface PlayerPointResult {

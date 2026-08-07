@@ -34,6 +34,7 @@ export const MOCK_QUESTION: Question = {
   ],
   correctIndex: 0,
   timeLimitSeconds: 20,
+  pointsMultiplier: 1,
 };
 
 export const MOCK_ROUND_RESULT: RoundResult = {
@@ -62,6 +63,7 @@ export const MOCK_FINAL_QUESTION: Question = {
   ],
   correctIndex: 0,
   timeLimitSeconds: 15,
+  pointsMultiplier: 2,
 };
 
 export const MOCK_FINAL_ROUND_RESULT: RoundResult = {
@@ -97,6 +99,7 @@ export const MOCK_BLOCK_CANDIDATE_QUESTIONS: Question[] = [
     options: ["Back to the Future", "The Goonies", "Weird Science", "Ghostbusters"],
     correctIndex: 0,
     timeLimitSeconds: 15,
+    pointsMultiplier: 1,
   },
   {
     id: "bq2",
@@ -106,6 +109,7 @@ export const MOCK_BLOCK_CANDIDATE_QUESTIONS: Question[] = [
     options: ["Tickle Me Elmo", "Furby", "Beanie Babies", "Polly Pocket"],
     correctIndex: 0,
     timeLimitSeconds: 15,
+    pointsMultiplier: 1,
   },
   {
     id: "bq3",
@@ -115,6 +119,7 @@ export const MOCK_BLOCK_CANDIDATE_QUESTIONS: Question[] = [
     options: ["Myspace", "Friendster", "Bebo", "Xanga"],
     correctIndex: 0,
     timeLimitSeconds: 15,
+    pointsMultiplier: 1,
   },
 ];
 
