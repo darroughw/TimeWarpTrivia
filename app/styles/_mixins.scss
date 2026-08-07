@@ -52,14 +52,22 @@
   &::after {
     content: "";
     position: absolute;
-    inset: 0;
+    left: 0;
+    right: 0;
+    top: -240px;
+    height: 240px;
     background: linear-gradient(
       to bottom,
       transparent 0%,
       rgba(255, 178, 56, 0.05) 50%,
       transparent 100%
     );
-    background-size: 100% 240px;
+    // Animating `transform` (not `background-position`) keeps this on the
+    // compositor thread — no per-frame repaint. Same band, same 8s sweep,
+    // just driven by translateY instead of shifting the background — this
+    // was previously burning a few percent of CPU continuously on every
+    // screen, indefinitely, for a purely decorative effect.
+    will-change: transform;
     animation: scanline-sweep 8s linear infinite;
   }
 
@@ -72,10 +80,10 @@
 
 @keyframes scanline-sweep {
   0% {
-    background-position: 0 -240px;
+    transform: translateY(0);
   }
   100% {
-    background-position: 0 100vh;
+    transform: translateY(calc(100vh + 240px));
   }
 }
 
