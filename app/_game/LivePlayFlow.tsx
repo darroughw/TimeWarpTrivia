@@ -10,13 +10,14 @@ import JoinScreen from "@/components/phone/JoinScreen";
 import QuestionScreen from "@/components/phone/QuestionScreen";
 import WaitingScreen from "@/components/phone/WaitingScreen";
 import { useBlockCandidates } from "@/hooks/useBlockCandidates";
+import { useCountdown } from "@/hooks/useCountdown";
 import { useCurrentQuestion } from "@/hooks/useCurrentQuestion";
 import { useRoomRealtime } from "@/hooks/useRoomRealtime";
 import { getAvatarForName, playerRowToPlayer } from "@/lib/avatar";
 import { rankedByScore } from "@/lib/mockData";
 import { fetchRoomByCode, joinRoom, submitAnswer, updateRoom } from "@/lib/roomService";
 import { computeScore } from "@/lib/scoring";
-import { OPTION_LETTERS, type FinalStanding } from "@/lib/types";
+import { OPTION_LETTERS, ROUND_START_COUNTDOWN_SECONDS, type FinalStanding } from "@/lib/types";
 
 export default function LivePlayFlow() {
   const [playerName, setPlayerName] = useState("");
@@ -39,6 +40,13 @@ export default function LivePlayFlow() {
   const currentQuestion = useCurrentQuestion(room);
   const blockCandidates = useBlockCandidates(room);
   const posthog = usePostHog();
+
+  // Purely cosmetic here — only the TV writes the status change that ends
+  // the countdown. This just renders a local ticking number in step with it.
+  const countdownSecondsRemaining = useCountdown(
+    ROUND_START_COUNTDOWN_SECONDS,
+    `${room?.id ?? "none"}-${room?.status ?? "none"}-${room?.question_index ?? "none"}`,
+  );
 
   useEffect(() => {
     if (!room?.current_question_id) return;
@@ -124,6 +132,17 @@ export default function LivePlayFlow() {
 
   if (room.status === "lobby") {
     return <WaitingScreen playerName={playerName} roomCode={room.code} />;
+  }
+
+  if (room.status === "countdown") {
+    const roundLabel = currentQuestion?.roundLabel ?? "Next round";
+    return (
+      <WaitingScreen
+        playerName={playerName}
+        roomCode={room.code}
+        message={`${roundLabel} starts in ${countdownSecondsRemaining}…`}
+      />
+    );
   }
 
   const isSoloStage = room.status === "soloQuestion";

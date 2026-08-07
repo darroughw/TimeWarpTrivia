@@ -7,10 +7,12 @@ import EndGameScreen from "@/components/tv/EndGameScreen";
 import LobbyScreen from "@/components/tv/LobbyScreen";
 import PassiveAdvanceHint from "@/components/tv/PassiveAdvanceHint";
 import QuestionScreen from "@/components/tv/QuestionScreen";
+import RoundStartScreen from "@/components/tv/RoundStartScreen";
 import RoundTransitionScreen from "@/components/tv/RoundTransitionScreen";
 import ScoreboardScreen from "@/components/tv/ScoreboardScreen";
 import LoadingState from "@/components/shared/LoadingState";
 import { useBlockCandidates } from "@/hooks/useBlockCandidates";
+import { useCountdown } from "@/hooks/useCountdown";
 import { useCurrentQuestion } from "@/hooks/useCurrentQuestion";
 import { useRoomRealtime } from "@/hooks/useRoomRealtime";
 import { playerRowToPlayer } from "@/lib/avatar";
@@ -20,7 +22,7 @@ import { fetchDecades, fetchRandomQuestionSet } from "@/lib/questionService";
 import { createRoom, updateRoom, setDecadeFilter } from "@/lib/roomService";
 import { computeScore } from "@/lib/scoring";
 import { supabase } from "@/lib/supabaseClient";
-import type { Decade, PlayerPointResult, RoundResult } from "@/lib/types";
+import { ROUND_START_COUNTDOWN_SECONDS, type Decade, type PlayerPointResult, type RoundResult } from "@/lib/types";
 
 // 3 rounds of 5 questions each, in question_ids: round 1 = [0,5), round
 // 2 = [5,10), round 3 (final, double points) = [10,15). Which round is
@@ -50,12 +52,13 @@ function nextPassiveStep(fromStatus: RoomStatus, questionIndex: number | null): 
     case "scoreboard": {
       if (questionIndex === null) return null;
       const justFinishedRound = Math.floor(questionIndex / QUESTIONS_PER_ROUND) + 1;
-      if (justFinishedRound === 1) return { status: "question", questionIndex: QUESTIONS_PER_ROUND };
+      if (justFinishedRound === 1) return { status: "countdown", questionIndex: QUESTIONS_PER_ROUND };
       if (justFinishedRound === 2) return { status: "block" }; // block happens once, right before round 3
       return null;
     }
     case "soloTransition":
-      return { status: "question", questionIndex: QUESTIONS_PER_ROUND * 2 }; // round 3 / final starts here
+      // Round 3 / final starts here, after a beat to let everyone regroup.
+      return { status: "countdown", questionIndex: QUESTIONS_PER_ROUND * 2 };
     default:
       return null;
   }
@@ -63,7 +66,7 @@ function nextPassiveStep(fromStatus: RoomStatus, questionIndex: number | null): 
 
 function labelForStep(step: PassiveStep | null): string {
   if (!step) return "";
-  if (step.status === "question") {
+  if (step.status === "question" || step.status === "countdown") {
     const round = Math.floor((step.questionIndex ?? 0) / QUESTIONS_PER_ROUND) + 1;
     return round === 3 ? "Final Round" : `Round ${round}`;
   }
@@ -153,9 +156,13 @@ export default function LiveTvFlow() {
     if (!room) return;
     const step = nextPassiveStep(room.status, room.question_index);
     if (!step) return;
-    if (step.status === "question" && step.questionIndex !== undefined && room.question_ids) {
+    if (
+      (step.status === "question" || step.status === "countdown") &&
+      step.questionIndex !== undefined &&
+      room.question_ids
+    ) {
       updateRoom(room.id, {
-        status: "question",
+        status: step.status,
         question_index: step.questionIndex,
         current_question_id: room.question_ids[step.questionIndex],
       });
@@ -176,7 +183,7 @@ export default function LiveTvFlow() {
     const questionIds = picks.slice(0, TOTAL_MAIN_QUESTIONS).map((q) => q.id);
     const blockCandidateIds = picks.slice(TOTAL_MAIN_QUESTIONS).map((q) => q.id);
     await updateRoom(room.id, {
-      status: "question",
+      status: "countdown",
       question_index: 0,
       question_ids: questionIds,
       current_question_id: questionIds[0],
@@ -188,6 +195,21 @@ export default function LiveTvFlow() {
       player_count: players.length,
     });
   }
+
+  // Round-start countdown auto-advances once it hits 0 — nobody presses a
+  // button for this one, unlike the other passive stages. Guarded on
+  // status so a stale timer (e.g. left running from a prior countdown)
+  // can't fire a redundant status write.
+  const handleCountdownDone = useCallback(() => {
+    if (!room || room.status !== "countdown") return;
+    updateRoom(room.id, { status: "question" });
+  }, [room]);
+
+  const countdownSecondsRemaining = useCountdown(
+    ROUND_START_COUNTDOWN_SECONDS,
+    `${room?.id ?? "none"}-${room?.status ?? "none"}-${room?.question_index ?? "none"}`,
+    handleCountdownDone,
+  );
 
   useEffect(() => {
     if (!room || !PASSIVE_STATUSES.includes(room.status)) return;
@@ -260,6 +282,10 @@ export default function LiveTvFlow() {
           onStartGame={handleStartGame}
           decades={[...decades, ALL_DECADES_OPTION]}
         />
+      )}
+
+      {room.status === "countdown" && currentQuestion && (
+        <RoundStartScreen roundLabel={currentQuestion.roundLabel} secondsRemaining={countdownSecondsRemaining} />
       )}
 
       {room.status === "question" && currentQuestion && (

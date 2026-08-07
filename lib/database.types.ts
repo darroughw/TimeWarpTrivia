@@ -7,6 +7,7 @@ import type { DecadeId } from "./types";
 // not a separate status. See supabase/migrations/0003_round_structure.sql.
 export type RoomStatus =
   | "lobby"
+  | "countdown"
   | "question"
   | "transition"
   | "scoreboard"

@@ -30,6 +30,12 @@ export interface Question {
 // the spectator view, the round-transition reveal).
 export const OPTION_LETTERS = ["A", "B", "C", "D"] as const;
 
+// How long the "Round 2 in 5…" countdown holds before a round's first
+// question appears. Only the TV writes the status transition that ends
+// it, but the phone renders its own local countdown off this same
+// number so the two displays read as in sync.
+export const ROUND_START_COUNTDOWN_SECONDS = 5;
+
 export interface PlayerPointResult {
   playerId: string;
   pointsGained: number;

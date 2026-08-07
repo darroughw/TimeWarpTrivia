@@ -1,0 +1,37 @@
+@use "theme" as *;
+@use "mixins" as *;
+
+.screen {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $space-md;
+  text-align: center;
+  z-index: $z-content;
+}
+
+.eyebrow {
+  font-family: $paper-font;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: $text-lo;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.roundLabel {
+  @include marquee-heading;
+  font-size: 3.5rem;
+}
+
+.count {
+  @include mono-figure;
+  font-size: 9rem;
+  font-weight: 700;
+  line-height: 1;
+  color: $marigold;
+  text-shadow: $shadow-glow-marigold;
+}
