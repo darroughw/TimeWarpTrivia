@@ -1,4 +1,5 @@
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { Archivo, Archivo_Black, Space_Mono } from "next/font/google";
 import { Providers } from "./providers";
@@ -53,6 +54,7 @@ export default function RootLayout({
       <body className={`${paperFont.variable} ${headFont.variable} ${monoFont.variable}`}>
         <Providers>{children}</Providers>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
