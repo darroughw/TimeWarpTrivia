@@ -13,11 +13,11 @@ const DECADE_STRIP: DecadeId[] = ["80s", "90s", "2000s", "2010s"];
 const STEPS = [
   {
     title: "Host picks a decade",
-    body: "Put it on the big screen — TV, laptop, whatever's around. Once you're in the lobby, filter to one decade or open it up to all four.",
+    body: "Put it on the big screen: TV, laptop, whatever's around. Once you're in the lobby, filter to one decade or open it up to all four.",
   },
   {
     title: "Everyone joins from their phone",
-    body: "No app, no download. Just a room code and a name — 2 to 10 players.",
+    body: "No app, no download. Just a room code and a name. 2 to 10 players.",
   },
   {
     title: "Answer fast, answer right",
@@ -41,7 +41,7 @@ export default function Landing() {
         <h1 className={styles.title}>Nostalgia, weaponized.</h1>
         <p className={styles.subtitle}>
           Four decades of pop culture trivia on one shared screen, everyone else&rsquo;s phone as
-          the buzzer. Answer fast, answer right, or don&rsquo;t — we&rsquo;ll remember either way.
+          the buzzer. Answer fast, answer right, or don&rsquo;t. We&rsquo;ll remember either way.
         </p>
 
         <div className={styles.decadeStrip} aria-hidden="true">
@@ -56,7 +56,7 @@ export default function Landing() {
           ))}
         </div>
         <p className={styles.stripCaption}>
-          Every era&rsquo;s in play — your host filters to one (or all four) once the lobby&rsquo;s
+          Every era&rsquo;s in play. Your host filters to one (or all four) once the lobby&rsquo;s
           open.
         </p>
 

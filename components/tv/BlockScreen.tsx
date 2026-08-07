@@ -49,7 +49,7 @@ export default function BlockScreen({ players, candidates }: BlockScreenProps) {
 
       <footer className={styles.footer}>
         <p className={styles.rule}>
-          Whichever one they pick, <strong>only {chooser.name} can answer it</strong> — everyone
+          Whichever one they pick, <strong>only {chooser.name} can answer it</strong>. Everyone
           else sits this one out. Correct and fast still scores full points.
         </p>
       </footer>

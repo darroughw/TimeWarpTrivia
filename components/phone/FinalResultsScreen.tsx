@@ -41,7 +41,7 @@ export default function FinalResultsScreen({ standing, onPlayAgain }: FinalResul
       <p className={styles.comparison}>
         {isWinner
           ? "You won. Every decade, no contest."
-          : `${winnerName} won with ${winnerScore.toLocaleString()} pts — ${(
+          : `${winnerName} won with ${winnerScore.toLocaleString()} pts. ${(
               winnerScore - score
             ).toLocaleString()} to go next time.`}
       </p>

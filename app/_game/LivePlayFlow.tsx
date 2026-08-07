@@ -62,7 +62,7 @@ export default function LivePlayFlow() {
     try {
       const foundRoom = await fetchRoomByCode(code);
       if (!foundRoom) {
-        setJoinError("Room not found — check the code and try again.");
+        setJoinError("Room not found. Check the code and try again.");
         return;
       }
       const { emoji } = getAvatarForName(name);
@@ -72,7 +72,7 @@ export default function LivePlayFlow() {
       setRoomId(foundRoom.id);
       posthog?.capture("player_joined", { room_code: foundRoom.code });
     } catch {
-      setJoinError("Something went wrong joining — try again.");
+      setJoinError("Something went wrong joining. Try again.");
     } finally {
       setJoining(false);
     }

@@ -86,7 +86,7 @@ export default function QuestionScreen({
         <div>
           {soloPlayer && (
             <div className={styles.soloBanner}>
-              <span aria-hidden="true">⚡</span> Solo round — only {soloPlayer.name} can answer
+              <span aria-hidden="true">⚡</span> Solo round: only {soloPlayer.name} can answer
             </div>
           )}
           <span className={styles.roundLabel}>{question.roundLabel}</span>

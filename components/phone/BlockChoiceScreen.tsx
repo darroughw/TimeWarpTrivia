@@ -22,7 +22,7 @@ export default function BlockChoiceScreen({ candidates, onConfirm }: BlockChoice
         <span className={styles.eyebrow}>You&rsquo;re in Last Place</span>
         <h1 className={styles.title}>Pick one question to answer on your own</h1>
         <p className={styles.subtitle}>
-          Only you can answer it — everyone else just watches. Get it right, and it scores like
+          Only you can answer it. Everyone else just watches. Get it right, and it scores like
           any other question.
         </p>
       </div>

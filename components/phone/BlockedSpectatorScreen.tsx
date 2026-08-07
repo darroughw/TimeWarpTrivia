@@ -25,7 +25,7 @@ export default function BlockedSpectatorScreen({ question, onRoundEnd }: Blocked
     <div className={styles.screen}>
       <ScanlineOverlay />
       <div className={styles.banner}>
-        <span aria-hidden="true">👀</span> The last-place player is answering this one solo — sit
+        <span aria-hidden="true">👀</span> The last-place player is answering this one solo. Sit
         back and watch
       </div>
 

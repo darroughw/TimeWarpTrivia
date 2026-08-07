@@ -16,7 +16,7 @@ export default function SmallScreenNotice() {
       <span className={styles.eyebrow}>TimeWarp Trivia</span>
       <h1 className={styles.title}>This needs a bigger stage.</h1>
       <p className={styles.body}>
-        The host screen is what the whole room looks at — a TV, a laptop, a monitor. Pull it up on
+        The host screen is what the whole room looks at: a TV, a laptop, a monitor. Pull it up on
         one of those. If you&rsquo;re here to play, not host, you&rsquo;re actually in the right
         place.
       </p>

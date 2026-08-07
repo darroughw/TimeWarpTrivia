@@ -34,7 +34,7 @@ export default function GlobalError({ error }: { error: Error & { digest?: strin
       >
         <h1 style={{ fontSize: "1.75rem", margin: 0 }}>Something broke.</h1>
         <p style={{ color: "#a7abc4", margin: 0, maxWidth: "28rem" }}>
-          Not a trivia question — an actual bug. It&rsquo;s been reported. Try reloading.
+          Not a trivia question: an actual bug. It&rsquo;s been reported. Try reloading.
         </p>
         <button
           type="button"
