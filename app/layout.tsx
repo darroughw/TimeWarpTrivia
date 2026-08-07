@@ -26,7 +26,7 @@ const monoFont = Space_Mono({
 
 export const metadata: Metadata = {
   title: "TimeWarp Trivia",
-  description: "A decade-hopping trivia game show, built for the big screen.",
+  description: "Decade-hopping party trivia — host on the big screen, everyone else plays from their phone.",
 };
 
 export default function RootLayout({

@@ -94,7 +94,11 @@ aren't set, so this is optional for local dev:
 vercel env pull .env.local --environment production
 ```
 
-## Analytics & heatmaps
+Sentry (error tracking/performance monitoring) is provisioned the same
+way, but its env vars *are* attached to Development, so a normal
+`vercel env pull` picks it up.
+
+## Analytics, heatmaps & error tracking
 
 - **Vercel Web Analytics** (`app/layout.tsx`) — pageviews and Web
   Vitals, shows up directly in the Vercel dashboard, zero config beyond
@@ -112,6 +116,18 @@ vercel env pull .env.local --environment production
   `game_ended`, each fired from whichever of `LiveTvFlow`/`LivePlayFlow`
   owns that moment. All client-side, all best-effort (`posthog?.capture`
   — never blocks or throws if PostHog isn't configured).
+- **Sentry** (`instrumentation.ts`, `instrumentation-client.ts`,
+  `sentry.server.config.ts`, `sentry.edge.config.ts`,
+  `app/global-error.tsx`) — catches real runtime errors (failed
+  Supabase calls, React errors during realtime state updates, edge
+  cases in the round-progression logic) with actual stack traces,
+  rather than relying on manual/Playwright testing to surface them.
+  Scoped intentionally to error capture + performance tracing only —
+  no session replay or feedback widget, since PostHog already covers
+  session recording and a floating feedback button isn't something this
+  app asked for. `app/global-error.tsx` is deliberately self-contained
+  (inline styles, no SCSS modules, no other app code) since it's the
+  fallback for when something upstream of the normal layout crashes.
 
 ## Data model
 
@@ -158,11 +174,16 @@ The host and phone routes are thin switchers between a **live** flow
 and a **mock** flow, based on `isSupabaseConfigured`:
 
 ```
+instrumentation.ts                       # Sentry server/edge registration (Next.js convention, project root)
+instrumentation-client.ts                  # Sentry client init (Next.js convention, project root)
+sentry.server.config.ts                      # Sentry server runtime config
+sentry.edge.config.ts                          # Sentry edge runtime config
 app/
   page.tsx                    # landing page (static, no Supabase dependency)
   host/page.tsx                  # shared-display route switcher
   play/page.tsx                    # phone route switcher
   providers.tsx                      # PostHog init + pageview-on-route-change
+  global-error.tsx                     # Sentry-reporting fallback for a crashed root layout
   _game/
     LiveTvFlow.tsx                    # real room/Realtime-driven host flow
     MockTvFlow.tsx                      # scripted demo host flow (no backend)

@@ -39,7 +39,7 @@ export default function FinalResultsScreen({ standing, onPlayAgain }: FinalResul
 
       <p className={styles.comparison}>
         {isWinner
-          ? "You took the win! Time-traveling trivia champion."
+          ? "You won. Every decade, no contest."
           : `${winnerName} won with ${winnerScore.toLocaleString()} pts — ${(
               winnerScore - score
             ).toLocaleString()} to go next time.`}

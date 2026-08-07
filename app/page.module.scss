@@ -43,14 +43,21 @@
   @include tappable;
   display: inline-flex;
   align-items: center;
-  font-family: $paper-font;
-  font-weight: 700;
-  font-size: 0.9rem;
-  color: $text-hi;
+  font-family: $head-font;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.95rem;
+  color: $marigold;
   background: $void-raised;
-  border: $border-width solid $void-line;
+  border: $border-width solid $marigold-dim;
   border-radius: $radius-lg;
-  padding: $space-xs $space-md;
+  padding: $space-sm $space-lg;
+
+  &:hover,
+  &:focus-visible {
+    border-color: $marigold;
+    background: rgba(255, 178, 56, 0.12);
+  }
 }
 
 .hero {

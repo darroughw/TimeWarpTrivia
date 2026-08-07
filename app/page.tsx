@@ -33,7 +33,7 @@ export default function Landing() {
       <header className={styles.header}>
         <span className={styles.eyebrow}>TimeWarp Trivia</span>
         <Link href="/play" className={styles.joinLink}>
-          Have a code? Join →
+          Join a Game
         </Link>
       </header>
 
