@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import PlayerAvatar from "@/components/tv/PlayerAvatar";
 import ScanlineOverlay from "@/components/tv/ScanlineOverlay";
 import { getAvatarForName } from "@/lib/avatar";
+import LogoFooter from "./LogoFooter";
 import styles from "./WaitingScreen.module.scss";
 
 interface WaitingScreenProps {
@@ -52,6 +53,8 @@ export default function WaitingScreen({
           <span className={styles.dot} />
         </span>
       </div>
+
+      <LogoFooter />
     </div>
   );
 }

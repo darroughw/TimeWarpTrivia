@@ -25,13 +25,9 @@
   gap: $space-xs;
 }
 
-.eyebrow {
-  font-family: $paper-font;
-  text-transform: uppercase;
-  letter-spacing: 0.3em;
-  color: $marigold;
-  font-size: 1rem;
-  font-weight: 700;
+.logo {
+  width: 6rem;
+  height: auto;
 }
 
 .title {

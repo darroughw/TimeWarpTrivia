@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import ScanlineOverlay from "@/components/tv/ScanlineOverlay";
 import { OPTION_LETTERS, type Question } from "@/lib/types";
+import LogoFooter from "./LogoFooter";
 import styles from "./BlockedSpectatorScreen.module.scss";
 
 interface BlockedSpectatorScreenProps {
@@ -41,6 +42,8 @@ export default function BlockedSpectatorScreen({ question, onRoundEnd }: Blocked
           </div>
         ))}
       </div>
+
+      <LogoFooter />
     </div>
   );
 }

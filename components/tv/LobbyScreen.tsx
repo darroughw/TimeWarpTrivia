@@ -34,7 +34,7 @@ export default function LobbyScreen({
       <ScanlineOverlay />
       <header className={styles.header}>
         <div className={styles.titleBlock}>
-          <span className={styles.eyebrow}>TimeWarp Trivia</span>
+          <img src="/logo.svg" alt="TimeWarp Trivia" className={styles.logo} />
           <h1 className={styles.title}>Grab your phone &amp; join in</h1>
         </div>
         <div className={styles.codeBlock}>

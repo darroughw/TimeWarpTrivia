@@ -5,6 +5,7 @@ import CountdownRing from "@/components/tv/CountdownRing";
 import ScanlineOverlay from "@/components/tv/ScanlineOverlay";
 import { useCountdown } from "@/hooks/useCountdown";
 import { OPTION_LETTERS, type Question } from "@/lib/types";
+import LogoFooter from "./LogoFooter";
 import styles from "./QuestionScreen.module.scss";
 
 interface QuestionScreenProps {
@@ -62,6 +63,8 @@ export default function QuestionScreen({ question, onAnswer }: QuestionScreenPro
           </button>
         ))}
       </div>
+
+      <LogoFooter />
     </div>
   );
 }

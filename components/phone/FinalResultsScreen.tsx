@@ -2,6 +2,7 @@
 
 import ScanlineOverlay from "@/components/tv/ScanlineOverlay";
 import type { FinalStanding } from "@/lib/types";
+import LogoFooter from "./LogoFooter";
 import styles from "./FinalResultsScreen.module.scss";
 
 interface FinalResultsScreenProps {
@@ -48,6 +49,8 @@ export default function FinalResultsScreen({ standing, onPlayAgain }: FinalResul
       <button type="button" className={styles.playAgainButton} onClick={onPlayAgain}>
         Play Again
       </button>
+
+      <LogoFooter />
     </div>
   );
 }

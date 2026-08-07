@@ -25,11 +25,12 @@
 }
 
 .logo {
-  height: 2.5rem;
-  width: auto;
+  width: 10rem;
+  max-width: 100%;
+  height: auto;
 
   @media (max-width: 640px) {
-    height: 2rem;
+    width: 6rem;
   }
 }
 

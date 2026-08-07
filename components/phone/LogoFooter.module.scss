@@ -1,0 +1,13 @@
+@use "theme" as *;
+
+.logo {
+  display: block;
+  width: 2.5rem;
+  height: auto;
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: $space-md;
+  opacity: 0.5;
+  flex-shrink: 0;
+}

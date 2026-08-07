@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import ScanlineOverlay from "@/components/tv/ScanlineOverlay";
+import LogoFooter from "./LogoFooter";
 import styles from "./AnsweredScreen.module.scss";
 
 interface AnsweredScreenProps {
@@ -30,6 +31,8 @@ export default function AnsweredScreen({ pickedLetter, onRoundEnd }: AnsweredScr
         Answer locked in: <span className={styles.pickedLetter}>{pickedLetter}</span>
       </h1>
       <p className={styles.status}>Waiting for other players…</p>
+
+      <LogoFooter />
     </div>
   );
 }

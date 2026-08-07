@@ -4,6 +4,7 @@ import { useState, type CSSProperties } from "react";
 import ScanlineOverlay from "@/components/tv/ScanlineOverlay";
 import { DECADE_COLORS } from "@/lib/decadeColors";
 import type { Question } from "@/lib/types";
+import LogoFooter from "./LogoFooter";
 import styles from "./BlockChoiceScreen.module.scss";
 
 interface BlockChoiceScreenProps {
@@ -55,6 +56,8 @@ export default function BlockChoiceScreen({ candidates, onConfirm }: BlockChoice
       >
         Answer This One
       </button>
+
+      <LogoFooter />
     </div>
   );
 }

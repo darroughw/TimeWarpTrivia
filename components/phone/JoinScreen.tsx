@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import ScanlineOverlay from "@/components/tv/ScanlineOverlay";
+import LogoFooter from "./LogoFooter";
 import styles from "./JoinScreen.module.scss";
 
 interface JoinScreenProps {
@@ -83,6 +84,8 @@ export default function JoinScreen({ onJoin, error, submitting = false }: JoinSc
           {submitting ? "Joining…" : "Join Game"}
         </button>
       </form>
+
+      <LogoFooter />
     </div>
   );
 }
