@@ -2,7 +2,7 @@
 
 import { useDpadNavigation } from "@/hooks/useDpadNavigation";
 import { DECADES } from "@/lib/mockData";
-import type { DecadeId, Player } from "@/lib/types";
+import type { Decade, DecadeId, Player } from "@/lib/types";
 import DecadeFilter from "./DecadeFilter";
 import PlayerAvatar from "./PlayerAvatar";
 import ScanlineOverlay from "./ScanlineOverlay";
@@ -14,6 +14,9 @@ interface LobbyScreenProps {
   selectedDecade: DecadeId;
   onSelectDecade: (id: DecadeId) => void;
   onStartGame: () => void;
+  // Defaults to the hardcoded mock list — MockTvFlow relies on that
+  // default and passes nothing; LiveTvFlow passes real, DB-fetched decades.
+  decades?: Decade[];
 }
 
 export default function LobbyScreen({
@@ -22,6 +25,7 @@ export default function LobbyScreen({
   selectedDecade,
   onSelectDecade,
   onStartGame,
+  decades = DECADES,
 }: LobbyScreenProps) {
   const containerRef = useDpadNavigation<HTMLDivElement>();
 
@@ -56,7 +60,7 @@ export default function LobbyScreen({
 
         <aside className={styles.sidebar}>
           <span className={styles.sectionLabel}>Decade filter</span>
-          <DecadeFilter decades={DECADES} selectedId={selectedDecade} onSelect={onSelectDecade} />
+          <DecadeFilter decades={decades} selectedId={selectedDecade} onSelect={onSelectDecade} />
         </aside>
       </div>
 

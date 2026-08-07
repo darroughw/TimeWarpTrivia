@@ -9,19 +9,17 @@ import QuestionScreen from "@/components/tv/QuestionScreen";
 import RoundTransitionScreen from "@/components/tv/RoundTransitionScreen";
 import ScoreboardScreen from "@/components/tv/ScoreboardScreen";
 import LoadingState from "@/components/shared/LoadingState";
+import { useBlockCandidates } from "@/hooks/useBlockCandidates";
+import { useCurrentQuestion } from "@/hooks/useCurrentQuestion";
 import { useRoomRealtime } from "@/hooks/useRoomRealtime";
 import { playerRowToPlayer } from "@/lib/avatar";
 import type { AnswerRow, RoomStatus } from "@/lib/database.types";
-import {
-  MOCK_BLOCK_CANDIDATE_QUESTIONS,
-  MOCK_FINAL_QUESTION,
-  MOCK_QUESTION,
-  getQuestionById,
-} from "@/lib/mockData";
+import { ALL_DECADES_OPTION } from "@/lib/decadeColors";
+import { fetchDecades, fetchRandomQuestionSet } from "@/lib/questionService";
 import { createRoom, updateRoom, setDecadeFilter } from "@/lib/roomService";
 import { computeScore } from "@/lib/scoring";
 import { supabase } from "@/lib/supabaseClient";
-import type { PlayerPointResult, RoundResult } from "@/lib/types";
+import type { Decade, PlayerPointResult, RoundResult } from "@/lib/types";
 
 // Reveal screens the host paces manually with Enter/→. "block" is
 // deliberately absent — that transition is triggered externally, by
@@ -44,9 +42,12 @@ export default function LiveTvFlow() {
   const [roomId, setRoomId] = useState<string | null>(null);
   const [answers, setAnswers] = useState<AnswerRow[]>([]);
   const [lastRoundResult, setLastRoundResult] = useState<RoundResult | null>(null);
+  const [decades, setDecades] = useState<Decade[]>([]);
 
   const { room, players: playerRows } = useRoomRealtime(roomId);
   const players = playerRows.map(playerRowToPlayer);
+  const currentQuestion = useCurrentQuestion(room);
+  const blockCandidates = useBlockCandidates(room);
 
   // Create a fresh room the moment the TV boots up.
   useEffect(() => {
@@ -58,6 +59,18 @@ export default function LiveTvFlow() {
       cancelled = true;
     };
   }, [hostId]);
+
+  // The lobby's decade filter is data-driven — fetched once, not
+  // hardcoded — so a new decade becomes a data change, not a code deploy.
+  useEffect(() => {
+    let cancelled = false;
+    fetchDecades().then((rows) => {
+      if (!cancelled) setDecades(rows);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   // Every submitted answer for this room, live — used for the "X of Y
   // answered" counter and to build each question's results breakdown.
@@ -98,11 +111,27 @@ export default function LiveTvFlow() {
     // The one passive transition that also needs to point at a new
     // question — every other one keeps current_question_id as-is.
     if (next === "finalQuestion") {
-      updateRoom(room.id, { status: next, current_question_id: MOCK_FINAL_QUESTION.id, current_round: 4 });
+      if (!room.final_question_id) return;
+      updateRoom(room.id, { status: next, current_question_id: room.final_question_id, current_round: 4 });
     } else {
       updateRoom(room.id, { status: next });
     }
   }, [room]);
+
+  // Picks the whole game's question set at once — the main question, the
+  // 3 block candidates, and the final question — all respecting the
+  // room's decade filter, and all guaranteed distinct from one another.
+  async function handleStartGame() {
+    if (!room) return;
+    const [mainRow, c1, c2, c3, finalRow] = await fetchRandomQuestionSet(room.decade_filter, 5);
+    await updateRoom(room.id, {
+      status: "question",
+      current_round: 3,
+      current_question_id: mainRow.id,
+      block_candidate_ids: [c1.id, c2.id, c3.id],
+      final_question_id: finalRow.id,
+    });
+  }
 
   useEffect(() => {
     if (!room || !PASSIVE_ADVANCE[room.status]) return;
@@ -130,9 +159,8 @@ export default function LiveTvFlow() {
   // its own score to its own player row when it answered (see
   // lib/roomService.submitAnswer), so this is for *display* only.
   async function handleQuestionTimeUp(nextStatus: RoomStatus) {
-    if (!room?.current_question_id) return;
-    const question = getQuestionById(room.current_question_id);
-    if (!question) return;
+    if (!room?.current_question_id || !currentQuestion) return;
+    const question = currentQuestion;
 
     const relevantAnswers = answers.filter((a) => a.question_id === room.current_question_id);
     const participants =
@@ -156,7 +184,6 @@ export default function LiveTvFlow() {
 
   if (!room) return <LoadingState message="Creating room…" />;
 
-  const currentQuestion = room.current_question_id ? getQuestionById(room.current_question_id) : undefined;
   const answeredCount = currentQuestion
     ? answers.filter((a) => a.question_id === room.current_question_id).length
     : 0;
@@ -170,9 +197,8 @@ export default function LiveTvFlow() {
           players={players}
           selectedDecade={room.decade_filter}
           onSelectDecade={(id) => setDecadeFilter(room.id, id)}
-          onStartGame={() =>
-            updateRoom(room.id, { status: "question", current_round: 3, current_question_id: MOCK_QUESTION.id })
-          }
+          onStartGame={handleStartGame}
+          decades={[...decades, ALL_DECADES_OPTION]}
         />
       )}
 
@@ -193,7 +219,12 @@ export default function LiveTvFlow() {
         <ScoreboardScreen players={players} roundLabel={currentQuestion?.roundLabel ?? ""} />
       )}
 
-      {room.status === "block" && <BlockScreen players={players} candidates={MOCK_BLOCK_CANDIDATE_QUESTIONS} />}
+      {room.status === "block" &&
+        (blockCandidates.length > 0 ? (
+          <BlockScreen players={players} candidates={blockCandidates} />
+        ) : (
+          <LoadingState message="Picking questions…" />
+        ))}
 
       {room.status === "soloQuestion" && currentQuestion && soloPlayer && (
         <QuestionScreen

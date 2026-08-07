@@ -62,7 +62,16 @@ export async function fetchRoomPlayers(roomId: string): Promise<PlayerRow[]> {
 export async function updateRoom(
   roomId: string,
   patch: Partial<
-    Pick<RoomRow, "status" | "current_round" | "current_question_id" | "blocker_player_id" | "decade_filter">
+    Pick<
+      RoomRow,
+      | "status"
+      | "current_round"
+      | "current_question_id"
+      | "blocker_player_id"
+      | "decade_filter"
+      | "block_candidate_ids"
+      | "final_question_id"
+    >
   >,
 ): Promise<void> {
   const { error } = await supabase.from("rooms").update(patch).eq("id", roomId);

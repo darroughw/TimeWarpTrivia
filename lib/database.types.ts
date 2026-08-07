@@ -25,6 +25,8 @@ export interface RoomRow {
   current_question_id: string | null;
   blocker_player_id: string | null;
   decade_filter: DecadeId;
+  block_candidate_ids: string[] | null;
+  final_question_id: string | null;
   created_at: string;
 }
 
@@ -44,5 +46,34 @@ export interface AnswerRow {
   question_id: string;
   answer: number;
   response_time_ms: number;
+  created_at: string;
+}
+
+// Row shapes for supabase/migrations/0002_question_content.sql.
+
+export interface DecadeRow {
+  id: string;
+  label: string;
+  sort_order: number;
+  is_active: boolean;
+}
+
+export interface CategoryRow {
+  id: string;
+  label: string;
+  sort_order: number;
+  is_active: boolean;
+  min_decade_id: string | null;
+}
+
+export interface QuestionRow {
+  id: string;
+  decade_id: string;
+  category_id: string;
+  text: string;
+  options: string[]; // always length 4, enforced by a DB check constraint
+  correct_index: number; // 0-3, enforced by a DB check constraint
+  flavor_wrong: string | null;
+  is_active: boolean;
   created_at: string;
 }

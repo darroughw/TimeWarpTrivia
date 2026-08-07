@@ -8,9 +8,11 @@ import FinalResultsScreen from "@/components/phone/FinalResultsScreen";
 import JoinScreen from "@/components/phone/JoinScreen";
 import QuestionScreen from "@/components/phone/QuestionScreen";
 import WaitingScreen from "@/components/phone/WaitingScreen";
+import { useBlockCandidates } from "@/hooks/useBlockCandidates";
+import { useCurrentQuestion } from "@/hooks/useCurrentQuestion";
 import { useRoomRealtime } from "@/hooks/useRoomRealtime";
 import { getAvatarForName, playerRowToPlayer } from "@/lib/avatar";
-import { MOCK_BLOCK_CANDIDATE_QUESTIONS, getQuestionById, rankedByScore } from "@/lib/mockData";
+import { rankedByScore } from "@/lib/mockData";
 import { fetchRoomByCode, joinRoom, submitAnswer, updateRoom } from "@/lib/roomService";
 import { computeScore } from "@/lib/scoring";
 import type { FinalStanding } from "@/lib/types";
@@ -35,6 +37,8 @@ export default function LivePlayFlow() {
   const { room, players: playerRows } = useRoomRealtime(roomId);
   const players = playerRows.map(playerRowToPlayer);
   const player = players.find((p) => p.id === playerId);
+  const currentQuestion = useCurrentQuestion(room);
+  const blockCandidates = useBlockCandidates(room);
 
   useEffect(() => {
     if (!room?.current_question_id) return;
@@ -66,9 +70,8 @@ export default function LivePlayFlow() {
   }
 
   async function handleAnswer(index: number) {
-    if (!room?.current_question_id || !playerId) return;
-    const question = getQuestionById(room.current_question_id);
-    if (!question) return;
+    if (!room?.current_question_id || !playerId || !currentQuestion) return;
+    const question = currentQuestion;
 
     const responseTimeMs = questionShownAtRef.current ? Date.now() - questionShownAtRef.current : 0;
     const correct = index === question.correctIndex;
@@ -115,7 +118,6 @@ export default function LivePlayFlow() {
 
   const isSoloStage = room.status === "soloQuestion";
   const isBlocker = playerId === room.blocker_player_id;
-  const currentQuestion = room.current_question_id ? getQuestionById(room.current_question_id) : undefined;
   const alreadyAnswered = currentQuestion ? answeredQuestionIds.has(currentQuestion.id) : false;
 
   if ((room.status === "question" || room.status === "finalQuestion" || isSoloStage) && currentQuestion) {
@@ -131,7 +133,10 @@ export default function LivePlayFlow() {
   if (room.status === "block") {
     const lowestScorer = rankedByScore(players)[players.length - 1];
     if (player && lowestScorer?.id === player.id) {
-      return <BlockChoiceScreen candidates={MOCK_BLOCK_CANDIDATE_QUESTIONS} onConfirm={handleBlockChoice} />;
+      if (blockCandidates.length === 0) {
+        return <WaitingScreen playerName={playerName} roomCode={room.code} message="Loading your questions…" />;
+      }
+      return <BlockChoiceScreen candidates={blockCandidates} onConfirm={handleBlockChoice} />;
     }
     return (
       <WaitingScreen
