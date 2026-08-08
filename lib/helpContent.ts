@@ -15,7 +15,7 @@ export const HOSTING_STEPS: HelpStep[] = [
   {
     icon: "tv",
     title: "Open the shared screen",
-    body: "Pull up timewarptrivia.com on a TV, laptop, or monitor — whatever the whole room can see. You'll get a room code.",
+    body: "Pull up timewarptrivia.com on a TV, laptop, or monitor, whatever the whole room can see. You'll get a room code.",
   },
   {
     icon: "calendar",
@@ -30,7 +30,7 @@ export const HOSTING_STEPS: HelpStep[] = [
   {
     icon: "play",
     title: "Start the game",
-    body: "2 to 10 players. Once everyone's in, hit start — the shared screen runs the show from here.",
+    body: "2 to 10 players. Once everyone's in, hit start. The shared screen runs the show from here.",
   },
 ];
 
@@ -38,12 +38,12 @@ export const PLAYING_STEPS: HelpStep[] = [
   {
     icon: "phone",
     title: "Join from your phone",
-    body: "No app, no download. Just the room code and your name — your phone becomes your buzzer.",
+    body: "No app, no download. Just the room code and your name. Your phone becomes your buzzer.",
   },
   {
     icon: "bolt",
     title: "Answer fast, answer right",
-    body: "Every question's speed-scored: a correct answer is worth more the faster you lock it in. Wrong or no answer scores zero — no penalty beyond that.",
+    body: "Every question's speed-scored: a correct answer is worth more the faster you lock it in. Wrong or no answer scores zero. No penalty beyond that.",
   },
   {
     icon: "spotlight",
@@ -53,6 +53,6 @@ export const PLAYING_STEPS: HelpStep[] = [
   {
     icon: "trophy",
     title: "Final round pays double",
-    body: "The last round is worth 2x points — anything can still happen. Ranked leaderboard and a podium once it's over.",
+    body: "The last round is worth 2x points, anything can still happen. Ranked leaderboard and a podium once it's over.",
   },
 ];
