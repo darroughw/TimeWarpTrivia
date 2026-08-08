@@ -141,6 +141,12 @@
   color: $ink;
   border: $border-width solid $marigold;
   box-shadow: $shadow-glow-marigold;
+  white-space: nowrap;
+
+  @media (max-width: 640px) {
+    font-size: 1.15rem;
+    padding: $space-sm $space-lg;
+  }
 }
 
 .playerNote {
