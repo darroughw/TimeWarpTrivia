@@ -28,8 +28,8 @@
 }
 
 .questionText {
-  @include marquee-heading;
-  font-size: 1.6rem;
+  @include question-heading;
+  font-size: 1.35rem;
   margin-top: $space-xs;
 }
 

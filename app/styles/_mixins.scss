@@ -32,6 +32,19 @@
   color: $text-hi;
 }
 
+// For actual trivia question text, as opposed to short marquee headlines
+// (TIM-36). All-caps at this length loses the letterform shape cues fast
+// readers rely on, and Archivo Black runs wide — both make long questions
+// more likely to force a scroll before every answer option is visible.
+// Sentence case in the body font, at a normal reading line-height, fixes
+// both: narrower per character, and no extra tracking to fight.
+@mixin question-heading {
+  font-family: $paper-font;
+  font-weight: 700;
+  line-height: 1.3;
+  color: $text-hi;
+}
+
 // Ambient CRT scanline sweep — the signature texture tying every screen
 // back to "broadcast" without competing with content. Respects
 // prefers-reduced-motion.
