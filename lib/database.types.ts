@@ -35,12 +35,18 @@ export interface RoomRow {
   created_at: string;
 }
 
+// "left" is only ever set by an explicit host action (TIM-35) — there's
+// no automatic disconnect detection. See
+// supabase/migrations/0004_player_status.sql.
+export type PlayerStatus = "active" | "left";
+
 export interface PlayerRow {
   id: string;
   room_id: string;
   name: string;
   avatar: string;
   score: number;
+  status: PlayerStatus;
   created_at: string;
 }
 

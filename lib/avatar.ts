@@ -27,5 +27,5 @@ export function getAvatarForName(name: string): { emoji: string; color: string }
 // needing its own column.
 export function playerRowToPlayer(row: PlayerRow): Player {
   const { color } = getAvatarForName(row.name);
-  return { id: row.id, name: row.name, emoji: row.avatar, color, score: row.score };
+  return { id: row.id, name: row.name, emoji: row.avatar, color, score: row.score, status: row.status };
 }

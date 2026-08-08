@@ -41,7 +41,7 @@ export default function WaitingScreen({
         <div className={styles.roomCode}>{roomCode}</div>
       </div>
 
-      <PlayerAvatar player={{ id: "self", name: playerName, emoji, color, score: 0 }} size="lg" />
+      <PlayerAvatar player={{ id: "self", name: playerName, emoji, color, score: 0, status: "active" }} size="lg" />
 
       <h1 className={styles.greeting}>You&rsquo;re in, {playerName}!</h1>
 

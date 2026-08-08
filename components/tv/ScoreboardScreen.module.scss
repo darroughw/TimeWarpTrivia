@@ -35,7 +35,7 @@
 
 .row {
   display: grid;
-  grid-template-columns: 4rem 1fr auto;
+  grid-template-columns: 4rem 1fr auto auto;
   align-items: center;
   gap: $space-md;
   padding: $space-md $space-lg;
@@ -47,6 +47,19 @@
     border-color: $marigold;
     box-shadow: $shadow-glow-marigold;
   }
+
+  &.left {
+    opacity: 0.45;
+  }
+}
+
+.leftBadge {
+  font-family: $paper-font;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.7rem;
+  color: $text-lo;
 }
 
 .rank {

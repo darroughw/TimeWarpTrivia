@@ -5,6 +5,7 @@ import { DECADES } from "@/lib/mockData";
 import type { Decade, DecadeId, Player } from "@/lib/types";
 import DecadeFilter from "./DecadeFilter";
 import PlayerAvatar from "./PlayerAvatar";
+import RemovePlayerButton from "./RemovePlayerButton";
 import ScanlineOverlay from "./ScanlineOverlay";
 import styles from "./LobbyScreen.module.scss";
 
@@ -17,6 +18,9 @@ interface LobbyScreenProps {
   // Defaults to the hardcoded mock list — MockTvFlow relies on that
   // default and passes nothing; LiveTvFlow passes real, DB-fetched decades.
   decades?: Decade[];
+  // Left undefined, no remove control renders at all — MockTvFlow has no
+  // backend to actually remove anyone against (TIM-35).
+  onRemovePlayer?: (playerId: string) => void;
 }
 
 export default function LobbyScreen({
@@ -26,8 +30,10 @@ export default function LobbyScreen({
   onSelectDecade,
   onStartGame,
   decades = DECADES,
+  onRemovePlayer,
 }: LobbyScreenProps) {
   const containerRef = useDpadNavigation<HTMLDivElement>();
+  const activeCount = players.filter((p) => p.status === "active").length;
 
   return (
     <div className={styles.screen} ref={containerRef}>
@@ -51,8 +57,20 @@ export default function LobbyScreen({
               <p className={styles.empty}>Waiting for the first player to join…</p>
             )}
             {players.map((player) => (
-              <div key={player.id} className={styles.playerChip}>
+              <div
+                key={player.id}
+                className={`${styles.playerChip} ${player.status === "left" ? styles.left : ""}`}
+              >
                 <PlayerAvatar player={player} size="md" showName />
+                {onRemovePlayer &&
+                  (player.status === "active" ? (
+                    <RemovePlayerButton
+                      playerName={player.name}
+                      onConfirm={() => onRemovePlayer(player.id)}
+                    />
+                  ) : (
+                    <span className={styles.leftBadge}>Removed</span>
+                  ))}
               </div>
             ))}
           </div>
@@ -66,13 +84,13 @@ export default function LobbyScreen({
 
       <footer className={styles.footer}>
         <span className={styles.countLabel} aria-live="polite">
-          <strong>{players.length}</strong> player{players.length === 1 ? "" : "s"} joined
+          <strong>{activeCount}</strong> player{activeCount === 1 ? "" : "s"} joined
         </span>
         <button
           type="button"
           data-dpad-focusable
           className={styles.startButton}
-          disabled={players.length === 0}
+          disabled={activeCount === 0}
           onClick={onStartGame}
         >
           Start Game

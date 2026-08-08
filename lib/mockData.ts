@@ -13,12 +13,12 @@ export const DECADES: Decade[] = [
 // The full lobby roster. LobbyScreen reveals these one at a time to
 // simulate players joining live.
 export const MOCK_PLAYERS: Player[] = [
-  { id: "p1", name: "Deja View", emoji: "👾", color: "#ff3fa4", score: 340 },
-  { id: "p2", name: "Rad Wave", emoji: "🎸", color: "#7c5cff", score: 260 },
-  { id: "p3", name: "Cassette Ghost", emoji: "👻", color: "#33d6ff", score: 410 },
-  { id: "p4", name: "Y2Kayla", emoji: "💿", color: "#ff8a3d", score: 180 },
-  { id: "p5", name: "Blorbo", emoji: "🦖", color: "#2dd4bf", score: 395 },
-  { id: "p6", name: "Neon Dad", emoji: "🕺", color: "#ffb238", score: 120 },
+  { id: "p1", name: "Deja View", emoji: "👾", color: "#ff3fa4", score: 340, status: "active" },
+  { id: "p2", name: "Rad Wave", emoji: "🎸", color: "#7c5cff", score: 260, status: "active" },
+  { id: "p3", name: "Cassette Ghost", emoji: "👻", color: "#33d6ff", score: 410, status: "active" },
+  { id: "p4", name: "Y2Kayla", emoji: "💿", color: "#ff8a3d", score: 180, status: "active" },
+  { id: "p5", name: "Blorbo", emoji: "🦖", color: "#2dd4bf", score: 395, status: "active" },
+  { id: "p6", name: "Neon Dad", emoji: "🕺", color: "#ffb238", score: 120, status: "active" },
 ];
 
 export const MOCK_QUESTION: Question = {
@@ -80,10 +80,21 @@ export const MOCK_FINAL_ROUND_RESULT: RoundResult = {
 };
 
 // Players ranked highest-to-lowest by score (ranked[0] is the leader).
-// The lowest scorer — ranked[ranked.length - 1] — is the one choosing a
-// block target before the final round.
+// Includes everyone regardless of status — a removed player's score
+// still counts toward the room's history, e.g. on the final podium.
 export function rankedByScore(players: Player[]): Player[] {
   return [...players].sort((a, b) => b.score - a.score);
+}
+
+// The lowest-scoring *active* player is the one choosing a block target
+// before the final round (TIM-34) — a player the host has removed can't
+// be handed the choice, or nobody's phone would ever render the picker
+// and the game would stall. TV (BlockScreen) and each phone
+// (LivePlayFlow) call this independently and must agree, so it lives
+// here once rather than being reimplemented at each call site.
+export function pickBlockChooser(players: Player[]): Player | undefined {
+  const active = players.filter((p) => p.status === "active");
+  return rankedByScore(active)[active.length - 1];
 }
 
 // Full candidate questions the lowest-scoring player chooses from — they

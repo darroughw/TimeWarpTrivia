@@ -49,6 +49,15 @@ export async function joinRoom(roomId: string, name: string, avatar: string): Pr
   return data as PlayerRow;
 }
 
+// Host-initiated removal (TIM-35) — the only way a player's status ever
+// changes. Doesn't delete the row: their score and answers stay intact,
+// they're just excluded from block-picker selection and active counts
+// from here on (see lib/mockData.pickBlockChooser).
+export async function removePlayer(playerId: string): Promise<void> {
+  const { error } = await supabase.from("players").update({ status: "left" }).eq("id", playerId);
+  if (error) throw error;
+}
+
 export async function fetchRoomPlayers(roomId: string): Promise<PlayerRow[]> {
   const { data, error } = await supabase
     .from("players")

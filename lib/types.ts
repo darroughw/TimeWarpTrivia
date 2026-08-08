@@ -11,6 +11,10 @@ export interface Player {
   emoji: string;
   color: string;
   score: number;
+  // "left" means removed by the host (TIM-35) — excluded from block-picker
+  // selection and lobby/start-game counts, but their score stays on the
+  // board rather than being erased from history.
+  status: "active" | "left";
 }
 
 export interface Question {

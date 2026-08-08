@@ -1,7 +1,8 @@
 import type { CSSProperties } from "react";
 import { DECADE_COLORS } from "@/lib/decadeColors";
-import { rankedByScore } from "@/lib/mockData";
+import { pickBlockChooser } from "@/lib/mockData";
 import type { Player, Question } from "@/lib/types";
+import LoadingState from "@/components/shared/LoadingState";
 import PlayerAvatar from "./PlayerAvatar";
 import ScanlineOverlay from "./ScanlineOverlay";
 import styles from "./BlockScreen.module.scss";
@@ -14,8 +15,11 @@ interface BlockScreenProps {
 // Purely a display — the lowest scorer makes this choice on their phone.
 // The TV just shows the room who's choosing and what they're choosing from.
 export default function BlockScreen({ players, candidates }: BlockScreenProps) {
-  const ranked = rankedByScore(players);
-  const chooser = ranked[ranked.length - 1];
+  const chooser = pickBlockChooser(players);
+  // Only reachable if every player has been removed mid-game — min 2 to
+  // start makes it vanishingly unlikely, but this beats crashing on
+  // chooser.name.
+  if (!chooser) return <LoadingState message="Waiting for a player…" />;
 
   return (
     <div className={styles.screen}>

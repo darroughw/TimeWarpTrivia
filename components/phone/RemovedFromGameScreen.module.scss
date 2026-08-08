@@ -1,0 +1,31 @@
+@use "theme" as *;
+@use "mixins" as *;
+
+.screen {
+  position: relative;
+  min-height: 100vh;
+  padding: $space-xl $space-md;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $space-lg;
+  text-align: center;
+  z-index: $z-content;
+}
+
+.icon {
+  font-size: 3rem;
+}
+
+.title {
+  @include marquee-heading;
+  font-size: 1.75rem;
+  max-width: 22rem;
+}
+
+.status {
+  color: $text-lo;
+  font-family: $paper-font;
+  font-size: 1.1rem;
+}

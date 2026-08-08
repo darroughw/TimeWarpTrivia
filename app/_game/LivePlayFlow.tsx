@@ -8,6 +8,7 @@ import BlockedSpectatorScreen from "@/components/phone/BlockedSpectatorScreen";
 import FinalResultsScreen from "@/components/phone/FinalResultsScreen";
 import JoinScreen from "@/components/phone/JoinScreen";
 import QuestionScreen from "@/components/phone/QuestionScreen";
+import RemovedFromGameScreen from "@/components/phone/RemovedFromGameScreen";
 import WaitingScreen from "@/components/phone/WaitingScreen";
 import { useBlockCandidates } from "@/hooks/useBlockCandidates";
 import { useCountdown } from "@/hooks/useCountdown";
@@ -15,7 +16,7 @@ import { useCurrentQuestion } from "@/hooks/useCurrentQuestion";
 import { useDecadeTheme } from "@/hooks/useDecadeTheme";
 import { useRoomRealtime } from "@/hooks/useRoomRealtime";
 import { getAvatarForName, playerRowToPlayer } from "@/lib/avatar";
-import { rankedByScore } from "@/lib/mockData";
+import { pickBlockChooser, rankedByScore } from "@/lib/mockData";
 import { fetchRoomByCode, joinRoom, submitAnswer, updateRoom } from "@/lib/roomService";
 import { computeScore } from "@/lib/scoring";
 import { OPTION_LETTERS, ROUND_START_COUNTDOWN_SECONDS, type FinalStanding } from "@/lib/types";
@@ -81,7 +82,7 @@ export default function LivePlayFlow() {
   }
 
   async function handleAnswer(index: number) {
-    if (!room?.current_question_id || !playerId || !currentQuestion) return;
+    if (!room?.current_question_id || !playerId || !currentQuestion || player?.status === "left") return;
     const question = currentQuestion;
 
     const responseTimeMs = questionShownAtRef.current ? Date.now() - questionShownAtRef.current : 0;
@@ -132,6 +133,12 @@ export default function LivePlayFlow() {
     return <JoinScreen onJoin={handleJoin} error={joinError} submitting={joining} />;
   }
 
+  // Let a removed player still see the final results if the game wraps
+  // up — no reason to lock them out of that too (TIM-35).
+  if (player?.status === "left" && room.status !== "end") {
+    return <RemovedFromGameScreen />;
+  }
+
   if (room.status === "lobby") {
     return <WaitingScreen playerName={playerName} roomCode={room.code} />;
   }
@@ -162,7 +169,7 @@ export default function LivePlayFlow() {
   }
 
   if (room.status === "block") {
-    const lowestScorer = rankedByScore(players)[players.length - 1];
+    const lowestScorer = pickBlockChooser(players);
     if (player && lowestScorer?.id === player.id) {
       if (blockCandidates.length === 0) {
         return <WaitingScreen playerName={playerName} roomCode={room.code} message="Loading your questions…" />;

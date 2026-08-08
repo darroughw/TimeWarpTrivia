@@ -20,7 +20,7 @@ import { playerRowToPlayer } from "@/lib/avatar";
 import type { AnswerRow, RoomStatus } from "@/lib/database.types";
 import { ALL_DECADES_OPTION } from "@/lib/decadeColors";
 import { fetchDecades, fetchRandomQuestionSet } from "@/lib/questionService";
-import { createRoom, updateRoom, setDecadeFilter } from "@/lib/roomService";
+import { createRoom, updateRoom, setDecadeFilter, removePlayer } from "@/lib/roomService";
 import { computeScore } from "@/lib/scoring";
 import { supabase } from "@/lib/supabaseClient";
 import { ROUND_START_COUNTDOWN_SECONDS, type Decade, type PlayerPointResult, type RoundResult } from "@/lib/types";
@@ -244,7 +244,9 @@ export default function LiveTvFlow() {
 
     const relevantAnswers = answers.filter((a) => a.question_id === room.current_question_id);
     const participants =
-      room.status === "soloQuestion" ? players.filter((p) => p.id === room.blocker_player_id) : players;
+      room.status === "soloQuestion"
+        ? players.filter((p) => p.id === room.blocker_player_id)
+        : players.filter((p) => p.status === "active");
 
     const results: PlayerPointResult[] = participants.map((p) => {
       const answer = relevantAnswers.find((a) => a.player_id === p.id);
@@ -269,6 +271,15 @@ export default function LiveTvFlow() {
     ? answers.filter((a) => a.question_id === room.current_question_id).length
     : 0;
   const soloPlayer = players.find((p) => p.id === room.blocker_player_id);
+  // A removed player will never submit an answer — counting them toward
+  // the "X of Y answered" total would mean a question can never finish
+  // early once someone's gone, only ever time out (TIM-34).
+  const activePlayerCount = players.filter((p) => p.status === "active").length;
+
+  function handleRemovePlayer(playerId: string) {
+    removePlayer(playerId);
+    posthog?.capture("player_removed", { room_code: room?.code });
+  }
 
   return (
     <>
@@ -283,6 +294,7 @@ export default function LiveTvFlow() {
           }}
           onStartGame={handleStartGame}
           decades={[...decades, ALL_DECADES_OPTION]}
+          onRemovePlayer={handleRemovePlayer}
         />
       )}
 
@@ -293,7 +305,7 @@ export default function LiveTvFlow() {
       {room.status === "question" && currentQuestion && (
         <QuestionScreen
           question={currentQuestion}
-          totalPlayers={players.length}
+          totalPlayers={activePlayerCount}
           answeredCount={answeredCount}
           onTimeUp={() => handleQuestionTimeUp("transition")}
         />
@@ -304,7 +316,11 @@ export default function LiveTvFlow() {
       )}
 
       {room.status === "scoreboard" && (
-        <ScoreboardScreen players={players} roundLabel={currentQuestion?.roundLabel ?? ""} />
+        <ScoreboardScreen
+          players={players}
+          roundLabel={currentQuestion?.roundLabel ?? ""}
+          onRemovePlayer={handleRemovePlayer}
+        />
       )}
 
       {room.status === "block" &&
