@@ -3,6 +3,7 @@
 import { useDpadNavigation } from "@/hooks/useDpadNavigation";
 import { rankedByScore } from "@/lib/mockData";
 import type { Player } from "@/lib/types";
+import CancelGameButton from "./CancelGameButton";
 import PlayerAvatar from "./PlayerAvatar";
 import ScanlineOverlay from "./ScanlineOverlay";
 import styles from "./EndGameScreen.module.scss";
@@ -10,11 +11,15 @@ import styles from "./EndGameScreen.module.scss";
 interface EndGameScreenProps {
   players: Player[];
   onPlayAgain: () => void;
+  // Left undefined, no Cancel Game control renders at all — MockTvFlow
+  // has no real room/code to cancel out of (same pattern as
+  // LobbyScreen's onRemovePlayer, TIM-35).
+  onCancelGame?: () => void;
 }
 
 const PODIUM_CLASS = [styles.first, styles.second, styles.third];
 
-export default function EndGameScreen({ players, onPlayAgain }: EndGameScreenProps) {
+export default function EndGameScreen({ players, onPlayAgain, onCancelGame }: EndGameScreenProps) {
   const ranked = rankedByScore(players);
   const podium = ranked.slice(0, 3);
   const rest = ranked.slice(3);
@@ -53,9 +58,12 @@ export default function EndGameScreen({ players, onPlayAgain }: EndGameScreenPro
         </div>
       )}
 
-      <button type="button" data-dpad-focusable className={styles.playAgainButton} onClick={onPlayAgain}>
-        Play Again
-      </button>
+      <div className={styles.actions}>
+        <button type="button" data-dpad-focusable className={styles.playAgainButton} onClick={onPlayAgain}>
+          Play Again
+        </button>
+        {onCancelGame && <CancelGameButton onConfirm={onCancelGame} />}
+      </div>
     </div>
   );
 }

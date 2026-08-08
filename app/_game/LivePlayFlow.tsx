@@ -120,7 +120,13 @@ export default function LivePlayFlow() {
     posthog?.capture("block_chosen", { room_code: room.code });
   }
 
-  function handlePlayAgain() {
+  // A player has no rematch control (TIM-38) — only the host decides.
+  // Once the TV flips the room back to "lobby" for a same-room rematch,
+  // this flow's own status-driven render already follows it via realtime
+  // with no local mutation needed. This handler is purely for backing
+  // out: a real end-of-game exit, or re-entering a new code by hand
+  // after the host cancels this room.
+  function handleLeaveGame() {
     setRoomId(null);
     setPlayerId(null);
     setPlayerName("");
@@ -201,7 +207,7 @@ export default function LivePlayFlow() {
       winnerName: winner?.name ?? "",
       winnerScore: winner?.score ?? 0,
     };
-    return <FinalResultsScreen standing={standing} onPlayAgain={handlePlayAgain} />;
+    return <FinalResultsScreen standing={standing} onLeave={handleLeaveGame} />;
   }
 
   return <WaitingScreen playerName={playerName} roomCode={room.code} message="One sec…" />;

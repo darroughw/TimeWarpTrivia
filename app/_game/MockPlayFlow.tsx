@@ -85,7 +85,7 @@ export default function MockPlayFlow() {
       {stage === "final" && (
         <FinalResultsScreen
           standing={{ ...MOCK_FINAL_STANDING, playerName: playerName || "You" }}
-          onPlayAgain={handlePlayAgain}
+          onLeave={handlePlayAgain}
         />
       )}
     </>

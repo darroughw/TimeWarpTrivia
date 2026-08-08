@@ -69,7 +69,17 @@ export async function fetchQuestionsByIds(ids: string[], meta: QuestionMeta): Pr
 // an order of magnitude this should move to a server-side
 // `ORDER BY random()` via a Postgres RPC function (PostgREST can't order
 // by an expression directly).
-export async function fetchRandomQuestionSet(decadeFilter: DecadeId, count: number): Promise<QuestionRow[]> {
+//
+// `excludeIds` steers a rematch away from questions already asked in this
+// room (see rooms.asked_question_ids, TIM-38). If excluding them would
+// leave too few to fill `count`, exclusion is dropped entirely for this
+// call rather than partially applied — repeats only when the pool is
+// truly exhausted, never a mix of "some excluded, some not."
+export async function fetchRandomQuestionSet(
+  decadeFilter: DecadeId,
+  count: number,
+  excludeIds: string[] = [],
+): Promise<QuestionRow[]> {
   let query = supabase.from("questions").select("*").eq("is_active", true);
   if (decadeFilter !== "all") {
     query = query.eq("decade_id", decadeFilter);
@@ -77,14 +87,17 @@ export async function fetchRandomQuestionSet(decadeFilter: DecadeId, count: numb
   const { data, error } = await query;
   if (error) throw error;
   const rows = ((data as QuestionRow[]) ?? []).slice();
-  if (rows.length < count) {
-    throw new Error(`Not enough active questions for decade "${decadeFilter}" (have ${rows.length}, need ${count}).`);
+  const excludeSet = new Set(excludeIds);
+  const fresh = rows.filter((r) => !excludeSet.has(r.id));
+  const pool = fresh.length >= count ? fresh : rows;
+  if (pool.length < count) {
+    throw new Error(`Not enough active questions for decade "${decadeFilter}" (have ${pool.length}, need ${count}).`);
   }
-  for (let i = rows.length - 1; i > 0; i -= 1) {
+  for (let i = pool.length - 1; i > 0; i -= 1) {
     const j = Math.floor(Math.random() * (i + 1));
-    [rows[i], rows[j]] = [rows[j], rows[i]];
+    [pool[i], pool[j]] = [pool[j], pool[i]];
   }
-  return rows.slice(0, count);
+  return pool.slice(0, count);
 }
 
 export async function fetchDecades(): Promise<Decade[]> {

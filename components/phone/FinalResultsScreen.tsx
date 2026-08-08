@@ -7,7 +7,7 @@ import styles from "./FinalResultsScreen.module.scss";
 
 interface FinalResultsScreenProps {
   standing: FinalStanding;
-  onPlayAgain: () => void;
+  onLeave: () => void;
 }
 
 const MEDALS: Record<number, string> = { 1: "🥇", 2: "🥈", 3: "🥉" };
@@ -18,7 +18,7 @@ function ordinal(n: number): string {
   return `${n}${suffixes[(remainder - 20) % 10] || suffixes[remainder] || suffixes[0]}`;
 }
 
-export default function FinalResultsScreen({ standing, onPlayAgain }: FinalResultsScreenProps) {
+export default function FinalResultsScreen({ standing, onLeave }: FinalResultsScreenProps) {
   const { playerName, rank, totalPlayers, score, winnerName, winnerScore } = standing;
   const isWinner = rank === 1;
 
@@ -46,8 +46,10 @@ export default function FinalResultsScreen({ standing, onPlayAgain }: FinalResul
             ).toLocaleString()} to go next time.`}
       </p>
 
-      <button type="button" className={styles.playAgainButton} onClick={onPlayAgain}>
-        Play Again
+      <p className={styles.rematchNote}>Rematch is the host&rsquo;s call. Hang tight, or leave.</p>
+
+      <button type="button" className={styles.leaveButton} onClick={onLeave}>
+        Leave Game
       </button>
 
       <LogoFooter />

@@ -32,6 +32,10 @@ export interface RoomRow {
   // (final, double points) = [10,15).
   question_ids: string[] | null;
   question_index: number | null;
+  // Every question id (main + block candidate) ever surfaced in this
+  // room, across every rematch — lets a Play Again steer away from
+  // repeats. See supabase/migrations/0006_rematch.sql.
+  asked_question_ids: string[];
   created_at: string;
 }
 

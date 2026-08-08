@@ -20,7 +20,14 @@ import { playerRowToPlayer } from "@/lib/avatar";
 import type { AnswerRow, RoomStatus } from "@/lib/database.types";
 import { ALL_DECADES_OPTION } from "@/lib/decadeColors";
 import { fetchDecades, fetchRandomQuestionSet } from "@/lib/questionService";
-import { createRoom, updateRoom, setDecadeFilter, removePlayer } from "@/lib/roomService";
+import {
+  createRoom,
+  updateRoom,
+  setDecadeFilter,
+  removePlayer,
+  resetActivePlayerScores,
+  clearRoomAnswers,
+} from "@/lib/roomService";
 import { computeScore } from "@/lib/scoring";
 import { supabase } from "@/lib/supabaseClient";
 import { ROUND_START_COUNTDOWN_SECONDS, type Decade, type PlayerPointResult, type RoundResult } from "@/lib/types";
@@ -181,7 +188,7 @@ export default function LiveTvFlow() {
   // decade filter, and all guaranteed distinct from one another.
   async function handleStartGame() {
     if (!room) return;
-    const picks = await fetchRandomQuestionSet(room.decade_filter, TOTAL_MAIN_QUESTIONS + 3);
+    const picks = await fetchRandomQuestionSet(room.decade_filter, TOTAL_MAIN_QUESTIONS + 3, room.asked_question_ids);
     const questionIds = picks.slice(0, TOTAL_MAIN_QUESTIONS).map((q) => q.id);
     const blockCandidateIds = picks.slice(TOTAL_MAIN_QUESTIONS).map((q) => q.id);
     await updateRoom(room.id, {
@@ -227,9 +234,42 @@ export default function LiveTvFlow() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [room, handleAdvance]);
 
+  // Same-room rematch (TIM-38): keep the code, reset only still-active
+  // players' scores, clear answer history, and send the room back to
+  // "lobby" — the same status LobbyScreen already renders for a brand
+  // new room, so a rematch needs no special-cased UI. Every question
+  // this game touched (main + block candidates) gets folded into
+  // asked_question_ids so the next Start Game steers away from repeats.
   async function handlePlayAgain() {
+    if (!room) return;
     setLastRoundResult(null);
     setAnswers([]);
+    const askedThisGame = [...(room.question_ids ?? []), ...(room.block_candidate_ids ?? [])];
+    const askedSoFar = Array.from(new Set([...room.asked_question_ids, ...askedThisGame]));
+    await Promise.all([resetActivePlayerScores(room.id), clearRoomAnswers(room.id)]);
+    await updateRoom(room.id, {
+      status: "lobby",
+      decade_filter: "all",
+      current_question_id: null,
+      blocker_player_id: null,
+      question_ids: null,
+      question_index: null,
+      block_candidate_ids: null,
+      asked_question_ids: askedSoFar,
+    });
+    posthog?.capture("play_again", { room_code: room.code });
+  }
+
+  // Ends this room for good and hands the TV to a brand-new room/code —
+  // the old room is left exactly as it is (still "end", never deleted),
+  // matching the "persists until cancelled" call on TIM-38. This is what
+  // "Play Again" used to (incorrectly) do before the rematch above
+  // replaced it.
+  async function handleCancelGame() {
+    if (!room) return;
+    setLastRoundResult(null);
+    setAnswers([]);
+    posthog?.capture("game_cancelled", { room_code: room.code });
     const newRoom = await createRoom(hostId);
     setRoomId(newRoom.id);
   }
@@ -344,7 +384,9 @@ export default function LiveTvFlow() {
         <RoundTransitionScreen result={lastRoundResult} players={players} />
       )}
 
-      {room.status === "end" && <EndGameScreen players={players} onPlayAgain={handlePlayAgain} />}
+      {room.status === "end" && (
+        <EndGameScreen players={players} onPlayAgain={handlePlayAgain} onCancelGame={handleCancelGame} />
+      )}
 
       {PASSIVE_STATUSES.includes(room.status) && <PassiveAdvanceHint />}
     </>

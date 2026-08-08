@@ -132,6 +132,13 @@
   color: $teal;
 }
 
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-md;
+}
+
 .playAgainButton {
   @include dpad-focusable;
   font-family: $head-font;

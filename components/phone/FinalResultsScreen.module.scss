@@ -53,18 +53,24 @@
   max-width: 22rem;
 }
 
-.playAgainButton {
-  @include tappable;
+.rematchNote {
   margin-top: $space-lg;
+  color: $text-lo;
+  font-family: $paper-font;
+  font-size: 0.85rem;
+}
+
+.leaveButton {
+  @include tappable;
+  margin-top: $space-xs;
   width: 100%;
   font-family: $head-font;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  font-size: 1.25rem;
-  padding: $space-md;
+  font-size: 1.1rem;
+  padding: $space-sm $space-md;
   border-radius: $radius-lg;
-  background: $marigold;
-  color: $ink;
-  border: $border-width solid $marigold;
-  box-shadow: $shadow-glow-marigold;
+  background: transparent;
+  color: $text-hi;
+  border: $border-width solid $void-line;
 }

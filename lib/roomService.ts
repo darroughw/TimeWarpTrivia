@@ -80,10 +80,29 @@ export async function updateRoom(
       | "block_candidate_ids"
       | "question_ids"
       | "question_index"
+      | "asked_question_ids"
     >
   >,
 ): Promise<void> {
   const { error } = await supabase.from("rooms").update(patch).eq("id", roomId);
+  if (error) throw error;
+}
+
+// Play Again (TIM-38) resets only still-active players — anyone removed
+// or left doesn't carry a score into the rematch since they're not
+// carrying into the rematch at all (see LiveTvFlow.handlePlayAgain).
+export async function resetActivePlayerScores(roomId: string): Promise<void> {
+  const { error } = await supabase.from("players").update({ score: 0 }).eq("room_id", roomId).eq("status", "active");
+  if (error) throw error;
+}
+
+// Play Again (TIM-38) clears answer history for the room. Scores already
+// live on players.score rather than being derived from answers, so old
+// rows serve no purpose after a rematch — and leaving them risks a
+// unique(player_id, question_id) collision if a question repeats via
+// fetchRandomQuestionSet's pool-exhaustion fallback.
+export async function clearRoomAnswers(roomId: string): Promise<void> {
+  const { error } = await supabase.from("answers").delete().eq("room_id", roomId);
   if (error) throw error;
 }
 

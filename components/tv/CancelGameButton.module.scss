@@ -1,0 +1,28 @@
+@use "theme" as *;
+@use "mixins" as *;
+
+.button {
+  @include dpad-focusable;
+  font-family: $paper-font;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  padding: $space-xs $space-md;
+  border-radius: $radius-md;
+  border: 1px solid $void-line;
+  background: transparent;
+  color: $text-lo;
+
+  &:hover,
+  &:focus-visible {
+    color: $text-hi;
+    border-color: $coral;
+  }
+
+  &.armed {
+    color: $ink;
+    background: $coral;
+    border-color: $coral;
+  }
+}
