@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { CSSProperties } from "react";
+import FeedbackButton from "@/components/shared/FeedbackButton";
 import HelpButton from "@/components/shared/HelpButton";
 import ScanlineOverlay from "@/components/tv/ScanlineOverlay";
 import { DECADE_COLORS } from "@/lib/decadeColors";
@@ -83,6 +84,7 @@ export default function Landing() {
 
       <footer className={styles.footer}>
         <HelpButton />
+        <FeedbackButton />
       </footer>
     </div>
   );

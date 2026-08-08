@@ -88,3 +88,13 @@ export interface QuestionRow {
   is_active: boolean;
   created_at: string;
 }
+
+// Row shape for supabase/migrations/0005_feedback.sql. Write-only from
+// the client — there's no fetch function for this table on purpose.
+export interface FeedbackRow {
+  id: string;
+  message: string;
+  category_suggestion: string | null;
+  email: string | null;
+  created_at: string;
+}

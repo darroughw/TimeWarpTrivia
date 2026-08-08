@@ -208,6 +208,7 @@
 .footer {
   display: flex;
   justify-content: center;
+  gap: $space-sm;
   padding-top: $space-md;
 }
 

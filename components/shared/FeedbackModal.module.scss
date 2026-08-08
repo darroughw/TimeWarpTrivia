@@ -1,0 +1,179 @@
+@use "theme" as *;
+@use "mixins" as *;
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: $z-overlay;
+  background: rgba(11, 14, 26, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $space-md;
+}
+
+.dialog {
+  position: relative;
+  width: 100%;
+  max-width: 32rem;
+  max-height: 88vh;
+  overflow-y: auto;
+  background: $void-raised;
+  border: $border-width solid $marigold-dim;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-panel;
+  padding: $space-xl;
+
+  @media (max-width: 640px) {
+    padding: $space-lg $space-md;
+    max-height: 92vh;
+  }
+}
+
+.closeButton {
+  @include dpad-focusable;
+  position: absolute;
+  top: $space-md;
+  right: $space-md;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $void;
+  border: 1px solid $void-line;
+  color: $text-lo;
+  font-size: 1rem;
+
+  &:hover,
+  &:focus-visible {
+    color: $text-hi;
+    border-color: $marigold-dim;
+  }
+}
+
+.title {
+  @include marquee-heading;
+  font-size: 2rem;
+}
+
+.subtitle {
+  font-family: $paper-font;
+  color: $text-lo;
+  font-size: 1rem;
+  margin-top: $space-xs;
+  max-width: 26rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+  margin-top: $space-lg;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+}
+
+.label {
+  font-family: $paper-font;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $text-lo;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.required {
+  color: $marigold;
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 400;
+}
+
+.input,
+.textarea {
+  @include touch-target;
+  font-family: $paper-font;
+  font-size: 1rem;
+  color: $text-hi;
+  background: $void;
+  border: $border-width solid $void-line;
+  border-radius: $radius-md;
+  padding: $space-sm $space-md;
+
+  &::placeholder {
+    color: $text-placeholder;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $marigold;
+  }
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 6rem;
+  line-height: 1.5;
+}
+
+.error {
+  font-family: $paper-font;
+  color: $coral;
+  font-size: 0.9rem;
+}
+
+.submitButton {
+  @include tappable;
+  font-family: $head-font;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 1.1rem;
+  padding: $space-md;
+  border-radius: $radius-lg;
+  background: $marigold;
+  color: $ink;
+  border: $border-width solid $marigold;
+  box-shadow: $shadow-glow-marigold;
+
+  &:disabled {
+    opacity: 0.4;
+    box-shadow: none;
+  }
+}
+
+.sentState {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: $space-sm;
+  padding-top: $space-sm;
+}
+
+.sentIcon {
+  font-size: 2.5rem;
+}
+
+.doneButton {
+  @include tappable;
+  margin-top: $space-md;
+  font-family: $head-font;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 1rem;
+  padding: $space-sm $space-xl;
+  border-radius: $radius-lg;
+  background: transparent;
+  color: $text-hi;
+  border: $border-width solid $void-line;
+
+  &:hover,
+  &:focus-visible {
+    border-color: $marigold-dim;
+  }
+}
