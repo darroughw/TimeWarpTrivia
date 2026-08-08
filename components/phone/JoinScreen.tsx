@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import HelpButton from "@/components/shared/HelpButton";
 import ScanlineOverlay from "@/components/tv/ScanlineOverlay";
 import LogoFooter from "./LogoFooter";
 import styles from "./JoinScreen.module.scss";
@@ -84,6 +85,10 @@ export default function JoinScreen({ onJoin, error, submitting = false }: JoinSc
           {submitting ? "Joining…" : "Join Game"}
         </button>
       </form>
+
+      <div className={styles.helpRow}>
+        <HelpButton />
+      </div>
 
       <LogoFooter />
     </div>

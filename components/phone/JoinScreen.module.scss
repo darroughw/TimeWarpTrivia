@@ -108,3 +108,9 @@
     box-shadow: none;
   }
 }
+
+.helpRow {
+  display: flex;
+  justify-content: center;
+  margin-top: $space-md;
+}

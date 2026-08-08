@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { CSSProperties } from "react";
+import HelpButton from "@/components/shared/HelpButton";
 import ScanlineOverlay from "@/components/tv/ScanlineOverlay";
 import { DECADE_COLORS } from "@/lib/decadeColors";
 import type { DecadeId } from "@/lib/types";
@@ -79,6 +80,10 @@ export default function Landing() {
           </div>
         ))}
       </section>
+
+      <footer className={styles.footer}>
+        <HelpButton />
+      </footer>
     </div>
   );
 }

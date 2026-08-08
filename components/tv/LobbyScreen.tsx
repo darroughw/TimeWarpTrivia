@@ -1,6 +1,7 @@
 "use client";
 
 import { useDpadNavigation } from "@/hooks/useDpadNavigation";
+import HelpButton from "@/components/shared/HelpButton";
 import { DECADES } from "@/lib/mockData";
 import type { Decade, DecadeId, Player } from "@/lib/types";
 import DecadeFilter from "./DecadeFilter";
@@ -83,9 +84,12 @@ export default function LobbyScreen({
       </div>
 
       <footer className={styles.footer}>
-        <span className={styles.countLabel} aria-live="polite">
-          <strong>{activeCount}</strong> player{activeCount === 1 ? "" : "s"} joined
-        </span>
+        <div className={styles.footerLeft}>
+          <span className={styles.countLabel} aria-live="polite">
+            <strong>{activeCount}</strong> player{activeCount === 1 ? "" : "s"} joined
+          </span>
+          <HelpButton />
+        </div>
         <button
           type="button"
           data-dpad-focusable
