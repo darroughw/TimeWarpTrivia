@@ -8,8 +8,8 @@ SCSS, and Supabase (Postgres + Realtime) for the live multiplayer state.
 **Play it:** [timewarp-trivia.vercel.app](https://timewarp-trivia.vercel.app)
 
 **Status:** All three routes are wired to a real, provisioned Supabase
-project — real rooms, real players, real answers, 728 real trivia
-questions across 4 decades, synced live over Supabase Realtime. When
+project — real rooms, real players, real answers, 1,089 real trivia
+questions across 6 decades, synced live over Supabase Realtime. When
 Supabase isn't configured (no `NEXT_PUBLIC_SUPABASE_URL`), the host and
 phone routes fall back to a scripted demo using `lib/mockData.ts`
 instead. See [Current limitations](#current-limitations) for what's
@@ -212,7 +212,7 @@ lib/
   supabaseClient.ts                                 # Supabase client + isSupabaseConfigured
   posthog.ts                                           # PostHog env vars + isPostHogConfigured
 data/
-  questions-{80s,90s,2000s,2010s}-seed.json           # 728 fact-checked questions, source of truth
+  questions-{60s,70s,80s,90s,2000s,2010s}-seed.json   # 1,089 fact-checked questions, source of truth
 supabase/migrations/
   0001_init.sql                                          # rooms/players/answers + RLS + Realtime
   0002_question_content.sql                                 # decades/categories/questions + RLS
@@ -264,7 +264,7 @@ every component's `.module.scss` via `@use "theme" as *;`:
   codes). Loaded as Google Fonts in `app/layout.tsx` via `next/font`.
 - **Color** — a dark "broadcast void" palette (`$void`, `$paper`) with
   marigold/coral/teal accents, plus a per-decade accent map in
-  `lib/decadeColors.ts` (80s/90s/2000s/2010s each get their own hue,
+  `lib/decadeColors.ts` (60s/70s/80s/90s/2000s/2010s each get their own hue,
   chosen to clear WCAG AA contrast against the dark `$ink` text used on
   top of them).
 - **Shared mixins** (`app/styles/_mixins.scss`) — `dpad-focusable` (TV

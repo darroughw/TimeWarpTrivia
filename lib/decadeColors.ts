@@ -8,7 +8,14 @@ import type { Decade, DecadeId } from "./types";
 // that color (DecadeFilter's selected pill, BlockScreen/BlockChoiceScreen's
 // decadeTag) landed at 4.15:1 contrast, just under WCAG AA's 4.5:1 minimum
 // for normal-weight text at this size. #8a6dff clears it at 4.91:1.
+//
+// 60s/70s (TIM-42) were picked to sit in the two open hue gaps on this
+// wheel (green, blue) rather than crowding the existing pink/purple/
+// cyan/orange/gold set — both pre-checked against $ink at this same
+// 4.5:1 AA floor: 60s ~9.65:1, 70s ~6.64:1.
 export const DECADE_COLORS: Record<DecadeId, string> = {
+  "60s": "#7ed321",
+  "70s": "#4d9fff",
   "80s": "#ff3fa4",
   "90s": "#8a6dff",
   "2000s": "#33d6ff",

@@ -26,9 +26,15 @@ const CATEGORY_SLUGS = {
   "Advertising/Commercials": "advertising-commercials",
   "Slang/Catchphrases": "slang-catchphrases",
   "Internet Memes/Internet Culture": "internet-memes",
+  Sports: "sports",
+  "News & Events": "news-events",
+  Celebrities: "celebrities",
+  "Space Race": "space-race",
 };
 
 const FILES = [
+  "questions-60s-seed.json",
+  "questions-70s-seed.json",
   "questions-80s-seed.json",
   "questions-90s-seed.json",
   "questions-2000s-seed.json",

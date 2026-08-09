@@ -1,0 +1,2355 @@
+[
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What Swedish pop group won Eurovision in 1974 with 'Waterloo' and went on to global fame?",
+    "options": [
+      "ABBA",
+      "The Bee Gees",
+      "Boney M",
+      "Blondie"
+    ],
+    "correct_answer": "ABBA",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What disco group is best known for the 1978 hit 'Stayin' Alive'?",
+    "options": [
+      "The Bee Gees",
+      "ABBA",
+      "Chic",
+      "KC and the Sunshine Band"
+    ],
+    "correct_answer": "The Bee Gees",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What movie soundtrack, dominated by the Bee Gees, became a defining album of the disco era in 1977?",
+    "options": [
+      "Saturday Night Fever",
+      "Grease",
+      "Xanadu",
+      "Flashdance"
+    ],
+    "correct_answer": "Saturday Night Fever",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What British rock band released the album 'Dark Side of the Moon' in 1973?",
+    "options": [
+      "Pink Floyd",
+      "Led Zeppelin",
+      "The Who",
+      "Queen"
+    ],
+    "correct_answer": "Pink Floyd",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What glam rock artist released the album 'The Rise and Fall of Ziggy Stardust' in 1972?",
+    "options": [
+      "David Bowie",
+      "Elton John",
+      "Marc Bolan",
+      "Freddie Mercury"
+    ],
+    "correct_answer": "David Bowie",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What British rock band released the operatic hit 'Bohemian Rhapsody' in 1975?",
+    "options": [
+      "Queen",
+      "Led Zeppelin",
+      "The Who",
+      "Pink Floyd"
+    ],
+    "correct_answer": "Queen",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What musical genre, defined by four-on-the-floor beats and orchestral flourishes, dominated late 1970s dance clubs?",
+    "options": [
+      "Disco",
+      "Punk",
+      "New Wave",
+      "Funk"
+    ],
+    "correct_answer": "Disco",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What British punk band released the influential album 'Never Mind the Bollocks' in 1977?",
+    "options": [
+      "The Sex Pistols",
+      "The Clash",
+      "The Ramones",
+      "Buzzcocks"
+    ],
+    "correct_answer": "The Sex Pistols",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What American punk band, formed in Queens, New York, is often credited with pioneering the punk sound?",
+    "options": [
+      "The Ramones",
+      "The Sex Pistols",
+      "Talking Heads",
+      "Television"
+    ],
+    "correct_answer": "The Ramones",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What piano-playing British singer released the hit 'Rocket Man' in 1972?",
+    "options": [
+      "Elton John",
+      "David Bowie",
+      "Rod Stewart",
+      "Freddie Mercury"
+    ],
+    "correct_answer": "Elton John",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What King of Rock and Roll died in August 1977 at his Graceland estate?",
+    "options": [
+      "Elvis Presley",
+      "Jim Morrison",
+      "Jimi Hendrix",
+      "Buddy Holly"
+    ],
+    "correct_answer": "Elvis Presley",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What Jamaican reggae artist released the album 'Exodus' in 1977?",
+    "options": [
+      "Bob Marley",
+      "Peter Tosh",
+      "Jimmy Cliff",
+      "Toots Hibbert"
+    ],
+    "correct_answer": "Bob Marley",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What Swedish quartet's name is an acronym of its four members' first names?",
+    "options": [
+      "ABBA",
+      "Boney M",
+      "Silver Convention",
+      "Chic"
+    ],
+    "correct_answer": "ABBA",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What Motown family group, featuring a young Michael Jackson, topped charts in the early 1970s?",
+    "options": [
+      "The Jackson 5",
+      "The Osmonds",
+      "The Sylvers",
+      "The Commodores"
+    ],
+    "correct_answer": "The Jackson 5",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What female vocal trio, featuring Diana Ross, had already broken up by the early 1970s but influenced the era's sound?",
+    "options": [
+      "The Supremes",
+      "The Ronettes",
+      "The Shirelles",
+      "Labelle"
+    ],
+    "correct_answer": "The Supremes",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What British hard rock band released 'Stairway to Heaven' in 1971?",
+    "options": [
+      "Led Zeppelin",
+      "Deep Purple",
+      "Black Sabbath",
+      "The Who"
+    ],
+    "correct_answer": "Led Zeppelin",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What outdoor music festival held in New York in August 1969 is closely associated with the counterculture of the era?",
+    "options": [
+      "Woodstock",
+      "Altamont",
+      "Monterey Pop",
+      "The Isle of Wight Festival"
+    ],
+    "correct_answer": "Woodstock",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What singer-songwriter released the confessional album 'Blue' in 1971?",
+    "options": [
+      "Joni Mitchell",
+      "Carole King",
+      "Carly Simon",
+      "Joan Baez"
+    ],
+    "correct_answer": "Joni Mitchell",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What singer-songwriter's 1971 album 'Tapestry' became one of the best-selling albums of the decade?",
+    "options": [
+      "Carole King",
+      "Joni Mitchell",
+      "Carly Simon",
+      "Linda Ronstadt"
+    ],
+    "correct_answer": "Carole King",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What funk band, known for elaborate stage shows, released 'Give Up the Funk' in 1976?",
+    "options": [
+      "Parliament-Funkadelic",
+      "Earth, Wind & Fire",
+      "Kool & the Gang",
+      "The Ohio Players"
+    ],
+    "correct_answer": "Parliament-Funkadelic",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What group had a massive disco hit in 1978 with 'I Will Survive'?",
+    "options": [
+      "Gloria Gaynor",
+      "Donna Summer",
+      "Diana Ross",
+      "The Village People"
+    ],
+    "correct_answer": "Gloria Gaynor",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "Who is known as the 'Queen of Disco,' famous for 'Hot Stuff' and 'Last Dance'?",
+    "options": [
+      "Donna Summer",
+      "Gloria Gaynor",
+      "Diana Ross",
+      "Chaka Khan"
+    ],
+    "correct_answer": "Donna Summer",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What novelty disco group is known for costumed personas like a cowboy, police officer, and construction worker?",
+    "options": [
+      "The Village People",
+      "Boney M",
+      "Chic",
+      "KC and the Sunshine Band"
+    ],
+    "correct_answer": "The Village People",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What British rock band, fronted by Freddie Mercury, headlined arenas throughout the 1970s?",
+    "options": [
+      "Queen",
+      "Led Zeppelin",
+      "The Who",
+      "Genesis"
+    ],
+    "correct_answer": "Queen",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What American singer-songwriter released the hit ballad 'You're So Vain' in 1972?",
+    "options": [
+      "Carly Simon",
+      "Carole King",
+      "Joni Mitchell",
+      "Linda Ronstadt"
+    ],
+    "correct_answer": "Carly Simon",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What Fleetwood Mac album, released in 1977, became one of the best-selling albums of all time?",
+    "options": [
+      "Rumours",
+      "Tusk",
+      "Fleetwood Mac",
+      "Mirage"
+    ],
+    "correct_answer": "Rumours",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What soul singer released the influential concept album 'What's Going On' in 1971?",
+    "options": [
+      "Marvin Gaye",
+      "Stevie Wonder",
+      "Al Green",
+      "Curtis Mayfield"
+    ],
+    "correct_answer": "Marvin Gaye",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What blind musician released the acclaimed album 'Songs in the Key of Life' in 1976?",
+    "options": [
+      "Stevie Wonder",
+      "Ray Charles",
+      "Marvin Gaye",
+      "Al Green"
+    ],
+    "correct_answer": "Stevie Wonder",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What guitar-driven American rock band released 'Hotel California' in 1976?",
+    "options": [
+      "The Eagles",
+      "Fleetwood Mac",
+      "Steely Dan",
+      "Lynyrd Skynyrd"
+    ],
+    "correct_answer": "The Eagles",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What Southern rock band, known for 'Sweet Home Alabama,' lost several members in a 1977 plane crash?",
+    "options": [
+      "Lynyrd Skynyrd",
+      "The Allman Brothers Band",
+      "The Marshall Tucker Band",
+      ".38 Special"
+    ],
+    "correct_answer": "Lynyrd Skynyrd",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Movies",
+    "text": "What 1977 space opera film directed by George Lucas launched a massive film franchise?",
+    "options": [
+      "Star Wars",
+      "Close Encounters of the Third Kind",
+      "Star Trek: The Motion Picture",
+      "Battlestar Galactica"
+    ],
+    "correct_answer": "Star Wars",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Movies",
+    "text": "What 1975 Steven Spielberg film about a killer shark is considered the first summer blockbuster?",
+    "options": [
+      "Jaws",
+      "The Deep",
+      "Orca",
+      "Piranha"
+    ],
+    "correct_answer": "Jaws",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Movies",
+    "text": "What 1972 crime film directed by Francis Ford Coppola won Best Picture and starred Marlon Brando?",
+    "options": [
+      "The Godfather",
+      "Goodfellas",
+      "Scarface",
+      "The French Connection"
+    ],
+    "correct_answer": "The Godfather",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Movies",
+    "text": "What 1976 boxing drama starring Sylvester Stallone won Best Picture?",
+    "options": [
+      "Rocky",
+      "Raging Bull",
+      "The Champ",
+      "Fat City"
+    ],
+    "correct_answer": "Rocky",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Movies",
+    "text": "What 1974 disaster film depicted a fire in a high-rise building, starring Paul Newman and Steve McQueen?",
+    "options": [
+      "The Towering Inferno",
+      "The Poseidon Adventure",
+      "Earthquake",
+      "Airport 1975"
+    ],
+    "correct_answer": "The Towering Inferno",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Movies",
+    "text": "What 1972 disaster film depicted survivors of a capsized ocean liner?",
+    "options": [
+      "The Poseidon Adventure",
+      "The Towering Inferno",
+      "Earthquake",
+      "Titanic (1953)"
+    ],
+    "correct_answer": "The Poseidon Adventure",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Movies",
+    "text": "What 1978 musical film starring John Travolta and Olivia Newton-John was set in the 1950s?",
+    "options": [
+      "Grease",
+      "Saturday Night Fever",
+      "Xanadu",
+      "Sgt. Pepper's Lonely Hearts Club Band"
+    ],
+    "correct_answer": "Grease",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Movies",
+    "text": "What 1977 disco-era film starring John Travolta as a Brooklyn dance floor king made him a star?",
+    "options": [
+      "Saturday Night Fever",
+      "Grease",
+      "Carrie",
+      "Urban Cowboy"
+    ],
+    "correct_answer": "Saturday Night Fever",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Movies",
+    "text": "What 1973 horror film about demonic possession shocked audiences and became a box office phenomenon?",
+    "options": [
+      "The Exorcist",
+      "Carrie",
+      "The Omen",
+      "Rosemary's Baby"
+    ],
+    "correct_answer": "The Exorcist",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Movies",
+    "text": "What 1976 horror film starring Sissy Spacek is based on a Stephen King novel about a bullied teenage girl?",
+    "options": [
+      "Carrie",
+      "The Exorcist",
+      "The Omen",
+      "Halloween"
+    ],
+    "correct_answer": "Carrie",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Movies",
+    "text": "What 1976 political thriller about the Watergate scandal starred Robert Redford and Dustin Hoffman?",
+    "options": [
+      "All the President's Men",
+      "The Parallax View",
+      "Three Days of the Condor",
+      "Network"
+    ],
+    "correct_answer": "All the President's Men",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Movies",
+    "text": "What 1979 war film directed by Francis Ford Coppola depicted the Vietnam War in surreal fashion?",
+    "options": [
+      "Apocalypse Now",
+      "The Deer Hunter",
+      "Coming Home",
+      "Platoon"
+    ],
+    "correct_answer": "Apocalypse Now",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Movies",
+    "text": "What 1978 Vietnam War drama starring Robert De Niro won Best Picture?",
+    "options": [
+      "The Deer Hunter",
+      "Apocalypse Now",
+      "Coming Home",
+      "Full Metal Jacket"
+    ],
+    "correct_answer": "The Deer Hunter",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Movies",
+    "text": "What animated Disney film, released in 1973, retold the legend of Robin Hood with animal characters?",
+    "options": [
+      "Robin Hood",
+      "The Rescuers",
+      "The Aristocats",
+      "Pete's Dragon"
+    ],
+    "correct_answer": "Robin Hood",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Movies",
+    "text": "What 1971 musical film starred Gene Wilder as an eccentric candy maker?",
+    "options": [
+      "Willy Wonka & the Chocolate Factory",
+      "Charlie and the Chocolate Factory",
+      "Fiddler on the Roof",
+      "Bedknobs and Broomsticks"
+    ],
+    "correct_answer": "Willy Wonka & the Chocolate Factory",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Movies",
+    "text": "What 1975 comedy directed by Milos Forman starring Jack Nicholson is set in a mental institution?",
+    "options": [
+      "One Flew Over the Cuckoo's Nest",
+      "The Shining",
+      "Network",
+      "Deliverance"
+    ],
+    "correct_answer": "One Flew Over the Cuckoo's Nest",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Movies",
+    "text": "What 1977 romantic comedy directed by and starring Woody Allen won Best Picture?",
+    "options": [
+      "Annie Hall",
+      "Manhattan",
+      "Sleeper",
+      "Love and Death"
+    ],
+    "correct_answer": "Annie Hall",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Movies",
+    "text": "What 1978 supernatural horror film about a cursed child is part of a franchise about the Antichrist?",
+    "options": [
+      "The Omen",
+      "The Exorcist",
+      "Carrie",
+      "Rosemary's Baby"
+    ],
+    "correct_answer": "The Omen",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Movies",
+    "text": "What 1978 superhero film starring Christopher Reeve as the title character launched a major franchise?",
+    "options": [
+      "Superman",
+      "Batman",
+      "Spider-Man",
+      "Flash Gordon"
+    ],
+    "correct_answer": "Superman",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Movies",
+    "text": "What 1971 crime thriller starring Gene Hackman as a tough New York detective won Best Picture?",
+    "options": [
+      "The French Connection",
+      "Dirty Harry",
+      "Serpico",
+      "Dog Day Afternoon"
+    ],
+    "correct_answer": "The French Connection",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Movies",
+    "text": "What Clint Eastwood film, released in 1971, introduced the tough, unconventional detective 'Dirty Harry' Callahan?",
+    "options": [
+      "Dirty Harry",
+      "The French Connection",
+      "Magnum Force",
+      "Bullitt"
+    ],
+    "correct_answer": "Dirty Harry",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Movies",
+    "text": "What 1974 sequel to a mob drama expanded the story of the Corleone family and also won Best Picture?",
+    "options": [
+      "The Godfather Part II",
+      "The Godfather Part III",
+      "Goodfellas",
+      "Scarface"
+    ],
+    "correct_answer": "The Godfather Part II",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Movies",
+    "text": "What 1977 sci-fi film by Steven Spielberg centers on a man's obsession with UFO contact?",
+    "options": [
+      "Close Encounters of the Third Kind",
+      "Star Wars",
+      "E.T. the Extra-Terrestrial",
+      "Star Trek: The Motion Picture"
+    ],
+    "correct_answer": "Close Encounters of the Third Kind",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Movies",
+    "text": "What 1975 mockumentary-style disaster comedy takes place during a music festival, directed by Robert Altman?",
+    "options": [
+      "Nashville",
+      "American Graffiti",
+      "That's Entertainment!",
+      "Smile"
+    ],
+    "correct_answer": "Nashville",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Movies",
+    "text": "What 1973 coming-of-age film directed by George Lucas is set in early-1960s California and features a classic rock soundtrack?",
+    "options": [
+      "American Graffiti",
+      "Grease",
+      "The Last Picture Show",
+      "Diner"
+    ],
+    "correct_answer": "American Graffiti",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "TV",
+    "text": "What sitcom, starring Carroll O'Connor as a bigoted but lovable patriarch, dominated ratings in the early-to-mid 1970s?",
+    "options": [
+      "All in the Family",
+      "The Jeffersons",
+      "Sanford and Son",
+      "Maude"
+    ],
+    "correct_answer": "All in the Family",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "TV",
+    "text": "What sitcom set at a Korean War-era army hospital ran throughout the 1970s and beyond?",
+    "options": [
+      "M*A*S*H",
+      "Hogan's Heroes",
+      "Gomer Pyle, U.S.M.C.",
+      "F Troop"
+    ],
+    "correct_answer": "M*A*S*H",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "TV",
+    "text": "What crime drama featured three female private investigators working for an unseen boss named Charlie?",
+    "options": [
+      "Charlie's Angels",
+      "Police Woman",
+      "Wonder Woman",
+      "The Bionic Woman"
+    ],
+    "correct_answer": "Charlie's Angels",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "TV",
+    "text": "What sitcom, a spin-off of 'All in the Family,' followed an upwardly mobile Black family moving to Manhattan?",
+    "options": [
+      "The Jeffersons",
+      "Good Times",
+      "Sanford and Son",
+      "What's Happening!!"
+    ],
+    "correct_answer": "The Jeffersons",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "TV",
+    "text": "What sitcom starred Redd Foxx as a junk dealer in Los Angeles?",
+    "options": [
+      "Sanford and Son",
+      "The Jeffersons",
+      "Good Times",
+      "That's My Mama"
+    ],
+    "correct_answer": "Sanford and Son",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "TV",
+    "text": "What variety show, hosted by two comedic siblings, was known for its 'Weekend Update' segment starting in 1975?",
+    "options": [
+      "Saturday Night Live",
+      "The Carol Burnett Show",
+      "Rowan & Martin's Laugh-In",
+      "The Sonny & Cher Comedy Hour"
+    ],
+    "correct_answer": "Saturday Night Live",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "TV",
+    "text": "What sketch comedy show, hosted by a red-headed comedienne, ran from 1967 to 1978 with a signature ear-tug sign-off?",
+    "options": [
+      "The Carol Burnett Show",
+      "Saturday Night Live",
+      "Rowan & Martin's Laugh-In",
+      "The Flip Wilson Show"
+    ],
+    "correct_answer": "The Carol Burnett Show",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "TV",
+    "text": "What crime drama followed detectives cruising the streets of a gritty California city in a Ford Gran Torino?",
+    "options": [
+      "Starsky & Hutch",
+      "Kojak",
+      "Baretta",
+      "The Rockford Files"
+    ],
+    "correct_answer": "Starsky & Hutch",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "TV",
+    "text": "What crime drama starred Telly Savalas as a lollipop-loving, bald New York City detective?",
+    "options": [
+      "Kojak",
+      "Starsky & Hutch",
+      "Columbo",
+      "Baretta"
+    ],
+    "correct_answer": "Kojak",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "TV",
+    "text": "What detective series starred Peter Falk as a disheveled, cigar-smoking investigator?",
+    "options": [
+      "Columbo",
+      "Kojak",
+      "Baretta",
+      "Ironside"
+    ],
+    "correct_answer": "Columbo",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "TV",
+    "text": "What sci-fi series about a man rebuilt with bionic implants after an accident aired from 1974 to 1978?",
+    "options": [
+      "The Six Million Dollar Man",
+      "The Bionic Woman",
+      "Battlestar Galactica",
+      "Man from Atlantis"
+    ],
+    "correct_answer": "The Six Million Dollar Man",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "TV",
+    "text": "What spin-off series followed a female counterpart with bionic implants of her own?",
+    "options": [
+      "The Bionic Woman",
+      "Wonder Woman",
+      "Isis",
+      "Electra Woman and Dyna Girl"
+    ],
+    "correct_answer": "The Bionic Woman",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "TV",
+    "text": "What superhero series starred Lynda Carter as an Amazonian princess fighting crime with a golden lasso?",
+    "options": [
+      "Wonder Woman",
+      "The Bionic Woman",
+      "Isis",
+      "Electra Woman and Dyna Girl"
+    ],
+    "correct_answer": "Wonder Woman",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "TV",
+    "text": "What sitcom set in a Milwaukee household in the 1950s-60s starred Ron Howard and Henry Winkler?",
+    "options": [
+      "Happy Days",
+      "Laverne & Shirley",
+      "Welcome Back, Kotter",
+      "Chico and the Man"
+    ],
+    "correct_answer": "Happy Days",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "TV",
+    "text": "What sitcom spin-off of 'Happy Days' followed two brewery workers sharing a Milwaukee apartment?",
+    "options": [
+      "Laverne & Shirley",
+      "Mork & Mindy",
+      "Joanie Loves Chachi",
+      "Blansky's Beauties"
+    ],
+    "correct_answer": "Laverne & Shirley",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "TV",
+    "text": "What sitcom introduced Robin Williams as a wisecracking alien living with a human roommate?",
+    "options": [
+      "Mork & Mindy",
+      "Happy Days",
+      "My Favorite Martian",
+      "Out of This World"
+    ],
+    "correct_answer": "Mork & Mindy",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "TV",
+    "text": "What sitcom followed a Brooklyn teacher returning to his rowdy former high school to teach remedial students?",
+    "options": [
+      "Welcome Back, Kotter",
+      "Room 222",
+      "The White Shadow",
+      "Fame (this is an 80s show, not correct)"
+    ],
+    "correct_answer": "Welcome Back, Kotter",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "TV",
+    "text": "What game show, hosted by Chuck Barris, featured amateur talent acts often judged harshly by a panel?",
+    "options": [
+      "The Gong Show",
+      "Star Search",
+      "The Dating Game",
+      "The Newlywed Game"
+    ],
+    "correct_answer": "The Gong Show",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "TV",
+    "text": "What game show paired contestants seeking matches, judged by suggestive questions, hosted by Chuck Barris?",
+    "options": [
+      "The Dating Game",
+      "The Newlywed Game",
+      "The Gong Show",
+      "Love Connection"
+    ],
+    "correct_answer": "The Dating Game",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "TV",
+    "text": "What miniseries, based on Alex Haley's novel about slavery and his family's history, became a massive ratings hit in 1977?",
+    "options": [
+      "Roots",
+      "Rich Man, Poor Man",
+      "Shogun",
+      "The Winds of War"
+    ],
+    "correct_answer": "Roots",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "TV",
+    "text": "What sitcom, set in a Chicago apartment building, was known for the character Florida Evans and her family?",
+    "options": [
+      "Good Times",
+      "The Jeffersons",
+      "What's Happening!!",
+      "Sanford and Son"
+    ],
+    "correct_answer": "Good Times",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "TV",
+    "text": "What sitcom featured Bea Arthur as a strong-willed, liberal woman in New York, a spin-off of 'All in the Family'?",
+    "options": [
+      "Maude",
+      "Rhoda",
+      "Phyllis",
+      "One Day at a Time"
+    ],
+    "correct_answer": "Maude",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "TV",
+    "text": "What sitcom followed a Minneapolis TV newsroom anchored by a beloved single career woman?",
+    "options": [
+      "The Mary Tyler Moore Show",
+      "Rhoda",
+      "Phyllis",
+      "One Day at a Time"
+    ],
+    "correct_answer": "The Mary Tyler Moore Show",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "TV",
+    "text": "What spin-off followed Mary Richards' best friend as she moved back to New York?",
+    "options": [
+      "Rhoda",
+      "Phyllis",
+      "Maude",
+      "Good Times"
+    ],
+    "correct_answer": "Rhoda",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "TV",
+    "text": "What variety/comedy show launched in 1975 featured a rotating 'Not Ready for Prime Time Players' cast?",
+    "options": [
+      "Saturday Night Live",
+      "The Carol Burnett Show",
+      "SCTV",
+      "Fridays"
+    ],
+    "correct_answer": "Saturday Night Live",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "TV",
+    "text": "What western drama, running from 1959 into the 1970s, followed the Cartwright family on the Ponderosa Ranch?",
+    "options": [
+      "Bonanza",
+      "Gunsmoke",
+      "The Big Valley",
+      "The High Chaparral"
+    ],
+    "correct_answer": "Bonanza",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "TV",
+    "text": "What long-running western series, set in Dodge City, ran from 1955 to 1975?",
+    "options": [
+      "Gunsmoke",
+      "Bonanza",
+      "The Virginian",
+      "Wagon Train"
+    ],
+    "correct_answer": "Gunsmoke",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Fashion",
+    "text": "What loose-fitting pants that flare dramatically at the ankle were a signature style of the 1970s?",
+    "options": [
+      "Bell-bottoms",
+      "Skinny jeans",
+      "Cargo pants",
+      "Capri pants"
+    ],
+    "correct_answer": "Bell-bottoms",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Fashion",
+    "text": "What dance craze and music genre inspired glittery jumpsuits, platform shoes, and mirror balls?",
+    "options": [
+      "Disco",
+      "Punk",
+      "New Wave",
+      "Grunge"
+    ],
+    "correct_answer": "Disco",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Fashion",
+    "text": "What tall, chunky shoe style with an elevated sole became iconic in disco-era fashion?",
+    "options": [
+      "Platform shoes",
+      "Stiletto heels",
+      "Wedge sandals",
+      "Espadrilles"
+    ],
+    "correct_answer": "Platform shoes",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Fashion",
+    "text": "What hairstyle, featuring tight curls close to the head, became especially popular in the disco era?",
+    "options": [
+      "The Afro",
+      "The Perm",
+      "The Shag",
+      "The Bob"
+    ],
+    "correct_answer": "The Afro",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Fashion",
+    "text": "What layered, tousled haircut, popularized by TV star Farrah Fawcett, became a defining look of the decade?",
+    "options": [
+      "The Farrah Fawcett flip/shag",
+      "The Rachel",
+      "The Pixie cut",
+      "The Beehive"
+    ],
+    "correct_answer": "The Farrah Fawcett flip/shag",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Fashion",
+    "text": "What layered, feathered haircut for men, popular alongside disco and rock culture, later evolved into the 'mullet'?",
+    "options": [
+      "The shag haircut",
+      "The crew cut",
+      "The pompadour",
+      "The buzz cut"
+    ],
+    "correct_answer": "The shag haircut",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Fashion",
+    "text": "What loud, colorful printed pattern became closely associated with 1970s clothing and decor?",
+    "options": [
+      "Psychedelic prints",
+      "Plaid",
+      "Polka dots",
+      "Gingham"
+    ],
+    "correct_answer": "Psychedelic prints",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Fashion",
+    "text": "What fitness fad, involving roller skates worn to disco music, became a popular pastime in the late 1970s?",
+    "options": [
+      "Roller disco",
+      "Aerobics",
+      "Jazzercise",
+      "Skateboarding"
+    ],
+    "correct_answer": "Roller disco",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Fashion",
+    "text": "What small electronic virtual pet toy actually debuted decades after the 1970s, in the 1990s?",
+    "options": [
+      "Tamagotchi",
+      "Mood ring",
+      "Pet Rock",
+      "Rubik's Cube"
+    ],
+    "correct_answer": "Tamagotchi",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Fashion",
+    "text": "What jewelry item, said to change color with the wearer's body temperature or emotions, was a popular novelty in the 1970s?",
+    "options": [
+      "The mood ring",
+      "The friendship bracelet",
+      "The charm bracelet",
+      "The puka shell necklace"
+    ],
+    "correct_answer": "The mood ring",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Fashion",
+    "text": "What novelty item, essentially a rock sold in a box as a low-maintenance 'pet,' became a fad in 1975?",
+    "options": [
+      "The Pet Rock",
+      "The mood ring",
+      "The Rubik's Cube",
+      "Slinky"
+    ],
+    "correct_answer": "The Pet Rock",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Fashion",
+    "text": "What denim style, often adorned with patches and embroidery, became a wardrobe staple across the decade?",
+    "options": [
+      "Denim jackets and jeans",
+      "Leather jackets",
+      "Corduroy suits",
+      "Velvet blazers"
+    ],
+    "correct_answer": "Denim jackets and jeans",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Fashion",
+    "text": "What men's suit style, featuring wide lapels and often loud patterns, was iconic in disco-era nightlife?",
+    "options": [
+      "The leisure suit",
+      "The zoot suit",
+      "The three-piece tweed suit",
+      "The Nehru jacket"
+    ],
+    "correct_answer": "The leisure suit",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Fashion",
+    "text": "What jewelry trend involving shells strung into necklaces became popular with a beachy, surf-inspired look?",
+    "options": [
+      "Puka shell necklaces",
+      "Pearl necklaces",
+      "Charm bracelets",
+      "Choker necklaces"
+    ],
+    "correct_answer": "Puka shell necklaces",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Sports",
+    "text": "What boxer famously fought Muhammad Ali in the 'Rumble in the Jungle' in 1974?",
+    "options": [
+      "George Foreman",
+      "Joe Frazier",
+      "Ken Norton",
+      "Larry Holmes"
+    ],
+    "correct_answer": "George Foreman",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Sports",
+    "text": "What boxer fought Muhammad Ali in the 'Thrilla in Manila' in 1975?",
+    "options": [
+      "Joe Frazier",
+      "George Foreman",
+      "Ken Norton",
+      "Leon Spinks"
+    ],
+    "correct_answer": "Joe Frazier",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Sports",
+    "text": "What country hosted the 1976 Summer Olympics?",
+    "options": [
+      "Canada",
+      "West Germany",
+      "Japan",
+      "Mexico"
+    ],
+    "correct_answer": "Canada",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Sports",
+    "text": "What Canadian city hosted the 1976 Summer Olympics?",
+    "options": [
+      "Montreal",
+      "Toronto",
+      "Vancouver",
+      "Calgary"
+    ],
+    "correct_answer": "Montreal",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Sports",
+    "text": "What tragic event occurred at the 1972 Munich Summer Olympics?",
+    "options": [
+      "A terrorist attack on Israeli athletes",
+      "A stadium collapse",
+      "A doping scandal",
+      "A boycott by multiple nations"
+    ],
+    "correct_answer": "A terrorist attack on Israeli athletes",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Sports",
+    "text": "What American swimmer won a then-record seven gold medals at the 1972 Munich Olympics?",
+    "options": [
+      "Mark Spitz",
+      "Michael Phelps (this was the 2000s, not correct)",
+      "Greg Louganis",
+      "Matt Biondi"
+    ],
+    "correct_answer": "Mark Spitz",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Sports",
+    "text": "What Romanian gymnast scored the first perfect 10 in Olympic history at the 1976 Montreal Games?",
+    "options": [
+      "Nadia Comăneci",
+      "Olga Korbut",
+      "Ludmilla Tourischeva",
+      "Nellie Kim"
+    ],
+    "correct_answer": "Nadia Comăneci",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Sports",
+    "text": "What NFL team won Super Bowl IX, X, XIII, and XIV, dominating the league in the 1970s?",
+    "options": [
+      "The Pittsburgh Steelers",
+      "The Dallas Cowboys",
+      "The Miami Dolphins",
+      "The Oakland Raiders"
+    ],
+    "correct_answer": "The Pittsburgh Steelers",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Sports",
+    "text": "What NFL team completed the only perfect season in league history in 1972?",
+    "options": [
+      "The Miami Dolphins",
+      "The Pittsburgh Steelers",
+      "The Minnesota Vikings",
+      "The Dallas Cowboys"
+    ],
+    "correct_answer": "The Miami Dolphins",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Sports",
+    "text": "What baseball player broke Babe Ruth's all-time home run record in 1974?",
+    "options": [
+      "Hank Aaron",
+      "Willie Mays",
+      "Reggie Jackson",
+      "Pete Rose"
+    ],
+    "correct_answer": "Hank Aaron",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Sports",
+    "text": "What tennis match, pitting a top female player against an aging male former champion, was billed as the 'Battle of the Sexes' in 1973?",
+    "options": [
+      "Billie Jean King vs. Bobby Riggs",
+      "Chris Evert vs. Jimmy Connors",
+      "Martina Navratilova vs. John McEnroe",
+      "Margaret Court vs. Rod Laver"
+    ],
+    "correct_answer": "Billie Jean King vs. Bobby Riggs",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Sports",
+    "text": "What basketball league merged with the NBA in 1976, bringing teams like the Nets and Spurs into the league?",
+    "options": [
+      "The American Basketball Association (ABA)",
+      "The Continental Basketball Association",
+      "The National Basketball League",
+      "The Eastern Basketball Association"
+    ],
+    "correct_answer": "The American Basketball Association (ABA)",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "News & Events",
+    "text": "What political scandal, involving a break-in at a Washington, D.C. office complex, led to a presidential resignation in 1974?",
+    "options": [
+      "The Watergate scandal",
+      "The Iran-Contra affair",
+      "The Teapot Dome scandal",
+      "The Lewinsky scandal"
+    ],
+    "correct_answer": "The Watergate scandal",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "News & Events",
+    "text": "Who was the U.S. President who resigned from office in 1974 amid the Watergate scandal?",
+    "options": [
+      "Richard Nixon",
+      "Gerald Ford",
+      "Jimmy Carter",
+      "Lyndon Johnson"
+    ],
+    "correct_answer": "Richard Nixon",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "News & Events",
+    "text": "Who became U.S. President after Nixon's resignation, without having been elected Vice President or President?",
+    "options": [
+      "Gerald Ford",
+      "Jimmy Carter",
+      "Spiro Agnew",
+      "Nelson Rockefeller"
+    ],
+    "correct_answer": "Gerald Ford",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "News & Events",
+    "text": "Who was elected U.S. President in 1976, defeating incumbent Gerald Ford?",
+    "options": [
+      "Jimmy Carter",
+      "Ronald Reagan",
+      "Ted Kennedy",
+      "Walter Mondale"
+    ],
+    "correct_answer": "Jimmy Carter",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "News & Events",
+    "text": "What long-running conflict in Southeast Asia officially ended for the United States in 1975?",
+    "options": [
+      "The Vietnam War",
+      "The Korean War",
+      "The Cambodian Civil War",
+      "The Laotian Civil War"
+    ],
+    "correct_answer": "The Vietnam War",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "News & Events",
+    "text": "What city fell to North Vietnamese forces in April 1975, marking the end of the Vietnam War?",
+    "options": [
+      "Saigon",
+      "Hanoi",
+      "Da Nang",
+      "Hue"
+    ],
+    "correct_answer": "Saigon",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "News & Events",
+    "text": "What Middle Eastern oil embargo in 1973 led to long gas lines and fuel shortages in the United States?",
+    "options": [
+      "The OPEC oil embargo",
+      "The Suez Crisis",
+      "The Iranian Revolution oil shock",
+      "The Gulf War embargo"
+    ],
+    "correct_answer": "The OPEC oil embargo",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "News & Events",
+    "text": "What newspaper heiress was kidnapped by the Symbionese Liberation Army in 1974?",
+    "options": [
+      "Patty Hearst",
+      "Barbara Mackle",
+      "Gloria Vanderbilt",
+      "J. Paul Getty III's case is different, involving his grandfather"
+    ],
+    "correct_answer": "Patty Hearst",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "News & Events",
+    "text": "What computer company was founded by Steve Jobs and Steve Wozniak in a garage in 1976?",
+    "options": [
+      "Apple",
+      "Microsoft",
+      "IBM",
+      "Atari"
+    ],
+    "correct_answer": "Apple",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "News & Events",
+    "text": "What software company was founded by Bill Gates and Paul Allen in 1975?",
+    "options": [
+      "Microsoft",
+      "Apple",
+      "Oracle",
+      "IBM"
+    ],
+    "correct_answer": "Microsoft",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "News & Events",
+    "text": "What theme park opened in Orlando, Florida in 1971, expanding the Disney brand beyond California?",
+    "options": [
+      "Walt Disney World",
+      "Universal Studios Florida",
+      "SeaWorld Orlando",
+      "Busch Gardens"
+    ],
+    "correct_answer": "Walt Disney World",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "News & Events",
+    "text": "What virus outbreak among American Legion members in Philadelphia in 1976 led to the naming of a new disease?",
+    "options": [
+      "Legionnaires' disease",
+      "Swine flu",
+      "Lyme disease",
+      "Hantavirus"
+    ],
+    "correct_answer": "Legionnaires' disease",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "News & Events",
+    "text": "What year did the United States celebrate its Bicentennial, marking 200 years since independence?",
+    "options": [
+      "1976",
+      "1974",
+      "1978",
+      "1980"
+    ],
+    "correct_answer": "1976",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Toys & Games",
+    "text": "What mechanical puzzle cube, invented by a Hungarian professor, was released internationally in the late 1970s?",
+    "options": [
+      "Rubik's Cube",
+      "The Tower of Hanoi",
+      "Simon",
+      "The 15 Puzzle"
+    ],
+    "correct_answer": "Rubik's Cube",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Toys & Games",
+    "text": "What tabletop role-playing game, involving dice and fantasy adventures, was first published in 1974?",
+    "options": [
+      "Dungeons & Dragons",
+      "Warhammer",
+      "Risk",
+      "Diplomacy"
+    ],
+    "correct_answer": "Dungeons & Dragons",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Toys & Games",
+    "text": "What home video game console, released by Atari in 1977, popularized cartridge-based gaming?",
+    "options": [
+      "The Atari 2600",
+      "The Magnavox Odyssey",
+      "The Intellivision",
+      "The ColecoVision"
+    ],
+    "correct_answer": "The Atari 2600",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Toys & Games",
+    "text": "What simple paddle-and-ball arcade video game, released by Atari in 1972, is considered one of the first commercially successful video games?",
+    "options": [
+      "Pong",
+      "Space Invaders",
+      "Breakout",
+      "Asteroids"
+    ],
+    "correct_answer": "Pong",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Toys & Games",
+    "text": "What arcade shooting game, released in 1978 by Taito, became a massive hit and helped launch the golden age of arcade games?",
+    "options": [
+      "Space Invaders",
+      "Pac-Man",
+      "Asteroids",
+      "Galaga"
+    ],
+    "correct_answer": "Space Invaders",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Toys & Games",
+    "text": "What toy line featured egg-shaped, weighted dolls that would always right themselves after being pushed over, popular in the mid-1970s?",
+    "options": [
+      "Weebles",
+      "Strawberry Shortcake dolls",
+      "Barbie",
+      "My Little Pony"
+    ],
+    "correct_answer": "Weebles",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Toys & Games",
+    "text": "What line of small plastic action figures, created by Kenner following a 1977 film license, became a massive toy phenomenon?",
+    "options": [
+      "Star Wars action figures",
+      "G.I. Joe (originally 1960s)",
+      "Transformers (1980s)",
+      "He-Man (1980s)"
+    ],
+    "correct_answer": "Star Wars action figures",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Toys & Games",
+    "text": "What handheld electronic game, released by Milton Bradley in 1978, challenged players to repeat sequences of lit-up colors and sounds?",
+    "options": [
+      "Simon",
+      "Merlin",
+      "Speak & Spell",
+      "Simon Says"
+    ],
+    "correct_answer": "Simon",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Toys & Games",
+    "text": "What talking electronic educational toy, released by Texas Instruments in 1978, helped children learn spelling?",
+    "options": [
+      "Speak & Spell",
+      "Simon",
+      "Merlin",
+      "Teddy Ruxpin"
+    ],
+    "correct_answer": "Speak & Spell",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Toys & Games",
+    "text": "What lawn dart-style outdoor game, later banned in some countries due to safety concerns, was popular in 1970s backyards?",
+    "options": [
+      "Jarts (Lawn Darts)",
+      "Cornhole",
+      "Horseshoes",
+      "Croquet"
+    ],
+    "correct_answer": "Jarts (Lawn Darts)",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Celebrities",
+    "text": "What actress, known for her role in 'Charlie's Angels' and an iconic red swimsuit poster, was a major 1970s sex symbol?",
+    "options": [
+      "Farrah Fawcett",
+      "Jaclyn Smith",
+      "Kate Jackson",
+      "Cheryl Ladd"
+    ],
+    "correct_answer": "Farrah Fawcett",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Celebrities",
+    "text": "What actor became a global icon after starring as a martial artist in films like 'Enter the Dragon' before his early death in 1973?",
+    "options": [
+      "Bruce Lee",
+      "Chuck Norris",
+      "Jackie Chan",
+      "Jet Li"
+    ],
+    "correct_answer": "Bruce Lee",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Celebrities",
+    "text": "What comedian and actor became famous for his exaggerated physical comedy in films like 'The Pink Panther Strikes Again'?",
+    "options": [
+      "Peter Sellers",
+      "Mel Brooks",
+      "Gene Wilder",
+      "Chevy Chase"
+    ],
+    "correct_answer": "Peter Sellers",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Celebrities",
+    "text": "What director, known for suspense films, released 'Jaws,' launching a career of blockbuster hits, in 1975?",
+    "options": [
+      "Steven Spielberg",
+      "George Lucas",
+      "Francis Ford Coppola",
+      "Martin Scorsese"
+    ],
+    "correct_answer": "Steven Spielberg",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Celebrities",
+    "text": "What actor and bodybuilder won multiple Mr. Olympia titles before transitioning to Hollywood stardom, starting with 'Pumping Iron' in 1977?",
+    "options": [
+      "Arnold Schwarzenegger",
+      "Sylvester Stallone",
+      "Lou Ferrigno",
+      "Franco Columbu"
+    ],
+    "correct_answer": "Arnold Schwarzenegger",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Celebrities",
+    "text": "What actor starred as the title character in 'Rocky' and wrote the film's screenplay himself?",
+    "options": [
+      "Sylvester Stallone",
+      "Arnold Schwarzenegger",
+      "Burt Reynolds",
+      "Charles Bronson"
+    ],
+    "correct_answer": "Sylvester Stallone",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Celebrities",
+    "text": "What mustachioed actor became a top box office draw with films like 'Smokey and the Bandit' in 1977?",
+    "options": [
+      "Burt Reynolds",
+      "Clint Eastwood",
+      "Charles Bronson",
+      "James Caan"
+    ],
+    "correct_answer": "Burt Reynolds",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Celebrities",
+    "text": "What actor and filmmaker starred in and directed 'Annie Hall,' also known for playing neurotic comedic characters?",
+    "options": [
+      "Woody Allen",
+      "Mel Brooks",
+      "Albert Brooks",
+      "Gene Wilder"
+    ],
+    "correct_answer": "Woody Allen",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Celebrities",
+    "text": "What British actress starred in acclaimed 1970s films and won an Oscar for 'Julia' in 1977?",
+    "options": [
+      "Vanessa Redgrave",
+      "Julie Christie",
+      "Glenda Jackson",
+      "Maggie Smith"
+    ],
+    "correct_answer": "Vanessa Redgrave",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Celebrities",
+    "text": "What singer and actress starred in 'A Star Is Born' (1976) alongside Kris Kristofferson?",
+    "options": [
+      "Barbra Streisand",
+      "Diana Ross",
+      "Cher",
+      "Olivia Newton-John"
+    ],
+    "correct_answer": "Barbra Streisand",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Movies",
+    "text": "What 1979 sci-fi horror film directed by Ridley Scott introduced a deadly extraterrestrial creature aboard a spaceship?",
+    "options": [
+      "Alien",
+      "Star Trek: The Motion Picture",
+      "The Black Hole",
+      "Moonraker"
+    ],
+    "correct_answer": "Alien",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Movies",
+    "text": "What 1979 James Bond film sent 007 into outer space?",
+    "options": [
+      "Moonraker",
+      "The Spy Who Loved Me",
+      "For Your Eyes Only",
+      "Diamonds Are Forever"
+    ],
+    "correct_answer": "Moonraker",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Movies",
+    "text": "What 1975 comedy film parodied the legend of King Arthur, created by a British comedy troupe?",
+    "options": [
+      "Monty Python and the Holy Grail",
+      "Life of Brian",
+      "The Meaning of Life",
+      "Yellowbeard"
+    ],
+    "correct_answer": "Monty Python and the Holy Grail",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Movies",
+    "text": "What 1978 comedy film, starring John Belushi, is set at a rowdy college fraternity house?",
+    "options": [
+      "National Lampoon's Animal House",
+      "Meatballs",
+      "Stripes",
+      "Caddyshack"
+    ],
+    "correct_answer": "National Lampoon's Animal House",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Movies",
+    "text": "What 1975 shark thriller's iconic John Williams score is instantly recognizable and heightens tension throughout the film?",
+    "options": [
+      "Jaws",
+      "Orca",
+      "The Deep",
+      "Piranha"
+    ],
+    "correct_answer": "Jaws",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "TV",
+    "text": "What children's educational show, featuring puppets and a cast teaching literacy and numbers, had been airing since 1969 and thrived through the 70s?",
+    "options": [
+      "Sesame Street",
+      "The Electric Company",
+      "Mister Rogers' Neighborhood",
+      "Zoom"
+    ],
+    "correct_answer": "Sesame Street",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "TV",
+    "text": "What gentle children's program, hosted by a cardigan-wearing host who spoke calmly to his young viewers, aired throughout the decade?",
+    "options": [
+      "Mister Rogers' Neighborhood",
+      "Sesame Street",
+      "Captain Kangaroo",
+      "Romper Room"
+    ],
+    "correct_answer": "Mister Rogers' Neighborhood",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "TV",
+    "text": "What late-night talk show, hosted by a longtime host known for his monologues, was a dominant force in the decade?",
+    "options": [
+      "The Tonight Show Starring Johnny Carson",
+      "The Merv Griffin Show",
+      "The Dick Cavett Show",
+      "Late Night with David Letterman (started in 1982)"
+    ],
+    "correct_answer": "The Tonight Show Starring Johnny Carson",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "TV",
+    "text": "What family drama, following a large family through the Great Depression and beyond in rural Virginia, aired from 1972 to 1981?",
+    "options": [
+      "The Waltons",
+      "Little House on the Prairie",
+      "Eight Is Enough",
+      "Family"
+    ],
+    "correct_answer": "The Waltons",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "TV",
+    "text": "What family drama, based on a series of children's books, followed a pioneer family in 1870s-80s Minnesota, airing from 1974?",
+    "options": [
+      "Little House on the Prairie",
+      "The Waltons",
+      "Bonanza",
+      "How the West Was Won"
+    ],
+    "correct_answer": "Little House on the Prairie",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What female vocal group had disco hits including 'Rasputin' and 'Daddy Cool,' though based primarily in Europe?",
+    "options": [
+      "Boney M",
+      "ABBA",
+      "Silver Convention",
+      "Chic"
+    ],
+    "correct_answer": "Boney M",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What American band, known for smooth harmonies, released 'Take It Easy' and 'Hotel California'?",
+    "options": [
+      "The Eagles",
+      "Fleetwood Mac",
+      "America",
+      "Chicago"
+    ],
+    "correct_answer": "The Eagles",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What group had a huge disco hit in 1978 with 'Le Freak'?",
+    "options": [
+      "Chic",
+      "Sister Sledge",
+      "KC and the Sunshine Band",
+      "The Trammps"
+    ],
+    "correct_answer": "Chic",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What group is known for the disco anthem 'We Are Family,' released in 1979?",
+    "options": [
+      "Sister Sledge",
+      "Chic",
+      "The Emotions",
+      "Earth, Wind & Fire"
+    ],
+    "correct_answer": "Sister Sledge",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What British art rock band, known for elaborate stage shows and 'Peter Gabriel' as an early frontman, released 'Selling England by the Pound' in 1973?",
+    "options": [
+      "Genesis",
+      "Yes",
+      "King Crimson",
+      "Emerson, Lake & Palmer"
+    ],
+    "correct_answer": "Genesis",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What progressive rock band, known for elaborate concept albums, released 'Close to the Edge' in 1972?",
+    "options": [
+      "Yes",
+      "Genesis",
+      "King Crimson",
+      "Rush"
+    ],
+    "correct_answer": "Yes",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What British rock band, fronted by Roger Daltrey, released the rock opera 'Quadrophenia' in 1973?",
+    "options": [
+      "The Who",
+      "Led Zeppelin",
+      "The Kinks",
+      "The Rolling Stones"
+    ],
+    "correct_answer": "The Who",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What British rock band released the album 'Exile on Main St.' in 1972?",
+    "options": [
+      "The Rolling Stones",
+      "The Who",
+      "Led Zeppelin",
+      "The Kinks"
+    ],
+    "correct_answer": "The Rolling Stones",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What American singer, known as 'The Godfather of Soul,' remained a major funk influence throughout the decade?",
+    "options": [
+      "James Brown",
+      "Al Green",
+      "Isaac Hayes",
+      "Curtis Mayfield"
+    ],
+    "correct_answer": "James Brown",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What singer released the soul classic 'Let's Stay Together' in 1971?",
+    "options": [
+      "Al Green",
+      "Marvin Gaye",
+      "James Brown",
+      "Curtis Mayfield"
+    ],
+    "correct_answer": "Al Green",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Sports",
+    "text": "What Formula One driver, played later by an actor in the film 'Rush,' won the World Championship in 1976 after a near-fatal crash?",
+    "options": [
+      "Niki Lauda",
+      "James Hunt",
+      "Jody Scheckter",
+      "Mario Andretti"
+    ],
+    "correct_answer": "Niki Lauda",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Sports",
+    "text": "What baseball team, known as the 'Big Red Machine,' dominated the National League throughout much of the 1970s?",
+    "options": [
+      "The Cincinnati Reds",
+      "The Los Angeles Dodgers",
+      "The Oakland Athletics",
+      "The New York Yankees"
+    ],
+    "correct_answer": "The Cincinnati Reds",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Sports",
+    "text": "What baseball team, led by colorful characters and owner Charlie Finley, won three consecutive World Series from 1972-1974?",
+    "options": [
+      "The Oakland Athletics",
+      "The Cincinnati Reds",
+      "The New York Mets",
+      "The Baltimore Orioles"
+    ],
+    "correct_answer": "The Oakland Athletics",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "News & Events",
+    "text": "What British monarch celebrated her Silver Jubilee, marking 25 years on the throne, in 1977?",
+    "options": [
+      "Queen Elizabeth II",
+      "Queen Victoria",
+      "King George VI",
+      "Queen Anne"
+    ],
+    "correct_answer": "Queen Elizabeth II",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "News & Events",
+    "text": "What religious/political revolution in Iran, culminating in 1979, led to the fall of the Shah and installation of an Islamic Republic?",
+    "options": [
+      "The Iranian Revolution",
+      "The Iran-Iraq War",
+      "The Suez Crisis",
+      "The Gulf War"
+    ],
+    "correct_answer": "The Iranian Revolution",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "News & Events",
+    "text": "What crisis began in November 1979, when Iranian students took American diplomats captive in Tehran?",
+    "options": [
+      "The Iran Hostage Crisis",
+      "The Iranian Revolution itself",
+      "The Suez Crisis",
+      "The Beirut hostage crisis"
+    ],
+    "correct_answer": "The Iran Hostage Crisis",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "News & Events",
+    "text": "What nuclear power plant in Pennsylvania experienced a partial meltdown in 1979, becoming a landmark event in nuclear safety history?",
+    "options": [
+      "Three Mile Island",
+      "Chernobyl (this was 1986, USSR)",
+      "Fukushima (this was 2011, Japan)",
+      "Diablo Canyon"
+    ],
+    "correct_answer": "Three Mile Island",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "News & Events",
+    "text": "What softdrink company introduced a major rebranding campaign and rival taste test against Coca-Cola in the late 1970s, escalating into the 1980s 'Cola Wars'?",
+    "options": [
+      "Pepsi",
+      "7 Up",
+      "RC Cola",
+      "Dr Pepper"
+    ],
+    "correct_answer": "Pepsi",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Toys & Games",
+    "text": "What fast-food chain introduced its now-iconic clown mascot's expanded presence and Happy Meal concept by the end of the decade?",
+    "options": [
+      "McDonald's",
+      "Burger King",
+      "Wendy's",
+      "Jack in the Box"
+    ],
+    "correct_answer": "McDonald's",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Toys & Games",
+    "text": "What arcade and home video game genre, exemplified by Pong and Breakout, defined the earliest era of the industry in the decade?",
+    "options": [
+      "Paddle/ball-based games",
+      "Platformers",
+      "First-person shooters",
+      "Role-playing games"
+    ],
+    "correct_answer": "Paddle/ball-based games",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Fashion",
+    "text": "What type of jeans, cut close through the hip and thigh before flaring dramatically below the knee, defined 1970s denim fashion?",
+    "options": [
+      "Bell-bottom jeans",
+      "Skinny jeans",
+      "Straight-leg jeans",
+      "Boyfriend jeans"
+    ],
+    "correct_answer": "Bell-bottom jeans",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Fashion",
+    "text": "What color palette, featuring avocado green, harvest gold, and burnt orange, dominated home decor in the 1970s?",
+    "options": [
+      "Earth tones",
+      "Pastels",
+      "Neon colors",
+      "Black and white"
+    ],
+    "correct_answer": "Earth tones",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Movies",
+    "text": "What actor starred in both 'Smokey and the Bandit' and 'The Longest Yard,' becoming a top box office draw in the decade?",
+    "options": [
+      "Burt Reynolds",
+      "Clint Eastwood",
+      "Charles Bronson",
+      "James Caan"
+    ],
+    "correct_answer": "Burt Reynolds",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Movies",
+    "text": "What 1974 disaster film depicted a massive earthquake devastating Los Angeles, notable for its 'Sensurround' sound technology?",
+    "options": [
+      "Earthquake",
+      "The Towering Inferno",
+      "The Poseidon Adventure",
+      "Meteor"
+    ],
+    "correct_answer": "Earthquake",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Movies",
+    "text": "What 1978 musical fantasy film, an adaptation of the Broadway musical, starred Diana Ross and Michael Jackson?",
+    "options": [
+      "The Wiz",
+      "Grease",
+      "Xanadu",
+      "Sgt. Pepper's Lonely Hearts Club Band"
+    ],
+    "correct_answer": "The Wiz",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "TV",
+    "text": "What science fiction series, following the crew of a fleet of spaceships fleeing robotic enemies called Cylons, premiered in 1978?",
+    "options": [
+      "Battlestar Galactica",
+      "Buck Rogers in the 25th Century",
+      "Space: 1999",
+      "Star Trek: The Motion Picture"
+    ],
+    "correct_answer": "Battlestar Galactica",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "TV",
+    "text": "What British science fiction series, set on a moon base after a nuclear disaster propels it out of orbit, aired from 1975 to 1977?",
+    "options": [
+      "Space: 1999",
+      "Doctor Who (started 1963, still airing)",
+      "Blake's 7 (1978)",
+      "UFO"
+    ],
+    "correct_answer": "Space: 1999",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "News & Events",
+    "text": "What technology company introduced the first mass-market personal computer, the Altair 8800, in 1975?",
+    "options": [
+      "MITS",
+      "Apple",
+      "IBM",
+      "Commodore"
+    ],
+    "correct_answer": "MITS",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Sports",
+    "text": "What golfer, nicknamed 'The Golden Bear,' was one of the dominant players of the decade?",
+    "options": [
+      "Jack Nicklaus",
+      "Arnold Palmer",
+      "Tom Watson",
+      "Lee Trevino"
+    ],
+    "correct_answer": "Jack Nicklaus",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Sports",
+    "text": "What tennis player won a record five consecutive Wimbledon singles titles from 1976 to 1980, spanning the decade's end?",
+    "options": [
+      "Björn Borg",
+      "Jimmy Connors",
+      "John McEnroe",
+      "Ilie Năstase"
+    ],
+    "correct_answer": "Björn Borg",
+    "flavor_wrong": null
+  }
+]

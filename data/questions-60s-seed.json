@@ -1,0 +1,2342 @@
+[
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What British rock band, led by John Lennon and Paul McCartney, sparked 'Beatlemania' after arriving in America in 1964?",
+    "options": [
+      "The Beatles",
+      "The Rolling Stones",
+      "The Kinks",
+      "The Who"
+    ],
+    "correct_answer": "The Beatles",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What British rock band, fronted by Mick Jagger, released 'Satisfaction' in 1965?",
+    "options": [
+      "The Rolling Stones",
+      "The Beatles",
+      "The Who",
+      "The Animals"
+    ],
+    "correct_answer": "The Rolling Stones",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What Detroit record label, founded by Berry Gordy, became synonymous with soul hits throughout the 1960s?",
+    "options": [
+      "Motown",
+      "Stax",
+      "Atlantic Records",
+      "Chess Records"
+    ],
+    "correct_answer": "Motown",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What massive outdoor music festival, held on a farm in upstate New York in August 1969, became a symbol of the counterculture?",
+    "options": [
+      "Woodstock",
+      "Monterey Pop Festival",
+      "Altamont",
+      "The Isle of Wight Festival"
+    ],
+    "correct_answer": "Woodstock",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What guitarist famously closed his Woodstock set with a distorted rendition of 'The Star-Spangled Banner'?",
+    "options": [
+      "Jimi Hendrix",
+      "Eric Clapton",
+      "Carlos Santana",
+      "Pete Townshend"
+    ],
+    "correct_answer": "Jimi Hendrix",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What Motown vocal group, featuring Diana Ross, had hits including 'Baby Love' and 'Stop! In the Name of Love'?",
+    "options": [
+      "The Supremes",
+      "The Marvelettes",
+      "Martha and the Vandellas",
+      "The Vandellas"
+    ],
+    "correct_answer": "The Supremes",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What Motown singer, known as a child prodigy, released 'Fingertips' in 1963 at age 13?",
+    "options": [
+      "Stevie Wonder",
+      "Marvin Gaye",
+      "Smokey Robinson",
+      "Michael Jackson"
+    ],
+    "correct_answer": "Stevie Wonder",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What folk-rock singer-songwriter released 'Blowin' in the Wind' and became a voice of protest music in the 1960s?",
+    "options": [
+      "Bob Dylan",
+      "Pete Seeger",
+      "Joan Baez",
+      "Phil Ochs"
+    ],
+    "correct_answer": "Bob Dylan",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What folk singer, closely associated with the civil rights movement, performed alongside Bob Dylan at the March on Washington?",
+    "options": [
+      "Joan Baez",
+      "Judy Collins",
+      "Buffy Sainte-Marie",
+      "Joni Mitchell"
+    ],
+    "correct_answer": "Joan Baez",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What California band, known for surf rock harmonies, released 'Good Vibrations' and the album 'Pet Sounds' in the mid-1960s?",
+    "options": [
+      "The Beach Boys",
+      "Jan and Dean",
+      "The Ventures",
+      "The Surfaris"
+    ],
+    "correct_answer": "The Beach Boys",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What British Invasion band, known for 'House of the Rising Sun,' emerged from Newcastle, England?",
+    "options": [
+      "The Animals",
+      "The Kinks",
+      "Herman's Hermits",
+      "The Yardbirds"
+    ],
+    "correct_answer": "The Animals",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What British rock band released the classic-rock anthem 'My Generation' in 1965?",
+    "options": [
+      "The Who",
+      "The Kinks",
+      "The Rolling Stones",
+      "The Small Faces"
+    ],
+    "correct_answer": "The Who",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What psychedelic rock band, fronted by Jim Morrison, released 'Light My Fire' in 1967?",
+    "options": [
+      "The Doors",
+      "Jefferson Airplane",
+      "The Grateful Dead",
+      "Iron Butterfly"
+    ],
+    "correct_answer": "The Doors",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What San Francisco psychedelic rock band, fronted by Grace Slick, released 'White Rabbit' in 1967?",
+    "options": [
+      "Jefferson Airplane",
+      "The Doors",
+      "The Grateful Dead",
+      "Big Brother and the Holding Company"
+    ],
+    "correct_answer": "Jefferson Airplane",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What soul singer, known as the 'Queen of Soul,' released 'Respect' in 1967?",
+    "options": [
+      "Aretha Franklin",
+      "Diana Ross",
+      "Gladys Knight",
+      "Tina Turner"
+    ],
+    "correct_answer": "Aretha Franklin",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What soul singer, known for 'Sittin' on the Dock of the Bay,' died in a plane crash in December 1967?",
+    "options": [
+      "Otis Redding",
+      "Sam Cooke",
+      "Marvin Gaye",
+      "Wilson Pickett"
+    ],
+    "correct_answer": "Otis Redding",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What soul singer, a major crossover star, was shot and killed in 1964 at a Los Angeles motel?",
+    "options": [
+      "Sam Cooke",
+      "Otis Redding",
+      "Jackie Wilson",
+      "Marvin Gaye"
+    ],
+    "correct_answer": "Sam Cooke",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What Beatles album, released in 1967, is considered a landmark concept album of the psychedelic era?",
+    "options": [
+      "Sgt. Pepper's Lonely Hearts Club Band",
+      "Revolver",
+      "Abbey Road",
+      "The White Album"
+    ],
+    "correct_answer": "Sgt. Pepper's Lonely Hearts Club Band",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What Beatles song, released in 1965, became one of the most covered songs in music history, written primarily by Paul McCartney?",
+    "options": [
+      "Yesterday",
+      "Let It Be",
+      "Hey Jude",
+      "Something"
+    ],
+    "correct_answer": "Yesterday",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What US TV variety show gave The Beatles their American television debut in February 1964?",
+    "options": [
+      "The Ed Sullivan Show",
+      "The Tonight Show",
+      "American Bandstand",
+      "Hootenanny"
+    ],
+    "correct_answer": "The Ed Sullivan Show",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What female singer had hits with 'These Boots Are Made for Walkin'' in 1966, and is the daughter of a famous crooner?",
+    "options": [
+      "Nancy Sinatra",
+      "Cher",
+      "Petula Clark",
+      "Lulu"
+    ],
+    "correct_answer": "Nancy Sinatra",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What duo, made up of a husband and wife, had a hit with 'I Got You Babe' in 1965?",
+    "options": [
+      "Sonny & Cher",
+      "The Righteous Brothers",
+      "Ike & Tina Turner",
+      "Peaches & Herb"
+    ],
+    "correct_answer": "Sonny & Cher",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What Texas-born blues-rock singer fronted Big Brother and the Holding Company before going solo, dying in 1970?",
+    "options": [
+      "Janis Joplin",
+      "Grace Slick",
+      "Linda Ronstadt",
+      "Bonnie Raitt"
+    ],
+    "correct_answer": "Janis Joplin",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What Motown vocal group, led by Smokey Robinson, had hits like 'The Tears of a Clown'?",
+    "options": [
+      "Smokey Robinson & the Miracles",
+      "The Temptations",
+      "The Four Tops",
+      "The Spinners"
+    ],
+    "correct_answer": "Smokey Robinson & the Miracles",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What Motown male vocal group had hits including 'My Girl' in 1964?",
+    "options": [
+      "The Temptations",
+      "The Four Tops",
+      "Smokey Robinson & the Miracles",
+      "The Spinners"
+    ],
+    "correct_answer": "The Temptations",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What folk-rock trio, formed in the early 1960s, is known for the anti-war anthem 'Blowin' in the Wind' as performed by them?",
+    "options": [
+      "Peter, Paul and Mary",
+      "The Kingston Trio",
+      "The Mamas & the Papas",
+      "Simon & Garfunkel"
+    ],
+    "correct_answer": "Peter, Paul and Mary",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What folk-rock duo released 'The Sound of Silence' and 'Mrs. Robinson' in the 1960s?",
+    "options": [
+      "Simon & Garfunkel",
+      "Peter, Paul and Mary",
+      "The Mamas & the Papas",
+      "The Byrds"
+    ],
+    "correct_answer": "Simon & Garfunkel",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What California vocal group, known for 'California Dreamin',' featured two married couples?",
+    "options": [
+      "The Mamas & the Papas",
+      "The Beach Boys",
+      "The Byrds",
+      "Simon & Garfunkel"
+    ],
+    "correct_answer": "The Mamas & the Papas",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What jangly folk-rock band popularized electric 12-string guitar sound with 'Mr. Tambourine Man' in 1965?",
+    "options": [
+      "The Byrds",
+      "The Mamas & the Papas",
+      "Buffalo Springfield",
+      "The Turtles"
+    ],
+    "correct_answer": "The Byrds",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What term describes the wave of British rock bands, led by The Beatles, that dominated American charts starting in 1964?",
+    "options": [
+      "The British Invasion",
+      "The Merseybeat movement",
+      "The Mod Revolution",
+      "The Swinging London scene"
+    ],
+    "correct_answer": "The British Invasion",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Movies",
+    "text": "What 1965 musical film, set in Austria, starred Julie Andrews as a governess to a large family?",
+    "options": [
+      "The Sound of Music",
+      "Mary Poppins",
+      "My Fair Lady",
+      "Doctor Zhivago"
+    ],
+    "correct_answer": "The Sound of Music",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Movies",
+    "text": "What 1964 Disney musical film starred Julie Andrews as a magical nanny in Edwardian London?",
+    "options": [
+      "Mary Poppins",
+      "The Sound of Music",
+      "Chitty Chitty Bang Bang",
+      "Bedknobs and Broomsticks"
+    ],
+    "correct_answer": "Mary Poppins",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Movies",
+    "text": "What spy film franchise, based on Ian Fleming novels, debuted with 'Dr. No' in 1962, starring Sean Connery?",
+    "options": [
+      "James Bond",
+      "Mission: Impossible",
+      "The Man from U.N.C.L.E.",
+      "Our Man Flint"
+    ],
+    "correct_answer": "James Bond",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Movies",
+    "text": "What actor originated the role of James Bond on screen in 1962's 'Dr. No'?",
+    "options": [
+      "Sean Connery",
+      "Roger Moore",
+      "George Lazenby",
+      "David Niven"
+    ],
+    "correct_answer": "Sean Connery",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Movies",
+    "text": "What 1960 Alfred Hitchcock thriller featured a famous shower murder scene at the Bates Motel?",
+    "options": [
+      "Psycho",
+      "The Birds",
+      "Vertigo",
+      "Rear Window"
+    ],
+    "correct_answer": "Psycho",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Movies",
+    "text": "What 1963 Alfred Hitchcock horror film involved a small California town terrorized by flocks of attacking birds?",
+    "options": [
+      "The Birds",
+      "Psycho",
+      "Marnie",
+      "Torn Curtain"
+    ],
+    "correct_answer": "The Birds",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Movies",
+    "text": "What 1967 crime drama starring Warren Beatty and Faye Dunaway depicted a notorious outlaw couple?",
+    "options": [
+      "Bonnie and Clyde",
+      "In Cold Blood",
+      "Cool Hand Luke",
+      "The Wild Bunch"
+    ],
+    "correct_answer": "Bonnie and Clyde",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Movies",
+    "text": "What 1967 film starred Dustin Hoffman as a young man having an affair with an older woman, Mrs. Robinson?",
+    "options": [
+      "The Graduate",
+      "Midnight Cowboy",
+      "Bonnie and Clyde",
+      "Cool Hand Luke"
+    ],
+    "correct_answer": "The Graduate",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Movies",
+    "text": "What 1962 historical epic, directed by David Lean, starred Peter O'Toole as a British officer in the Middle East?",
+    "options": [
+      "Lawrence of Arabia",
+      "Doctor Zhivago",
+      "The Bridge on the River Kwai",
+      "El Cid"
+    ],
+    "correct_answer": "Lawrence of Arabia",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Movies",
+    "text": "What 1965 David Lean epic, based on a Boris Pasternak novel, is set during the Russian Revolution?",
+    "options": [
+      "Doctor Zhivago",
+      "Lawrence of Arabia",
+      "War and Peace",
+      "Anastasia"
+    ],
+    "correct_answer": "Doctor Zhivago",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Movies",
+    "text": "What 1961 musical film, an adaptation of a Broadway show, depicted rival gangs in New York City?",
+    "options": [
+      "West Side Story",
+      "Grease",
+      "Hair",
+      "Bye Bye Birdie"
+    ],
+    "correct_answer": "West Side Story",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Movies",
+    "text": "What 1963 comedy epic featured an all-star cast racing to find buried treasure across the American Southwest?",
+    "options": [
+      "It's a Mad, Mad, Mad, Mad World",
+      "The Great Race",
+      "Around the World in 80 Days",
+      "Those Magnificent Men in Their Flying Machines"
+    ],
+    "correct_answer": "It's a Mad, Mad, Mad, Mad World",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Movies",
+    "text": "What 1968 science fiction film, directed by Stanley Kubrick, featured the sentient computer HAL 9000?",
+    "options": [
+      "2001: A Space Odyssey",
+      "Planet of the Apes",
+      "Fahrenheit 451",
+      "Barbarella"
+    ],
+    "correct_answer": "2001: A Space Odyssey",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Movies",
+    "text": "What 1968 science fiction film ends with the reveal of a ruined Statue of Liberty, starring Charlton Heston?",
+    "options": [
+      "Planet of the Apes",
+      "2001: A Space Odyssey",
+      "Soylent Green",
+      "The Omega Man"
+    ],
+    "correct_answer": "Planet of the Apes",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Movies",
+    "text": "What 1967 prison drama starred Paul Newman as a rebellious inmate who refuses to conform?",
+    "options": [
+      "Cool Hand Luke",
+      "In Cold Blood",
+      "Bonnie and Clyde",
+      "The Hustler"
+    ],
+    "correct_answer": "Cool Hand Luke",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Movies",
+    "text": "What 1964 Stanley Kubrick satirical comedy dealt with nuclear war, starring Peter Sellers in multiple roles?",
+    "options": [
+      "Dr. Strangelove",
+      "Fail Safe",
+      "The Manchurian Candidate",
+      "Seven Days in May"
+    ],
+    "correct_answer": "Dr. Strangelove",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Movies",
+    "text": "What 1961 musical comedy film starred Elvis Presley as a charter boat captain in Hawaii, featuring the song 'Can't Help Falling in Love'?",
+    "options": [
+      "Blue Hawaii",
+      "G.I. Blues",
+      "Viva Las Vegas",
+      "Fun in Acapulco"
+    ],
+    "correct_answer": "Blue Hawaii",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Movies",
+    "text": "What 1969 buddy film starred Paul Newman and Robert Redford as outlaws on the run?",
+    "options": [
+      "Butch Cassidy and the Sundance Kid",
+      "The Wild Bunch",
+      "True Grit",
+      "The Great Escape"
+    ],
+    "correct_answer": "Butch Cassidy and the Sundance Kid",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Movies",
+    "text": "What 1963 World War II film starred Steve McQueen as a captured airman attempting escape from a German POW camp?",
+    "options": [
+      "The Great Escape",
+      "The Dirty Dozen",
+      "Where Eagles Dare",
+      "The Bridge on the River Kwai"
+    ],
+    "correct_answer": "The Great Escape",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Movies",
+    "text": "What 1969 counterculture road film starred Peter Fonda and Dennis Hopper as motorcyclists traveling across America?",
+    "options": [
+      "Easy Rider",
+      "The Wild Angels",
+      "Vanishing Point",
+      "Two-Lane Blacktop"
+    ],
+    "correct_answer": "Easy Rider",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Movies",
+    "text": "What 1969 musical film starring Barbra Streisand in her film debut is set in the world of vaudeville?",
+    "options": [
+      "Funny Girl",
+      "Hello, Dolly!",
+      "Paint Your Wagon",
+      "Sweet Charity"
+    ],
+    "correct_answer": "Funny Girl",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Movies",
+    "text": "What 1968 Franco Zeffirelli film became one of the most successful screen adaptations of Shakespeare's 'Romeo and Juliet'?",
+    "options": [
+      "Romeo and Juliet",
+      "West Side Story",
+      "Hamlet",
+      "Othello"
+    ],
+    "correct_answer": "Romeo and Juliet",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Movies",
+    "text": "What 1967 comedy starred Spencer Tracy and Katharine Hepburn dealing with their daughter's interracial engagement?",
+    "options": [
+      "Guess Who's Coming to Dinner",
+      "In the Heat of the Night",
+      "To Sir, with Love",
+      "Lilies of the Field"
+    ],
+    "correct_answer": "Guess Who's Coming to Dinner",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Movies",
+    "text": "What 1967 crime drama starring Sidney Poitier as a Black detective investigating a murder in a racially tense Mississippi town won Best Picture?",
+    "options": [
+      "In the Heat of the Night",
+      "Guess Who's Coming to Dinner",
+      "To Sir, with Love",
+      "Cool Hand Luke"
+    ],
+    "correct_answer": "In the Heat of the Night",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Movies",
+    "text": "What 1964 animated Disney fantasy film about singing chimney sweeps and a magical nanny was a landmark blend of live action and animation?",
+    "options": [
+      "Mary Poppins",
+      "The Jungle Book",
+      "Bedknobs and Broomsticks",
+      "The Sword in the Stone"
+    ],
+    "correct_answer": "Mary Poppins",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What animated prime-time sitcom, set in a futuristic space-age household, premiered in 1962?",
+    "options": [
+      "The Jetsons",
+      "The Flintstones",
+      "Scooby-Doo",
+      "Johnny Quest"
+    ],
+    "correct_answer": "The Jetsons",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What animated prime-time sitcom, set in a prehistoric Stone Age town, premiered in 1960?",
+    "options": [
+      "The Flintstones",
+      "The Jetsons",
+      "Top Cat",
+      "The Yogi Bear Show"
+    ],
+    "correct_answer": "The Flintstones",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What sci-fi anthology series, hosted by Rod Serling, told standalone stories with twist endings from 1959 to 1964?",
+    "options": [
+      "The Twilight Zone",
+      "The Outer Limits",
+      "Alfred Hitchcock Presents",
+      "One Step Beyond"
+    ],
+    "correct_answer": "The Twilight Zone",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What science fiction series, following the crew of the starship Enterprise, premiered in 1966?",
+    "options": [
+      "Star Trek",
+      "Lost in Space",
+      "The Time Tunnel",
+      "Land of the Giants"
+    ],
+    "correct_answer": "Star Trek",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What actor played Captain James T. Kirk on the original 'Star Trek' series?",
+    "options": [
+      "William Shatner",
+      "Leonard Nimoy",
+      "DeForest Kelley",
+      "George Takei"
+    ],
+    "correct_answer": "William Shatner",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What actor played the half-Vulcan science officer Spock on 'Star Trek'?",
+    "options": [
+      "Leonard Nimoy",
+      "William Shatner",
+      "James Doohan",
+      "Walter Koenig"
+    ],
+    "correct_answer": "Leonard Nimoy",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What sitcom followed a widowed rancher raising three sons on the Ponderoso, err, Ponderosa, a large ranch in Nevada?",
+    "options": [
+      "Bonanza",
+      "The Big Valley",
+      "The High Chaparral",
+      "Gunsmoke"
+    ],
+    "correct_answer": "Bonanza",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What long-running western series, set in Dodge City, Kansas, starred James Arness as a marshal?",
+    "options": [
+      "Gunsmoke",
+      "Bonanza",
+      "Rawhide",
+      "The Rifleman"
+    ],
+    "correct_answer": "Gunsmoke",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What sitcom starred Lucille Ball as a scatterbrained wife in 1950s New York, running into the early 1960s?",
+    "options": [
+      "I Love Lucy",
+      "The Lucy Show",
+      "Here's Lucy",
+      "The Dick Van Dyke Show"
+    ],
+    "correct_answer": "I Love Lucy",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What sitcom starred Dick Van Dyke as a TV comedy writer living in suburban New York with his family?",
+    "options": [
+      "The Dick Van Dyke Show",
+      "The Andy Griffith Show",
+      "Bewitched",
+      "My Three Sons"
+    ],
+    "correct_answer": "The Dick Van Dyke Show",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What sitcom, set in a small fictional North Carolina town, starred Andy Griffith as a widowed sheriff?",
+    "options": [
+      "The Andy Griffith Show",
+      "Mayberry R.F.D.",
+      "Gomer Pyle, U.S.M.C.",
+      "The Beverly Hillbillies"
+    ],
+    "correct_answer": "The Andy Griffith Show",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What fantasy sitcom followed a witch married to an ordinary mortal man, starring Elizabeth Montgomery?",
+    "options": [
+      "Bewitched",
+      "I Dream of Jeannie",
+      "The Addams Family",
+      "The Munsters"
+    ],
+    "correct_answer": "Bewitched",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What fantasy sitcom featured a genie granting wishes to an astronaut who found her bottle on a beach?",
+    "options": [
+      "I Dream of Jeannie",
+      "Bewitched",
+      "My Favorite Martian",
+      "Mister Ed"
+    ],
+    "correct_answer": "I Dream of Jeannie",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What sitcom followed a spooky but loving family, including Gomez, Morticia, and Uncle Fester?",
+    "options": [
+      "The Addams Family",
+      "The Munsters",
+      "Bewitched",
+      "Dark Shadows"
+    ],
+    "correct_answer": "The Addams Family",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What sitcom featured a family of friendly monsters, including Herman and Lily, living in a suburban home?",
+    "options": [
+      "The Munsters",
+      "The Addams Family",
+      "Bewitched",
+      "The Beverly Hillbillies"
+    ],
+    "correct_answer": "The Munsters",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What sitcom followed an Ozark family who struck oil and moved to a mansion in Beverly Hills?",
+    "options": [
+      "The Beverly Hillbillies",
+      "Green Acres",
+      "Petticoat Junction",
+      "My Three Sons"
+    ],
+    "correct_answer": "The Beverly Hillbillies",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What sitcom, a spin-off of 'The Beverly Hillbillies,' followed a New York couple who moved to a rural farm?",
+    "options": [
+      "Green Acres",
+      "Petticoat Junction",
+      "The Real McCoys",
+      "Hee Haw"
+    ],
+    "correct_answer": "Green Acres",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What spy comedy series starred Don Adams as a bumbling secret agent with the code name 86?",
+    "options": [
+      "Get Smart",
+      "The Man from U.N.C.L.E.",
+      "I Spy",
+      "Mission: Impossible"
+    ],
+    "correct_answer": "Get Smart",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What espionage drama followed a team of specialists undertaking difficult covert missions, with an iconic self-destructing tape opening?",
+    "options": [
+      "Mission: Impossible",
+      "The Man from U.N.C.L.E.",
+      "I Spy",
+      "Get Smart"
+    ],
+    "correct_answer": "Mission: Impossible",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What action-adventure series starred Robert Vaughn and David McCallum as secret agents fighting the criminal organization THRUSH?",
+    "options": [
+      "The Man from U.N.C.L.E.",
+      "Mission: Impossible",
+      "I Spy",
+      "Get Smart"
+    ],
+    "correct_answer": "The Man from U.N.C.L.E.",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What sitcom followed a group of castaways stranded on an uncharted island after a three-hour boat tour?",
+    "options": [
+      "Gilligan's Island",
+      "Lost in Space",
+      "Land of the Giants",
+      "Swiss Family Robinson"
+    ],
+    "correct_answer": "Gilligan's Island",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What sci-fi series followed the Robinson family stranded in space aboard the Jupiter 2 spacecraft?",
+    "options": [
+      "Lost in Space",
+      "Star Trek",
+      "The Time Tunnel",
+      "Voyage to the Bottom of the Sea"
+    ],
+    "correct_answer": "Lost in Space",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What military sitcom, set in a German WWII POW camp, followed prisoners secretly running a spy operation?",
+    "options": [
+      "Hogan's Heroes",
+      "McHale's Navy",
+      "F Troop",
+      "Gomer Pyle, U.S.M.C."
+    ],
+    "correct_answer": "Hogan's Heroes",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What Western sitcom followed a bumbling U.S. Cavalry troop stationed at a frontier fort?",
+    "options": [
+      "F Troop",
+      "McHale's Navy",
+      "Hogan's Heroes",
+      "Rango"
+    ],
+    "correct_answer": "F Troop",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What variety show, hosted by a comedy duo, popularized catchphrases like 'Sock it to me!' starting in 1968?",
+    "options": [
+      "Rowan & Martin's Laugh-In",
+      "The Smothers Brothers Comedy Hour",
+      "The Ed Sullivan Show",
+      "Hee Haw"
+    ],
+    "correct_answer": "Rowan & Martin's Laugh-In",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What long-running Sunday night variety show, hosted by a stiff but beloved host, featured The Beatles' American debut?",
+    "options": [
+      "The Ed Sullivan Show",
+      "The Hollywood Palace",
+      "American Bandstand",
+      "Shindig!"
+    ],
+    "correct_answer": "The Ed Sullivan Show",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What children's educational program, featuring puppets like Big Bird and Bert and Ernie, premiered in 1969?",
+    "options": [
+      "Sesame Street",
+      "Mister Rogers' Neighborhood",
+      "Captain Kangaroo",
+      "The Electric Company"
+    ],
+    "correct_answer": "Sesame Street",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What gentle children's program, hosted by a cardigan-wearing minister, premiered in 1968?",
+    "options": [
+      "Mister Rogers' Neighborhood",
+      "Sesame Street",
+      "Captain Kangaroo",
+      "Romper Room"
+    ],
+    "correct_answer": "Mister Rogers' Neighborhood",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What Western anthology series, starring Clint Eastwood as a cattle drover named Rowdy Yates, ran from 1959 to 1966?",
+    "options": [
+      "Rawhide",
+      "Bonanza",
+      "The Virginian",
+      "Wagon Train"
+    ],
+    "correct_answer": "Rawhide",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What sitcom followed a Marine private serving under a demanding drill sergeant named Sergeant Carter?",
+    "options": [
+      "Gomer Pyle, U.S.M.C.",
+      "F Troop",
+      "McHale's Navy",
+      "Hogan's Heroes"
+    ],
+    "correct_answer": "Gomer Pyle, U.S.M.C.",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Fashion",
+    "text": "What extremely short skirt style, associated with designer Mary Quant, became a defining fashion statement of the 1960s?",
+    "options": [
+      "The miniskirt",
+      "The maxi skirt",
+      "The A-line skirt",
+      "The pencil skirt"
+    ],
+    "correct_answer": "The miniskirt",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Fashion",
+    "text": "What youth-driven fashion and music movement, centered in London, emphasized sharp tailoring, scooters, and soul music?",
+    "options": [
+      "Mod culture",
+      "Rocker culture",
+      "Hippie culture",
+      "Beatnik culture"
+    ],
+    "correct_answer": "Mod culture",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Fashion",
+    "text": "What countercultural movement of the late 1960s embraced peace symbols, tie-dye, and communal living?",
+    "options": [
+      "The hippie movement",
+      "The mod movement",
+      "The beatnik movement",
+      "The greaser movement"
+    ],
+    "correct_answer": "The hippie movement",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Fashion",
+    "text": "What tall, dramatic hairstyle, featuring hair teased and lacquered into a rounded shape, was popular for women in the early-mid 1960s?",
+    "options": [
+      "The beehive",
+      "The bob",
+      "The shag",
+      "The pixie cut"
+    ],
+    "correct_answer": "The beehive",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Fashion",
+    "text": "What eyewear-driven, minimalist fashion look, popularized by model Twiggy, defined mid-1960s style?",
+    "options": [
+      "The mod look",
+      "The hippie look",
+      "The beatnik look",
+      "The preppy look"
+    ],
+    "correct_answer": "The mod look",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Fashion",
+    "text": "What patterned, swirling design style, associated with LSD culture and rock concert posters, was common in late-1960s art and fashion?",
+    "options": [
+      "Psychedelic patterns",
+      "Art Deco patterns",
+      "Gingham patterns",
+      "Paisley alone (a related but narrower term)"
+    ],
+    "correct_answer": "Psychedelic patterns",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Fashion",
+    "text": "What fabric-dyeing technique, producing swirling colorful patterns, became closely associated with hippie fashion?",
+    "options": [
+      "Tie-dye",
+      "Batik",
+      "Ikat",
+      "Screen printing"
+    ],
+    "correct_answer": "Tie-dye",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Fashion",
+    "text": "What waifish British model, known by a one-word nickname referencing her thin frame, became the face of 1960s mod fashion?",
+    "options": [
+      "Twiggy",
+      "Jean Shrimpton",
+      "Penelope Tree",
+      "Veruschka"
+    ],
+    "correct_answer": "Twiggy",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Fashion",
+    "text": "What loose, flowing type of dress with a straight silhouette, often paired with go-go boots, was popular in the mid-1960s?",
+    "options": [
+      "The shift dress",
+      "The A-line gown",
+      "The empire waist dress",
+      "The wrap dress"
+    ],
+    "correct_answer": "The shift dress",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Fashion",
+    "text": "What flat-heeled, calf-high white boots became a fashion staple for young women dancing at nightclubs in the 1960s?",
+    "options": [
+      "Go-go boots",
+      "Chelsea boots",
+      "Combat boots",
+      "Cowboy boots"
+    ],
+    "correct_answer": "Go-go boots",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Sports",
+    "text": "What boxer, known for his showmanship and the phrase 'float like a butterfly, sting like a bee,' won Olympic gold in 1960?",
+    "options": [
+      "Muhammad Ali (then Cassius Clay)",
+      "Joe Frazier",
+      "Sonny Liston",
+      "George Foreman"
+    ],
+    "correct_answer": "Muhammad Ali (then Cassius Clay)",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Sports",
+    "text": "What boxer did Cassius Clay defeat in 1964 to win his first heavyweight championship?",
+    "options": [
+      "Sonny Liston",
+      "Joe Frazier",
+      "Floyd Patterson",
+      "George Foreman"
+    ],
+    "correct_answer": "Sonny Liston",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Sports",
+    "text": "What Green Bay Packers coach led his team to victory in the first two Super Bowls, in 1967 and 1968?",
+    "options": [
+      "Vince Lombardi",
+      "Tom Landry",
+      "Don Shula",
+      "George Halas"
+    ],
+    "correct_answer": "Vince Lombardi",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Sports",
+    "text": "What year was the first Super Bowl played, pitting the Green Bay Packers against the Kansas City Chiefs?",
+    "options": [
+      "1967",
+      "1965",
+      "1969",
+      "1970"
+    ],
+    "correct_answer": "1967",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Sports",
+    "text": "What baseball player, playing for the Los Angeles Dodgers, pitched a perfect game in 1965 and retired due to arm injury in 1966?",
+    "options": [
+      "Sandy Koufax",
+      "Bob Gibson",
+      "Don Drysdale",
+      "Juan Marichal"
+    ],
+    "correct_answer": "Sandy Koufax",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Sports",
+    "text": "What baseball player broke Babe Ruth's single-season home run record in 1961, hitting 61 home runs?",
+    "options": [
+      "Roger Maris",
+      "Mickey Mantle",
+      "Willie Mays",
+      "Hank Aaron"
+    ],
+    "correct_answer": "Roger Maris",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Sports",
+    "text": "What country hosted the 1964 Summer Olympics, the first Olympics held in Asia?",
+    "options": [
+      "Japan",
+      "Mexico",
+      "Italy",
+      "Australia"
+    ],
+    "correct_answer": "Japan",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Sports",
+    "text": "What Japanese city hosted the 1964 Summer Olympics?",
+    "options": [
+      "Tokyo",
+      "Osaka",
+      "Kyoto",
+      "Sapporo"
+    ],
+    "correct_answer": "Tokyo",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Sports",
+    "text": "What country hosted the 1968 Summer Olympics, notable for the Black Power salute protest by two US athletes?",
+    "options": [
+      "Mexico",
+      "Japan",
+      "West Germany",
+      "Canada"
+    ],
+    "correct_answer": "Mexico",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Sports",
+    "text": "What New York Jets quarterback famously guaranteed victory before winning Super Bowl III in 1969?",
+    "options": [
+      "Joe Namath",
+      "Johnny Unitas",
+      "Bart Starr",
+      "Fran Tarkenton"
+    ],
+    "correct_answer": "Joe Namath",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Sports",
+    "text": "What college basketball coach led UCLA to multiple national championships throughout the 1960s?",
+    "options": [
+      "John Wooden",
+      "Adolph Rupp",
+      "Dean Smith",
+      "Bob Knight"
+    ],
+    "correct_answer": "John Wooden",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Sports",
+    "text": "What Boston Celtics center dominated NBA championships throughout most of the 1960s?",
+    "options": [
+      "Bill Russell",
+      "Wilt Chamberlain",
+      "Kareem Abdul-Jabbar",
+      "Bob Cousy"
+    ],
+    "correct_answer": "Bill Russell",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "News & Events",
+    "text": "What U.S. President was assassinated in Dallas, Texas in November 1963?",
+    "options": [
+      "John F. Kennedy",
+      "Lyndon B. Johnson",
+      "Dwight D. Eisenhower",
+      "Richard Nixon"
+    ],
+    "correct_answer": "John F. Kennedy",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "News & Events",
+    "text": "Who was sworn in as U.S. President following the assassination of John F. Kennedy?",
+    "options": [
+      "Lyndon B. Johnson",
+      "Richard Nixon",
+      "Hubert Humphrey",
+      "Robert Kennedy"
+    ],
+    "correct_answer": "Lyndon B. Johnson",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "News & Events",
+    "text": "What civil rights leader delivered the 'I Have a Dream' speech at the March on Washington in 1963?",
+    "options": [
+      "Martin Luther King Jr.",
+      "Malcolm X",
+      "John Lewis",
+      "Ralph Abernathy"
+    ],
+    "correct_answer": "Martin Luther King Jr.",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "News & Events",
+    "text": "What civil rights leader was assassinated in Memphis, Tennessee in April 1968?",
+    "options": [
+      "Martin Luther King Jr.",
+      "Malcolm X",
+      "Medgar Evers",
+      "Ralph Abernathy"
+    ],
+    "correct_answer": "Martin Luther King Jr.",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "News & Events",
+    "text": "What civil rights and Black nationalist leader was assassinated in New York in February 1965?",
+    "options": [
+      "Malcolm X",
+      "Martin Luther King Jr.",
+      "Medgar Evers",
+      "Stokely Carmichael"
+    ],
+    "correct_answer": "Malcolm X",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "News & Events",
+    "text": "What U.S. senator and presidential candidate, brother of a former president, was assassinated in Los Angeles in June 1968?",
+    "options": [
+      "Robert F. Kennedy",
+      "Edward Kennedy",
+      "Hubert Humphrey",
+      "Eugene McCarthy"
+    ],
+    "correct_answer": "Robert F. Kennedy",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "News & Events",
+    "text": "What landmark U.S. legislation, signed in 1964, outlawed discrimination based on race, color, religion, sex, or national origin?",
+    "options": [
+      "The Civil Rights Act of 1964",
+      "The Voting Rights Act of 1965",
+      "The Fair Housing Act of 1968",
+      "The Equal Pay Act of 1963"
+    ],
+    "correct_answer": "The Civil Rights Act of 1964",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "News & Events",
+    "text": "What 1962 crisis brought the US and USSR to the brink of nuclear war over Soviet missiles placed near Florida?",
+    "options": [
+      "The Cuban Missile Crisis",
+      "The Bay of Pigs Invasion",
+      "The Berlin Crisis",
+      "The Suez Crisis"
+    ],
+    "correct_answer": "The Cuban Missile Crisis",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "News & Events",
+    "text": "What failed 1961 US-backed invasion attempted to overthrow Fidel Castro's government in Cuba?",
+    "options": [
+      "The Bay of Pigs Invasion",
+      "The Cuban Missile Crisis",
+      "Operation Mongoose",
+      "The Cuban Revolution"
+    ],
+    "correct_answer": "The Bay of Pigs Invasion",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "News & Events",
+    "text": "What Southeast Asian conflict escalated dramatically through the decade, becoming a major source of American protest by the late 1960s?",
+    "options": [
+      "The Vietnam War",
+      "The Korean War",
+      "The Laotian Civil War",
+      "The Cambodian Civil War"
+    ],
+    "correct_answer": "The Vietnam War",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "News & Events",
+    "text": "What wall, built in 1961, divided a European capital city into communist and democratic sectors for nearly three decades?",
+    "options": [
+      "The Berlin Wall",
+      "The Iron Curtain (a concept, not a physical wall)",
+      "The Great Wall",
+      "The Antonine Wall"
+    ],
+    "correct_answer": "The Berlin Wall",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "News & Events",
+    "text": "What large-scale peaceful march in August 1963 called for civil and economic rights for Black Americans?",
+    "options": [
+      "The March on Washington",
+      "The Selma to Montgomery marches",
+      "The Freedom Rides",
+      "The Poor People's Campaign"
+    ],
+    "correct_answer": "The March on Washington",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "News & Events",
+    "text": "What series of 1965 marches from Selma to Montgomery, Alabama, helped lead to the Voting Rights Act?",
+    "options": [
+      "The Selma to Montgomery marches",
+      "The March on Washington",
+      "The Freedom Rides",
+      "The Birmingham Campaign"
+    ],
+    "correct_answer": "The Selma to Montgomery marches",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Space Race",
+    "text": "What NASA mission successfully landed the first humans on the Moon in July 1969?",
+    "options": [
+      "Apollo 11",
+      "Apollo 8",
+      "Apollo 13",
+      "Gemini 12"
+    ],
+    "correct_answer": "Apollo 11",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Space Race",
+    "text": "Who was the first human to walk on the Moon in 1969?",
+    "options": [
+      "Neil Armstrong",
+      "Buzz Aldrin",
+      "Michael Collins",
+      "John Glenn"
+    ],
+    "correct_answer": "Neil Armstrong",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Space Race",
+    "text": "Who was the second astronaut to walk on the Moon during the Apollo 11 mission?",
+    "options": [
+      "Buzz Aldrin",
+      "Neil Armstrong",
+      "Michael Collins",
+      "Alan Shepard"
+    ],
+    "correct_answer": "Buzz Aldrin",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Space Race",
+    "text": "Who piloted the command module and remained in lunar orbit during the Apollo 11 Moon landing?",
+    "options": [
+      "Michael Collins",
+      "Buzz Aldrin",
+      "Neil Armstrong",
+      "David Scott"
+    ],
+    "correct_answer": "Michael Collins",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Space Race",
+    "text": "What Soviet cosmonaut became the first human in space in April 1961?",
+    "options": [
+      "Yuri Gagarin",
+      "Valentina Tereshkova",
+      "Alexei Leonov",
+      "German Titov"
+    ],
+    "correct_answer": "Yuri Gagarin",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Space Race",
+    "text": "Who was the first American to orbit the Earth, in February 1962?",
+    "options": [
+      "John Glenn",
+      "Alan Shepard",
+      "Gus Grissom",
+      "Scott Carpenter"
+    ],
+    "correct_answer": "John Glenn",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Space Race",
+    "text": "Who was the first American in space, launched on a suborbital flight in May 1961?",
+    "options": [
+      "Alan Shepard",
+      "John Glenn",
+      "Gus Grissom",
+      "Wally Schirra"
+    ],
+    "correct_answer": "Alan Shepard",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Space Race",
+    "text": "What was the name of NASA's two-person spacecraft program that bridged Mercury and Apollo, running from 1965-1966?",
+    "options": [
+      "Gemini",
+      "Mercury",
+      "Skylab",
+      "Voyager"
+    ],
+    "correct_answer": "Gemini",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Space Race",
+    "text": "What Soviet cosmonaut became the first woman in space in 1963?",
+    "options": [
+      "Valentina Tereshkova",
+      "Svetlana Savitskaya",
+      "Yelena Kondakova",
+      "Anna Fisher"
+    ],
+    "correct_answer": "Valentina Tereshkova",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Space Race",
+    "text": "What US President famously declared the goal of landing a man on the Moon before the end of the decade, in a 1961 speech to Congress?",
+    "options": [
+      "John F. Kennedy",
+      "Lyndon B. Johnson",
+      "Dwight D. Eisenhower",
+      "Richard Nixon"
+    ],
+    "correct_answer": "John F. Kennedy",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Celebrities",
+    "text": "What actress, known for 'Breakfast at Tiffany's,' became one of the most iconic style figures of the 1960s?",
+    "options": [
+      "Audrey Hepburn",
+      "Grace Kelly",
+      "Jackie Kennedy",
+      "Sophia Loren"
+    ],
+    "correct_answer": "Audrey Hepburn",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Celebrities",
+    "text": "What First Lady, known for her fashion sense and cultural influence, was married to President John F. Kennedy?",
+    "options": [
+      "Jacqueline Kennedy",
+      "Lady Bird Johnson",
+      "Pat Nixon",
+      "Rosalynn Carter"
+    ],
+    "correct_answer": "Jacqueline Kennedy",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Celebrities",
+    "text": "What actress and sex symbol, known for 'Some Like It Hot,' died in 1962?",
+    "options": [
+      "Marilyn Monroe",
+      "Jayne Mansfield",
+      "Brigitte Bardot",
+      "Elizabeth Taylor"
+    ],
+    "correct_answer": "Marilyn Monroe",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Celebrities",
+    "text": "What actor, known for playing suave, tough characters, starred in 'Bullitt' and 'The Great Escape'?",
+    "options": [
+      "Steve McQueen",
+      "Paul Newman",
+      "Clint Eastwood",
+      "James Coburn"
+    ],
+    "correct_answer": "Steve McQueen",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Celebrities",
+    "text": "What actress, married multiple times including to Richard Burton, starred in the lavish 1963 film 'Cleopatra'?",
+    "options": [
+      "Elizabeth Taylor",
+      "Sophia Loren",
+      "Audrey Hepburn",
+      "Ava Gardner"
+    ],
+    "correct_answer": "Elizabeth Taylor",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Celebrities",
+    "text": "What pop artist, known for Campbell's Soup Cans and portraits of Marilyn Monroe, became a leading figure of 1960s art?",
+    "options": [
+      "Andy Warhol",
+      "Roy Lichtenstein",
+      "Jasper Johns",
+      "Robert Rauschenberg"
+    ],
+    "correct_answer": "Andy Warhol",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Celebrities",
+    "text": "What comedian and actor starred in slapstick films like 'The Nutty Professor' in 1963?",
+    "options": [
+      "Jerry Lewis",
+      "Peter Sellers",
+      "Don Knotts",
+      "Bob Hope"
+    ],
+    "correct_answer": "Jerry Lewis",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Celebrities",
+    "text": "What director, known for suspense films, released 'Psycho' and 'The Birds' during the decade?",
+    "options": [
+      "Alfred Hitchcock",
+      "Stanley Kubrick",
+      "David Lean",
+      "John Ford"
+    ],
+    "correct_answer": "Alfred Hitchcock",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Celebrities",
+    "text": "What British actress and model, known as 'The Shrimp,' was a prominent face of Swinging London fashion?",
+    "options": [
+      "Jean Shrimpton",
+      "Twiggy",
+      "Julie Christie",
+      "Jane Birkin"
+    ],
+    "correct_answer": "Jean Shrimpton",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Celebrities",
+    "text": "What heavyweight boxer changed his name from Cassius Clay after converting to Islam in 1964?",
+    "options": [
+      "Muhammad Ali",
+      "Joe Frazier",
+      "George Foreman",
+      "Sonny Liston"
+    ],
+    "correct_answer": "Muhammad Ali",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What Motown vocal group had hits including 'I Can't Help Myself (Sugar Pie, Honey Bunch)'?",
+    "options": [
+      "The Four Tops",
+      "The Temptations",
+      "The Miracles",
+      "The Spinners"
+    ],
+    "correct_answer": "The Four Tops",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What female Motown vocal group is known for the hit 'Dancing in the Street' in 1964?",
+    "options": [
+      "Martha and the Vandellas",
+      "The Supremes",
+      "The Marvelettes",
+      "The Velvelettes"
+    ],
+    "correct_answer": "Martha and the Vandellas",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What Beach Boys member is best known as the creative force and primary songwriter behind 'Pet Sounds'?",
+    "options": [
+      "Brian Wilson",
+      "Mike Love",
+      "Dennis Wilson",
+      "Carl Wilson"
+    ],
+    "correct_answer": "Brian Wilson",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What Beatles album, released in 1969, features the famous cover photo of the band crossing a London street?",
+    "options": [
+      "Abbey Road",
+      "Let It Be",
+      "The White Album",
+      "Revolver"
+    ],
+    "correct_answer": "Abbey Road",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What was the name of the Beatles' final live concert, performed on a London rooftop in January 1969?",
+    "options": [
+      "The Rooftop Concert",
+      "The Abbey Road Sessions",
+      "The Cavern Club Reunion",
+      "The Shea Stadium Farewell"
+    ],
+    "correct_answer": "The Rooftop Concert",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What British singer, known for 'Downtown,' became a major crossover pop star on both sides of the Atlantic?",
+    "options": [
+      "Petula Clark",
+      "Dusty Springfield",
+      "Lulu",
+      "Cilla Black"
+    ],
+    "correct_answer": "Petula Clark",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What British soul singer had a hit with 'Son of a Preacher Man' in 1968?",
+    "options": [
+      "Dusty Springfield",
+      "Petula Clark",
+      "Cilla Black",
+      "Lulu"
+    ],
+    "correct_answer": "Dusty Springfield",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What surf rock instrumental band is known for 'Wipe Out,' released in 1963?",
+    "options": [
+      "The Surfaris",
+      "The Ventures",
+      "Dick Dale and His Del-Tones",
+      "Jan and Dean"
+    ],
+    "correct_answer": "The Surfaris",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What guitarist, known as the 'King of the Surf Guitar,' popularized the reverb-heavy surf rock sound in the early 1960s?",
+    "options": [
+      "Dick Dale",
+      "Duane Eddy",
+      "Link Wray",
+      "Chet Atkins"
+    ],
+    "correct_answer": "Dick Dale",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What Motown label founder built the company from a small Detroit studio into one of the most influential record labels in history?",
+    "options": [
+      "Berry Gordy",
+      "Smokey Robinson",
+      "Marvin Gaye",
+      "Clarence Avant"
+    ],
+    "correct_answer": "Berry Gordy",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Movies",
+    "text": "What 1966 Sergio Leone spaghetti Western starred Clint Eastwood as 'The Man with No Name'?",
+    "options": [
+      "The Good, the Bad and the Ugly",
+      "A Fistful of Dollars",
+      "For a Few Dollars More",
+      "High Plains Drifter"
+    ],
+    "correct_answer": "The Good, the Bad and the Ugly",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Movies",
+    "text": "What 1963 epic historical drama starring Elizabeth Taylor as an Egyptian queen was one of the most expensive films made at the time?",
+    "options": [
+      "Cleopatra",
+      "Spartacus",
+      "Ben-Hur",
+      "El Cid"
+    ],
+    "correct_answer": "Cleopatra",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Movies",
+    "text": "What 1960 historical epic starred Kirk Douglas as a rebellious Roman gladiator leading a slave revolt?",
+    "options": [
+      "Spartacus",
+      "Ben-Hur",
+      "Cleopatra",
+      "El Cid"
+    ],
+    "correct_answer": "Spartacus",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Movies",
+    "text": "What 1968 musical film adaptation, based on a Charles Dickens novel, won Best Picture, following an orphan named Oliver Twist?",
+    "options": [
+      "Oliver!",
+      "A Christmas Carol",
+      "Great Expectations",
+      "David Copperfield"
+    ],
+    "correct_answer": "Oliver!",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Movies",
+    "text": "What 1968 psychological horror film, directed by Roman Polanski, followed a woman who suspects a satanic conspiracy surrounds her pregnancy?",
+    "options": [
+      "Rosemary's Baby",
+      "Don't Look Now",
+      "The Wicker Man",
+      "Repulsion"
+    ],
+    "correct_answer": "Rosemary's Baby",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What sitcom followed the antics of a widowed father raising three sons, running for over a decade starting in 1960?",
+    "options": [
+      "My Three Sons",
+      "The Andy Griffith Show",
+      "Family Affair",
+      "The Courtship of Eddie's Father"
+    ],
+    "correct_answer": "My Three Sons",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What comedy-drama followed a wealthy bachelor and his English butler raising his late brother's children in Manhattan?",
+    "options": [
+      "Family Affair",
+      "My Three Sons",
+      "The Courtship of Eddie's Father",
+      "Please Don't Eat the Daisies"
+    ],
+    "correct_answer": "Family Affair",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What talking horse sitcom starred a horse who only spoke to his owner, Wilbur Post?",
+    "options": [
+      "Mister Ed",
+      "My Favorite Martian",
+      "The Beverly Hillbillies",
+      "Green Acres"
+    ],
+    "correct_answer": "Mister Ed",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What sitcom followed a widowed news commentator whose Martian friend disguised himself as his uncle?",
+    "options": [
+      "My Favorite Martian",
+      "Mister Ed",
+      "I Dream of Jeannie",
+      "Bewitched"
+    ],
+    "correct_answer": "My Favorite Martian",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What courtroom drama followed defense attorney Perry Mason, running from 1957 through the mid-1960s?",
+    "options": [
+      "Perry Mason",
+      "The Defenders",
+      "Ironside",
+      "Judd for the Defense"
+    ],
+    "correct_answer": "Perry Mason",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What medical drama, following doctors at a fictional hospital, made Richard Chamberlain a heartthrob in the early 1960s?",
+    "options": [
+      "Dr. Kildare",
+      "Ben Casey",
+      "Marcus Welby, M.D. (1969-1976)",
+      "Medical Center"
+    ],
+    "correct_answer": "Dr. Kildare",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What Western series, starring Chuck Connors, followed a widowed rancher raising his son in New Mexico Territory?",
+    "options": [
+      "The Rifleman",
+      "Have Gun – Will Travel",
+      "Wagon Train",
+      "The Virginian"
+    ],
+    "correct_answer": "The Rifleman",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What sitcom followed the everyday life of a suburban family, especially the misadventures of young son Theodore?",
+    "options": [
+      "Leave It to Beaver",
+      "The Donna Reed Show",
+      "Dennis the Menace",
+      "Father Knows Best"
+    ],
+    "correct_answer": "Leave It to Beaver",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What sitcom, running from 1954 into the early 1960s, starred Robert Young as a wise, understanding father figure?",
+    "options": [
+      "Father Knows Best",
+      "Leave It to Beaver",
+      "The Donna Reed Show",
+      "My Three Sons"
+    ],
+    "correct_answer": "Father Knows Best",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "What music/dance show, hosted by Dick Clark, showcased teenagers dancing to the latest pop hits?",
+    "options": [
+      "American Bandstand",
+      "Shindig!",
+      "Hullabaloo",
+      "Where the Action Is"
+    ],
+    "correct_answer": "American Bandstand",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Fashion",
+    "text": "What term describes London's vibrant, youth-driven cultural scene of fashion, music, and art in the mid-1960s?",
+    "options": [
+      "Swinging London",
+      "The British Invasion",
+      "Carnaby Street Culture",
+      "Mod London"
+    ],
+    "correct_answer": "Swinging London",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Fashion",
+    "text": "What London street became famous in the 1960s as a hub for trendy boutiques and mod fashion?",
+    "options": [
+      "Carnaby Street",
+      "Oxford Street",
+      "King's Road",
+      "Savile Row"
+    ],
+    "correct_answer": "Carnaby Street",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Fashion",
+    "text": "What large-frame, colorful eyewear style became a popular fashion accessory in the psychedelic late 1960s?",
+    "options": [
+      "Oversized round sunglasses",
+      "Cat-eye glasses",
+      "Aviator sunglasses",
+      "Wayfarer sunglasses"
+    ],
+    "correct_answer": "Oversized round sunglasses",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Fashion",
+    "text": "What subculture of the early 1960s, associated with poetry, jazz clubs, and black turtlenecks, predated hippie culture?",
+    "options": [
+      "Beatniks",
+      "Mods",
+      "Rockers",
+      "Greasers"
+    ],
+    "correct_answer": "Beatniks",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Fashion",
+    "text": "What large outdoor gathering in San Francisco's Golden Gate Park in January 1967 is considered a prelude to the 'Summer of Love'?",
+    "options": [
+      "The Human Be-In",
+      "The Monterey Pop Festival",
+      "Woodstock",
+      "The Acid Test"
+    ],
+    "correct_answer": "The Human Be-In",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "News & Events",
+    "text": "What term describes the summer of 1967, when thousands of young people gathered in San Francisco's Haight-Ashbury district?",
+    "options": [
+      "The Summer of Love",
+      "The Long Hot Summer",
+      "The Summer of Peace",
+      "The Freedom Summer"
+    ],
+    "correct_answer": "The Summer of Love",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "News & Events",
+    "text": "What 1968 event in Chicago, marked by violent clashes between police and anti-war protesters, occurred outside the Democratic National Convention?",
+    "options": [
+      "The Chicago DNC protests",
+      "The Days of Rage",
+      "The March on the Pentagon",
+      "The Poor People's Campaign"
+    ],
+    "correct_answer": "The Chicago DNC protests",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "News & Events",
+    "text": "What sexual health medication, approved by the FDA in 1960, became a major catalyst for the sexual revolution?",
+    "options": [
+      "The birth control pill",
+      "Penicillin (approved decades earlier)",
+      "Thalidomide (a different, harmful drug)",
+      "Valium"
+    ],
+    "correct_answer": "The birth control pill",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "News & Events",
+    "text": "What 1969 event, involving violence at a free concert headlined by the Rolling Stones, is often cited as marking the end of 1960s idealism?",
+    "options": [
+      "The Altamont Free Concert",
+      "Woodstock",
+      "The Isle of Wight Festival",
+      "The Monterey Pop Festival"
+    ],
+    "correct_answer": "The Altamont Free Concert",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Space Race",
+    "text": "What Apollo mission, launched in April 1970, suffered an oxygen tank explosion en route to the Moon, forcing a dramatic emergency return?",
+    "options": [
+      "Apollo 13",
+      "Apollo 11",
+      "Apollo 8",
+      "Apollo 1"
+    ],
+    "correct_answer": "Apollo 13",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Space Race",
+    "text": "What Apollo mission, launched in December 1968, was the first crewed spacecraft to orbit the Moon?",
+    "options": [
+      "Apollo 8",
+      "Apollo 9",
+      "Apollo 10",
+      "Apollo 11"
+    ],
+    "correct_answer": "Apollo 8",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Space Race",
+    "text": "What tragic January 1967 accident killed three astronauts during a launch pad test, delaying the Apollo program?",
+    "options": [
+      "The Apollo 1 fire",
+      "The Soyuz 1 crash",
+      "The Gemini 8 malfunction",
+      "The Apollo 6 failure"
+    ],
+    "correct_answer": "The Apollo 1 fire",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Celebrities",
+    "text": "What comedian and civil rights activist became one of the first Black stand-up comedians to achieve mainstream crossover success in the early 1960s?",
+    "options": [
+      "Dick Gregory",
+      "Bill Cosby",
+      "Flip Wilson",
+      "Godfrey Cambridge"
+    ],
+    "correct_answer": "Dick Gregory",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Celebrities",
+    "text": "What comedian starred in the sitcom 'I Spy' alongside Robert Culp, becoming the first Black actor to co-star in a dramatic television series?",
+    "options": [
+      "Bill Cosby",
+      "Dick Gregory",
+      "Sidney Poitier (primarily a film actor)",
+      "Flip Wilson"
+    ],
+    "correct_answer": "Bill Cosby",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Celebrities",
+    "text": "What actor became the first Black performer to win the Academy Award for Best Actor, for 'Lilies of the Field' in 1964?",
+    "options": [
+      "Sidney Poitier",
+      "Bill Cosby",
+      "Harry Belafonte",
+      "James Earl Jones"
+    ],
+    "correct_answer": "Sidney Poitier",
+    "flavor_wrong": null
+  }
+]

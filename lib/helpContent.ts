@@ -20,7 +20,7 @@ export const HOSTING_STEPS: HelpStep[] = [
   {
     icon: "calendar",
     title: "Pick a decade",
-    body: "Filter to one decade (80s–2010s) or open it up to all four. You can change it right up until you start.",
+    body: "Filter to one decade (60s–2010s) or open it up to all six. You can change it right up until you start.",
   },
   {
     icon: "code",

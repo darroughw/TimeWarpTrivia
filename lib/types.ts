@@ -1,4 +1,4 @@
-export type DecadeId = "80s" | "90s" | "2000s" | "2010s" | "all";
+export type DecadeId = "60s" | "70s" | "80s" | "90s" | "2000s" | "2010s" | "all";
 
 export interface Decade {
   id: DecadeId;

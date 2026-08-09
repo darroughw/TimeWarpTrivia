@@ -7,15 +7,15 @@ import { DECADE_COLORS } from "@/lib/decadeColors";
 import type { DecadeId } from "@/lib/types";
 import styles from "./page.module.scss";
 
-// The four playable decades, in order — "all" is a filter option, not a
+// The six playable decades, in order — "all" is a filter option, not a
 // decade in its own right, so it's excluded from this purely decorative
 // strip. Colors come from the same DECADE_COLORS map the live app uses.
-const DECADE_STRIP: DecadeId[] = ["80s", "90s", "2000s", "2010s"];
+const DECADE_STRIP: DecadeId[] = ["60s", "70s", "80s", "90s", "2000s", "2010s"];
 
 const STEPS = [
   {
     title: "Host picks a decade",
-    body: "Put it on the big screen: TV, laptop, whatever's around. Once you're in the lobby, filter to one decade or open it up to all four.",
+    body: "Put it on the big screen: TV, laptop, whatever's around. Once you're in the lobby, filter to one decade or open it up to all six.",
   },
   {
     title: "Everyone joins from their phone",
@@ -42,7 +42,7 @@ export default function Landing() {
       <main className={styles.hero}>
         <h1 className={styles.title}>Nostalgia, weaponized.</h1>
         <p className={styles.subtitle}>
-          Four decades of pop culture trivia on one shared screen, everyone else&rsquo;s phone as
+          Six decades of pop culture trivia on one shared screen, everyone else&rsquo;s phone as
           the buzzer. Answer fast, answer right, or don&rsquo;t. We&rsquo;ll remember either way.
         </p>
 
@@ -58,7 +58,7 @@ export default function Landing() {
           ))}
         </div>
         <p className={styles.stripCaption}>
-          Every era&rsquo;s in play. Your host filters to one (or all four) once the lobby&rsquo;s
+          Every era&rsquo;s in play. Your host filters to one (or all six) once the lobby&rsquo;s
           open.
         </p>
 
