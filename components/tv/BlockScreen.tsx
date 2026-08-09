@@ -40,10 +40,16 @@ export default function BlockScreen({ players, candidates }: BlockScreenProps) {
 
         <div className={styles.candidates}>
           {candidates.map((candidate) => {
-            const style = { "--decade-color": DECADE_COLORS[candidate.decadeId] } as CSSProperties;
+            // Deep Cuts questions (TIM-41) have no decade — every
+            // candidate in a Deep Cuts game shares the same topic
+            // anyway, so a per-candidate tag would be redundant even
+            // if there were a color to show.
+            const style = candidate.decadeId
+              ? ({ "--decade-color": DECADE_COLORS[candidate.decadeId] } as CSSProperties)
+              : undefined;
             return (
               <div className={styles.candidate} key={candidate.id} style={style}>
-                <span className={styles.decadeTag}>{candidate.decadeId}</span>
+                {candidate.decadeId && <span className={styles.decadeTag}>{candidate.decadeId}</span>}
                 <span className={styles.candidateText}>{candidate.text}</span>
               </div>
             );

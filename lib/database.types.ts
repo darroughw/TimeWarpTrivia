@@ -36,6 +36,10 @@ export interface RoomRow {
   // room, across every rematch — lets a Play Again steer away from
   // repeats. See supabase/migrations/0006_rematch.sql.
   asked_question_ids: string[];
+  // Set only for Deep Cuts rooms (TIM-41); decade_filter is left at its
+  // default "all" and ignored in that case. Which one applies is a
+  // client-side "mode" prop, not persisted — see LiveTvFlow.
+  deep_cut_topic_id: string | null;
   created_at: string;
 }
 
@@ -83,14 +87,28 @@ export interface CategoryRow {
 
 export interface QuestionRow {
   id: string;
-  decade_id: string;
-  category_id: string;
+  // Exactly one of decade_id / deep_cut_topic_id is set, never both,
+  // never neither — enforced by questions_exactly_one_source (TIM-41).
+  // category_id only applies to decade-mode questions.
+  decade_id: string | null;
+  category_id: string | null;
+  deep_cut_topic_id: string | null;
   text: string;
   options: string[]; // always length 4, enforced by a DB check constraint
   correct_index: number; // 0-3, enforced by a DB check constraint
   flavor_wrong: string | null;
   is_active: boolean;
   created_at: string;
+}
+
+// Row shape for the deep_cut_topics table (TIM-41) — structurally
+// parallel to DecadeRow, but ids are open-ended (new topics are meant
+// to be added over time without any code change).
+export interface DeepCutTopicRow {
+  id: string;
+  label: string;
+  sort_order: number;
+  is_active: boolean;
 }
 
 // Row shape for supabase/migrations/0005_feedback.sql. Write-only from

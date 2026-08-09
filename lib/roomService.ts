@@ -81,6 +81,7 @@ export async function updateRoom(
       | "question_ids"
       | "question_index"
       | "asked_question_ids"
+      | "deep_cut_topic_id"
     >
   >,
 ): Promise<void> {
@@ -108,6 +109,10 @@ export async function clearRoomAnswers(roomId: string): Promise<void> {
 
 export async function setDecadeFilter(roomId: string, decadeFilter: DecadeId): Promise<void> {
   await updateRoom(roomId, { decade_filter: decadeFilter });
+}
+
+export async function setDeepCutTopic(roomId: string, topicId: string): Promise<void> {
+  await updateRoom(roomId, { deep_cut_topic_id: topicId });
 }
 
 export async function fetchAnswersForQuestion(roomId: string, questionId: string): Promise<AnswerRow[]> {

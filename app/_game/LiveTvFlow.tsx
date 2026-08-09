@@ -3,6 +3,7 @@
 import { usePostHog } from "posthog-js/react";
 import { useCallback, useEffect, useState } from "react";
 import BlockScreen from "@/components/tv/BlockScreen";
+import DeepCutsLobbyScreen from "@/components/tv/DeepCutsLobbyScreen";
 import EndGameScreen from "@/components/tv/EndGameScreen";
 import LobbyScreen from "@/components/tv/LobbyScreen";
 import PassiveAdvanceHint from "@/components/tv/PassiveAdvanceHint";
@@ -19,18 +20,25 @@ import { useRoomRealtime } from "@/hooks/useRoomRealtime";
 import { playerRowToPlayer } from "@/lib/avatar";
 import type { AnswerRow, RoomStatus } from "@/lib/database.types";
 import { ALL_DECADES_OPTION } from "@/lib/decadeColors";
-import { fetchDecades, fetchRandomQuestionSet } from "@/lib/questionService";
+import { fetchDecades, fetchDeepCutTopics, fetchRandomQuestionSet } from "@/lib/questionService";
 import {
   createRoom,
   updateRoom,
   setDecadeFilter,
+  setDeepCutTopic,
   removePlayer,
   resetActivePlayerScores,
   clearRoomAnswers,
 } from "@/lib/roomService";
 import { computeScore } from "@/lib/scoring";
 import { supabase } from "@/lib/supabaseClient";
-import { ROUND_START_COUNTDOWN_SECONDS, type Decade, type PlayerPointResult, type RoundResult } from "@/lib/types";
+import {
+  ROUND_START_COUNTDOWN_SECONDS,
+  type Decade,
+  type DeepCutTopic,
+  type PlayerPointResult,
+  type RoundResult,
+} from "@/lib/types";
 
 // 3 rounds of 5 questions each, in question_ids: round 1 = [0,5), round
 // 2 = [5,10), round 3 (final, double points) = [10,15). Which round is
@@ -89,12 +97,22 @@ function labelForStep(step: PassiveStep | null): string {
 // is the lowest scorer picking their solo question.
 const PASSIVE_STATUSES: RoomStatus[] = ["transition", "scoreboard", "soloTransition"];
 
-export default function LiveTvFlow() {
+interface LiveTvFlowProps {
+  // Which lobby UI + content source this TV session uses (TIM-41). Not
+  // persisted to the DB — a TV tab creates exactly one room on mount and
+  // never changes mode within its own lifetime, so a runtime prop is
+  // enough; see rooms.deep_cut_topic_id for the only thing that is
+  // persisted.
+  mode?: "decade" | "deepCuts";
+}
+
+export default function LiveTvFlow({ mode = "decade" }: LiveTvFlowProps) {
   const [hostId] = useState(() => crypto.randomUUID());
   const [roomId, setRoomId] = useState<string | null>(null);
   const [answers, setAnswers] = useState<AnswerRow[]>([]);
   const [lastRoundResult, setLastRoundResult] = useState<RoundResult | null>(null);
   const [decades, setDecades] = useState<Decade[]>([]);
+  const [deepCutTopics, setDeepCutTopics] = useState<DeepCutTopic[]>([]);
   const posthog = usePostHog();
 
   const { room, players: playerRows } = useRoomRealtime(roomId);
@@ -120,6 +138,7 @@ export default function LiveTvFlow() {
   // The lobby's decade filter is data-driven — fetched once, not
   // hardcoded — so a new decade becomes a data change, not a code deploy.
   useEffect(() => {
+    if (mode !== "decade") return;
     let cancelled = false;
     fetchDecades().then((rows) => {
       if (!cancelled) setDecades(rows);
@@ -127,7 +146,19 @@ export default function LiveTvFlow() {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [mode]);
+
+  // Same idea for Deep Cuts topics (TIM-41) — only fetched in that mode.
+  useEffect(() => {
+    if (mode !== "deepCuts") return;
+    let cancelled = false;
+    fetchDeepCutTopics().then((rows) => {
+      if (!cancelled) setDeepCutTopics(rows);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [mode]);
 
   // Every submitted answer for this room, live — used for the "X of Y
   // answered" counter and to build each question's results breakdown.
@@ -185,10 +216,15 @@ export default function LiveTvFlow() {
 
   // Picks the whole game's question set at once — 15 main questions (3
   // rounds of 5) plus the 3 block candidates — all respecting the room's
-  // decade filter, and all guaranteed distinct from one another.
+  // content source (decade filter or Deep Cuts topic, TIM-41), and all
+  // guaranteed distinct from one another.
   async function handleStartGame() {
     if (!room) return;
-    const picks = await fetchRandomQuestionSet(room.decade_filter, TOTAL_MAIN_QUESTIONS + 3, room.asked_question_ids);
+    const source =
+      mode === "deepCuts" && room.deep_cut_topic_id
+        ? { deepCutTopicId: room.deep_cut_topic_id }
+        : { decadeFilter: room.decade_filter };
+    const picks = await fetchRandomQuestionSet(source, TOTAL_MAIN_QUESTIONS + 3, room.asked_question_ids);
     const questionIds = picks.slice(0, TOTAL_MAIN_QUESTIONS).map((q) => q.id);
     const blockCandidateIds = picks.slice(TOTAL_MAIN_QUESTIONS).map((q) => q.id);
     await updateRoom(room.id, {
@@ -201,6 +237,7 @@ export default function LiveTvFlow() {
     posthog?.capture("game_started", {
       room_code: room.code,
       decade_filter: room.decade_filter,
+      deep_cut_topic_id: room.deep_cut_topic_id,
       player_count: players.length,
     });
   }
@@ -249,7 +286,7 @@ export default function LiveTvFlow() {
     await Promise.all([resetActivePlayerScores(room.id), clearRoomAnswers(room.id)]);
     await updateRoom(room.id, {
       status: "lobby",
-      decade_filter: "all",
+      ...(mode === "deepCuts" ? { deep_cut_topic_id: null } : { decade_filter: "all" as const }),
       current_question_id: null,
       blocker_player_id: null,
       question_ids: null,
@@ -323,20 +360,34 @@ export default function LiveTvFlow() {
 
   return (
     <>
-      {room.status === "lobby" && (
-        <LobbyScreen
-          roomCode={room.code}
-          players={players}
-          selectedDecade={room.decade_filter}
-          onSelectDecade={(id) => {
-            setDecadeFilter(room.id, id);
-            posthog?.capture("decade_selected", { decade: id });
-          }}
-          onStartGame={handleStartGame}
-          decades={[...decades, ALL_DECADES_OPTION]}
-          onRemovePlayer={handleRemovePlayer}
-        />
-      )}
+      {room.status === "lobby" &&
+        (mode === "deepCuts" ? (
+          <DeepCutsLobbyScreen
+            roomCode={room.code}
+            players={players}
+            selectedTopicId={room.deep_cut_topic_id}
+            onSelectTopic={(id) => {
+              setDeepCutTopic(room.id, id);
+              posthog?.capture("deep_cut_topic_selected", { topic: id });
+            }}
+            onStartGame={handleStartGame}
+            topics={deepCutTopics}
+            onRemovePlayer={handleRemovePlayer}
+          />
+        ) : (
+          <LobbyScreen
+            roomCode={room.code}
+            players={players}
+            selectedDecade={room.decade_filter}
+            onSelectDecade={(id) => {
+              setDecadeFilter(room.id, id);
+              posthog?.capture("decade_selected", { decade: id });
+            }}
+            onStartGame={handleStartGame}
+            decades={[...decades, ALL_DECADES_OPTION]}
+            onRemovePlayer={handleRemovePlayer}
+          />
+        ))}
 
       {room.status === "countdown" && currentQuestion && (
         <RoundStartScreen roundLabel={currentQuestion.roundLabel} secondsRemaining={countdownSecondsRemaining} />

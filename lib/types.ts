@@ -5,6 +5,14 @@ export interface Decade {
   label: string;
 }
 
+// Deep Cuts topics (TIM-41) — structurally parallel to Decade, but a
+// plain string id rather than a closed union, since new topics are
+// meant to be added over time with zero code changes.
+export interface DeepCutTopic {
+  id: string;
+  label: string;
+}
+
 export interface Player {
   id: string;
   name: string;
@@ -20,7 +28,9 @@ export interface Player {
 export interface Question {
   id: string;
   roundLabel: string;
-  decadeId: DecadeId;
+  // null for Deep Cuts questions (TIM-41) — they belong to a topic, not
+  // a decade.
+  decadeId: DecadeId | null;
   text: string;
   options: [string, string, string, string];
   correctIndex: 0 | 1 | 2 | 3;

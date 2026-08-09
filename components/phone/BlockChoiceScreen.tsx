@@ -30,7 +30,12 @@ export default function BlockChoiceScreen({ candidates, onConfirm }: BlockChoice
       <div className={styles.candidates} role="radiogroup" aria-label="Pick a question to answer solo">
         {candidates.map((candidate) => {
           const selected = candidate.id === selectedId;
-          const style = { "--decade-color": DECADE_COLORS[candidate.decadeId] } as CSSProperties;
+          // Deep Cuts questions (TIM-41) have no decade — every
+          // candidate shares the same topic anyway, so a per-candidate
+          // tag would be redundant even if there were a color to show.
+          const style = candidate.decadeId
+            ? ({ "--decade-color": DECADE_COLORS[candidate.decadeId] } as CSSProperties)
+            : undefined;
           return (
             <button
               key={candidate.id}
@@ -41,7 +46,7 @@ export default function BlockChoiceScreen({ candidates, onConfirm }: BlockChoice
               style={style}
               onClick={() => setSelectedId(candidate.id)}
             >
-              <span className={styles.decadeTag}>{candidate.decadeId}</span>
+              {candidate.decadeId && <span className={styles.decadeTag}>{candidate.decadeId}</span>}
               <span className={styles.preview}>{candidate.text}</span>
             </button>
           );

@@ -1,0 +1,193 @@
+@use "theme" as *;
+@use "mixins" as *;
+
+.screen {
+  position: relative;
+  min-height: 100vh;
+  padding: $space-xl $space-2xl;
+  display: flex;
+  flex-direction: column;
+  gap: $space-xl;
+  z-index: $z-content;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: $space-lg;
+}
+
+.titleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+}
+
+.logo {
+  width: 6rem;
+  height: auto;
+}
+
+.title {
+  @include marquee-heading;
+  font-size: 4rem;
+}
+
+.codeBlock {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+}
+
+.codeLabel {
+  font-family: $paper-font;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: $text-lo;
+  font-size: 0.9rem;
+}
+
+.code {
+  @include mono-figure;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: $paper;
+  letter-spacing: 0.08em;
+  padding: $space-sm $space-md;
+  background: $void-raised;
+  border: $border-width solid $marigold-dim;
+  border-radius: $radius-md;
+  box-shadow: $shadow-glow-marigold;
+}
+
+.body {
+  display: flex;
+  gap: $space-xl;
+  flex: 1;
+  min-height: 0;
+}
+
+.playersPanel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+}
+
+.sectionLabel {
+  font-family: $paper-font;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: $text-lo;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.playerGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-lg $space-md;
+  align-content: flex-start;
+}
+
+.playerChip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-xs;
+  animation: chip-in 0.4s ease both;
+
+  &.left {
+    opacity: 0.45;
+  }
+}
+
+.leftBadge {
+  font-family: $paper-font;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.7rem;
+  color: $text-lo;
+}
+
+@keyframes chip-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .playerChip {
+    animation: none;
+  }
+}
+
+.empty {
+  color: $text-lo;
+  font-family: $paper-font;
+  font-size: 1.1rem;
+}
+
+.sidebar {
+  width: 22rem;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $space-lg;
+  padding-top: $space-lg;
+  border-top: 1px solid $void-line;
+}
+
+.footerLeft {
+  display: flex;
+  align-items: center;
+  gap: $space-md;
+}
+
+.countLabel {
+  font-family: $paper-font;
+  color: $text-lo;
+  font-size: 1.25rem;
+
+  strong {
+    @include mono-figure;
+    color: $teal;
+    font-size: 1.5rem;
+  }
+}
+
+.startButton {
+  @include dpad-focusable;
+  font-family: $head-font;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 1.6rem;
+  padding: $space-md $space-xl;
+  border-radius: $radius-lg;
+  background: $marigold;
+  color: $ink;
+  border: $border-width solid $marigold;
+  box-shadow: $shadow-glow-marigold;
+
+  &:disabled {
+    opacity: 0.4;
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+}

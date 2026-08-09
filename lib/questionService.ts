@@ -1,6 +1,6 @@
 import { supabase } from "./supabaseClient";
 import type { QuestionRow, RoomRow } from "./database.types";
-import type { Decade, DecadeId, Question } from "./types";
+import type { Decade, DecadeId, DeepCutTopic, Question } from "./types";
 
 export interface QuestionMeta {
   roundLabel: string;
@@ -12,7 +12,7 @@ function questionRowToQuestion(row: QuestionRow, meta: QuestionMeta): Question {
   return {
     id: row.id,
     roundLabel: meta.roundLabel,
-    decadeId: row.decade_id as DecadeId,
+    decadeId: row.decade_id as DecadeId | null,
     text: row.text,
     options: row.options as [string, string, string, string],
     correctIndex: row.correct_index as 0 | 1 | 2 | 3,
@@ -63,12 +63,21 @@ export async function fetchQuestionsByIds(ids: string[], meta: QuestionMeta): Pr
     .map((row) => questionRowToQuestion(row, meta));
 }
 
-// Picks `count` distinct random active questions, optionally scoped to one
-// decade. Fetches the whole matching pool and shuffles client-side — at
-// ~700 total rows this is a single fast round trip; if the catalog grows
-// an order of magnitude this should move to a server-side
-// `ORDER BY random()` via a Postgres RPC function (PostgREST can't order
-// by an expression directly).
+// Either a decade-mode or Deep Cuts (TIM-41) content source — exactly
+// one of the two ever applies to a given room, mirroring
+// questions_exactly_one_source at the schema level.
+export type QuestionSource = { decadeFilter: DecadeId } | { deepCutTopicId: string };
+
+function sourceLabel(source: QuestionSource): string {
+  return "deepCutTopicId" in source ? source.deepCutTopicId : source.decadeFilter;
+}
+
+// Picks `count` distinct random active questions from one source (a
+// decade filter or a Deep Cuts topic). Fetches the whole matching pool
+// and shuffles client-side — at ~1,400 total rows this is a single fast
+// round trip; if the catalog grows an order of magnitude this should
+// move to a server-side `ORDER BY random()` via a Postgres RPC function
+// (PostgREST can't order by an expression directly).
 //
 // `excludeIds` steers a rematch away from questions already asked in this
 // room (see rooms.asked_question_ids, TIM-38). If excluding them would
@@ -76,13 +85,15 @@ export async function fetchQuestionsByIds(ids: string[], meta: QuestionMeta): Pr
 // call rather than partially applied — repeats only when the pool is
 // truly exhausted, never a mix of "some excluded, some not."
 export async function fetchRandomQuestionSet(
-  decadeFilter: DecadeId,
+  source: QuestionSource,
   count: number,
   excludeIds: string[] = [],
 ): Promise<QuestionRow[]> {
   let query = supabase.from("questions").select("*").eq("is_active", true);
-  if (decadeFilter !== "all") {
-    query = query.eq("decade_id", decadeFilter);
+  if ("deepCutTopicId" in source) {
+    query = query.eq("deep_cut_topic_id", source.deepCutTopicId);
+  } else if (source.decadeFilter !== "all") {
+    query = query.eq("decade_id", source.decadeFilter);
   }
   const { data, error } = await query;
   if (error) throw error;
@@ -91,7 +102,7 @@ export async function fetchRandomQuestionSet(
   const fresh = rows.filter((r) => !excludeSet.has(r.id));
   const pool = fresh.length >= count ? fresh : rows;
   if (pool.length < count) {
-    throw new Error(`Not enough active questions for decade "${decadeFilter}" (have ${pool.length}, need ${count}).`);
+    throw new Error(`Not enough active questions for "${sourceLabel(source)}" (have ${pool.length}, need ${count}).`);
   }
   for (let i = pool.length - 1; i > 0; i -= 1) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -108,4 +119,14 @@ export async function fetchDecades(): Promise<Decade[]> {
     .order("sort_order", { ascending: true });
   if (error) throw error;
   return ((data as { id: string; label: string }[]) ?? []).map((d) => ({ id: d.id as DecadeId, label: d.label }));
+}
+
+export async function fetchDeepCutTopics(): Promise<DeepCutTopic[]> {
+  const { data, error } = await supabase
+    .from("deep_cut_topics")
+    .select("id, label")
+    .eq("is_active", true)
+    .order("sort_order", { ascending: true });
+  if (error) throw error;
+  return (data as DeepCutTopic[]) ?? [];
 }

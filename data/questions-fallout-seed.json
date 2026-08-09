@@ -1,0 +1,1802 @@
+[
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the vault the player starts in during the original Fallout?",
+    "options": [
+      "Vault 13",
+      "Vault 101",
+      "Vault 111",
+      "Vault 76"
+    ],
+    "correct_answer": "Vault 13",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What item does the Overseer send the player to retrieve in the original Fallout?",
+    "options": [
+      "A GECK",
+      "A water chip",
+      "A Fusion Core",
+      "A holotape"
+    ],
+    "correct_answer": "A water chip",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the super mutant army leader in Fallout 1?",
+    "options": [
+      "The Master",
+      "Caesar",
+      "Colonel Autumn",
+      "Frank Horrigan"
+    ],
+    "correct_answer": "The Master",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What organization does the player work for by the end of Fallout 1, fighting the Master's army?",
+    "options": [
+      "The Brotherhood of Steel",
+      "The NCR",
+      "The Enclave",
+      "The Followers of the Apocalypse"
+    ],
+    "correct_answer": "The Brotherhood of Steel",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the mutagenic virus the Master uses to create super mutants?",
+    "options": [
+      "FEV",
+      "REPCONN Virus",
+      "Vault-Tec Serum",
+      "Forced Evolutionary Virus (same as FEV)"
+    ],
+    "correct_answer": "FEV",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What city serves as the primary hub location in the original Fallout?",
+    "options": [
+      "The Hub",
+      "Shady Sands",
+      "Junktown",
+      "Necropolis"
+    ],
+    "correct_answer": "The Hub",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What town in Fallout 1 later becomes the capital of the NCR?",
+    "options": [
+      "Shady Sands",
+      "Junktown",
+      "The Hub",
+      "Vault City"
+    ],
+    "correct_answer": "Shady Sands",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the time limit (in game days) originally imposed on the player to find the water chip?",
+    "options": [
+      "150 days",
+      "500 days",
+      "90 days",
+      "365 days"
+    ],
+    "correct_answer": "150 days",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "Which town in Fallout 1 is populated entirely by ghouls?",
+    "options": [
+      "Necropolis",
+      "Junktown",
+      "Adytum",
+      "The Glow"
+    ],
+    "correct_answer": "Necropolis",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What year was the original Fallout released?",
+    "options": [
+      "1997",
+      "1999",
+      "2001",
+      "1995"
+    ],
+    "correct_answer": "1997",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the player character's home village in Fallout 2?",
+    "options": [
+      "Arroyo",
+      "Klamath",
+      "Vault City",
+      "Redding"
+    ],
+    "correct_answer": "Arroyo",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What device is the Chosen One sent to find at the start of Fallout 2?",
+    "options": [
+      "A GECK",
+      "A water chip",
+      "A Vertibird",
+      "A Pip-Boy"
+    ],
+    "correct_answer": "A GECK",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the corporate-controlled town built on an oil rig in Fallout 2?",
+    "options": [
+      "The Enclave Oil Rig",
+      "New Reno",
+      "Vault City",
+      "Broken Hills"
+    ],
+    "correct_answer": "The Enclave Oil Rig",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the president of the United States encountered in Fallout 2?",
+    "options": [
+      "President Richardson",
+      "President Eckhart",
+      "President Kimball",
+      "President Tandi"
+    ],
+    "correct_answer": "President Richardson",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "Which Fallout 2 town is famous for its casinos and crime families?",
+    "options": [
+      "New Reno",
+      "Redding",
+      "Modoc",
+      "Gecko"
+    ],
+    "correct_answer": "New Reno",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What Fallout 2 vault is home to a settlement of intelligent, talking deathclaws?",
+    "options": [
+      "Vault 13",
+      "Vault City",
+      "Broken Hills",
+      "Klamath"
+    ],
+    "correct_answer": "Vault 13",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What year was Fallout 2 released?",
+    "options": [
+      "1998",
+      "1997",
+      "2000",
+      "2002"
+    ],
+    "correct_answer": "1998",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What ghoul-run town in Fallout 2 is powered by a nuclear reactor?",
+    "options": [
+      "Gecko",
+      "Necropolis",
+      "Broken Hills",
+      "Modoc"
+    ],
+    "correct_answer": "Gecko",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the robotic companion available in Fallout 2 that can be upgraded with new chassis?",
+    "options": [
+      "Skynet",
+      "K-9",
+      "Robobrain",
+      "Dogmeat"
+    ],
+    "correct_answer": "Skynet",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What mining town in Fallout 2 sits atop a former Vault-Tec facility?",
+    "options": [
+      "Redding",
+      "Klamath",
+      "Vault City",
+      "New Reno"
+    ],
+    "correct_answer": "Redding",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What vault does the Lone Wanderer grow up in during Fallout 3?",
+    "options": [
+      "Vault 101",
+      "Vault 111",
+      "Vault 13",
+      "Vault 76"
+    ],
+    "correct_answer": "Vault 101",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "Which city serves as the main setting for Fallout 3?",
+    "options": [
+      "Washington, D.C.",
+      "Boston",
+      "Las Vegas",
+      "Pittsburgh"
+    ],
+    "correct_answer": "Washington, D.C.",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the Lone Wanderer's father in Fallout 3?",
+    "options": [
+      "James",
+      "John",
+      "Nate",
+      "Nora"
+    ],
+    "correct_answer": "James",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What device does the father figure hope to activate to purify the Capital Wasteland's water?",
+    "options": [
+      "Project Purity",
+      "The GECK",
+      "Liberty Prime",
+      "Aqua Pura"
+    ],
+    "correct_answer": "Project Purity",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the giant robot the Brotherhood of Steel uses to attack the Enclave in Fallout 3?",
+    "options": [
+      "Liberty Prime",
+      "ARCHIMEDES II",
+      "Colossus",
+      "The Behemoth"
+    ],
+    "correct_answer": "Liberty Prime",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "Who is the leader of the Enclave remnants encountered in Fallout 3?",
+    "options": [
+      "Colonel Autumn",
+      "President Eden",
+      "Frank Horrigan",
+      "Elder Lyons"
+    ],
+    "correct_answer": "President Eden",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What form does the Fallout 3 Enclave President Eden actually take?",
+    "options": [
+      "A sentient supercomputer (ZAX/AI)",
+      "A ghoul",
+      "A synth",
+      "A super mutant"
+    ],
+    "correct_answer": "A sentient supercomputer (ZAX/AI)",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the town built around an unexploded nuclear bomb in Fallout 3?",
+    "options": [
+      "Megaton",
+      "Rivet City",
+      "Underworld",
+      "Tenpenny Tower"
+    ],
+    "correct_answer": "Megaton",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the ghoul-populated settlement inside the Museum of History in Fallout 3?",
+    "options": [
+      "Underworld",
+      "Megaton",
+      "Girdershade",
+      "Arefu"
+    ],
+    "correct_answer": "Underworld",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What year was Fallout 3 released?",
+    "options": [
+      "2008",
+      "2006",
+      "2010",
+      "2004"
+    ],
+    "correct_answer": "2008",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the aircraft carrier that serves as a settlement in Fallout 3?",
+    "options": [
+      "Rivet City",
+      "The Prydwen",
+      "The Citadel",
+      "Raven Rock"
+    ],
+    "correct_answer": "Rivet City",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What secret base serves as the Enclave's headquarters in Fallout 3?",
+    "options": [
+      "Raven Rock",
+      "Adams Air Force Base",
+      "Fort Constantine",
+      "Vault 87"
+    ],
+    "correct_answer": "Raven Rock",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "Which vault in Fallout 3 was used to breed super mutants using FEV?",
+    "options": [
+      "Vault 87",
+      "Vault 106",
+      "Vault 108",
+      "Vault 92"
+    ],
+    "correct_answer": "Vault 87",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What companion in Fallout 3 is a former Talon Company mercenary turned bodyguard?",
+    "options": [
+      "Jericho",
+      "Charon",
+      "Butch",
+      "Fawkes"
+    ],
+    "correct_answer": "Jericho",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the intelligent super mutant companion found in Vault 87?",
+    "options": [
+      "Fawkes",
+      "Uncle Leo",
+      "Marcus",
+      "Lou"
+    ],
+    "correct_answer": "Fawkes",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the courier's main objective at the start of New Vegas?",
+    "options": [
+      "Deliver a platinum chip",
+      "Find a GECK",
+      "Purify water",
+      "Find their father"
+    ],
+    "correct_answer": "Deliver a platinum chip",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "Who shoots the Courier and leaves them for dead at the start of New Vegas?",
+    "options": [
+      "Benny",
+      "Caesar",
+      "Mr. House",
+      "Vulpes Inculta"
+    ],
+    "correct_answer": "Benny",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What casino does Benny run in New Vegas?",
+    "options": [
+      "The Tops",
+      "Lucky 38",
+      "Gomorrah",
+      "Ultra-Luxe"
+    ],
+    "correct_answer": "The Tops",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "Who is the pre-War businessman controlling New Vegas from behind the scenes?",
+    "options": [
+      "Mr. House",
+      "Caesar",
+      "President Kimball",
+      "Colonel Moore"
+    ],
+    "correct_answer": "Mr. House",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the slaver-based army led by Caesar in New Vegas?",
+    "options": [
+      "Caesar's Legion",
+      "The NCR",
+      "The Boomers",
+      "Great Khans"
+    ],
+    "correct_answer": "Caesar's Legion",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What faction operates out of Nellis Air Force Base and is known for artillery?",
+    "options": [
+      "The Boomers",
+      "Great Khans",
+      "Powder Gangers",
+      "The Brotherhood of Steel"
+    ],
+    "correct_answer": "The Boomers",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the securitron army Mr. House controls?",
+    "options": [
+      "The Securitron Army",
+      "Robobrains",
+      "Protectrons",
+      "Sentry Bots"
+    ],
+    "correct_answer": "The Securitron Army",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "Which faction in New Vegas is made up of escaped convicts from the NCR Correctional Facility?",
+    "options": [
+      "Powder Gangers",
+      "Great Khans",
+      "Fiends",
+      "White Glove Society"
+    ],
+    "correct_answer": "Powder Gangers",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is Mr. House's true physical state, revealed late in New Vegas?",
+    "options": [
+      "A preserved brain kept alive in a life-support pod",
+      "A fully robotic AI with no human body",
+      "A synth replica",
+      "A hologram with no physical body at all"
+    ],
+    "correct_answer": "A preserved brain kept alive in a life-support pod",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the dam that is central to the conflict between the NCR and Caesar's Legion?",
+    "options": [
+      "Hoover Dam",
+      "Boulder Dam",
+      "Colorado Dam",
+      "Vegas Dam"
+    ],
+    "correct_answer": "Hoover Dam",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the reformed cannibal society running the Ultra-Luxe casino?",
+    "options": [
+      "White Glove Society",
+      "The Chairmen",
+      "Omertas",
+      "Fiends"
+    ],
+    "correct_answer": "White Glove Society",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What year was Fallout: New Vegas released?",
+    "options": [
+      "2010",
+      "2008",
+      "2012",
+      "2011"
+    ],
+    "correct_answer": "2010",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "Who is the main antagonist running the Sierra Madre casino in the Dead Money DLC?",
+    "options": [
+      "Father Elijah",
+      "Dr. Mobius",
+      "Ulysses",
+      "Christine Royce"
+    ],
+    "correct_answer": "Father Elijah",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What toxic gas fills the Sierra Madre vault in the Dead Money DLC?",
+    "options": [
+      "Cloud",
+      "FEV gas",
+      "Rad-mist",
+      "Nightkin gas"
+    ],
+    "correct_answer": "Cloud",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "In the Old World Blues DLC, what is the name of the sentient brain-in-a-jar companion?",
+    "options": [
+      "Doctor Klein",
+      "Dr. Mobius",
+      "Dr. Dala",
+      "Dr. 8"
+    ],
+    "correct_answer": "Doctor Klein",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What faction does the Courier work for if they choose to keep Mr. House in power?",
+    "options": [
+      "House's forces (New Vegas)",
+      "The NCR",
+      "Caesar's Legion",
+      "Yes Man/Independent"
+    ],
+    "correct_answer": "House's forces (New Vegas)",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the securitron the player can reprogram to lead an independent Vegas path?",
+    "options": [
+      "Yes Man",
+      "Victor",
+      "REPCONN Bot",
+      "ED-E"
+    ],
+    "correct_answer": "Yes Man",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What robotic companion in New Vegas is an Enclave Eyebot with recorded logs?",
+    "options": [
+      "ED-E",
+      "Rex",
+      "Victor",
+      "RCS-8"
+    ],
+    "correct_answer": "ED-E",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the cybernetic dog companion in New Vegas?",
+    "options": [
+      "Rex",
+      "Dogmeat",
+      "God",
+      "K-9"
+    ],
+    "correct_answer": "Rex",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "Which New Vegas DLC takes place in a Big MT research facility?",
+    "options": [
+      "Old World Blues",
+      "Dead Money",
+      "Honest Hearts",
+      "Lonesome Road"
+    ],
+    "correct_answer": "Old World Blues",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What vault does the Sole Survivor emerge from in Fallout 4?",
+    "options": [
+      "Vault 111",
+      "Vault 101",
+      "Vault 76",
+      "Vault 13"
+    ],
+    "correct_answer": "Vault 111",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What city is the main setting of Fallout 4?",
+    "options": [
+      "Boston",
+      "Washington D.C.",
+      "New York",
+      "Chicago"
+    ],
+    "correct_answer": "Boston",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the Sole Survivor's kidnapped infant son in Fallout 4?",
+    "options": [
+      "Shaun",
+      "James",
+      "Nate",
+      "Kellogg"
+    ],
+    "correct_answer": "Shaun",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What faction turns out to be led by a synthetic replica of the player's son?",
+    "options": [
+      "The Institute",
+      "The Railroad",
+      "The Brotherhood of Steel",
+      "The Minutemen"
+    ],
+    "correct_answer": "The Institute",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the settlement-building militia faction the player can lead in Fallout 4?",
+    "options": [
+      "The Minutemen",
+      "The Railroad",
+      "The Institute",
+      "Diamond City Guard"
+    ],
+    "correct_answer": "The Minutemen",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the underground faction dedicated to freeing synths in Fallout 4?",
+    "options": [
+      "The Railroad",
+      "The Minutemen",
+      "The Institute",
+      "Children of Atom"
+    ],
+    "correct_answer": "The Railroad",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the main settlement hub built inside a baseball stadium?",
+    "options": [
+      "Diamond City",
+      "Goodneighbor",
+      "Sanctuary Hills",
+      "The Castle"
+    ],
+    "correct_answer": "Diamond City",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the mercenary hired to kidnap Shaun in Fallout 4?",
+    "options": [
+      "Kellogg",
+      "Benny",
+      "Colonel Autumn",
+      "Winter"
+    ],
+    "correct_answer": "Kellogg",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the airship that serves as the Brotherhood of Steel's headquarters in Fallout 4?",
+    "options": [
+      "The Prydwen",
+      "Rivet City",
+      "The Citadel",
+      "Raven Rock"
+    ],
+    "correct_answer": "The Prydwen",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What ghoul mayor runs the settlement of Goodneighbor?",
+    "options": [
+      "Hancock",
+      "Nick Valentine",
+      "Deacon",
+      "MacCready"
+    ],
+    "correct_answer": "Hancock",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the synth detective companion in Fallout 4?",
+    "options": [
+      "Nick Valentine",
+      "Hancock",
+      "Deacon",
+      "Preston Garvey"
+    ],
+    "correct_answer": "Nick Valentine",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What year was Fallout 4 released?",
+    "options": [
+      "2015",
+      "2013",
+      "2017",
+      "2011"
+    ],
+    "correct_answer": "2015",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What are the Institute's headquarters built beneath?",
+    "options": [
+      "The ruins of the Commonwealth Institute of Technology (CIT)",
+      "Vault 111",
+      "Fort Hagen",
+      "The Mass Fusion Building"
+    ],
+    "correct_answer": "The ruins of the Commonwealth Institute of Technology (CIT)",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What settlement serves as the Minutemen's rebuilt headquarters?",
+    "options": [
+      "The Castle",
+      "Sanctuary Hills",
+      "Diamond City",
+      "Bunker Hill"
+    ],
+    "correct_answer": "The Castle",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the religious cult that worships a crashed nuclear device in Fallout 4?",
+    "options": [
+      "Children of Atom",
+      "The Cult of the Divide",
+      "Atom's Children Order",
+      "Nuka Worshippers"
+    ],
+    "correct_answer": "Children of Atom",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the crafting mechanic that lets players build and manage settlements?",
+    "options": [
+      "Settlement building/Workshop mode",
+      "S.P.E.C.I.A.L. system",
+      "Crafting bench only",
+      "VATS building"
+    ],
+    "correct_answer": "Settlement building/Workshop mode",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "In Fallout 4's Nuka-World DLC, what is the name of the pre-War amusement park the player can take over with raiders?",
+    "options": [
+      "Nuka-World",
+      "Fizztop Grille",
+      "Gage's Park",
+      "Kiddie Kingdom"
+    ],
+    "correct_answer": "Nuka-World",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What mercenary companion in Fallout 4 has a backstory involving a sick child at Big Town?",
+    "options": [
+      "MacCready",
+      "Deacon",
+      "Preston Garvey",
+      "X6-88"
+    ],
+    "correct_answer": "MacCready",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "Who serves as the general handing out radiant quests for the Minutemen in Fallout 4?",
+    "options": [
+      "Preston Garvey",
+      "Ronnie Shaw",
+      "Sturges",
+      "Mama Murphy"
+    ],
+    "correct_answer": "Preston Garvey",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of Fallout 4's power armor overhaul mechanic requiring fusion cores?",
+    "options": [
+      "Power armor frames with fusion core power",
+      "VATS armor",
+      "Chem-boosted armor",
+      "S.P.E.C.I.A.L. armor"
+    ],
+    "correct_answer": "Power armor frames with fusion core power",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What state is Fallout 76 set in?",
+    "options": [
+      "West Virginia",
+      "Pennsylvania",
+      "Nevada",
+      "Massachusetts"
+    ],
+    "correct_answer": "West Virginia",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What vault do Fallout 76 players emerge from?",
+    "options": [
+      "Vault 76",
+      "Vault 111",
+      "Vault 101",
+      "Vault 13"
+    ],
+    "correct_answer": "Vault 76",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What was notable about Fallout 76 at launch compared to prior mainline games?",
+    "options": [
+      "It had no human NPCs and was fully online multiplayer",
+      "It was single-player only",
+      "It was turn-based combat",
+      "It had no crafting system"
+    ],
+    "correct_answer": "It had no human NPCs and was fully online multiplayer",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What year does Fallout 76 take place, making it the earliest-set mainline Fallout?",
+    "options": [
+      "2102",
+      "2077",
+      "2161",
+      "2287"
+    ],
+    "correct_answer": "2102",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What expedition system introduced in a Fallout 76 update lets players travel outside West Virginia?",
+    "options": [
+      "Expeditions: The Pitt",
+      "Nuka-World Expedition",
+      "New Vegas Expansion",
+      "Point Lookout"
+    ],
+    "correct_answer": "Expeditions: The Pitt",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What faction ultimately becomes a major late-game antagonist in Fallout 76's Wastelanders and Steel Reign updates?",
+    "options": [
+      "The Enclave",
+      "Caesar's Legion",
+      "The Institute",
+      "Talon Company"
+    ],
+    "correct_answer": "The Enclave",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the seasonal seed vault questline organization players help rebuild?",
+    "options": [
+      "Responders",
+      "Free States",
+      "Raiders",
+      "Settlers"
+    ],
+    "correct_answer": "Responders",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What year was Fallout 76 released?",
+    "options": [
+      "2018",
+      "2016",
+      "2020",
+      "2019"
+    ],
+    "correct_answer": "2018",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What faction of survivalists in Fallout 76 believed in self-reliance and were opposed to authority?",
+    "options": [
+      "Free States",
+      "Responders",
+      "Raiders",
+      "Brotherhood of Steel"
+    ],
+    "correct_answer": "Free States",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What creature-focused public event has players defending against waves of enemies at a fixed location?",
+    "options": [
+      "Public Events (e.g. Uncanny Caverns, Guided Meditation)",
+      "Raids only",
+      "Arena mode",
+      "Colosseum event"
+    ],
+    "correct_answer": "Public Events (e.g. Uncanny Caverns, Guided Meditation)",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What streaming service produced the Fallout television series?",
+    "options": [
+      "Amazon Prime Video",
+      "Netflix",
+      "HBO Max",
+      "Hulu"
+    ],
+    "correct_answer": "Amazon Prime Video",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What year did the Fallout TV series premiere?",
+    "options": [
+      "2024",
+      "2022",
+      "2023",
+      "2025"
+    ],
+    "correct_answer": "2024",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the main vault dweller protagonist in the Fallout TV series?",
+    "options": [
+      "Lucy MacLean",
+      "Nora",
+      "Ella Purnell's character is Lucy",
+      "Maximus"
+    ],
+    "correct_answer": "Lucy MacLean",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What vault does Lucy MacLean come from in the TV series?",
+    "options": [
+      "Vault 33",
+      "Vault 101",
+      "Vault 111",
+      "Vault 76"
+    ],
+    "correct_answer": "Vault 33",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the ghoul bounty hunter played by Walton Goggins in the show?",
+    "options": [
+      "The Ghoul (Cooper Howard)",
+      "The Master",
+      "Harold",
+      "Charon"
+    ],
+    "correct_answer": "The Ghoul (Cooper Howard)",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What was the Ghoul's profession before the bombs fell?",
+    "options": [
+      "Hollywood actor",
+      "Vault-Tec engineer",
+      "Soldier",
+      "Radio DJ"
+    ],
+    "correct_answer": "Hollywood actor",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the young Brotherhood of Steel squire who becomes a knight in the show?",
+    "options": [
+      "Maximus",
+      "Titus",
+      "Elder Cleric",
+      "Danse"
+    ],
+    "correct_answer": "Maximus",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What company does Lucy MacLean discover her father is secretly tied to, running the Vaults?",
+    "options": [
+      "Vault-Tec",
+      "RobCo",
+      "West-Tek",
+      "The Enclave"
+    ],
+    "correct_answer": "Vault-Tec",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "In what real city/region is much of the Fallout TV series set?",
+    "options": [
+      "Los Angeles area",
+      "Boston",
+      "Washington D.C.",
+      "New York"
+    ],
+    "correct_answer": "Los Angeles area",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "Who is credited as an executive producer of the Fallout TV series, also known for Westworld?",
+    "options": [
+      "Jonathan Nolan",
+      "Todd Howard only directed games",
+      "J.J. Abrams",
+      "Christopher Nolan"
+    ],
+    "correct_answer": "Jonathan Nolan",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What company is responsible for building the Vaults in the Fallout universe?",
+    "options": [
+      "Vault-Tec",
+      "RobCo",
+      "West-Tek",
+      "Poseidon Energy"
+    ],
+    "correct_answer": "Vault-Tec",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the mascot character seen on Vault-Tec posters and Pip-Boy screens?",
+    "options": [
+      "Vault Boy",
+      "Nuka Girl",
+      "Mr. Handy",
+      "Vault Man"
+    ],
+    "correct_answer": "Vault Boy",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the primary drink brand featured throughout the Fallout series?",
+    "options": [
+      "Nuka-Cola",
+      "Sunset Sarsaparilla",
+      "Vim!",
+      "Party Time Mentats"
+    ],
+    "correct_answer": "Nuka-Cola",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What faction is dedicated to preserving pre-War technology, often through military force?",
+    "options": [
+      "The Brotherhood of Steel",
+      "The Enclave",
+      "The Followers of the Apocalypse",
+      "The Railroad"
+    ],
+    "correct_answer": "The Brotherhood of Steel",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What faction claims to be the legitimate remnant of the pre-War U.S. government?",
+    "options": [
+      "The Enclave",
+      "The Brotherhood of Steel",
+      "The NCR",
+      "Caesar's Legion"
+    ],
+    "correct_answer": "The Enclave",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What does NCR stand for?",
+    "options": [
+      "New California Republic",
+      "New Colorado Region",
+      "Northern California Reserve",
+      "New Continental Republic"
+    ],
+    "correct_answer": "New California Republic",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What year did the Great War (nuclear war) occur in the Fallout timeline?",
+    "options": [
+      "2077",
+      "2061",
+      "2103",
+      "2287"
+    ],
+    "correct_answer": "2077",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the acronym FEV short for?",
+    "options": [
+      "Forced Evolutionary Virus",
+      "Federal Enhancement Vaccine",
+      "Fatal Exposure Variant",
+      "Fusion Energy Virus"
+    ],
+    "correct_answer": "Forced Evolutionary Virus",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What company originally developed FEV before the war, intending it as a cure for disease?",
+    "options": [
+      "West Tek",
+      "Vault-Tec",
+      "RobCo",
+      "Poseidon Energy"
+    ],
+    "correct_answer": "West Tek",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What creatures are commonly created through FEV exposure alongside super mutants?",
+    "options": [
+      "Deathclaws",
+      "Ghouls",
+      "Radroaches",
+      "Bloatflies"
+    ],
+    "correct_answer": "Deathclaws",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What causes humans to become ghouls in the Fallout universe?",
+    "options": [
+      "Prolonged radiation exposure",
+      "FEV exposure",
+      "Nuclear fallout ingestion only",
+      "Chemical weapons"
+    ],
+    "correct_answer": "Prolonged radiation exposure",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What term describes ghouls who have lost their sanity from radiation, becoming feral and violent?",
+    "options": [
+      "Feral ghouls",
+      "Glowing ones",
+      "Wild ghouls",
+      "Rad ghouls"
+    ],
+    "correct_answer": "Feral ghouls",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name for especially irradiated ghouls that glow and emit dangerous radiation?",
+    "options": [
+      "Glowing Ones",
+      "Feral Ghouls",
+      "Nightkin",
+      "Centaurs"
+    ],
+    "correct_answer": "Glowing Ones",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What robotics company manufactures the RobCo-line terminals and Protectron units seen throughout the wasteland?",
+    "options": [
+      "RobCo Industries",
+      "Vault-Tec Robotics",
+      "West Tek Cybernetics",
+      "Poseidon Robotics"
+    ],
+    "correct_answer": "RobCo Industries",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the wrist-mounted device that serves as the player's UI and inventory system across the series?",
+    "options": [
+      "The Pip-Boy",
+      "The RobCo Terminal",
+      "The Vault Tablet",
+      "The RadTracker"
+    ],
+    "correct_answer": "The Pip-Boy",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What does the acronym S.P.E.C.I.A.L. stand for in the character stat system?",
+    "options": [
+      "Strength, Perception, Endurance, Charisma, Intelligence, Agility, Luck",
+      "Skill, Power, Endurance, Craft, Intellect, Aim, Luck",
+      "Strength, Precision, Endurance, Charm, Insight, Agility, Luck",
+      "Stamina, Perception, Energy, Charisma, Intelligence, Agility, Luck"
+    ],
+    "correct_answer": "Strength, Perception, Endurance, Charisma, Intelligence, Agility, Luck",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What company originally developed the game series before Bethesda acquired the rights?",
+    "options": [
+      "Interplay Entertainment (via Black Isle Studios)",
+      "Obsidian Entertainment",
+      "id Software",
+      "Troika Games"
+    ],
+    "correct_answer": "Interplay Entertainment (via Black Isle Studios)",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What studio developed Fallout: New Vegas?",
+    "options": [
+      "Obsidian Entertainment",
+      "Bethesda Game Studios",
+      "Black Isle Studios",
+      "Interplay"
+    ],
+    "correct_answer": "Obsidian Entertainment",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What studio developed Fallout 3, 4, and 76?",
+    "options": [
+      "Bethesda Game Studios",
+      "Obsidian Entertainment",
+      "Interplay",
+      "Black Isle Studios"
+    ],
+    "correct_answer": "Bethesda Game Studios",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What tactic did the U.S. government use with Vaults, unbeknownst to most residents, as revealed across the series?",
+    "options": [
+      "Running secret social experiments on the population",
+      "Simple bomb shelters with no ulterior motive",
+      "Military training bases",
+      "Prisoner rehabilitation centers"
+    ],
+    "correct_answer": "Running secret social experiments on the population",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the iconic dog companion who appears across multiple Fallout games?",
+    "options": [
+      "Dogmeat",
+      "Rex",
+      "Fido",
+      "K-9"
+    ],
+    "correct_answer": "Dogmeat",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What Fallout 3 character runs Rivet City's science lab and studies Project Purity?",
+    "options": [
+      "Dr. Madison Li",
+      "Dr. Zimmer",
+      "Dr. Braun",
+      "Dr. Curling"
+    ],
+    "correct_answer": "Dr. Madison Li",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "Who is the leader of the Brotherhood of Steel's East Coast chapter in Fallout 3?",
+    "options": [
+      "Elder Lyons",
+      "Elder Maxson",
+      "Paladin Danse",
+      "Elder McNamara"
+    ],
+    "correct_answer": "Elder Lyons",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "Who leads the Brotherhood of Steel in Fallout 4?",
+    "options": [
+      "Elder Arthur Maxson",
+      "Elder Lyons",
+      "Paladin Danse",
+      "Elder McNamara"
+    ],
+    "correct_answer": "Elder Arthur Maxson",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What character in New Vegas is the leader of Caesar's Legion?",
+    "options": [
+      "Caesar (Edward Sallow)",
+      "Vulpes Inculta",
+      "Legate Lanius",
+      "Joshua Graham"
+    ],
+    "correct_answer": "Caesar (Edward Sallow)",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of Caesar's Legion's top military commander at Hoover Dam?",
+    "options": [
+      "Legate Lanius",
+      "Vulpes Inculta",
+      "Caesar",
+      "Joshua Graham"
+    ],
+    "correct_answer": "Legate Lanius",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the burned man, a former Legion member, encountered in the Honest Hearts DLC?",
+    "options": [
+      "Joshua Graham",
+      "Daniel",
+      "Follows-Chalk",
+      "Randall Clark"
+    ],
+    "correct_answer": "Joshua Graham",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What ghoul serves as a radio DJ broadcasting from Vault 101 in Fallout 3's Galaxy News Radio?",
+    "options": [
+      "Three Dog",
+      "Mr. New Vegas",
+      "Travis Miles",
+      "Cass"
+    ],
+    "correct_answer": "Three Dog",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "Who is the radio host of Diamond City Radio in Fallout 4?",
+    "options": [
+      "Travis Miles",
+      "Three Dog",
+      "Mr. New Vegas",
+      "Piper"
+    ],
+    "correct_answer": "Travis Miles",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "Who is the smooth-voiced radio host of New Vegas Radio?",
+    "options": [
+      "Mr. New Vegas",
+      "Three Dog",
+      "Travis Miles",
+      "Wadsworth"
+    ],
+    "correct_answer": "Mr. New Vegas",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What Diamond City reporter becomes a potential companion in Fallout 4?",
+    "options": [
+      "Piper Wright",
+      "Cait",
+      "Curie",
+      "Magnolia"
+    ],
+    "correct_answer": "Piper Wright",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the scientist turned Mr. Handy-bodied companion in Fallout 4?",
+    "options": [
+      "Curie",
+      "Codsworth",
+      "Ada",
+      "DiMA"
+    ],
+    "correct_answer": "Curie",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the Sole Survivor's pre-War Mr. Handy household robot?",
+    "options": [
+      "Codsworth",
+      "Curie",
+      "Wadsworth",
+      "Ada"
+    ],
+    "correct_answer": "Codsworth",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "Who is the director of the Institute revealed to be the Sole Survivor's son?",
+    "options": [
+      "Father (Shaun)",
+      "Kellogg",
+      "Dr. Amari",
+      "Virgil"
+    ],
+    "correct_answer": "Father (Shaun)",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What super mutant serves as a companion in Fallout 4, known for his one-eyed appearance?",
+    "options": [
+      "Strong",
+      "Fawkes",
+      "Marcus",
+      "Lily"
+    ],
+    "correct_answer": "Strong",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the standard-issue power armor first introduced in Fallout 3?",
+    "options": [
+      "T-45 Power Armor",
+      "T-51b Power Armor",
+      "T-60 Power Armor",
+      "X-01 Power Armor"
+    ],
+    "correct_answer": "T-45 Power Armor",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What power armor model is associated most closely with the Enclave in Fallout 2 and 3?",
+    "options": [
+      "Advanced Power Armor / X-01",
+      "T-45",
+      "T-51b",
+      "T-60"
+    ],
+    "correct_answer": "Advanced Power Armor / X-01",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the iconic energy weapon type that fires bolts of electricity or plasma, common across the series?",
+    "options": [
+      "Energy weapons (laser/plasma)",
+      "Ballistic weapons",
+      "Explosive weapons",
+      "Melee weapons"
+    ],
+    "correct_answer": "Energy weapons (laser/plasma)",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the turn-based tactical combat system that pauses time to target body parts?",
+    "options": [
+      "V.A.T.S. (Vault-Tec Assisted Targeting System)",
+      "S.P.E.C.I.A.L. Combat",
+      "Tactical Pause",
+      "AimAssist"
+    ],
+    "correct_answer": "V.A.T.S. (Vault-Tec Assisted Targeting System)",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What does V.A.T.S. stand for?",
+    "options": [
+      "Vault-Tec Assisted Targeting System",
+      "Visual Aiming and Targeting System",
+      "Vault Automated Tactical System",
+      "Variable Aim Targeting Sequence"
+    ],
+    "correct_answer": "Vault-Tec Assisted Targeting System",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What chem provides a temporary boost to Intelligence and Perception?",
+    "options": [
+      "Mentats",
+      "Jet",
+      "Psycho",
+      "Buffout"
+    ],
+    "correct_answer": "Mentats",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What item is used to heal HP instantly in the Fallout games?",
+    "options": [
+      "Stimpak",
+      "RadAway",
+      "Rad-X",
+      "Buffout"
+    ],
+    "correct_answer": "Stimpak",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What item removes radiation from a character's body?",
+    "options": [
+      "RadAway",
+      "Stimpak",
+      "Rad-X",
+      "Mentats"
+    ],
+    "correct_answer": "RadAway",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What weapon is famously oversized and fires mini-nukes in the series?",
+    "options": [
+      "Fat Man",
+      "Nuka Launcher",
+      "Big Boy",
+      "Mini-Nuke Cannon"
+    ],
+    "correct_answer": "Fat Man",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What device found across the wasteland acts as a portable energy source powering power armor?",
+    "options": [
+      "Fusion Core",
+      "Micro Fusion Cell",
+      "Nuclear Battery",
+      "Rad Battery"
+    ],
+    "correct_answer": "Fusion Core",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the standard currency used across the wasteland in most Fallout games?",
+    "options": [
+      "Bottle caps",
+      "Pre-War dollars",
+      "Gold bars",
+      "Ration coupons"
+    ],
+    "correct_answer": "Bottle caps",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What Vault-Tec device, central to Fallout 3's plot, is used to instantly restore an environment (soil, water) after nuclear war?",
+    "options": [
+      "G.E.C.K. (Garden of Eden Creation Kit)",
+      "Project Purity Device",
+      "Aqua Purifier",
+      "RadShield Generator"
+    ],
+    "correct_answer": "G.E.C.K. (Garden of Eden Creation Kit)",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What sniper rifle-like weapon in New Vegas is famously powerful and associated with the DLC Gun Runners' Arsenal?",
+    "options": [
+      "Anti-Materiel Rifle",
+      "That Gun",
+      "Gobi Campaign Scout Rifle",
+      "Ratslayer"
+    ],
+    "correct_answer": "Anti-Materiel Rifle",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What special collectible currency is used to buy items at Nuka-World's arcade, the Fizztop Grille?",
+    "options": [
+      "Nuka-World Caps (Star Cores)",
+      "Nuka Bucks",
+      "Fizztop Tokens",
+      "Quantum Coins"
+    ],
+    "correct_answer": "Nuka-World Caps (Star Cores)",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What power armor model, introduced in Fallout 4 and used heavily by the Brotherhood of Steel, saw service with the US Army after the Battle of Anchorage?",
+    "options": [
+      "T-60 Power Armor",
+      "T-45 Power Armor",
+      "X-01 Power Armor",
+      "Hellfire Armor"
+    ],
+    "correct_answer": "T-60 Power Armor",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What two-headed livestock creature is the primary source of meat and milk in wasteland settlements?",
+    "options": [
+      "Brahmin",
+      "Radstag",
+      "Molerat",
+      "Yao Guai"
+    ],
+    "correct_answer": "Brahmin",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What two-headed cattle-like creature is a common farm animal in the Fallout wasteland?",
+    "options": [
+      "Brahmin",
+      "Radstag",
+      "Molerat",
+      "Yao Guai"
+    ],
+    "correct_answer": "Brahmin",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What large, aggressive reptilian creature with sharp claws is one of the most feared enemies in the series?",
+    "options": [
+      "Deathclaw",
+      "Yao Guai",
+      "Radscorpion",
+      "Centaur"
+    ],
+    "correct_answer": "Deathclaw",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What irradiated bear-like creature is a common dangerous enemy, especially in Fallout 3?",
+    "options": [
+      "Yao Guai",
+      "Deathclaw",
+      "Radstag",
+      "Molerat"
+    ],
+    "correct_answer": "Yao Guai",
+    "flavor_wrong": null
+  },
+  {
+    "deep_cut_topic_label": "fallout",
+    "text": "What is the name of the giant, hulking mutated humans that are far stronger than standard super mutants?",
+    "options": [
+      "Super Mutant Behemoths",
+      "Nightkin",
+      "Centaurs",
+      "Master Spawn"
+    ],
+    "correct_answer": "Super Mutant Behemoths",
+    "flavor_wrong": null
+  }
+]
