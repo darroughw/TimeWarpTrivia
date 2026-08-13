@@ -11,6 +11,10 @@
   z-index: $z-content;
 }
 
+.srOnly {
+  @include visually-hidden;
+}
+
 .header {
   display: flex;
   align-items: flex-start;

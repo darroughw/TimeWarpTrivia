@@ -14,9 +14,15 @@ interface QuestionScreenProps {
 }
 
 const LOCK_IN_DELAY_MS = 400;
+// CountdownRing is aria-hidden (a per-second live region would spam a
+// screen reader for the whole question) — this is the one deliberate
+// exception, a single announcement fired once per question instead of
+// going fully silent on the game's core time-pressure mechanic (TIM-46).
+const LOW_TIME_ANNOUNCE_SECONDS = 5;
 
 export default function QuestionScreen({ question, onAnswer }: QuestionScreenProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [lowTimeAnnouncement, setLowTimeAnnouncement] = useState("");
   const lockInTimer = useRef<number>();
   // Purely presentational — the phone doesn't own the "time's up" state
   // transition (the TV does, via its own identical countdown), so no
@@ -24,6 +30,16 @@ export default function QuestionScreen({ question, onAnswer }: QuestionScreenPro
   const secondsRemaining = useCountdown(question.timeLimitSeconds, question.id);
 
   useEffect(() => () => window.clearTimeout(lockInTimer.current), []);
+
+  useEffect(() => {
+    setLowTimeAnnouncement("");
+  }, [question.id]);
+
+  useEffect(() => {
+    if (secondsRemaining <= LOW_TIME_ANNOUNCE_SECONDS && secondsRemaining > 0 && !lowTimeAnnouncement) {
+      setLowTimeAnnouncement(`${LOW_TIME_ANNOUNCE_SECONDS} seconds left — answer now.`);
+    }
+  }, [secondsRemaining, lowTimeAnnouncement]);
 
   function handleSelect(index: number) {
     if (selectedIndex !== null) return;
@@ -63,6 +79,10 @@ export default function QuestionScreen({ question, onAnswer }: QuestionScreenPro
           </button>
         ))}
       </div>
+
+      <span className={styles.srOnly} aria-live="assertive">
+        {lowTimeAnnouncement}
+      </span>
 
       <LogoFooter />
     </div>

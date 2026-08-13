@@ -26,6 +26,12 @@ interface QuestionScreenProps {
   manualAdvance?: boolean;
 }
 
+// CountdownRing is aria-hidden (a per-second live region would spam a
+// screen reader for the whole question) — this is the one deliberate
+// exception, a single announcement fired once per question instead of
+// going fully silent on the game's core time-pressure mechanic (TIM-46).
+const LOW_TIME_ANNOUNCE_SECONDS = 5;
+
 export default function QuestionScreen({
   question,
   totalPlayers,
@@ -35,6 +41,7 @@ export default function QuestionScreen({
   manualAdvance = false,
 }: QuestionScreenProps) {
   const [simulatedAnsweredCount, setSimulatedAnsweredCount] = useState(0);
+  const [lowTimeAnnouncement, setLowTimeAnnouncement] = useState("");
   const effectiveTotal = soloPlayer ? 1 : totalPlayers;
   const isLive = liveAnsweredCount !== undefined;
   const answeredCount = isLive ? liveAnsweredCount : simulatedAnsweredCount;
@@ -55,6 +62,16 @@ export default function QuestionScreen({
   }
 
   const secondsRemaining = useCountdown(question.timeLimitSeconds, question.id, fireTimeUpOnce, manualAdvance);
+
+  useEffect(() => {
+    setLowTimeAnnouncement("");
+  }, [question.id]);
+
+  useEffect(() => {
+    if (secondsRemaining <= LOW_TIME_ANNOUNCE_SECONDS && secondsRemaining > 0 && !lowTimeAnnouncement) {
+      setLowTimeAnnouncement(`${LOW_TIME_ANNOUNCE_SECONDS} seconds left.`);
+    }
+  }, [secondsRemaining, lowTimeAnnouncement]);
 
   // Nobody left to wait on — don't burn the rest of the clock. Skipped
   // entirely in manualAdvance mode: the whole point of that mode is that
@@ -141,6 +158,10 @@ export default function QuestionScreen({
           />
         </div>
       </footer>
+
+      <span className={styles.srOnly} aria-live="assertive">
+        {lowTimeAnnouncement}
+      </span>
 
       {manualAdvance && <PassiveAdvanceHint />}
     </div>
