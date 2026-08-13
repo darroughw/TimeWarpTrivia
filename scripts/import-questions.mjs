@@ -2,7 +2,7 @@
 // the `questions` table added by supabase/migrations/0002_question_content.sql.
 //
 // The source JSON stores the answer as a `correct_answer` string, and in
-// every one of the 728 source rows that string is options[0] — the seed
+// every one of the 1,389 source rows that string is options[0] — the seed
 // files were hand-authored with the correct answer always written first.
 // Importing that ordering as-is would put the correct answer in slot A
 // for every single question in the live game. So each question's options
