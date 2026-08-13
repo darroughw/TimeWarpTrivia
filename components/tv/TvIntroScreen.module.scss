@@ -1,0 +1,46 @@
+@use "theme" as *;
+@use "mixins" as *;
+
+.screen {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $space-xl;
+  padding: $space-2xl;
+  text-align: center;
+  z-index: $z-content;
+}
+
+// Larger than the marketing landing page's logo (30rem desktop) — this
+// screen has nothing else competing for attention, so the logo carries
+// the whole "what app is this" moment on its own.
+.logo {
+  width: 42rem;
+  max-width: 90%;
+  height: auto;
+}
+
+.intro {
+  font-family: $paper-font;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  color: $text-lo;
+  max-width: 40rem;
+}
+
+.startButton {
+  @include dpad-focusable;
+  font-family: $head-font;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 2rem;
+  padding: $space-md $space-2xl;
+  border-radius: $radius-lg;
+  background: $marigold;
+  color: $ink;
+  border: $border-width solid $marigold;
+  box-shadow: $shadow-glow-marigold;
+}

@@ -37,6 +37,12 @@ simplified even in the live path.
   screen and the content-fetch call differ (`mode: "decade" | "deepCuts"`).
   `/play` needs no equivalent second route; joining and answering are
   already fully mode-agnostic.
+- **`/tv`** — entry point for the Android TV wrapper (TIM-10): a bare
+  intro screen (large logo, one line of copy, an autofocused Start
+  button) so launching the packaged app doesn't drop straight into a
+  freshly created, playerless `/host` room with nothing on screen to
+  explain it. Static, no Supabase dependency — Start just links to
+  `/host`, which does the real room creation.
 
 Run the dev server, open `/` and click "Host a Game" (or go straight to
 `/host`) on a desktop-sized window, and open `/play` on your phone (or a
@@ -223,6 +229,7 @@ app/
   host/page.tsx                  # shared-display route switcher (live/mock/simulator)
   play/page.tsx                    # phone route switcher
   deepcuts/page.tsx                  # Deep Cuts shared-display route (LiveTvFlow, mode="deepCuts")
+  tv/page.tsx                          # Android TV wrapper entry point — intro screen, links to /host
   providers.tsx                      # PostHog init + pageview-on-route-change
   global-error.tsx                     # Sentry-reporting fallback for a crashed root layout
   _game/
