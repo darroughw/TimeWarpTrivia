@@ -5,7 +5,7 @@ big shared display the room plays along with, and a phone controller
 everyone answers on. Built with Next.js 14 (App Router, TypeScript),
 SCSS, and Supabase (Postgres + Realtime) for the live multiplayer state.
 
-**Play it:** [timewarp-trivia.vercel.app](https://timewarp-trivia.vercel.app)
+**Play it:** [www.timewarptrivia.com](https://www.timewarptrivia.com)
 
 **Status:** All three routes are wired to a real, provisioned Supabase
 project — real rooms, real players, real answers, 1,089 real trivia
