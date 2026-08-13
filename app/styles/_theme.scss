@@ -60,14 +60,20 @@ $radius-md: 1rem;
 $radius-lg: 1.75rem;
 $border-width: 3px;
 
-// Focus ring — the on-screen "remote cursor" -------------------------------
-$focus-ring-color: $marigold;
+// Focus ring — the on-screen "remote cursor". Deliberately NOT $marigold
+// (or anything decade-themed): marigold is also the "selected" fill on
+// radio-style controls like DecadeFilter, so a focused-but-unselected pill
+// and an actually-selected one were both reading as "the active one" at a
+// glance (TIM-45). A fixed, cool, non-themeable color keeps "where the
+// cursor is" visually separate from "what's chosen" in every decade theme.
+$focus-ring-color: #8fd3ff;
 $focus-ring-width: 4px;
 $focus-ring-offset: 6px;
 
 // Elevation -----------------------------------------------------------------
 $shadow-panel: 0 20px 60px rgba(0, 0, 0, 0.45);
 $shadow-glow-marigold: var(--shadow-glow-marigold, 0 0 40px rgba(255, 178, 56, 0.35));
+$shadow-glow-focus: 0 0 32px rgba(143, 211, 255, 0.4);
 $shadow-glow-teal: 0 0 40px rgba(45, 212, 191, 0.35);
 $shadow-glow-coral: 0 0 40px rgba(255, 90, 95, 0.35);
 
