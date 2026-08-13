@@ -158,3 +158,32 @@ export const MOCK_FINAL_STANDING: FinalStanding = {
   winnerName: "Cassette Ghost",
   winnerScore: 740,
 };
+
+// Fake contestant names for the Konami-code demo simulator (SimulatorTvFlow)
+// — joined via the real joinRoom flow, same as an actual phone, so they
+// show up as genuine players rows. Dark-humor tone per TIM-13.
+export const SIMULATOR_CONTESTANT_NAMES: string[] = [
+  "Trivia Enjoyer",
+  "Google This Later",
+  "Couch Champion",
+  "Definitely Not Cheating",
+  "The Ringer",
+  "Last Place Energy",
+  "Wikipedia Warrior",
+  "Blocked On Purpose",
+  "Confidently Wrong",
+  "Speed Over Accuracy",
+  "Ask My Phone",
+  "Nostalgia Goblin",
+];
+
+// Samples `count` distinct names from SIMULATOR_CONTESTANT_NAMES, order
+// randomized — Fisher-Yates over a copy so the source list is untouched.
+export function pickRandomContestantNames(count: number): string[] {
+  const pool = [...SIMULATOR_CONTESTANT_NAMES];
+  for (let i = pool.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [pool[i], pool[j]] = [pool[j], pool[i]];
+  }
+  return pool.slice(0, Math.min(count, pool.length));
+}

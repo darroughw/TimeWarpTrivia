@@ -7,16 +7,27 @@ import { useEffect, useRef, useState } from "react";
 // share the same time limit, and the countdown still needs to restart).
 // Shared by the TV's and phone's QuestionScreen so both tick in lockstep
 // off the same logic.
-export function useCountdown(totalSeconds: number, resetKey: string, onTimeUp?: () => void): number {
+//
+// `paused` (default false) skips the interval entirely and freezes the
+// return value at totalSeconds, never firing onTimeUp — used by the
+// simulator's manual-advance question screens, which reuse the same
+// component but shouldn't race a presenter narrating the question.
+export function useCountdown(
+  totalSeconds: number,
+  resetKey: string,
+  onTimeUp?: () => void,
+  paused = false,
+): number {
   const [secondsRemaining, setSecondsRemaining] = useState(totalSeconds);
 
   useEffect(() => {
     setSecondsRemaining(totalSeconds);
+    if (paused) return;
     const interval = window.setInterval(() => {
       setSecondsRemaining((current) => Math.max(0, current - 1));
     }, 1000);
     return () => window.clearInterval(interval);
-  }, [resetKey]);
+  }, [resetKey, paused]);
 
   // onTimeUp is re-created every render by both flows (their closures
   // capture room/answer state, so they can't be memoized away). Keeping

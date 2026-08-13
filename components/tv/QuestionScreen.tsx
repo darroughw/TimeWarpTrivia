@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useCountdown } from "@/hooks/useCountdown";
 import { OPTION_LETTERS, type Player, type Question } from "@/lib/types";
 import CountdownRing from "./CountdownRing";
+import PassiveAdvanceHint from "./PassiveAdvanceHint";
 import ScanlineOverlay from "./ScanlineOverlay";
 import styles from "./QuestionScreen.module.scss";
 
@@ -18,6 +19,11 @@ interface QuestionScreenProps {
   // of submitted answers and the internal simulation is skipped entirely.
   // Left undefined, the mock flow simulates players answering over time.
   answeredCount?: number;
+  // Freezes the countdown instead of racing it — used by the Konami-code
+  // simulator so a presenter can narrate a question at their own pace.
+  // The ring shows full/frozen and a press-→-to-continue hint replaces the
+  // "time's up" auto-advance (see hooks/useCountdown's `paused` param).
+  manualAdvance?: boolean;
 }
 
 export default function QuestionScreen({
@@ -26,6 +32,7 @@ export default function QuestionScreen({
   onTimeUp,
   soloPlayer,
   answeredCount: liveAnsweredCount,
+  manualAdvance = false,
 }: QuestionScreenProps) {
   const [simulatedAnsweredCount, setSimulatedAnsweredCount] = useState(0);
   const effectiveTotal = soloPlayer ? 1 : totalPlayers;
@@ -47,17 +54,20 @@ export default function QuestionScreen({
     onTimeUp();
   }
 
-  const secondsRemaining = useCountdown(question.timeLimitSeconds, question.id, fireTimeUpOnce);
+  const secondsRemaining = useCountdown(question.timeLimitSeconds, question.id, fireTimeUpOnce, manualAdvance);
 
-  // Nobody left to wait on — don't burn the rest of the clock.
+  // Nobody left to wait on — don't burn the rest of the clock. Skipped
+  // entirely in manualAdvance mode: the whole point of that mode is that
+  // the presenter decides when to reveal, regardless of who's answered.
   // fireTimeUpOnce is a plain function, recreated every render — adding it
   // here would refire this effect on every render instead of only when
   // answeredCount/effectiveTotal actually change; hasFiredRef inside it
   // already guards against calling onTimeUp more than once regardless.
   useEffect(() => {
+    if (manualAdvance) return;
     if (effectiveTotal > 0 && answeredCount >= effectiveTotal) fireTimeUpOnce();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [answeredCount, effectiveTotal]);
+  }, [answeredCount, effectiveTotal, manualAdvance]);
 
   // Simulate players answering in on their phones as time passes — only
   // for the mock flow. The live flow passes real counts via `answeredCount`.
@@ -131,6 +141,8 @@ export default function QuestionScreen({
           />
         </div>
       </footer>
+
+      {manualAdvance && <PassiveAdvanceHint />}
     </div>
   );
 }

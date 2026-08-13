@@ -1,0 +1,29 @@
+@use "theme" as *;
+
+.badge {
+  position: fixed;
+  top: $space-md;
+  left: $space-md;
+  z-index: $z-overlay;
+  display: flex;
+  align-items: center;
+  gap: $space-xs;
+  font-family: $mono-font;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: $marigold;
+  background: rgba(11, 14, 26, 0.85);
+  border: $border-width solid $marigold-dim;
+  border-radius: $radius-sm;
+  padding: $space-xs $space-sm;
+  pointer-events: none;
+}
+
+.dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: $marigold;
+}

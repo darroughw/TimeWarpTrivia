@@ -16,9 +16,10 @@ import { useBlockCandidates } from "@/hooks/useBlockCandidates";
 import { useCountdown } from "@/hooks/useCountdown";
 import { useCurrentQuestion } from "@/hooks/useCurrentQuestion";
 import { useDecadeTheme } from "@/hooks/useDecadeTheme";
+import { useRoomAnswers } from "@/hooks/useRoomAnswers";
 import { useRoomRealtime } from "@/hooks/useRoomRealtime";
 import { playerRowToPlayer } from "@/lib/avatar";
-import type { AnswerRow, RoomStatus } from "@/lib/database.types";
+import type { RoomStatus } from "@/lib/database.types";
 import { ALL_DECADES_OPTION } from "@/lib/decadeColors";
 import { fetchDecades, fetchDeepCutTopics, fetchRandomQuestionSet } from "@/lib/questionService";
 import {
@@ -31,7 +32,6 @@ import {
   clearRoomAnswers,
 } from "@/lib/roomService";
 import { computeScore } from "@/lib/scoring";
-import { supabase } from "@/lib/supabaseClient";
 import {
   ROUND_START_COUNTDOWN_SECONDS,
   type Decade,
@@ -45,10 +45,10 @@ import {
 // "live" is always derived from question_index — see
 // lib/questionService.questionMetaForRoom, the single source of truth
 // this mirrors.
-const QUESTIONS_PER_ROUND = 5;
-const TOTAL_MAIN_QUESTIONS = QUESTIONS_PER_ROUND * 3;
+export const QUESTIONS_PER_ROUND = 5;
+export const TOTAL_MAIN_QUESTIONS = QUESTIONS_PER_ROUND * 3;
 
-interface PassiveStep {
+export interface PassiveStep {
   status: RoomStatus;
   questionIndex?: number;
 }
@@ -57,7 +57,7 @@ interface PassiveStep {
 // with Enter/→ — given the room's current status and question_index.
 // Unlike the old flat status->status map, "what's next" now depends on
 // *where in the question sequence* the room is, not just its status.
-function nextPassiveStep(fromStatus: RoomStatus, questionIndex: number | null): PassiveStep | null {
+export function nextPassiveStep(fromStatus: RoomStatus, questionIndex: number | null): PassiveStep | null {
   switch (fromStatus) {
     case "transition": {
       if (questionIndex === null) return null;
@@ -80,7 +80,7 @@ function nextPassiveStep(fromStatus: RoomStatus, questionIndex: number | null): 
   }
 }
 
-function labelForStep(step: PassiveStep | null): string {
+export function labelForStep(step: PassiveStep | null): string {
   if (!step) return "";
   if (step.status === "question" || step.status === "countdown") {
     const round = Math.floor((step.questionIndex ?? 0) / QUESTIONS_PER_ROUND) + 1;
@@ -109,7 +109,6 @@ interface LiveTvFlowProps {
 export default function LiveTvFlow({ mode = "decade" }: LiveTvFlowProps) {
   const [hostId] = useState(() => crypto.randomUUID());
   const [roomId, setRoomId] = useState<string | null>(null);
-  const [answers, setAnswers] = useState<AnswerRow[]>([]);
   const [lastRoundResult, setLastRoundResult] = useState<RoundResult | null>(null);
   const [decades, setDecades] = useState<Decade[]>([]);
   const [deepCutTopics, setDeepCutTopics] = useState<DeepCutTopic[]>([]);
@@ -119,6 +118,7 @@ export default function LiveTvFlow({ mode = "decade" }: LiveTvFlowProps) {
   const players = playerRows.map(playerRowToPlayer);
   const currentQuestion = useCurrentQuestion(room);
   const blockCandidates = useBlockCandidates(room);
+  const { answers, clearAnswers } = useRoomAnswers(roomId);
   useDecadeTheme(room?.decade_filter);
 
   // Create a fresh room the moment the TV boots up.
@@ -159,38 +159,6 @@ export default function LiveTvFlow({ mode = "decade" }: LiveTvFlowProps) {
       cancelled = true;
     };
   }, [mode]);
-
-  // Every submitted answer for this room, live — used for the "X of Y
-  // answered" counter and to build each question's results breakdown.
-  useEffect(() => {
-    if (!roomId) return;
-    let cancelled = false;
-
-    supabase
-      .from("answers")
-      .select("*")
-      .eq("room_id", roomId)
-      .then(({ data }) => {
-        if (!cancelled && data) setAnswers(data as AnswerRow[]);
-      });
-
-    const channel = supabase
-      .channel(`answers-${roomId}`)
-      .on(
-        "postgres_changes",
-        { event: "INSERT", schema: "public", table: "answers", filter: `room_id=eq.${roomId}` },
-        (payload) => {
-          const inserted = payload.new as AnswerRow;
-          setAnswers((current) => (current.some((a) => a.id === inserted.id) ? current : [...current, inserted]));
-        },
-      )
-      .subscribe();
-
-    return () => {
-      cancelled = true;
-      supabase.removeChannel(channel);
-    };
-  }, [roomId]);
 
   const handleAdvance = useCallback(() => {
     if (!room) return;
@@ -280,7 +248,7 @@ export default function LiveTvFlow({ mode = "decade" }: LiveTvFlowProps) {
   async function handlePlayAgain() {
     if (!room) return;
     setLastRoundResult(null);
-    setAnswers([]);
+    clearAnswers();
     const askedThisGame = [...(room.question_ids ?? []), ...(room.block_candidate_ids ?? [])];
     const askedSoFar = Array.from(new Set([...room.asked_question_ids, ...askedThisGame]));
     await Promise.all([resetActivePlayerScores(room.id), clearRoomAnswers(room.id)]);
@@ -305,7 +273,6 @@ export default function LiveTvFlow({ mode = "decade" }: LiveTvFlowProps) {
   async function handleCancelGame() {
     if (!room) return;
     setLastRoundResult(null);
-    setAnswers([]);
     posthog?.capture("game_cancelled", { room_code: room.code });
     const newRoom = await createRoom(hostId);
     setRoomId(newRoom.id);
