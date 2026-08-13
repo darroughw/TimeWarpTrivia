@@ -37,7 +37,7 @@ export default function DeepCutsLobbyScreen({
 }: DeepCutsLobbyScreenProps) {
   const containerRef = useDpadNavigation<HTMLDivElement>();
   const activeCount = players.filter((p) => p.status === "active").length;
-  const canStart = activeCount > 0 && selectedTopicId !== null;
+  const canStart = activeCount >= 2 && selectedTopicId !== null;
 
   return (
     <div className={styles.screen} ref={containerRef}>

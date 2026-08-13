@@ -94,7 +94,7 @@ export default function LobbyScreen({
           type="button"
           data-dpad-focusable
           className={styles.startButton}
-          disabled={activeCount === 0}
+          disabled={activeCount < 2}
           onClick={onStartGame}
         >
           Start Game
