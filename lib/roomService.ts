@@ -1,5 +1,5 @@
 import { supabase } from "./supabaseClient";
-import type { AnswerRow, PlayerRow, RoomRow, RoomStatus } from "./database.types";
+import type { PlayerRow, RoomRow, RoomStatus } from "./database.types";
 import type { DecadeId } from "./types";
 
 const CODE_LETTERS = "ABCDEFGHJKLMNPQRSTUVWXYZ"; // no O/I — easy to misread on a TV
@@ -58,16 +58,6 @@ export async function removePlayer(playerId: string): Promise<void> {
   if (error) throw error;
 }
 
-export async function fetchRoomPlayers(roomId: string): Promise<PlayerRow[]> {
-  const { data, error } = await supabase
-    .from("players")
-    .select("*")
-    .eq("room_id", roomId)
-    .order("created_at", { ascending: true });
-  if (error) throw error;
-  return (data as PlayerRow[]) ?? [];
-}
-
 export async function updateRoom(
   roomId: string,
   patch: Partial<
@@ -113,16 +103,6 @@ export async function setDecadeFilter(roomId: string, decadeFilter: DecadeId): P
 
 export async function setDeepCutTopic(roomId: string, topicId: string): Promise<void> {
   await updateRoom(roomId, { deep_cut_topic_id: topicId });
-}
-
-export async function fetchAnswersForQuestion(roomId: string, questionId: string): Promise<AnswerRow[]> {
-  const { data, error } = await supabase
-    .from("answers")
-    .select("*")
-    .eq("room_id", roomId)
-    .eq("question_id", questionId);
-  if (error) throw error;
-  return (data as AnswerRow[]) ?? [];
 }
 
 // Inserts the answer row, then — if it scored — applies the points to the

@@ -27,6 +27,10 @@ export function useCountdown(
       setSecondsRemaining((current) => Math.max(0, current - 1));
     }, 1000);
     return () => window.clearInterval(interval);
+    // totalSeconds deliberately omitted — see the comment above: two
+    // consecutive questions can share the same time limit, and the
+    // countdown still needs to restart on resetKey alone.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [resetKey, paused]);
 
   // onTimeUp is re-created every render by both flows (their closures

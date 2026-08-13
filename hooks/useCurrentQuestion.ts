@@ -24,6 +24,10 @@ export function useCurrentQuestion(room: RoomRow | null): Question | null {
     return () => {
       cancelled = true;
     };
+    // Deliberately narrower than [room]: realtime payloads hand back a new
+    // room object on every update, and depending on the whole thing would
+    // refetch the question on unrelated field changes (e.g. player joins).
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [room?.current_question_id, room?.question_ids, room?.block_candidate_ids]);
 
   return question;
