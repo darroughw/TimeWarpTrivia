@@ -3,12 +3,17 @@
 
 .screen {
   position: relative;
-  min-height: 100vh;
+  // Fixed, not min — see ScoreboardScreen.module.scss's identical comment.
+  // With up to 10 players (podium + a "rest of the pack" list), every
+  // section below shrinks via clamp()/flex instead of the page growing
+  // past the viewport.
+  height: 100vh;
+  overflow: hidden;
   padding: $space-xl $space-2xl;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: $space-xl;
+  gap: clamp(0.5rem, 2vh, #{$space-xl});
   z-index: $z-content;
   text-align: center;
 }
@@ -24,10 +29,11 @@
 
 .title {
   @include marquee-heading;
-  font-size: 4.5rem;
+  font-size: clamp(2rem, 6vh, 4.5rem);
 }
 
 .podium {
+  flex-shrink: 0;
   display: flex;
   align-items: flex-end;
   gap: $space-lg;
@@ -59,11 +65,15 @@
   }
 }
 
+// Podium block heights are relative to each other (1st is tallest) as
+// much as they are a fixed size — clamp() keeps that relationship while
+// still shrinking on shorter viewports or when the "rest" list below
+// needs more of the shared 100vh (see .rest/.restRow).
 .first {
   order: 2;
 
   .podiumBlock {
-    height: 14rem;
+    height: clamp(4rem, 14vh, 14rem);
     background: linear-gradient(180deg, rgba(255, 178, 56, 0.25), $void-raised);
     border-color: $marigold;
     box-shadow: $shadow-glow-marigold;
@@ -78,7 +88,7 @@
   order: 1;
 
   .podiumBlock {
-    height: 10rem;
+    height: clamp(3rem, 10vh, 10rem);
     background: linear-gradient(180deg, rgba(244, 236, 216, 0.15), $void-raised);
     border-color: $paper-dim;
 
@@ -92,7 +102,7 @@
   order: 3;
 
   .podiumBlock {
-    height: 7.5rem;
+    height: clamp(2.25rem, 7.5vh, 7.5rem);
     background: linear-gradient(180deg, rgba(255, 90, 95, 0.2), $void-raised);
     border-color: $coral;
 
@@ -102,23 +112,33 @@
   }
 }
 
+// flex: 1 + min-height: 0 — same "shrink to fit whatever's left" pattern
+// as ScoreboardScreen.module.scss's .list/.row, since this can hold up
+// to 7 more players (4th-10th) below a podium that doesn't compress the
+// same way.
 .rest {
+  flex: 1;
+  min-height: 0;
   display: flex;
   flex-direction: column;
-  gap: $space-xs;
+  gap: clamp(0.2rem, 0.8vh, #{$space-xs});
   width: 100%;
   max-width: 36rem;
+  overflow: hidden;
 }
 
 .restRow {
+  flex: 1;
+  min-height: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: $space-sm $space-md;
+  padding: clamp(0.15rem, 0.8vh, #{$space-sm}) $space-md;
   background: $void-raised;
   border: 1px solid $void-line;
   border-radius: $radius-sm;
   font-family: $paper-font;
+  font-size: clamp(0.8rem, 1.9vh, 1rem);
 }
 
 .restRank {
@@ -133,10 +153,11 @@
 }
 
 .actions {
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: $space-md;
+  gap: clamp(0.35rem, 1.2vh, #{$space-md});
 }
 
 .playAgainButton {
@@ -144,8 +165,8 @@
   font-family: $head-font;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  font-size: 1.75rem;
-  padding: $space-md $space-2xl;
+  font-size: clamp(1.1rem, 3vh, 1.75rem);
+  padding: clamp(0.5rem, 1.5vh, #{$space-md}) $space-2xl;
   border-radius: $radius-lg;
   background: $marigold;
   color: $ink;

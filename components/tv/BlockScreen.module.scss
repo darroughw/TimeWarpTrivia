@@ -3,11 +3,13 @@
 
 .screen {
   position: relative;
-  min-height: 100vh;
+  // Fixed, not min — see ScoreboardScreen.module.scss's identical comment.
+  height: 100vh;
+  overflow: hidden;
   padding: $space-xl $space-2xl;
   display: flex;
   flex-direction: column;
-  gap: $space-xl;
+  gap: clamp(0.75rem, 3vh, #{$space-xl});
   z-index: $z-content;
 }
 
@@ -22,7 +24,7 @@
 
 .title {
   @include marquee-heading;
-  font-size: 2.75rem;
+  font-size: clamp(1.5rem, 5vh, 2.75rem);
   max-width: 54rem;
 
   .highlight {
@@ -32,6 +34,7 @@
 
 .main {
   flex: 1;
+  min-height: 0;
   display: flex;
   gap: $space-2xl;
   align-items: center;
@@ -42,7 +45,7 @@
   flex-direction: column;
   align-items: center;
   gap: $space-md;
-  padding: $space-lg;
+  padding: clamp(0.5rem, 2vh, #{$space-lg});
   background: $void-raised;
   border: $border-width solid $coral;
   border-radius: $radius-lg;
@@ -61,16 +64,20 @@
 
 .candidates {
   flex: 1;
+  min-height: 0;
   display: flex;
   flex-direction: column;
-  gap: $space-md;
+  gap: clamp(0.35rem, 1.5vh, #{$space-md});
+  overflow: hidden;
 }
 
 .candidate {
+  flex: 1;
+  min-height: 0;
   display: flex;
   align-items: center;
   gap: $space-md;
-  padding: $space-md $space-lg;
+  padding: clamp(0.35rem, 1.5vh, #{$space-md}) $space-lg;
   background: $void-raised;
   border: $border-width solid $void-line;
   border-radius: $radius-md;
@@ -89,20 +96,21 @@
 
 .candidateText {
   font-family: $paper-font;
-  font-size: 1.3rem;
+  font-size: clamp(0.9rem, 2.2vh, 1.3rem);
   color: $text-hi;
   font-weight: 500;
 }
 
 .footer {
-  padding-top: $space-lg;
+  flex-shrink: 0;
+  padding-top: clamp(0.4rem, 1.5vh, #{$space-lg});
   border-top: 1px solid $void-line;
 }
 
 .rule {
   font-family: $paper-font;
   color: $text-lo;
-  font-size: 1.15rem;
+  font-size: clamp(0.85rem, 2vh, 1.15rem);
 
   strong {
     color: $coral;

@@ -29,8 +29,9 @@ export function useDpadNavigation<T extends HTMLElement>(active = true) {
 
   useEffect(() => {
     if (!active) return;
-    const container = containerRef.current;
-    if (!container) return;
+    const maybeContainer = containerRef.current;
+    if (!maybeContainer) return;
+    const container: T = maybeContainer;
 
     const getFocusable = () =>
       Array.from(container.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR));
@@ -70,6 +71,27 @@ export function useDpadNavigation<T extends HTMLElement>(active = true) {
       const delta = forward ? 1 : -1;
       const nextIndex =
         currentIndex === -1 ? 0 : (currentIndex + delta + items.length) % items.length;
+
+      // Up/Down with nowhere further to focus (a modal like HelpModal has
+      // just the one close button) used to still preventDefault here —
+      // silently swallowing the key with no other effect. For a container
+      // taller than the modal (illustrated help copy on a shorter TV
+      // viewport), that left the rest of the content permanently
+      // unreachable: no other focusable item to tab to, and arrow keys
+      // did nothing. Scroll the container by a step instead — a focused
+      // button doesn't get the browser's native "scroll nearest scrollable
+      // ancestor" behavior for free, so this does it explicitly rather
+      // than assuming that fallback exists.
+      const isVertical = event.key === "ArrowUp" || event.key === "ArrowDown";
+      if (nextIndex === currentIndex && isVertical && container.scrollHeight > container.clientHeight) {
+        event.preventDefault();
+        event.stopPropagation();
+        // "auto" (instant), not "smooth" — consecutive presses fired
+        // faster than a smooth animation settles can otherwise get
+        // dropped or coalesced mid-flight.
+        container.scrollBy({ top: (event.key === "ArrowDown" ? 1 : -1) * container.clientHeight * 0.4, behavior: "auto" });
+        return;
+      }
 
       event.preventDefault();
       event.stopPropagation();

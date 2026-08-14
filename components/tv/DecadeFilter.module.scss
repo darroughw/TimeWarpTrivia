@@ -3,7 +3,7 @@
 
 .row {
   display: flex;
-  gap: $space-sm;
+  gap: clamp(0.4rem, 1.2vh, #{$space-sm});
   flex-wrap: wrap;
 }
 
@@ -11,8 +11,8 @@
   @include dpad-focusable;
   font-family: $paper-font;
   font-weight: 700;
-  font-size: 1.15rem;
-  padding: $space-sm $space-md;
+  font-size: clamp(0.85rem, 2.2vh, 1.15rem);
+  padding: clamp(0.4rem, 1.5vh, #{$space-sm}) $space-md;
   border-radius: $radius-lg;
   border: $border-width solid $void-line;
   background: $void-raised;

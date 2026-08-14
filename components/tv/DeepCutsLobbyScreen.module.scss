@@ -3,11 +3,12 @@
 
 .screen {
   position: relative;
-  min-height: 100vh;
-  padding: $space-xl $space-2xl;
+  // Fixed, not min — see LobbyScreen.module.scss's identical comment.
+  height: 100vh;
+  padding: clamp(0.75rem, 3vh, #{$space-xl}) $space-2xl;
   display: flex;
   flex-direction: column;
-  gap: $space-xl;
+  gap: clamp(0.5rem, 2.5vh, #{$space-xl});
   z-index: $z-content;
   overflow: hidden;
 }
@@ -26,13 +27,13 @@
 }
 
 .logo {
-  width: 6rem;
+  width: clamp(3.5rem, 9vh, 6rem);
   height: auto;
 }
 
 .title {
   @include marquee-heading;
-  font-size: 4rem;
+  font-size: clamp(2rem, 6.5vh, 4rem);
 }
 
 .codeBlock {
@@ -52,11 +53,11 @@
 
 .code {
   @include mono-figure;
-  font-size: 3.5rem;
+  font-size: clamp(1.75rem, 5.5vh, 3.5rem);
   font-weight: 700;
   color: $paper;
   letter-spacing: 0.08em;
-  padding: $space-sm $space-md;
+  padding: clamp(0.4rem, 1.5vh, #{$space-sm}) $space-md;
   background: $void-raised;
   border: $border-width solid $marigold-dim;
   border-radius: $radius-md;
@@ -65,32 +66,37 @@
 
 .body {
   display: flex;
-  gap: $space-xl;
+  gap: clamp(0.75rem, 3vh, #{$space-xl});
   flex: 1;
   min-height: 0;
 }
 
 .playersPanel {
   flex: 1;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   gap: $space-md;
 }
 
 .sectionLabel {
+  flex-shrink: 0;
   font-family: $paper-font;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: $text-lo;
-  font-size: 1rem;
+  font-size: clamp(0.8rem, 2vh, 1rem);
   font-weight: 700;
 }
 
 .playerGrid {
+  flex: 1;
+  min-height: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: $space-lg $space-md;
+  gap: clamp(0.5rem, 2vh, #{$space-lg}) $space-md;
   align-content: flex-start;
+  overflow: hidden;
 }
 
 .playerChip {
@@ -140,17 +146,24 @@
 .sidebar {
   width: 22rem;
   flex-shrink: 0;
+  min-height: 0;
   display: flex;
   flex-direction: column;
-  gap: $space-lg;
+  gap: clamp(0.5rem, 2vh, #{$space-lg});
+  // Safety net — DecadeFilter/DeepCutTopicFilter's own pills shrink via
+  // clamp() to fit here, but this stops any residual overflow from
+  // visually bleeding into the footer/Start Game button below instead
+  // of the page growing scrollable (same failure mode as .playerGrid).
+  overflow: hidden;
 }
 
 .footer {
+  flex-shrink: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: $space-lg;
-  padding-top: $space-lg;
+  padding-top: clamp(0.4rem, 1.5vh, #{$space-lg});
   border-top: 1px solid $void-line;
 }
 
@@ -177,8 +190,8 @@
   font-family: $head-font;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  font-size: 1.6rem;
-  padding: $space-md $space-xl;
+  font-size: clamp(1.05rem, 3vh, 1.6rem);
+  padding: clamp(0.5rem, 1.5vh, #{$space-md}) $space-xl;
   border-radius: $radius-lg;
   background: $marigold;
   color: $ink;

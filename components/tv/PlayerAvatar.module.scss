@@ -19,22 +19,32 @@
   box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.25);
   flex-shrink: 0;
 
+  // clamp(), not a fixed size — "sm" is what Scoreboard/EndGame's ranked
+  // rows use, and those rows shrink themselves (see each screen's .row)
+  // to keep up to 10 players on one un-scrollable TV screen. A fixed
+  // circle diameter would stop shrinking once rows got thinner than it,
+  // overlapping into neighboring rows instead of fitting inside its own.
   &.sm {
-    width: 3.5rem;
-    height: 3.5rem;
-    font-size: 1.5rem;
+    width: clamp(1.6rem, 5vh, 3.5rem);
+    height: clamp(1.6rem, 5vh, 3.5rem);
+    font-size: clamp(0.8rem, 2.2vh, 1.5rem);
   }
 
+  // Same reasoning as .sm/.lg — LobbyScreen's player grid needs to keep
+  // up to 10 chips on screen without scrolling, especially on shorter
+  // (e.g. 720p) TV viewports.
   &.md {
-    width: 5.5rem;
-    height: 5.5rem;
-    font-size: 2.5rem;
+    width: clamp(3.5rem, 9vh, 5.5rem);
+    height: clamp(3.5rem, 9vh, 5.5rem);
+    font-size: clamp(1.5rem, 4vh, 2.5rem);
   }
 
+  // Same reasoning as .sm — EndGameScreen's podium needs to shrink on
+  // shorter viewports/with a long "rest of the pack" list beneath it.
   &.lg {
-    width: 8rem;
-    height: 8rem;
-    font-size: 3.75rem;
+    width: clamp(3.5rem, 12vh, 8rem);
+    height: clamp(3.5rem, 12vh, 8rem);
+    font-size: clamp(1.75rem, 5.5vh, 3.75rem);
   }
 }
 
