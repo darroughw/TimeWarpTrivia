@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Void-colored text on the focused (marigold-filled) state so it stays
+     readable; marigold text on the unfocused (transparent) state. -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:color="@color/void_bg"
+        android:state_focused="true" />
+    <item android:color="@color/marigold" />
+</selector>

@@ -347,10 +347,11 @@ relative path.
 
 [`android-tv/`](android-tv/) (TIM-10) is a separate Gradle/Kotlin project,
 not part of the Next.js app — a single `Activity` wrapping a full-screen
-`WebView` pointed at `/tv`. No screen is reimplemented natively; every
-actual game screen is the same web app real browsers hit. See that
-directory's own README for how to build/run it in Android Studio, what's
-deliberately not built yet (offline state, a Play Store listing), and
+`WebView` pointed at `/tv`, with a native "lost the signal" screen for
+when that WebView can't load at all. No screen is reimplemented
+natively; every actual game screen is the same web app real browsers
+hit. See that directory's own README for how to build/run it in Android
+Studio, what's deliberately not built yet (a Play Store listing), and
 where its icon/banner assets came from.
 
 ## Current limitations

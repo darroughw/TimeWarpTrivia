@@ -64,12 +64,20 @@ machine's LAN IP (an Android TV emulator can't reach `localhost` on your
 host machine) — e.g. `http://192.168.1.23:3000/tv` — and change it back
 before committing.
 
+## Offline/error state
+
+If the WebView's main-frame load fails outright (no connection, DNS
+failure, 4xx/5xx on `/tv` itself) `MainActivity`'s `WebViewClient` swaps
+in a native "Lost the signal" screen — void background, marigold
+accent, a single autofocused Retry button — instead of leaving the
+WebView's own default error rendering on screen. Retry just reloads
+`appUrl`; the WebView stays hidden until a load actually finishes
+without erroring, so a Retry that fails again keeps the error screen up
+rather than flashing back to a broken WebView. Sub-resource failures
+(a font, an image) don't trigger it — only the main document.
+
 ## What's deliberately not built
 
-- **No offline/error state UI.** A dropped connection just shows the
-  WebView's own default error rendering. Fine for a portfolio piece;
-  worth a real "check your connection" screen before this goes further
-  than that.
 - **No settings screen.** Nothing to configure — the app does one thing.
 - **No Play Store listing yet.** `playstore/icon-512.png` is ready for
   one; TIM-10's "set up Google Play developer account" is a manual step

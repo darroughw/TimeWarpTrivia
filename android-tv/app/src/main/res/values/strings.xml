@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">TimeWarp Trivia</string>
+
+    <!-- Shown in place of the WebView's own default error rendering when
+         the main-frame load fails (see MainActivity's WebViewClient). -->
+    <string name="error_title">Lost the signal</string>
+    <string name="error_subtitle">Check the TV\'s network connection, then try again.</string>
+    <string name="retry_button">Retry</string>
 </resources>
