@@ -1,0 +1,7 @@
+<resources>
+    <!-- Mirrors $void / $marigold in app/styles/_theme.scss (the web
+         app's own token names) — kept in sync by hand since this project
+         has no access to the Next.js app's SCSS build. -->
+    <color name="void_bg">#0B0E1A</color>
+    <color name="marigold">#FFB238</color>
+</resources>

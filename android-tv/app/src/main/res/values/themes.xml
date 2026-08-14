@@ -1,0 +1,13 @@
+<resources>
+    <!-- Fullscreen, no action bar/status bar, no title — this app is a
+         single WebView and nothing else. windowBackground matches the
+         web app's own void background so there's no white flash between
+         the system launching the activity and the WebView's first paint. -->
+    <style name="Theme.TimeWarpTrivia" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@color/void_bg</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:navigationBarColor">@color/void_bg</item>
+        <item name="android:statusBarColor">@color/void_bg</item>
+    </style>
+</resources>

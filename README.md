@@ -37,10 +37,10 @@ simplified even in the live path.
   screen and the content-fetch call differ (`mode: "decade" | "deepCuts"`).
   `/play` needs no equivalent second route; joining and answering are
   already fully mode-agnostic.
-- **`/tv`** — entry point for the Android TV wrapper (TIM-10): a bare
-  intro screen (large logo, one line of copy, an autofocused Start
-  button) so launching the packaged app doesn't drop straight into a
-  freshly created, playerless `/host` room with nothing on screen to
+- **`/tv`** — entry point for the [Android TV app](android-tv/) (TIM-10):
+  a bare intro screen (large logo, one line of copy, an autofocused
+  Start button) so launching the packaged app doesn't drop straight into
+  a freshly created, playerless `/host` room with nothing on screen to
   explain it. Static, no Supabase dependency — Start just links to
   `/host`, which does the real room creation.
 
@@ -283,6 +283,7 @@ supabase/migrations/
 scripts/
   migrate.mjs                                                    # applies supabase/migrations/*.sql
   import-questions.mjs                                              # loads data/*.json into questions
+android-tv/                                                          # separate Gradle/Kotlin project — see "Android TV app" below
 ```
 
 Every screen component (`components/tv/*`, `components/phone/*`) is
@@ -341,6 +342,16 @@ every component's `.module.scss` via `@use "theme" as *;`:
 `next.config.mjs` adds `app/styles` to the Sass `includePaths`, so any
 component can `@use "theme" as *;` / `@use "mixins" as *;` without a
 relative path.
+
+## Android TV app
+
+[`android-tv/`](android-tv/) (TIM-10) is a separate Gradle/Kotlin project,
+not part of the Next.js app — a single `Activity` wrapping a full-screen
+`WebView` pointed at `/tv`. No screen is reimplemented natively; every
+actual game screen is the same web app real browsers hit. See that
+directory's own README for how to build/run it in Android Studio, what's
+deliberately not built yet (offline state, a Play Store listing), and
+where its icon/banner assets came from.
 
 ## Current limitations
 
