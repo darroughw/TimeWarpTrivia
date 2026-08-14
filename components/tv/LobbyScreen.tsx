@@ -47,6 +47,7 @@ export default function LobbyScreen({
         <div className={styles.codeBlock}>
           <span className={styles.codeLabel}>Room Code</span>
           <span className={styles.code}>{roomCode}</span>
+          <span className={styles.joinHint}>Join at timewarptrivia.com/play</span>
         </div>
       </header>
 
