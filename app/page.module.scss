@@ -208,7 +208,26 @@
 .footer {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: $space-sm;
   padding-top: $space-md;
+}
+
+.privacyLink {
+  @include dpad-focusable;
+  font-family: $paper-font;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: $text-lo;
+  background: transparent;
+  border: 1px solid $void-line;
+  border-radius: $radius-lg;
+  padding: 0.4rem 0.9rem;
+
+  &:hover,
+  &:focus-visible {
+    color: $text-hi;
+    border-color: $marigold-dim;
+  }
 }
 

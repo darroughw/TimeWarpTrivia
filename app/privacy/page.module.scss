@@ -1,0 +1,108 @@
+@use "theme" as *;
+@use "mixins" as *;
+
+.screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+  padding: $space-lg $space-2xl $space-2xl;
+
+  @media (max-width: 640px) {
+    padding: $space-md $space-md $space-xl;
+    gap: $space-md;
+  }
+}
+
+.header {
+  display: flex;
+}
+
+.backLink {
+  @include dpad-focusable;
+  font-family: $head-font;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.9rem;
+  color: $text-lo;
+  border-radius: $radius-sm;
+  padding: $space-xs 0;
+
+  &:hover,
+  &:focus-visible {
+    color: $marigold;
+  }
+}
+
+// A plain reading document, deliberately not styled like the rest of the
+// broadcast-void UI (no marquee headings, no glow) — this page exists to
+// be read carefully and cited by app-store review, not to sell the game.
+.doc {
+  max-width: 42rem;
+  color: $text-hi;
+  font-family: $paper-font;
+  line-height: 1.6;
+
+  h1 {
+    font-family: $head-font;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    font-size: 2.25rem;
+    margin-bottom: $space-xs;
+
+    @media (max-width: 640px) {
+      font-size: 1.6rem;
+    }
+  }
+
+  h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-top: $space-lg;
+    margin-bottom: $space-xs;
+    color: $text-hi;
+  }
+
+  h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-top: $space-md;
+    margin-bottom: $space-xs;
+    color: $text-hi;
+  }
+
+  p,
+  ul {
+    color: $text-lo;
+    margin-bottom: $space-sm;
+  }
+
+  ul {
+    padding-left: 1.25rem;
+  }
+
+  li {
+    margin-bottom: $space-xs;
+  }
+
+  strong {
+    color: $text-hi;
+  }
+
+  a {
+    color: $marigold;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+
+    &:hover,
+    &:focus-visible {
+      color: $text-hi;
+    }
+  }
+}
+
+.updated {
+  color: $text-placeholder;
+  font-size: 0.9rem;
+  margin-bottom: $space-lg;
+}

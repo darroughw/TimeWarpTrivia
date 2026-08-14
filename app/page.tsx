@@ -85,6 +85,9 @@ export default function Landing() {
       <footer className={styles.footer}>
         <HelpButton />
         <FeedbackButton />
+        <Link href="/privacy" className={styles.privacyLink}>
+          Privacy Policy
+        </Link>
       </footer>
     </div>
   );
