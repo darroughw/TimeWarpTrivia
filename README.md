@@ -351,8 +351,10 @@ not part of the Next.js app — a single `Activity` wrapping a full-screen
 when that WebView can't load at all. No screen is reimplemented
 natively; every actual game screen is the same web app real browsers
 hit. See that directory's own README for how to build/run it in Android
-Studio, what's deliberately not built yet (a Play Store listing), and
-where its icon/banner assets came from.
+Studio, what's deliberately not built yet (a Play Store listing), where
+its icon/banner assets came from, and Fire TV/Amazon Appstore support
+(TIM-43) — the same manifest already targets Fire TV, so that's mostly a
+submission-assets and store-account gap, not separate code.
 
 ## Current limitations
 

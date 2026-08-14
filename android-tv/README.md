@@ -83,6 +83,46 @@ rather than flashing back to a broken WebView. Sub-resource failures
   one; TIM-10's "set up Google Play developer account" is a manual step
   outside this repo, not something to script.
 
+## Fire TV / Amazon Appstore (TIM-43)
+
+Amazon Fire TV runs Android, and this wrapper already targets it without
+changes: no Google Play Services calls anywhere in `MainActivity.kt`, and
+`AndroidManifest.xml` already declares `android.software.leanback` as
+required and `android.hardware.touchscreen` as not required — exactly
+what [Amazon's manifest compatibility check](https://developer.amazon.com/docs/app-submission/troubleshooting-android-manifest-and-device-targeting.html)
+and [Fire TV app guidelines](https://developer.amazon.com/docs/fire-tv/submitting-your-app-to-the-amazon-appstore.html)
+look for. The same APK this project builds for Google Play should install
+and run on Fire TV as-is; this hasn't been verified against real Fire TV
+hardware or the Fire TV emulator (Amazon Developer Console's built-in
+device farm, or a physical Fire TV stick in developer mode), which is the
+first real test, same caveat as the "not built or run" note above.
+
+What's still missing for an actual Amazon Appstore submission — separate
+from the app itself, same shape as the Play Store gap above:
+
+- **Amazon developer account.** Free signup at
+  [developer.amazon.com](https://developer.amazon.com/), same email as
+  any Amazon account works — no separate hardware needed to create the
+  account itself, only to test the built APK on real Fire TV hardware.
+- **Fire TV UI icon, 1280×720 PNG.** Different from the 320×180 Leanback
+  `banner.png` already in this repo — this is Amazon's own launcher tile
+  size, not reused from the Android TV assets. Needs the same
+  render-`logo.svg`-on-`$void`-background export described below, at
+  this new size.
+- **Small icon, 114×114 PNG.** `playstore/icon-512.png` (512×512) covers
+  Amazon's "large icon" requirement as-is; the 114×114 size still needs
+  generating from the same source.
+- **3–10 store-listing screenshots**, ideally captured on Fire TV
+  hardware/emulator rather than reused from the Android TV listing.
+- Pass through [Amazon's App Testing criteria](https://developer.amazon.com/docs/app-testing/test-criteria.html)
+  before submission — largely the same bar as Play Store review, plus
+  Fire TV's remote-only input model, which this app already satisfies
+  (no touch/mouse dependency anywhere in `MainActivity.kt`).
+
+Per TIM-43, this is a stretch goal sequenced after Android TV/Play Store
+ships — not blocking, but unblocked independently of the Play Store
+developer account, since Amazon's account signup doesn't require a phone.
+
 ## Assets
 
 `app/src/main/res/drawable/banner.png` (the Leanback launcher card,
