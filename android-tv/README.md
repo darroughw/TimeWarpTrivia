@@ -168,6 +168,8 @@ as an app-specific asset:
   login/account anywhere in the app to explain). Deliberately doesn't
   mention the Konami-code demo simulator (`SimulatorTvFlow`) — it needs
   literal "b"/"a" keydowns that a stock Fire TV remote has no way to send.
+- `short-description.txt` / `long-description.txt` — store-listing copy,
+  under Amazon's 1200/4000-character caps respectively.
 
 All of it — icon, backgrounds, and screenshots alike — was generated the
 same way as `banner.png`/`icon-512.png` already were (render `logo.svg`
