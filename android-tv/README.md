@@ -146,23 +146,45 @@ hardware or the Fire TV emulator (Amazon Developer Console's built-in
 device farm, or a physical Fire TV stick in developer mode), which is the
 first real test, same caveat as the "not built or run" note above.
 
-What's still missing for an actual Amazon Appstore submission — separate
-from the app itself, same shape as the Play Store gap above:
+### Store assets
+
+`store-assets/fire-tv/` has everything Amazon's submission form asks for
+as an app-specific asset:
+
+- `app-icon-1280x720.png` — the Fire TV launcher tile.
+- `background-1920x1080.png` / `featured-content-background-1920x720.png`
+  — atmosphere art for the app's details page and editorial-feature
+  placement. Deliberately text-light: Fire TV overlays its own
+  title/description on top, usually bottom-left, so that corner is kept
+  clear and the logo watermark sits off to the right instead.
+- `featured-content-logo-640x260.png` — transparent-background logo
+  lockup for featured placement.
+- `screenshot-1-intro.png` through `screenshot-5-final-results.png` — five
+  1920×1080 shots (intro, lobby, a live question, the scoreboard, final
+  results) covering the "at least 3" requirement with real variety.
+
+All of it — icon, backgrounds, and screenshots alike — was generated the
+same way as `banner.png`/`icon-512.png` already were (render `logo.svg`
+on the `$void` background at the target size), plus one more trick for
+the screenshots: they're headless-Chrome captures of `/tv` and `/host`
+running in **mock/demo mode** (`MockTvFlow` — the same no-backend, scripted
+flow that renders when `NEXT_PUBLIC_SUPABASE_URL`/`NEXT_PUBLIC_SUPABASE_ANON_KEY`
+aren't set) at a 1920×1080 viewport, not captures from actual Fire TV
+hardware. Since the WebView renders the exact same web app either way,
+these are representative of the real product, not mockups — but if
+Amazon's reviewers want hardware-sourced screenshots specifically,
+recapture from a real device or the Fire TV emulator instead.
+
+Still missing for an actual Amazon Appstore submission — separate from
+the app and its assets, same shape as the Play Store gap above:
 
 - **Amazon developer account.** Free signup at
   [developer.amazon.com](https://developer.amazon.com/), same email as
   any Amazon account works — no separate hardware needed to create the
   account itself, only to test the built APK on real Fire TV hardware.
-- **Fire TV UI icon, 1280×720 PNG.** Different from the 320×180 Leanback
-  `banner.png` already in this repo — this is Amazon's own launcher tile
-  size, not reused from the Android TV assets. Needs the same
-  render-`logo.svg`-on-`$void`-background export described below, at
-  this new size.
 - **Small icon, 114×114 PNG.** `playstore/icon-512.png` (512×512) covers
   Amazon's "large icon" requirement as-is; the 114×114 size still needs
   generating from the same source.
-- **3–10 store-listing screenshots**, ideally captured on Fire TV
-  hardware/emulator rather than reused from the Android TV listing.
 - Pass through [Amazon's App Testing criteria](https://developer.amazon.com/docs/app-testing/test-criteria.html)
   before submission — largely the same bar as Play Store review, plus
   Fire TV's remote-only input model, which this app already satisfies
