@@ -170,6 +170,9 @@ as an app-specific asset:
   literal "b"/"a" keydowns that a stock Fire TV remote has no way to send.
 - `short-description.txt` / `long-description.txt` — store-listing copy,
   under Amazon's 1200/4000-character caps respectively.
+- `feature-bullets.txt` — up to 10 product feature bullets.
+- `keywords.txt` — comma-separated search keywords, under the 100-character
+  cap on the keywords field.
 
 All of it — icon, backgrounds, and screenshots alike — was generated the
 same way as `banner.png`/`icon-512.png` already were (render `logo.svg`
