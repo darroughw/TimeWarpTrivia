@@ -54,6 +54,55 @@ Every file here was written by hand against the standard Android/Gradle/
 Kotlin conventions, not verified by an actual build. Treat the first
 Gradle sync in Android Studio as the real first test.
 
+## Signing / building a release bundle
+
+Release builds (`.aab`, for Play Console or Amazon Appstore) are signed
+via `app/build.gradle.kts` reading credentials from `keystore.properties`
+in this directory — that file is gitignored and never committed, since it
+holds the keystore path and its password in plaintext. Without it,
+`bundleRelease` still configures and runs, it just produces an **unsigned**
+bundle (no `signingConfig` gets attached to the `release` build type).
+
+To generate a new upload key (only do this once per app — whatever key
+signs the first uploaded bundle is the one needed for every future update
+under this app's identity):
+
+```sh
+keytool -genkeypair -v \
+  -keystore ~/.android-keystores/timewarptrivia-release-upload.jks \
+  -alias timewarptrivia-upload \
+  -keyalg RSA -keysize 2048 -validity 10950 \
+  -dname "CN=TimeWarp Trivia, OU=Development, O=TimeWarp Trivia, L=Unknown, ST=Unknown, C=US"
+```
+
+Deliberately generated **outside** this repo (`~/.android-keystores/`,
+not `android-tv/`) so a `.gitignore` mistake can't accidentally leak it.
+Modern `keytool` defaults to a PKCS12 keystore, which only supports one
+password for both the store and the key — use the same value for both
+prompts. Then create `android-tv/keystore.properties` (not committed):
+
+```properties
+storeFile=/absolute/path/to/timewarptrivia-release-upload.jks
+storePassword=...
+keyAlias=timewarptrivia-upload
+keyPassword=...
+```
+
+**Back up the `.jks` file and its password somewhere durable (a password
+manager, not just this disk)** — there's no "reset" for a lost upload key
+short of Play Console's key-loss recovery process, and Amazon has no
+equivalent at all. Then build with:
+
+```sh
+./gradlew bundleRelease
+```
+
+Output lands at `app/build/outputs/bundle/release/app-release.aab`.
+Sanity-check the signature independent of Gradle with
+`jarsigner -verify -certs app/build/outputs/bundle/release/app-release.aab`
+(expect `jar verified.`, plus a benign self-signed-certificate warning —
+upload keys are always self-signed).
+
 ## Pointing at a local dev server while iterating
 
 `MainActivity.kt`'s `appUrl` is a single hardcoded constant — deliberately
