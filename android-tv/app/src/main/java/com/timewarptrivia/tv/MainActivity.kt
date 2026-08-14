@@ -121,7 +121,7 @@ class MainActivity : AppCompatActivity() {
             if (request.isForMainFrame) showError()
         }
 
-        @Suppress("OverridingDeprecatedMember", "DEPRECATION")
+        @Suppress("OverridingDeprecatedMember", "DEPRECATION", "OVERRIDE_DEPRECATION")
         override fun onReceivedError(view: WebView, errorCode: Int, description: String?, failingUrl: String?) {
             // Only reached on API < 23, where the WebResourceRequest
             // overload above doesn't exist yet. Android TV devices are
