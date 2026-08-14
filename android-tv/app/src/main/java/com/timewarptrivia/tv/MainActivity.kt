@@ -66,6 +66,18 @@ class MainActivity : AppCompatActivity() {
                 javaScriptEnabled = true
                 domStorageEnabled = true
                 mediaPlaybackRequiresUserGesture = false
+                // Without these two, WebView ignores the page's own
+                // <meta name="viewport"> and renders against its own
+                // internal default (narrow) virtual viewport, then
+                // stretches that render to fill the real TV-sized
+                // surface — every rem/vw/vh-sized element balloons and
+                // content past the fold (yes, WebViews have a fold)
+                // never gets seen. useWideViewPort makes WebView respect
+                // the page's actual viewport meta tag; loadWithOverviewMode
+                // makes it load already zoomed to fit that width instead
+                // of needing a pinch-zoom-out that a D-pad can't do anyway.
+                useWideViewPort = true
+                loadWithOverviewMode = true
             }
             webViewClient = buildWebViewClient()
 
