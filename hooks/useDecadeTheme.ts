@@ -3,9 +3,10 @@
 import { useEffect } from "react";
 import type { DecadeId } from "@/lib/types";
 
-// Decades with a built-in visual theme (TIM-14). Everything else
-// (including "all") falls back to the base design system tokens.
-const THEMED_DECADES: DecadeId[] = ["80s"];
+// Decades with a built-in visual theme (TIM-14). "all" deliberately stays
+// off this list — a session spanning every era reads as neutral/default
+// rather than committing to one decade's look.
+const THEMED_DECADES: DecadeId[] = ["60s", "70s", "80s", "90s", "2000s", "2010s"];
 
 // Sets `data-decade-theme` on <html> once a decade's picked in the lobby,
 // so _decade-themes.scss's overrides cascade to every screen — TV and

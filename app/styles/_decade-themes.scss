@@ -7,21 +7,73 @@
 // the app — see the CSS custom property fallback in _theme.scss. No
 // component SCSS needs to know a theme exists.
 //
-// 80s — Saved By The Bell: hot pink swapped in for the marigold accent
-// (matches lib/decadeColors.ts's own 80s color, so the lobby's decade
-// picker and the themed session agree). $coral/$teal (wrong/correct
-// feedback) are deliberately left alone — see _theme.scss.
+// Every block below follows the same shape: an accent-color override
+// (matching lib/decadeColors.ts's hex for that decade, so the lobby's
+// decade picker and the themed session agree) plus one signature
+// background motif on `body::before` — same fixed, pointer-events-none
+// layer as ScanlineOverlay, so no per-screen component wiring is ever
+// needed. $coral/$teal (wrong/correct feedback) are deliberately left
+// alone in all of them — see _theme.scss. Dim variants are each accent
+// at ~55% brightness, same ratio the original 80s pair established.
+
+// 60s — mod dot: a two-tone polka-dot grid (green + cream), the
+// Twiggy/Mary Quant op-art look.
+[data-decade-theme="60s"] {
+  --marigold: #7ed321;
+  --marigold-dim: #457412;
+  --shadow-glow-marigold: 0 0 40px rgba(126, 211, 33, 0.45);
+}
+
+[data-decade-theme="60s"] body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: $z-scanlines;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, rgba(126, 211, 33, 0.18) 6px, transparent 7px),
+    radial-gradient(circle, rgba(244, 236, 216, 0.1) 6px, transparent 7px);
+  background-position: 0 0, 40px 40px;
+  background-size: 80px 80px, 80px 80px;
+}
+
+// 70s — sunburst: blue/harvest-gold rings anchored to the top-right
+// corner (a mirror-art sunburst peeking in), not centered — a
+// screen-centered ring pattern reads as a target/bullseye rather than a
+// backdrop motif, so this stays off-center with wide bands and low
+// opacity to match the other decades' restraint.
+[data-decade-theme="70s"] {
+  --marigold: #4d9fff;
+  --marigold-dim: #2a578c;
+  --shadow-glow-marigold: 0 0 40px rgba(77, 159, 255, 0.45);
+}
+
+[data-decade-theme="70s"] body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: $z-scanlines;
+  pointer-events: none;
+  background: repeating-radial-gradient(
+    circle at 100% 0%,
+    rgba(77, 159, 255, 0.1) 0px,
+    rgba(77, 159, 255, 0.1) 60px,
+    rgba(255, 178, 56, 0.08) 60px,
+    rgba(255, 178, 56, 0.08) 120px,
+    transparent 120px,
+    transparent 180px
+  );
+}
+
+// 80s — Saved By The Bell: hot pink swapped in for the marigold accent,
+// plus a diagonal pink/teal/yellow color-block band, the Bayside-High-
+// poster look.
 [data-decade-theme="80s"] {
   --marigold: #ff3fa4;
   --marigold-dim: #8f2063;
   --shadow-glow-marigold: 0 0 40px rgba(255, 63, 164, 0.45);
 }
 
-// Signature motif: a diagonal pink/teal/yellow color-block band, the
-// Bayside-High-poster look, applied as a fixed backdrop behind every
-// screen's content — same layer as ScanlineOverlay, no per-screen
-// component wiring needed since it hangs off <body> directly via a
-// pseudo-element.
 [data-decade-theme="80s"] body::before {
   content: "";
   position: fixed;
@@ -39,4 +91,68 @@
     transparent 144px,
     transparent 192px
   );
+}
+
+// 90s — grunge zigzag: steep purple/neon-green diagonal bands, a
+// steeper angle than 80s's for more energy, but sized to the same
+// visual weight (band width/opacity) rather than genuinely busier.
+[data-decade-theme="90s"] {
+  --marigold: #8a6dff;
+  --marigold-dim: #4c3c8c;
+  --shadow-glow-marigold: 0 0 40px rgba(138, 109, 255, 0.45);
+}
+
+[data-decade-theme="90s"] body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: $z-scanlines;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(138, 109, 255, 0.14) 0px,
+    rgba(138, 109, 255, 0.14) 45px,
+    rgba(57, 255, 20, 0.12) 45px,
+    rgba(57, 255, 20, 0.12) 90px,
+    transparent 90px,
+    transparent 135px
+  );
+}
+
+// 2000s — Y2K pixel grid: a fine cyan grid, digital/Matrix/circuit-board
+// feel.
+[data-decade-theme="2000s"] {
+  --marigold: #33d6ff;
+  --marigold-dim: #1c768c;
+  --shadow-glow-marigold: 0 0 40px rgba(51, 214, 255, 0.45);
+}
+
+[data-decade-theme="2000s"] body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: $z-scanlines;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(51, 214, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(51, 214, 255, 0.12) 1px, transparent 1px);
+  background-size: 32px 32px, 32px 32px;
+}
+
+// 2010s — flat-design dot grid: a sparse, minimal orange dot field, the
+// Pinterest/flat-UI-circa-2014 look.
+[data-decade-theme="2010s"] {
+  --marigold: #ff8a3d;
+  --marigold-dim: #8c4c22;
+  --shadow-glow-marigold: 0 0 40px rgba(255, 138, 61, 0.45);
+}
+
+[data-decade-theme="2010s"] body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: $z-scanlines;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(255, 138, 61, 0.16) 2px, transparent 3px);
+  background-size: 48px 48px;
 }
