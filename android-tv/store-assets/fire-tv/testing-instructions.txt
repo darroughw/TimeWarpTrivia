@@ -1,0 +1,16 @@
+TimeWarp Trivia is a shared-screen party trivia game: this Fire TV app hosts the game on the TV, and players join and answer using their own phone's (or any) web browser — no phone app, account, login, or credentials are used anywhere in the app.
+
+To test using only the Fire TV plus one other browser:
+
+1. Launch the app. It opens to an intro screen with a "Start" button — press Select.
+2. This opens the lobby, which shows a room code in the top right (format: 4 letters + 2 digits, e.g. "WARP-72").
+3. On any phone, tablet, or computer browser, go to https://www.timewarptrivia.com/play
+4. Enter any nickname and the room code shown on the TV, then submit. The player appears in the TV lobby within a couple seconds.
+5. Repeat step 3–4 in a second browser tab or window with a different nickname. Starting a game requires at least 2 joined players — the "Start Game" button on the TV stays disabled until then.
+6. On the TV, D-pad to "Start Game" and press Select.
+7. The game proceeds automatically: each round shows a question on the TV with a countdown timer, and players answer on their own joined browser (not the TV). Between rounds the TV auto-advances after a short delay; pressing the remote's right-arrow or Select also advances these transition/scoreboard screens manually.
+8. The game ends on a final results screen with a "Play Again" option, which resets the same room for another round.
+
+Every screen (lobby, question, scoreboard, and the offline/error screen if the network drops) is fully operable with the D-pad and Select button alone — no touch, mouse, or keyboard input is used anywhere in the app.
+
+If the app can't reach the server (no connection), it shows a native "Lost the signal" screen with a Retry button instead of a broken page.

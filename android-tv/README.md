@@ -162,6 +162,12 @@ as an app-specific asset:
 - `screenshot-1-intro.png` through `screenshot-5-final-results.png` — five
   1920×1080 shots (intro, lobby, a live question, the scoreboard, final
   results) covering the "at least 3" requirement with real variety.
+- `testing-instructions.txt` — paste-ready text for Amazon's submission
+  form field of the same name, walking a reviewer through hosting a game
+  on the TV and joining as a player from a second browser (there's no
+  login/account anywhere in the app to explain). Deliberately doesn't
+  mention the Konami-code demo simulator (`SimulatorTvFlow`) — it needs
+  literal "b"/"a" keydowns that a stock Fire TV remote has no way to send.
 
 All of it — icon, backgrounds, and screenshots alike — was generated the
 same way as `banner.png`/`icon-512.png` already were (render `logo.svg`
