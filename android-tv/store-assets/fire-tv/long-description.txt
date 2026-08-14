@@ -1,23 +1,23 @@
-Nostalgia, weaponized.
-
-TimeWarp Trivia is a party trivia game built around one big screen and a room full of phones. The TV shows the questions, the scoreboard, and the drama — everyone else answers on their own phone, using it like a buzzer. Nobody but the host needs this app; players just open a web page.
+Six decades of pop culture trivia on one shared screen. Nobody leaves this game feeling great about their memory.
 
 HOW IT WORKS
 
-Launch TimeWarp Trivia on your Fire TV and a room code appears on screen. Everyone else grabs their phone, goes to timewarptrivia.com/play in any browser, types in the room code and a nickname, and they're in the lobby — no app store, no download, no account. From 2 up to 10 players can join the same room.
+Launch TimeWarp Trivia on your Fire TV and a room code shows up. Everyone else takes out their phone, goes to timewarptrivia.com/play, types in the code and a nickname, and joins. No app store, no download, no account to make and immediately forget the password to. Anywhere from 2 to 10 people can be in the same room, which is also the range of people who will remember this later.
 
-Once everyone's in, the host picks what's in play: filter to a single decade or open up all six at once. Each round puts a question on the big screen with a countdown clock; players lock in an answer from their phone before time runs out. Answering right matters, but answering right fast matters more — TimeWarp Trivia scores on speed, so the fastest correct answer always outscores a slower one.
+Once everyone's in, the host picks the decades in play: one, or all six of them, 60s through 2010s. Each round puts a question on the TV with a countdown clock, and everyone answers from their own phone before time runs out. Getting it right isn't enough. TimeWarp Trivia scores on speed, so a correct answer that arrives a half-second late loses to a wrong guess that arrives faster. The clock does not care about your reasoning process.
 
-After the main rounds, the scoreboard turns into a spotlight: whoever's sitting in last place gets pulled aside for a solo question, answered alone while the rest of the room watches. It's the one twist that can flip a game in its final minute — and the reason nobody's safe just because they're not currently losing.
+After the main rounds, whoever's currently in last place gets a bonus question, alone, on the big screen, while everyone else in the room watches in silence and offers no help whatsoever. It is, structurally, a public audition for the role of "person who lost."
 
 WHAT'S PLAYABLE
 
-Six decades of pop culture, 60s through 2010s, spanning music, movies, TV, toys, and trends — plus Deep Cuts, a growing set of topic packs (currently The West Wing and Fallout) for groups who want something more specific than "everything from the 90s." Thousands of questions across every category means decade combinations rarely repeat the same way twice, so this isn't a game you play once and shelve.
+Six decades of music, movies, TV, toys, and trends that used to be current events and are now trivia categories, which is its own small tragedy. Plus Deep Cuts: topic packs (The West Wing, Fallout, more coming) for the specific kind of person whose entire personality is one television show or one video game, and who will absolutely win that round and mention it again at dinner.
+
+Thousands of questions across every category, so decade combinations don't repeat the same way twice. This is not a game you play once, lose interest in, and let quietly rot on a home screen.
 
 BUILT FOR THE ROOM, NOT THE SCREEN
 
-TimeWarp Trivia deliberately doesn't ask anyone but the host to install anything. That means it works for whoever happens to be in the room — family visiting for a holiday, a game night with mixed phone types, a party where half the guests don't want to download one more app for one more game. Everyone's already carrying the only hardware they need.
+Nobody but the host installs anything. That's on purpose: this needs to work for whoever's actually in the room, including the relative visiting for one weekend who is not creating an account for your trivia game, and the friend who still has 4GB of storage free because they refuse to delete anything.
 
-Rounds are paced for a real conversation to happen around them: fast enough that the game doesn't drag, slow enough that people actually talk trash between questions. The final scoreboard remembers every round, so bragging rights are earned across the whole game, not just the last question.
+The scoreboard remembers every round, not just the last one, so a strong finish doesn't erase a weak start. People tend to remember it the same way.
 
-No login, no account, no data entry beyond a nickname. Start a game, share a code, and go.
+No login. No account. No data entry beyond a nickname you'll regret picking two rounds in. Start a game, hand out the code, and watch what a room full of confident adults does when the clock starts.
