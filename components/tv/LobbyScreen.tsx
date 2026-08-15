@@ -91,15 +91,22 @@ export default function LobbyScreen({
           </span>
           <HelpButton />
         </div>
-        <button
-          type="button"
-          data-dpad-focusable
-          className={styles.startButton}
-          disabled={activeCount < 2}
-          onClick={onStartGame}
-        >
-          Start Game
-        </button>
+        <div className={styles.startArea}>
+          {activeCount < 2 && (
+            <span className={styles.startHint} aria-live="polite">
+              Need 2 players to start
+            </span>
+          )}
+          <button
+            type="button"
+            data-dpad-focusable
+            className={styles.startButton}
+            disabled={activeCount < 2}
+            onClick={onStartGame}
+          >
+            Start Game
+          </button>
+        </div>
       </footer>
     </div>
   );
