@@ -3,29 +3,40 @@
 
 .screen {
   position: relative;
-  min-height: 100vh;
+  // Fixed, not min — same reasoning as LobbyScreen.module.scss: a
+  // min-height box still grows past the viewport to fit oversized
+  // content, and a Fire TV remote has no way to scroll a page that
+  // outgrows the screen. clamp()-based vh sizing below is what actually
+  // keeps this screen inside 100vh; height:100vh + overflow:hidden is
+  // the hard backstop if that sizing is ever wrong on some device.
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: $space-xl;
-  padding: $space-2xl;
+  gap: clamp(1rem, 4vh, #{$space-xl});
+  padding: clamp(1.5rem, 6vh, #{$space-2xl});
   text-align: center;
   z-index: $z-content;
+  overflow: hidden;
 }
 
 // Larger than the marketing landing page's logo (30rem desktop) — this
 // screen has nothing else competing for attention, so the logo carries
-// the whole "what app is this" moment on its own.
+// the whole "what app is this" moment on its own. vh-clamped like every
+// other TV screen's sizing (LobbyScreen, ScoreboardScreen, ...) instead
+// of a flat rem width, which on at least one real Fire TV device
+// rendered far larger than intended and pushed the button below the
+// visible screen with nothing able to scroll it into view.
 .logo {
-  width: 42rem;
+  width: clamp(14rem, 46vh, 30rem);
   max-width: 90%;
   height: auto;
 }
 
 .intro {
   font-family: $paper-font;
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 3.2vh, 1.5rem);
   line-height: 1.5;
   color: $text-lo;
   max-width: 40rem;
@@ -36,8 +47,8 @@
   font-family: $head-font;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  font-size: 2rem;
-  padding: $space-md $space-2xl;
+  font-size: clamp(1.3rem, 4vh, 2rem);
+  padding: clamp(0.75rem, 2.5vh, #{$space-md}) clamp(2rem, 6vh, #{$space-2xl});
   border-radius: $radius-lg;
   background: $marigold;
   color: $ink;
