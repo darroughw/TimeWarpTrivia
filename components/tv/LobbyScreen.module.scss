@@ -164,12 +164,23 @@
 }
 
 .sidebar {
-  width: 22rem;
+  // Width grown by 2x the padding below and pulled back with a matching
+  // negative margin, so the content area (where pills actually wrap) and
+  // the box's visual footprint both end up identical to a plain
+  // `width: 22rem` with no padding — the only thing this buys is room
+  // for the decade pills' dpad-focusable glow to render before hitting
+  // the overflow:hidden edge below. Without it, the glow on any pill
+  // near this box's own boundary got clipped flush (TIM-43 Fire TV
+  // feedback). A naive `padding` alone would shrink the content area and
+  // change how the pills wrap.
+  width: calc(22rem + 1.5rem);
   flex-shrink: 0;
   min-height: 0;
   display: flex;
   flex-direction: column;
   gap: clamp(0.5rem, 2vh, #{$space-lg});
+  padding: 0.75rem;
+  margin: -0.75rem;
   // Safety net — DecadeFilter/DeepCutTopicFilter's own pills shrink via
   // clamp() to fit here, but this stops any residual overflow from
   // visually bleeding into the footer/Start Game button below instead
