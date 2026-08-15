@@ -173,6 +173,8 @@ as an app-specific asset:
 - `feature-bullets.txt` — up to 10 product feature bullets.
 - `keywords.txt` — comma-separated search keywords, under the 100-character
   cap on the keywords field.
+- `app-icon-114x114.png` / `app-icon-512x512.png` — Amazon's small/large
+  icon sizes.
 
 All of it — icon, backgrounds, and screenshots alike — was generated the
 same way as `banner.png`/`icon-512.png` already were (render `logo.svg`
@@ -186,24 +188,29 @@ these are representative of the real product, not mockups — but if
 Amazon's reviewers want hardware-sourced screenshots specifically,
 recapture from a real device or the Fire TV emulator instead.
 
-Still missing for an actual Amazon Appstore submission — separate from
-the app and its assets, same shape as the Play Store gap above:
+**Live on the Amazon Appstore** — TIM-43 shipped. The first submission's
+`.aab` was rejected at upload ("incompatible with this device due to
+different device OS" — Amazon's bundle-processing pipeline choking on a
+modern-AGP-produced App Bundle, not an actual compatibility problem); a
+signed universal APK from the same keystore went through review cleanly.
+Current published build: `versionCode 2` / `versionName 1.0.1`, which
+also carries a `useWideViewPort`/`loadWithOverviewMode` WebView fix in
+`MainActivity.kt` (see the comment there) for content rendering
+oversized on a real device.
 
-- **Amazon developer account.** Free signup at
-  [developer.amazon.com](https://developer.amazon.com/), same email as
-  any Amazon account works — no separate hardware needed to create the
-  account itself, only to test the built APK on real Fire TV hardware.
-- **Small icon, 114×114 PNG.** `playstore/icon-512.png` (512×512) covers
-  Amazon's "large icon" requirement as-is; the 114×114 size still needs
-  generating from the same source.
-- Pass through [Amazon's App Testing criteria](https://developer.amazon.com/docs/app-testing/test-criteria.html)
-  before submission — largely the same bar as Play Store review, plus
-  Fire TV's remote-only input model, which this app already satisfies
-  (no touch/mouse dependency anywhere in `MainActivity.kt`).
+Real-device feedback after publishing turned up a few more fixes, all
+in the web app rather than this native shell (so they went live via a
+normal deploy, no app-store resubmission needed):
 
-Per TIM-43, this is a stretch goal sequenced after Android TV/Play Store
-ships — not blocking, but unblocked independently of the Play Store
-developer account, since Amazon's account signup doesn't require a phone.
+- `/tv`'s intro screen overflowing the viewport — it was the one TV
+  screen never brought in line with the TIM-26 scroll/overflow audit's
+  `clamp()`/`vh` sizing pattern (`components/tv/TvIntroScreen.module.scss`).
+- The lobby's room code wrapping onto two lines under flex pressure
+  (`components/tv/LobbyScreen.module.scss`).
+- The lobby's decade-filter focus glow getting clipped flush at the
+  sidebar's `overflow: hidden` edge (same file).
+- No on-screen explanation of the 2-player minimum to start a game
+  (`components/tv/LobbyScreen.tsx`).
 
 ## Assets
 
