@@ -231,3 +231,28 @@
   }
 }
 
+// Amazon's badge usage guidelines ask that the artwork itself not be
+// recolored, stretched, or given decorative effects — so unlike the
+// other footer links, hover/focus here only dims/outlines the link
+// container, never touches the image.
+.storeBadgeLink {
+  display: inline-flex;
+  align-items: center;
+  border-radius: $radius-sm;
+  transition: opacity 0.15s ease;
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $focus-ring-color;
+    outline-offset: 4px;
+  }
+}
+
+.storeBadge {
+  height: 2.75rem;
+  width: auto;
+}
+

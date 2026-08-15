@@ -88,6 +88,18 @@ export default function Landing() {
         <Link href="/privacy" className={styles.privacyLink}>
           Privacy Policy
         </Link>
+        <a
+          href="https://www.amazon.com/dp/B0HF79BZ3L"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.storeBadgeLink}
+        >
+          <img
+            src="/amazon-appstore-badge.png"
+            alt="Available at Amazon Appstore"
+            className={styles.storeBadge}
+          />
+        </a>
       </footer>
     </div>
   );
