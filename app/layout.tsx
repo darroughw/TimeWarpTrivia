@@ -32,10 +32,21 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.timewarptrivia.com"),
   title: "TimeWarp Trivia",
   description,
+  keywords: [
+    "trivia game",
+    "party game",
+    "TV game",
+    "multiplayer trivia",
+    "pop culture trivia",
+    "Jackbox-style game",
+  ],
   openGraph: {
     title: "TimeWarp Trivia",
     description,
     type: "website",
+    url: "/",
+    siteName: "TimeWarp Trivia",
+    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",

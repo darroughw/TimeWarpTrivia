@@ -205,6 +205,37 @@
   color: $text-lo;
 }
 
+.faq {
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+  max-width: 46rem;
+}
+
+.faqHeading {
+  @include marquee-heading;
+  font-size: 1.8rem;
+
+  @media (max-width: 640px) {
+    font-size: 1.4rem;
+  }
+}
+
+.faqQuestion {
+  font-family: $paper-font;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: $text-hi;
+  margin-bottom: $space-xs;
+}
+
+.faqAnswer {
+  font-family: $paper-font;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: $text-lo;
+}
+
 .footer {
   display: flex;
   flex-direction: column;

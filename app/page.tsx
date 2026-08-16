@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import FeedbackButton from "@/components/shared/FeedbackButton";
@@ -7,6 +9,10 @@ import ScanlineOverlay from "@/components/tv/ScanlineOverlay";
 import { DECADE_COLORS } from "@/lib/decadeColors";
 import type { DecadeId } from "@/lib/types";
 import styles from "./page.module.scss";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 // The six playable decades, in order — "all" is a filter option, not a
 // decade in its own right, so it's excluded from this purely decorative
@@ -28,13 +34,84 @@ const STEPS = [
   },
 ];
 
+// Doubles as the visible FAQ section's content and the FAQPage structured
+// data below — Google (and any LLM crawler) requires the two to match, so
+// this array is the single source of truth for both.
+const FAQ = [
+  {
+    q: "Which decades can we play?",
+    a: "60s, 70s, 80s, 90s, 2000s, 2010s, or All Decades if the room can't agree on one era. The host picks it in the lobby.",
+  },
+  {
+    q: "What categories show up?",
+    a: "Music, TV, Movies, and Fashion across every decade, plus Slang/Catchphrases and Advertising for 80s and later. 60s and 70s trade those two for Sports, News & Events, Celebrities, and (60s only) the Space Race — they predate Trapper Keepers, cut them some slack.",
+  },
+  {
+    q: "How does scoring work?",
+    a: "Speed-based. A correct answer is worth 1000 points, decaying down to 500 the longer you take. Wrong or missed answers score zero — no penalties. The final round doubles everything.",
+  },
+  {
+    q: 'What’s "the block"?',
+    a: "Before the final round, whoever's in last place picks one question to answer completely alone — everyone else just watches. Get it right and you're back in it.",
+  },
+  {
+    q: "Is there a mode besides picking a decade?",
+    a: "Deep Cuts — instead of an era, the host picks one specific topic (currently The West Wing or Fallout) and every question comes from that world instead.",
+  },
+  {
+    q: "Is it free?",
+    a: "Yes, in any browser, no account required. There are also native Android TV and Amazon Fire TV apps if you'd rather not run a browser tab on your television.",
+  },
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      name: "TimeWarp Trivia",
+      description:
+        "Decade-hopping party trivia. Host on the big screen, everyone else plays from their phone.",
+      applicationCategory: "GameApplication",
+      operatingSystem: "Web, Android TV, Amazon Fire TV",
+      url: "https://www.timewarptrivia.com",
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+      },
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: FAQ.map(({ q, a }) => ({
+        "@type": "Question",
+        name: q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: a,
+        },
+      })),
+    },
+  ],
+};
+
 export default function Landing() {
   return (
     <div className={styles.screen}>
+      {/* eslint-disable-next-line react/no-danger -- static, hardcoded structured data, nothing user-controlled */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <ScanlineOverlay />
 
       <header className={styles.header}>
-        <img src="/logo.svg" alt="TimeWarp Trivia" className={styles.logo} />
+        <Image
+          src="/logo.svg"
+          alt="TimeWarp Trivia"
+          width={425}
+          height={392}
+          className={styles.logo}
+          priority
+          unoptimized
+        />
         <Link href="/play" className={styles.joinLink}>
           Join a Game
         </Link>
@@ -83,6 +160,18 @@ export default function Landing() {
         ))}
       </section>
 
+      <section className={styles.faq} aria-labelledby="faq-heading">
+        <h2 id="faq-heading" className={styles.faqHeading}>
+          Questions, answered
+        </h2>
+        {FAQ.map((item) => (
+          <div className={styles.faqItem} key={item.q}>
+            <h3 className={styles.faqQuestion}>{item.q}</h3>
+            <p className={styles.faqAnswer}>{item.a}</p>
+          </div>
+        ))}
+      </section>
+
       <footer className={styles.footer}>
         <div className={styles.footerLinks}>
           <HelpButton />
@@ -98,9 +187,11 @@ export default function Landing() {
           rel="noopener noreferrer"
           className={styles.storeBadgeLink}
         >
-          <img
+          <Image
             src="/amazon-appstore-badge.png"
             alt="Available at Amazon Appstore"
+            width={572}
+            height={168}
             className={styles.storeBadge}
           />
         </a>
