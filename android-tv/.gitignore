@@ -14,3 +14,10 @@ app/debug/
 /keystore.properties
 *.jks
 *.keystore
+
+# Gradle wrapper binaries — intentionally not checked in (see README's
+# "Getting started"); only gradle/wrapper/gradle-wrapper.properties,
+# which pins the version, is tracked. Android Studio regenerates these.
+/gradlew
+/gradlew.bat
+/gradle/wrapper/gradle-wrapper.jar
