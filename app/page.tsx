@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { CSSProperties } from "react";
 import FeedbackButton from "@/components/shared/FeedbackButton";
 import HelpButton from "@/components/shared/HelpButton";
+import ShareButton from "@/components/shared/ShareButton";
 import ScanlineOverlay from "@/components/tv/ScanlineOverlay";
 import { DECADE_COLORS } from "@/lib/decadeColors";
 import type { DecadeId } from "@/lib/types";
@@ -83,11 +84,14 @@ export default function Landing() {
       </section>
 
       <footer className={styles.footer}>
-        <HelpButton />
-        <FeedbackButton />
-        <Link href="/privacy" className={styles.privacyLink}>
-          Privacy Policy
-        </Link>
+        <div className={styles.footerLinks}>
+          <HelpButton />
+          <FeedbackButton />
+          <ShareButton />
+          <Link href="/privacy" className={styles.privacyLink}>
+            Privacy Policy
+          </Link>
+        </div>
         <a
           href="https://www.amazon.com/dp/B0HF79BZ3L"
           target="_blank"
@@ -100,6 +104,7 @@ export default function Landing() {
             className={styles.storeBadge}
           />
         </a>
+        <p className={styles.copyright}>&copy; {new Date().getFullYear()} TimeWarp Trivia</p>
       </footer>
     </div>
   );
