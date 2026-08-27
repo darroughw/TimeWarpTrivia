@@ -160,6 +160,30 @@ export default function Landing() {
         ))}
       </section>
 
+      <section className={styles.deepCuts} aria-labelledby="deep-cuts-heading">
+        <Image
+          src="/logo-deepcuts.svg"
+          alt="Deep Cuts"
+          width={425}
+          height={392}
+          className={styles.deepCutsLogo}
+          unoptimized
+        />
+        <div>
+          <h2 id="deep-cuts-heading" className={styles.deepCutsHeading}>
+            Bored of eras? Pick a rabbit hole instead.
+          </h2>
+          <p className={styles.deepCutsBody}>
+            Deep Cuts swaps the decade filter for one specific universe &mdash; The West Wing,
+            Fallout, more on the way &mdash; and runs the exact same game underneath. Same
+            rounds, same block, same brutal final twist.
+          </p>
+          <Link href="/deepcuts" className={styles.deepCutsButton}>
+            Try Deep Cuts
+          </Link>
+        </div>
+      </section>
+
       <section className={styles.faq} aria-labelledby="faq-heading">
         <h2 id="faq-heading" className={styles.faqHeading}>
           Questions, answered

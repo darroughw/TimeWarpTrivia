@@ -205,6 +205,73 @@
   color: $text-lo;
 }
 
+// A dedicated callout for Deep Cuts (TIM-41), deliberately below the fold —
+// decade mode is the primary path via the hero's "Host a Game" button above,
+// this is the secondary discovery moment. Uses the mode's own logo and blue
+// rather than $marigold, echoing the "distinct visual identity" rule Deep
+// Cuts follows everywhere else in the app.
+.deepCuts {
+  display: flex;
+  align-items: center;
+  gap: $space-xl;
+  max-width: 46rem;
+  padding: $space-lg;
+  background: $void-raised;
+  border: $border-width solid rgba(77, 159, 255, 0.35);
+  border-radius: $radius-lg;
+
+  @media (max-width: 640px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $space-md;
+    padding: $space-md;
+  }
+}
+
+.deepCutsLogo {
+  width: 8rem;
+  height: auto;
+  flex-shrink: 0;
+
+  @media (max-width: 640px) {
+    width: 5.5rem;
+  }
+}
+
+.deepCutsHeading {
+  @include marquee-heading;
+  font-size: 1.6rem;
+  margin-bottom: $space-xs;
+
+  @media (max-width: 640px) {
+    font-size: 1.25rem;
+  }
+}
+
+.deepCutsBody {
+  font-family: $paper-font;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: $text-lo;
+  margin-bottom: $space-md;
+}
+
+.deepCutsButton {
+  @include dpad-focusable;
+  display: inline-block;
+  font-family: $head-font;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 1.1rem;
+  padding: $space-sm $space-lg;
+  border-radius: $radius-lg;
+  background: #4d9fff;
+  color: $ink;
+  border: $border-width solid #4d9fff;
+  box-shadow: 0 0 40px rgba(77, 159, 255, 0.35);
+  white-space: nowrap;
+}
+
 .faq {
   display: flex;
   flex-direction: column;
