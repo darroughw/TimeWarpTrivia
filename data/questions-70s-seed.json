@@ -2351,5 +2351,57 @@
     ],
     "correct_answer": "Björn Borg",
     "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What 1973 Dolly Parton song is written as a plea to a beautiful woman not to take her man?",
+    "options": [
+      "Jolene",
+      "Coat of Many Colors",
+      "Here You Come Again",
+      "9 to 5"
+    ],
+    "correct_answer": "Jolene",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "Dolly Parton wrote 'I Will Always Love You' in 1973 as a farewell to what mentor and TV co-star?",
+    "options": [
+      "Porter Wagoner",
+      "Chet Atkins",
+      "Merle Haggard",
+      "Conway Twitty"
+    ],
+    "correct_answer": "Porter Wagoner",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Music",
+    "text": "What 1977 single was Dolly Parton's first-ever Platinum-certified single and pop crossover breakthrough?",
+    "options": [
+      "Here You Come Again",
+      "Jolene",
+      "9 to 5",
+      "Islands in the Stream"
+    ],
+    "correct_answer": "Here You Come Again",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "70s",
+    "category_label": "Movies",
+    "text": "Tim Curry made his film debut in 1975 playing Dr. Frank-N-Furter in what cult musical?",
+    "options": [
+      "The Rocky Horror Picture Show",
+      "Phantom of the Paradise",
+      "Tommy",
+      "Jesus Christ Superstar"
+    ],
+    "correct_answer": "The Rocky Horror Picture Show",
+    "flavor_wrong": null
   }
 ]

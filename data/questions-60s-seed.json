@@ -2338,5 +2338,31 @@
     ],
     "correct_answer": "Sidney Poitier",
     "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "Music",
+    "text": "What was Dolly Parton's first solo single to hit the charts, reaching the country top 30 in 1967?",
+    "options": [
+      "Dumb Blonde",
+      "Jolene",
+      "Coat of Many Colors",
+      "Here You Come Again"
+    ],
+    "correct_answer": "Dumb Blonde",
+    "flavor_wrong": null
+  },
+  {
+    "decade_label": "60s",
+    "category_label": "TV",
+    "text": "In 1967, Dolly Parton became the new 'girl singer' on what country star's syndicated TV variety show?",
+    "options": [
+      "Porter Wagoner",
+      "Johnny Cash",
+      "Roy Clark",
+      "Buck Owens"
+    ],
+    "correct_answer": "Porter Wagoner",
+    "flavor_wrong": null
   }
 ]
