@@ -201,22 +201,38 @@ export default function Landing() {
           <HelpButton />
           <FeedbackButton />
           <ShareButton />
-          <a
-            href="https://www.facebook.com/people/TimeWarp-Triva/61594126371511/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.facebookLink}
-          >
-            <span className={styles.mark} aria-hidden="true">
-              f
-            </span>
-            Facebook
-            <span className={styles.srOnly}>(opens in a new tab)</span>
-          </a>
           <Link href="/privacy" className={styles.privacyLink}>
             Privacy Policy
           </Link>
         </div>
+
+        <div className={styles.socialRow}>
+          <a
+            href="https://www.facebook.com/people/TimeWarp-Triva/61594126371511/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.socialLink}
+          >
+            <svg viewBox="0 0 512 512" aria-hidden="true" className={styles.socialIcon}>
+              <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z" />
+            </svg>
+            <span className={styles.srOnly}>Facebook (opens in a new tab)</span>
+          </a>
+          <a
+            href="https://www.instagram.com/timewarp.trivia/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.socialLink}
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true" className={styles.socialIcon}>
+              <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" fill="none" stroke="currentColor" strokeWidth="1.8" />
+              <circle cx="12" cy="12" r="4.6" fill="none" stroke="currentColor" strokeWidth="1.8" />
+              <circle cx="17.15" cy="6.85" r="1.15" fill="currentColor" />
+            </svg>
+            <span className={styles.srOnly}>Instagram (opens in a new tab)</span>
+          </a>
+        </div>
+
         <a
           href="https://www.amazon.com/dp/B0HF79BZ3L"
           target="_blank"
