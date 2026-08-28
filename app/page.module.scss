@@ -342,6 +342,50 @@
   }
 }
 
+// Same recipe as ShareButton's .button/.mark — a plain external link
+// doesn't warrant its own component, but it should still read as a
+// sibling of the other footer actions rather than a one-off.
+.facebookLink {
+  @include dpad-focusable;
+  display: inline-flex;
+  align-items: center;
+  gap: $space-xs;
+  font-family: $paper-font;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: $text-lo;
+  background: transparent;
+  border: 1px solid $void-line;
+  border-radius: $radius-lg;
+  padding: 0.4rem 0.9rem;
+
+  &:hover,
+  &:focus-visible {
+    color: $text-hi;
+    border-color: $marigold-dim;
+  }
+}
+
+.mark {
+  @include mono-figure;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  font-size: 0.7rem;
+}
+
+// A visible "Facebook"/badge-image label doesn't say the link leaves the
+// site in a new tab — screen reader users get no such cue from
+// target="_blank" itself, so this makes it explicit without changing
+// what sighted users see.
+.srOnly {
+  @include visually-hidden;
+}
+
 // Amazon's badge usage guidelines ask that the artwork itself not be
 // recolored, stretched, or given decorative effects — so unlike the
 // other footer links, hover/focus here only dims/outlines the link

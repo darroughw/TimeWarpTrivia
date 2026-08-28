@@ -201,6 +201,18 @@ export default function Landing() {
           <HelpButton />
           <FeedbackButton />
           <ShareButton />
+          <a
+            href="https://www.facebook.com/people/TimeWarp-Triva/61594126371511/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.facebookLink}
+          >
+            <span className={styles.mark} aria-hidden="true">
+              f
+            </span>
+            Facebook
+            <span className={styles.srOnly}>(opens in a new tab)</span>
+          </a>
           <Link href="/privacy" className={styles.privacyLink}>
             Privacy Policy
           </Link>
