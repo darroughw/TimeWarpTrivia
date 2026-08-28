@@ -7,14 +7,15 @@ SCSS, and Supabase (Postgres + Realtime) for the live multiplayer state.
 
 **Play it:** [www.timewarptrivia.com](https://www.timewarptrivia.com)
 
-**Status:** All four routes are wired to a real, provisioned Supabase
-project — real rooms, real players, real answers, 1,089 real trivia
-questions across 6 decades plus 300 more across 2 Deep Cuts topics
-(West Wing, Fallout), synced live over Supabase Realtime. When Supabase
-isn't configured (no `NEXT_PUBLIC_SUPABASE_URL`), the host and phone
-routes fall back to a scripted demo using `lib/mockData.ts` instead.
-See [Current limitations](#current-limitations) for what's still
-simplified even in the live path.
+**Status:** `/host`, `/play`, and `/deepcuts` are wired to a real,
+provisioned Supabase project — real rooms, real players, real answers,
+1,106 real trivia questions across 6 decades plus 300 more across 2 Deep
+Cuts topics (West Wing, Fallout), synced live over Supabase Realtime.
+`/`, `/tv`, and `/privacy` are static, with no Supabase dependency. When
+Supabase isn't configured (no `NEXT_PUBLIC_SUPABASE_URL`), the host and
+phone routes fall back to a scripted demo using `lib/mockData.ts`
+instead. See [Current limitations](#current-limitations) for what's
+still simplified even in the live path.
 
 ## Routes
 
@@ -37,12 +38,15 @@ simplified even in the live path.
   screen and the content-fetch call differ (`mode: "decade" | "deepCuts"`).
   `/play` needs no equivalent second route; joining and answering are
   already fully mode-agnostic.
-- **`/tv`** — entry point for the [Android TV app](android-tv/) (TIM-10):
-  a bare intro screen (large logo, one line of copy, an autofocused
-  Start button) so launching the packaged app doesn't drop straight into
-  a freshly created, playerless `/host` room with nothing on screen to
-  explain it. Static, no Supabase dependency — Start just links to
-  `/host`, which does the real room creation.
+- **`/tv`** — entry point for the [Android TV app](android-tv/) (TIM-10),
+  and Fire TV/Amazon Appstore (TIM-43) since it's the same WebView wrapper
+  pointed at the same route: a bare intro screen (large logo, one line of
+  copy, an autofocused Start button) so launching the packaged app doesn't
+  drop straight into a freshly created, playerless `/host` room with
+  nothing on screen to explain it. Static, no Supabase dependency — Start
+  just links to `/host`, which does the real room creation.
+- **`/privacy`** — the privacy policy. Static, no Supabase dependency,
+  linked from the landing page footer.
 
 Run the dev server, open `/` and click "Host a Game" (or go straight to
 `/host`) on a desktop-sized window, and open `/play` on your phone (or a
@@ -101,7 +105,7 @@ them locally:
 vercel link
 vercel env pull   # writes .env.local
 npm run migrate            # applies supabase/migrations/ if the DB is fresh
-npm run import:questions     # loads the 1,389 seeded questions, if the table is empty
+npm run import:questions     # loads the 1,406 seeded questions, if the table is empty
 ```
 
 PostHog (analytics + heatmaps/session recording) is also provisioned
@@ -226,10 +230,14 @@ sentry.server.config.ts                      # Sentry server runtime config
 sentry.edge.config.ts                          # Sentry edge runtime config
 app/
   page.tsx                    # landing page (static, no Supabase dependency)
+  robots.ts                    # scopes crawling to / and /privacy only — /host, /play,
+                                #   /deepcuts create a real room/player row on load
+  sitemap.ts                     # same two-route scope as robots.ts
   host/page.tsx                  # shared-display route switcher (live/mock/simulator)
   play/page.tsx                    # phone route switcher
   deepcuts/page.tsx                  # Deep Cuts shared-display route (LiveTvFlow, mode="deepCuts")
   tv/page.tsx                          # Android TV wrapper entry point — intro screen, links to /host
+  privacy/page.tsx                       # static privacy policy, linked from the landing footer
   providers.tsx                      # PostHog init + pageview-on-route-change
   global-error.tsx                     # Sentry-reporting fallback for a crashed root layout
   _game/
@@ -269,7 +277,7 @@ lib/
   supabaseClient.ts                                 # Supabase client + isSupabaseConfigured
   posthog.ts                                           # PostHog env vars + isPostHogConfigured
 data/
-  questions-{60s,70s,80s,90s,2000s,2010s}-seed.json   # 1,089 fact-checked decade questions, source of truth
+  questions-{60s,70s,80s,90s,2000s,2010s}-seed.json   # 1,106 fact-checked decade questions, source of truth
   questions-{west-wing,fallout}-seed.json                # 300 more, source of truth for Deep Cuts topics
 supabase/migrations/
   0001_init.sql                                          # rooms/players/answers + RLS + Realtime
@@ -350,11 +358,11 @@ not part of the Next.js app — a single `Activity` wrapping a full-screen
 `WebView` pointed at `/tv`, with a native "lost the signal" screen for
 when that WebView can't load at all. No screen is reimplemented
 natively; every actual game screen is the same web app real browsers
-hit. See that directory's own README for how to build/run it in Android
-Studio, what's deliberately not built yet (a Play Store listing), where
-its icon/banner assets came from, and Fire TV/Amazon Appstore support
-(TIM-43) — the same manifest already targets Fire TV, so that's mostly a
-submission-assets and store-account gap, not separate code.
+hit. The same manifest already targeted Fire TV without any code changes
+(TIM-43), and it's now **live on the Amazon Appstore** — see that
+directory's own README for how to build/run it in Android Studio, the
+store assets and submission notes, and what's deliberately not built yet
+(a Google Play listing).
 
 ## Current limitations
 

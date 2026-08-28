@@ -230,6 +230,7 @@ export default function Landing() {
             height={168}
             className={styles.storeBadge}
           />
+          <span className={styles.srOnly}>(opens in a new tab)</span>
         </a>
         <p className={styles.copyright}>&copy; {new Date().getFullYear()} TimeWarp Trivia</p>
       </footer>

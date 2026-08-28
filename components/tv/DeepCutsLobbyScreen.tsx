@@ -44,6 +44,12 @@ export default function DeepCutsLobbyScreen({
       <ScanlineOverlay />
       <header className={styles.header}>
         <div className={styles.titleBlock}>
+          {/* eslint-disable-next-line @next/next/no-img-element -- the landing page's
+              own logo uses next/image, but only for `priority`/explicit-dimensions
+              LCP hints that matter on a page Google actually indexes; this route is
+              excluded from robots.txt/sitemap.xml (it creates a real room on load),
+              so there's no CWV score to protect, and it's still `unoptimized` SVG
+              either way. */}
           <img src="/logo-deepcuts.svg" alt="Deep Cuts Trivia" className={styles.logo} />
           <h1 className={styles.title}>Pick a topic, dig in</h1>
         </div>

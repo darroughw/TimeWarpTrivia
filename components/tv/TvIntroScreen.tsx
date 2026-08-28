@@ -15,6 +15,12 @@ export default function TvIntroScreen() {
   return (
     <div className={styles.screen} ref={containerRef}>
       <ScanlineOverlay />
+      {/* eslint-disable-next-line @next/next/no-img-element -- the landing page's
+          own logo uses next/image, but only for `priority`/explicit-dimensions
+          LCP hints that matter on a page Google actually indexes; this route is
+          excluded from robots.txt/sitemap.xml (it creates a real room on load),
+          so there's no CWV score to protect, and it's still `unoptimized` SVG
+          either way. */}
       <img src="/logo.svg" alt="TimeWarp Trivia" className={styles.logo} />
       <p className={styles.intro}>
         Six decades of pop culture trivia on the big screen &mdash; everyone else&rsquo;s phone is

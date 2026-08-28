@@ -162,7 +162,7 @@ export const MOCK_FINAL_STANDING: FinalStanding = {
 // Fake contestant names for the Konami-code demo simulator (SimulatorTvFlow)
 // — joined via the real joinRoom flow, same as an actual phone, so they
 // show up as genuine players rows. Dark-humor tone per TIM-13.
-export const SIMULATOR_CONTESTANT_NAMES: string[] = [
+const SIMULATOR_CONTESTANT_NAMES: string[] = [
   "Trivia Enjoyer",
   "Google This Later",
   "Couch Champion",
