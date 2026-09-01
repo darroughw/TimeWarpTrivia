@@ -41,6 +41,7 @@ const FILES = [
   "questions-2010s-seed.json",
   "questions-west-wing-seed.json",
   "questions-fallout-seed.json",
+  "questions-simpsons-seed.json",
 ];
 
 function shuffleWithCorrectIndex(options, correctAnswer) {

@@ -1,0 +1,940 @@
+[
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of Moe's tavern?",
+    "options": ["Moe's Tavern", "The Beer Barrel", "Laughs on Tap", "Homer's Bar"],
+    "correct_answer": "Moe's Tavern",
+    "flavor_wrong": "D'oh! That's not it, genius."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is Bart Simpson's middle name?",
+    "options": ["Jojo", "Barclay", "Jedediah", "Bartholomew"],
+    "correct_answer": "Jojo",
+    "flavor_wrong": "Ay caramba, wrong!"
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of Springfield's nuclear power plant?",
+    "options": ["Springfield Atomic Energy Facility", "Springfield Nuclear Power Plant", "Springfield Energy Works", "Atom Power Co."],
+    "correct_answer": "Springfield Nuclear Power Plant",
+    "flavor_wrong": "That's not the one, pal."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is Mr. Burns' first name?",
+    "options": ["Charles", "Montgomery", "Kenneth", "Gerald"],
+    "correct_answer": "Montgomery",
+    "flavor_wrong": "Wrong. Release the hounds."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Maggie Simpson suck on constantly?",
+    "options": ["A bottle", "A pacifier", "Her thumb", "A lollipop"],
+    "correct_answer": "A pacifier",
+    "flavor_wrong": "Not even close, bro."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is Lisa Simpson's musical instrument of choice?",
+    "options": ["Violin", "Piano", "Saxophone", "Clarinet"],
+    "correct_answer": "Saxophone",
+    "flavor_wrong": "Wrong note, man."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of Ned Flanders' religion?",
+    "options": ["Catholicism", "Protestantism", "Fundamentalist Christianity", "Mormonism"],
+    "correct_answer": "Fundamentalist Christianity",
+    "flavor_wrong": "That's not very neighborly of you."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is Ralph Wiggum's favorite quote?",
+    "options": ["Eat my shorts", "Ay caramba", "I'm idaho!", "Correcamundo!"],
+    "correct_answer": "I'm idaho!",
+    "flavor_wrong": "You've been voted off the island."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of Homer's bowling team?",
+    "options": ["The Pin Pals", "The Duffs", "The Strikes", "The Gutter Balls"],
+    "correct_answer": "The Pin Pals",
+    "flavor_wrong": "That's a gutter ball of an answer."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Barney Gumble do for a living primarily?",
+    "options": ["He works at the nuclear plant", "He's a helicopter pilot", "He's a taxi driver", "He's a movie extra"],
+    "correct_answer": "He's a helicopter pilot",
+    "flavor_wrong": "Wrong, and now you're grounded."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of the Simpson family's dog?",
+    "options": ["Barkley", "Santa's Little Helper", "Dogbert", "Poochie"],
+    "correct_answer": "Santa's Little Helper",
+    "flavor_wrong": "Ruff answer."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is Marge Simpson's hair style called?",
+    "options": ["A beehive", "A bouffant", "A pompadour", "A victory roll"],
+    "correct_answer": "A beehive",
+    "flavor_wrong": "Wrong. Her hair could nest birds in it."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Lenny Leonard love to drink?",
+    "options": ["Beer", "Whiskey", "Soda", "Duff Beer"],
+    "correct_answer": "Duff Beer",
+    "flavor_wrong": "That's not very thirsty of you."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of Springfield's largest employer?",
+    "options": ["Shelbyville Power Plant", "Springfield Nuclear Power Plant", "Kwik-E-Mart Co.", "The Duff Brewery"],
+    "correct_answer": "Springfield Nuclear Power Plant",
+    "flavor_wrong": "You've been laid off."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is Apu Nahasapeemapetilon's store called?",
+    "options": ["Apu's Market", "The Kwik-E-Mart", "24-Hour Mart", "The Springfield Store"],
+    "correct_answer": "The Kwik-E-Mart",
+    "flavor_wrong": "Thank you, come again—but not with that answer."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of the Simpson family's cat?",
+    "options": ["Whiskers", "Snowball", "Fluffy", "Mittens"],
+    "correct_answer": "Snowball",
+    "flavor_wrong": "Not even paws for thought there."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is Bart's prank call victim's name?",
+    "options": ["Moe Szyslak", "Barney Gumble", "Lenny Leonard", "Carl Carlson"],
+    "correct_answer": "Moe Szyslak",
+    "flavor_wrong": "Is your refrigerator running? Because that answer just walked out."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of the Simpson's neighbor who always wears a sweater?",
+    "options": ["Ned Flanders", "Rod Flanders", "Todd Flanders", "Maude Flanders"],
+    "correct_answer": "Ned Flanders",
+    "flavor_wrong": "Okily-dokily wrong!"
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Homer work as at the nuclear plant?",
+    "options": ["Safety officer", "Plant manager", "Safety inspector", "Sector 7G Safety Technician"],
+    "correct_answer": "Sector 7G Safety Technician",
+    "flavor_wrong": "You're overqualified for that wrong answer."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is Milhouse Van Houten's real first name?",
+    "options": ["Milton", "Milford", "Miles", "Malcolm"],
+    "correct_answer": "Milford",
+    "flavor_wrong": "Milhouse is not amused by that answer."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What's the name of Krusty the Clown's real identity?",
+    "options": ["Herschel Krustofsky", "Herman Krustofsky", "Krusty Krustofsky", "Harold Krustofsky"],
+    "correct_answer": "Herschel Krustofsky",
+    "flavor_wrong": "That joke stinks worse than a wet dog."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of Lisa Simpson's best friend at school?",
+    "options": ["Jessica", "Alicia", "Allison", "Amanda"],
+    "correct_answer": "Allison",
+    "flavor_wrong": "Wrong. Lisa would correct you with footnotes."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Bart carve into his desk at school?",
+    "options": ["Eat my shorts", "Underachiever and proud of it", "Cowabunga", "Ay caramba"],
+    "correct_answer": "Underachiever and proud of it",
+    "flavor_wrong": "Wrong. I'd send you to the principal's office."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of Groundskeeper Willie's nationality?",
+    "options": ["Scottish", "Irish", "English", "Welsh"],
+    "correct_answer": "Scottish",
+    "flavor_wrong": "Och, that's just sad, laddie."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of the Simpson family's church?",
+    "options": ["Springfield Baptist Church", "First Church of Springfield", "Springfield Community Church", "Our Lady of Perpetual Help"],
+    "correct_answer": "First Church of Springfield",
+    "flavor_wrong": "Thou shalt not be wrong."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Marge Simpson work as primarily in the series?",
+    "options": ["Housewife", "Police officer", "Factory worker", "Waitress"],
+    "correct_answer": "Housewife",
+    "flavor_wrong": "Marge would give you a disapproving look right now."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of the side character who works at the Android's Dungeon?",
+    "options": ["Comic Book Guy", "The Comic Guy", "Nerd Guy", "Geek Man"],
+    "correct_answer": "Comic Book Guy",
+    "flavor_wrong": "Worst. Answer. Ever."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is Sideshow Bob's real first name?",
+    "options": ["Robert", "Richard", "Reginald", "Russell"],
+    "correct_answer": "Robert",
+    "flavor_wrong": "That answer was a trap for you!"
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of Bart's best friend?",
+    "options": ["Ralph Wiggum", "Milhouse Van Houten", "Martin Prince", "Jimbo Jones"],
+    "correct_answer": "Milhouse Van Houten",
+    "flavor_wrong": "Bart would skateboard away from that answer."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Barney Gumble often yell when drunk?",
+    "options": ["Woo-hoo!", "Ay caramba", "D'oh!", "Pukahontas!"],
+    "correct_answer": "Woo-hoo!",
+    "flavor_wrong": "That answer won't sober you up."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of the Simpsons' town?",
+    "options": ["Shelbyville", "Springfield", "Springdale", "Springsville"],
+    "correct_answer": "Springfield",
+    "flavor_wrong": "Congratulations, you've moved to Shelbyville."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What year did The Simpsons first air as a series?",
+    "options": ["1989", "1990", "1991", "1992"],
+    "correct_answer": "1989",
+    "flavor_wrong": "You're stuck in the past, man."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of Principal Seymour Skinner's mother?",
+    "options": ["Gertrude Skinner", "Agnes Skinner", "Agatha Skinner", "Anna Skinner"],
+    "correct_answer": "Agnes Skinner",
+    "flavor_wrong": "Even his mom wouldn't approve of that answer."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Patty and Selma Bouvier work as?",
+    "options": ["Nurses", "Teachers", "DMV workers", "Bartenders"],
+    "correct_answer": "DMV workers",
+    "flavor_wrong": "Your answer has been rejected."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of Bart's regular teacher, voiced by Marcia Wallace?",
+    "options": ["Edna Krabappel", "Miss Hoover", "Ms. Melon", "Principal Skinner"],
+    "correct_answer": "Edna Krabappel",
+    "flavor_wrong": "That's a failing grade, Simpson."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What brand of beer does Homer primarily drink?",
+    "options": ["Budweiser", "Duff", "Miller", "Coors"],
+    "correct_answer": "Duff",
+    "flavor_wrong": "That's a different kind of buzz kill."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of Homer's supervisor at work?",
+    "options": ["Mr. Burns", "Lenny Leonard", "Carl Carlson", "Frank Grimes"],
+    "correct_answer": "Mr. Burns",
+    "flavor_wrong": "Release the hounds on that answer."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Marge Simpson's mother do for a living?",
+    "options": ["She's a housewife", "She's a TV host", "She's a doctor", "She's an actress"],
+    "correct_answer": "She's a TV host",
+    "flavor_wrong": "That's not very classy of you."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of the Simpsons' neighbor who wears a pork chop hat?",
+    "options": ["Captain McAllister", "Captain Homer", "Sailors McAllister", "Captain Erk"],
+    "correct_answer": "Captain McAllister",
+    "flavor_wrong": "Arrr, that's a wrong answer, matey!"
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What sport is Bart Simpson best at?",
+    "options": ["Football", "Baseball", "Basketball", "Skateboarding"],
+    "correct_answer": "Skateboarding",
+    "flavor_wrong": "Eat my shorts, that answer was weak."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of the Simpsons' pediatrician?",
+    "options": ["Dr. Hibbert", "Dr. Nick", "Dr. Marvin Monroe", "Dr. Colossus"],
+    "correct_answer": "Dr. Hibbert",
+    "flavor_wrong": "I don't have a prescription for that wrongness."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is Krusty the Clown's sidekick named?",
+    "options": ["Bonko", "Sideshow Bob", "Sideshow Mel", "Giggles"],
+    "correct_answer": "Sideshow Mel",
+    "flavor_wrong": "Not even a rimshot for that one."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Homer name his bowling ball?",
+    "options": ["Betsy", "Rosie", "Lucy", "Lisa"],
+    "correct_answer": "Lisa",
+    "flavor_wrong": "Lisa's not amused by that answer."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Homer yell when shocked or frustrated?",
+    "options": ["D'oh!", "Woo-hoo!", "Ay caramba", "Cowabunga"],
+    "correct_answer": "D'oh!",
+    "flavor_wrong": "D'oh, you got that wrong!"
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of the Simpson family's minister?",
+    "options": ["Reverend Lovejoy", "Pastor Morrison", "Father Timothy", "Bishop Brennan"],
+    "correct_answer": "Reverend Lovejoy",
+    "flavor_wrong": "Even God couldn't forgive that answer."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What type of animal is Santa's Little Helper?",
+    "options": ["Cat", "Dog", "Rabbit", "Hamster"],
+    "correct_answer": "Dog",
+    "flavor_wrong": "Ruff luck, pal."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the Simpsons' house address?",
+    "options": ["742 Evergreen Terrace", "742 Oak Street", "123 Maple Lane", "1313 Mockingbird Lane"],
+    "correct_answer": "742 Evergreen Terrace",
+    "flavor_wrong": "You've been evicted from this answer."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What school do the Simpson children attend?",
+    "options": ["Springfield Middle School", "Springfield Elementary School", "Central Elementary", "Jefferson Middle School"],
+    "correct_answer": "Springfield Elementary School",
+    "flavor_wrong": "You've been expelled for that answer."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Lisa Simpson do as a hobby besides saxophone?",
+    "options": ["Stamp collecting", "Painting", "Rollerblading", "Karate"],
+    "correct_answer": "Stamp collecting",
+    "flavor_wrong": "That answer doesn't have the right postage."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of the character who works at the nuclear plant and is Homer's friend?",
+    "options": ["Barney Gumble", "Lenny Leonard", "Carl Carlson", "Frank Grimes"],
+    "correct_answer": "Lenny Leonard",
+    "flavor_wrong": "That answer wouldn't pass a safety inspection."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Moe Szyslak frequently do to Barney Gumble?",
+    "options": ["Hit him with a baseball bat", "Throw him out", "Kick him out", "All of the above"],
+    "correct_answer": "All of the above",
+    "flavor_wrong": "That's the correct answer to your wrongness."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of Homer's half-brother?",
+    "options": ["Herbert Powell", "Larry Burns", "Roger Meyers Jr.", "Herb Powell"],
+    "correct_answer": "Herb Powell",
+    "flavor_wrong": "You've disowned that answer."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of the character who always says 'Woohoo'?",
+    "options": ["Homer Simpson", "Barney Gumble", "Krusty the Clown", "Captain McCallister"],
+    "correct_answer": "Homer Simpson",
+    "flavor_wrong": "D'oh! Wrong answer, Homer!"
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Bart skateboard to school on?",
+    "options": ["A regular skateboard", "A blue skateboard", "A Radioactive Man skateboard", "A custom skateboard"],
+    "correct_answer": "A blue skateboard",
+    "flavor_wrong": "That answer wheelie sucks."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of Marge's blue-haired sister who dyes her hair blue?",
+    "options": ["Patty Bouvier", "Selma Bouvier", "Jacqueline Bouvier", "Marge Bouvier"],
+    "correct_answer": "Selma Bouvier",
+    "flavor_wrong": "That answer doesn't dye so well with the facts."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is Grampa Simpson's first name?",
+    "options": ["Homer", "Abraham", "Albert", "Arthur"],
+    "correct_answer": "Abraham",
+    "flavor_wrong": "Back in my day, we got that right!"
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of Ralph Wiggum's father?",
+    "options": ["Ralph Sr.", "Chief Wiggum", "Carl Carlson", "Lenny Leonard"],
+    "correct_answer": "Chief Wiggum",
+    "flavor_wrong": "That answer didn't taste purple."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Lisa Simpson want to be when she grows up?",
+    "options": ["A doctor", "A jazz musician", "A nuclear physicist", "A lawyer"],
+    "correct_answer": "A jazz musician",
+    "flavor_wrong": "That answer's out of key."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of the character who is a cop and Ralph's father?",
+    "options": ["Chief Clancy Wiggum", "Officer Lou", "Eddie Muntz", "Chief Ralph"],
+    "correct_answer": "Chief Clancy Wiggum",
+    "flavor_wrong": "You have the right to remain silent about that wrong answer."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of Homer's coworker who is bald?",
+    "options": ["Carl Carlson", "Lenny Leonard", "Frank Grimes", "Homer is the only bald one"],
+    "correct_answer": "Lenny Leonard",
+    "flavor_wrong": "That answer is follicle-free of accuracy."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of the school's mascot?",
+    "options": ["Jebediah Springfield", "Hans Moleman", "Blinky the fish", "The Gorilla"],
+    "correct_answer": "Jebediah Springfield",
+    "flavor_wrong": "That answer doesn't measure up."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Homer do in the opening credits after sitting down?",
+    "options": ["Falls asleep", "Eats a donut", "Reaches for the remote", "Nothing specific"],
+    "correct_answer": "Reaches for the remote",
+    "flavor_wrong": "You changed the channel on that answer."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What brand of donuts does Homer love?",
+    "options": ["Krispy Kreme", "Lard Lad Donuts", "Dunkin Donuts", "Donut King"],
+    "correct_answer": "Lard Lad Donuts",
+    "flavor_wrong": "That answer's not glazed with truth."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of the Flanders family's dog?",
+    "options": ["Saint Bernard", "Poodle", "Dachshund", "Shepherd"],
+    "correct_answer": "Dachshund",
+    "flavor_wrong": "That answer needs a baptism of truth."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of Krusty the Clown's ex-wife?",
+    "options": ["Mary", "Sophie", "Mary Spuckler", "Rusty's wife"],
+    "correct_answer": "Mary Spuckler",
+    "flavor_wrong": "That joke doesn't land."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Homer do when he's nervous?",
+    "options": ["Eats donuts", "Stranges Bart", "Drinks beer", "Eats and strangles"],
+    "correct_answer": "Eats and strangles",
+    "flavor_wrong": "You've got the wrong comfort zone."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of Sideshow Bob's family?",
+    "options": ["The Terwilliger family", "The Krusty family", "The Sideshow family", "The Bob family"],
+    "correct_answer": "The Terwilliger family",
+    "flavor_wrong": "That answer's full of rake holes."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What year did Grampa Simpson fight in World War II?",
+    "options": ["1942-1945", "1939-1945", "1941-1945", "He didn't"],
+    "correct_answer": "1941-1945",
+    "flavor_wrong": "That answer didn't survive the war."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of the character who frequently loses his job?",
+    "options": ["Homer Simpson", "Barney Gumble", "Ralph Wiggum", "Milhouse Van Houten"],
+    "correct_answer": "Homer Simpson",
+    "flavor_wrong": "You're fired for that answer."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Bart call Moe's Tavern to play prank calls?",
+    "options": ["Homer's number", "The bar", "Prank line", "Random number"],
+    "correct_answer": "Random number",
+    "flavor_wrong": "Is your refrigerator running? Because that answer just walked out."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Bart say when hanging up from one of his pranks?",
+    "options": ["Ha-ha!", "Gotcha!", "Ay caramba", "Later, loser!"],
+    "correct_answer": "Ha-ha!",
+    "flavor_wrong": "That answer's not funny, man."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of the character who's always saying 'Worst. ___ Ever'?",
+    "options": ["Comic Book Guy", "Ralph Wiggum", "Milhouse Van Houten", "Jimbo Jones"],
+    "correct_answer": "Comic Book Guy",
+    "flavor_wrong": "Worst. Answer. Ever."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Homer hide in the bushes?",
+    "options": ["Beer", "Donuts", "His gun", "Stolen stuff"],
+    "correct_answer": "Beer",
+    "flavor_wrong": "That answer missed the mark, buddy."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of the Bully who picks on Bart?",
+    "options": ["Jimbo Jones", "Kearney Zzyzx", "Dolph Starbeam", "Nelson Muntz"],
+    "correct_answer": "Nelson Muntz",
+    "flavor_wrong": "Ha-ha! You got that wrong!"
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Moe keep under the bar at his tavern?",
+    "options": ["A gun", "A knife", "A shotgun", "A revolver"],
+    "correct_answer": "A revolver",
+    "flavor_wrong": "That answer misfired."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Homer often use as a weapon when angry?",
+    "options": ["His fists", "A gun", "A bat", "His hands"],
+    "correct_answer": "His hands",
+    "flavor_wrong": "That answer came up short."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of the character who wears a turban?",
+    "options": ["Apu Nahasapeemapetilon", "Chief Wiggum", "Jasper", "Lenny Leonard"],
+    "correct_answer": "Apu Nahasapeemapetilon",
+    "flavor_wrong": "Thank you, come again—with the right answer."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Bart have on his back?",
+    "options": ["Nothing", "A backpack", "A skateboard", "His parents' approval"],
+    "correct_answer": "A skateboard",
+    "flavor_wrong": "That answer was a wipeout."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of Homer's biological father?",
+    "options": ["Abraham Simpson", "Joe Simpson", "Frank Grimes", "Grampa Simpson"],
+    "correct_answer": "Abraham Simpson",
+    "flavor_wrong": "That answer didn't pass the paternity test."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Maggie shoot in one of the earliest episodes?",
+    "options": ["A toy", "Mr. Burns", "Homer", "Moe"],
+    "correct_answer": "Mr. Burns",
+    "flavor_wrong": "That's a child's play answer."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of Homer's nemesis at work?",
+    "options": ["Frank Grimes", "Lenny Leonard", "Carl Carlson", "Barney Gumble"],
+    "correct_answer": "Frank Grimes",
+    "flavor_wrong": "This guy would hate that answer too."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Marge's hair hide?",
+    "options": ["Her brain", "A scar", "Nothing", "Her intelligence"],
+    "correct_answer": "Nothing",
+    "flavor_wrong": "That answer went over your head."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is Ned Flanders' catch phrase?",
+    "options": ["Diddly-diddly", "Diddlily-diddly", "Okily-dokily", "Howdy-diddly"],
+    "correct_answer": "Diddly-diddly",
+    "flavor_wrong": "That's not neighborly at all."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Homer work as when not at the nuclear plant?",
+    "options": ["A makeup artist", "A spy", "A truck driver", "Multiple jobs"],
+    "correct_answer": "Multiple jobs",
+    "flavor_wrong": "You couldn't hold down that answer."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of the Simpson's neighbor who drives a pink car?",
+    "options": ["Ned Flanders", "Rod Flanders", "Barney Gumble", "Groundskeeper Willie"],
+    "correct_answer": "Barney Gumble",
+    "flavor_wrong": "That answer ran out of gas."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of the nuclear plant's security chief?",
+    "options": ["Chief Wiggum", "Homer Simpson", "Lenny Leonard", "Carl Carlson"],
+    "correct_answer": "Carl Carlson",
+    "flavor_wrong": "You don't have the security clearance for that answer."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Lisa use her saxophone to play?",
+    "options": ["Jazz", "Classical", "Blues", "All of the above"],
+    "correct_answer": "All of the above",
+    "flavor_wrong": "That answer didn't hit the right note."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of Homer's mother?",
+    "options": ["Marge Simpson", "Mona Simpson", "Monique Simpson", "Maggie Simpson"],
+    "correct_answer": "Mona Simpson",
+    "flavor_wrong": "That answer doesn't know its parents."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of the Radioactive Man comic character?",
+    "options": ["Captain Radiation", "Atom Boy", "Radioactive Man", "Nuclear Boy"],
+    "correct_answer": "Radioactive Man",
+    "flavor_wrong": "That answer is not powerful enough."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Homer put in his ear to ignore Marge?",
+    "options": ["Cotton balls", "Earplugs", "His fingers", "Nothing"],
+    "correct_answer": "His fingers",
+    "flavor_wrong": "That answer fell on deaf ears."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Bart say at the beginning of every phone call prank?",
+    "options": ["Hello", "Is your refrigerator running", "Hi Moe", "Yeah"],
+    "correct_answer": "Is your refrigerator running",
+    "flavor_wrong": "That answer got away."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of the museum in Springfield?",
+    "options": ["Springfield Museum", "Springfield History Museum", "Springfield Science Museum", "Art and History Museum"],
+    "correct_answer": "Springfield Museum",
+    "flavor_wrong": "That answer belongs in a museum—of bad answers."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of the character who runs the Android's Dungeon comic shop?",
+    "options": ["Nerd Guy", "Comic Geek", "Comic Book Guy", "Collector"],
+    "correct_answer": "Comic Book Guy",
+    "flavor_wrong": "Worst. Answer. Ever. Worst."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Marge do with her hair at the end of the day?",
+    "options": ["Takes it off", "Brushes it", "Never changes it", "Cuts it"],
+    "correct_answer": "Never changes it",
+    "flavor_wrong": "That answer needs a beauty treatment."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of the character who's always eating dirt?",
+    "options": ["Ralph Wiggum", "Milhouse Van Houten", "Martin Prince", "Jimbo Jones"],
+    "correct_answer": "Ralph Wiggum",
+    "flavor_wrong": "That answer tastes like purple."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Homer keep in his pants pocket?",
+    "options": ["Money", "Keys", "Donuts", "All of the above"],
+    "correct_answer": "All of the above",
+    "flavor_wrong": "That answer had too many holes."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Bart carve into his desk at school every day?",
+    "options": ["Eat my shorts", "Underachiever", "Cowabunga", "Nothing new"],
+    "correct_answer": "Underachiever",
+    "flavor_wrong": "That answer didn't make the grade."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of the character who runs the power plant's nuclear reactor?",
+    "options": ["Homer Simpson", "Lenny Leonard", "Carl Carlson", "Frank Grimes"],
+    "correct_answer": "Homer Simpson",
+    "flavor_wrong": "That answer had a total meltdown."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Homer use to protect his ears from Marge's nagging?",
+    "options": ["Earbuds", "Headphones", "His fingers", "Nothing works"],
+    "correct_answer": "His fingers",
+    "flavor_wrong": "That answer went in one ear and out the other."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is Sideshow Bob's recurring weapon of choice?",
+    "options": ["A gun", "A knife", "A rake", "His feet"],
+    "correct_answer": "A rake",
+    "flavor_wrong": "That answer was a step in the wrong direction."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Homer eat for breakfast most mornings?",
+    "options": ["Eggs", "Bacon", "Donuts", "Pork chops"],
+    "correct_answer": "Donuts",
+    "flavor_wrong": "That answer is half-baked."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Bart do when he gets angry or frustrated?",
+    "options": ["Throws a tantrum", "Eats donuts", "Drinks beer", "Goes skateboarding"],
+    "correct_answer": "Goes skateboarding",
+    "flavor_wrong": "That answer didn't stick the landing."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of Homer's favorite TV show?",
+    "options": ["The Itchy & Scratchy Show", "The Krusty the Clown Show", "Laugh-In", "Perry Mason"],
+    "correct_answer": "The Itchy & Scratchy Show",
+    "flavor_wrong": "That answer got scratched from the list."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Homer usually say when something excites him?",
+    "options": ["Woo-hoo!", "D'oh!", "Ay caramba", "Cowabunga"],
+    "correct_answer": "Woo-hoo!",
+    "flavor_wrong": "That answer didn't get the enthusiasm right."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of the character who's always building model trains?",
+    "options": ["Grampa Simpson", "Principal Skinner", "Ned Flanders", "Moe Szyslak"],
+    "correct_answer": "Principal Skinner",
+    "flavor_wrong": "That answer derailed on the tracks."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Lisa Simpson often protest against?",
+    "options": ["Nuclear power", "Meat eating", "Injustice", "All of the above"],
+    "correct_answer": "All of the above",
+    "flavor_wrong": "That answer lacked conviction."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of the character who's always covered in dirt?",
+    "options": ["Ralph Wiggum", "Groundskeeper Willie", "Barney Gumble", "Homer Simpson"],
+    "correct_answer": "Groundskeeper Willie",
+    "flavor_wrong": "That answer is too clean."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Bart call his catchphrase?",
+    "options": ["Eat my shorts", "Cowabunga", "Ay caramba", "Ay caramba, man"],
+    "correct_answer": "Eat my shorts",
+    "flavor_wrong": "That answer's corduroy."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Homer say when he sees a donut?",
+    "options": ["D'oh!", "Woo-hoo!", "Mmm... donuts", "Thank you"],
+    "correct_answer": "Mmm... donuts",
+    "flavor_wrong": "That answer's not very appetizing."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Homer do in the town of Springfield?",
+    "options": ["Works at the power plant", "Gets in trouble", "Hangs at Moe's Tavern", "All of the above"],
+    "correct_answer": "All of the above",
+    "flavor_wrong": "That answer didn't cover all the bases."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of the Fox network news anchor in Springfield?",
+    "options": ["Kent Brockman", "Dan Rather", "Walter Cronkite", "Peter Griffin"],
+    "correct_answer": "Kent Brockman",
+    "flavor_wrong": "That's not very newsworthy."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Homer wear to work at the power plant?",
+    "options": ["A lab coat", "A protective suit", "Just his regular clothes", "Safety gear"],
+    "correct_answer": "Just his regular clothes",
+    "flavor_wrong": "That answer shows no safety awareness."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of the character who's always drunk at Moe's Tavern?",
+    "options": ["Homer Simpson", "Barney Gumble", "Lenny Leonard", "Carl Carlson"],
+    "correct_answer": "Barney Gumble",
+    "flavor_wrong": "That answer had too many drinks."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Bart's skateboard do in the opening credits?",
+    "options": ["Flies", "Floats down the street", "Crashes", "Doesn't appear"],
+    "correct_answer": "Floats down the street",
+    "flavor_wrong": "That answer wiped out."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of Marge's mother?",
+    "options": ["Jacqueline Bouvier", "Margaret Bouvier", "Mona Bouvier", "Mary Bouvier"],
+    "correct_answer": "Jacqueline Bouvier",
+    "flavor_wrong": "That answer has no class."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Homer do when he's sad or depressed?",
+    "options": ["Drinks beer", "Eats donuts", "Goes to Moe's Tavern", "All of the above"],
+    "correct_answer": "All of the above",
+    "flavor_wrong": "That answer had no comfort in it."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of the Simpsons' school janitor?",
+    "options": ["Willie", "Groundskeeper Willie", "Jimbo Jones", "No janitor"],
+    "correct_answer": "Groundskeeper Willie",
+    "flavor_wrong": "That answer needs cleaning up."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Homer hide in his mattress?",
+    "options": ["Money", "Magazines", "Beer", "Donuts"],
+    "correct_answer": "Beer",
+    "flavor_wrong": "That answer's not under wraps."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of the rich family that lives on the hill in Springfield?",
+    "options": ["The Smithers family", "The Burns family", "The Skinner family", "The Flanders family"],
+    "correct_answer": "The Burns family",
+    "flavor_wrong": "That answer is beneath them."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Marge do for a job in some episodes?",
+    "options": ["Works as a cop", "Works at the DMV", "Works as a cashier", "Multiple jobs"],
+    "correct_answer": "Multiple jobs",
+    "flavor_wrong": "That answer couldn't hold down a job."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Homer say when he's surprised or shocked?",
+    "options": ["D'oh!", "Woo-hoo!", "Ay caramba", "Holy cow"],
+    "correct_answer": "D'oh!",
+    "flavor_wrong": "D'oh! You got it wrong!"
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Homer do at the nuclear power plant all day?",
+    "options": ["Works", "Sleeps", "Eats donuts", "Mostly nothing"],
+    "correct_answer": "Mostly nothing",
+    "flavor_wrong": "That answer has no job security."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of the character who's always betting on things?",
+    "options": ["Homer Simpson", "Grampa Simpson", "Barney Gumble", "Moe Szyslak"],
+    "correct_answer": "Barney Gumble",
+    "flavor_wrong": "That answer went all-in on wrong."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Lisa Simpson want to study in school?",
+    "options": ["Music", "Science", "Math", "All subjects"],
+    "correct_answer": "All subjects",
+    "flavor_wrong": "That answer needs a tutor."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of the character who's always selling things?",
+    "options": ["Apu Nahasapeemapetilon", "Krusty the Clown", "Moe Szyslak", "Barney Gumble"],
+    "correct_answer": "Krusty the Clown",
+    "flavor_wrong": "That answer couldn't be sold to anyone."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Homer do on weekends mostly?",
+    "options": ["Spend time with family", "Drink at Moe's", "Watch TV", "All of the above"],
+    "correct_answer": "All of the above",
+    "flavor_wrong": "That answer missed the couch."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of the Simpsons' doctor?",
+    "options": ["Dr. Nick Riviera", "Dr. Hibbert", "Dr. Colossus", "Dr. Mario"],
+    "correct_answer": "Dr. Nick Riviera",
+    "flavor_wrong": "That answer needs a second opinion from a real doctor."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Bart constantly prank call?",
+    "options": ["Lenny Leonard", "Moe's Tavern", "Homer", "The power plant"],
+    "correct_answer": "Moe's Tavern",
+    "flavor_wrong": "That answer called the wrong number."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of the character who's always making fun of people?",
+    "options": ["Nelson Muntz", "Jimbo Jones", "Kearney Zzyzx", "Ralph Wiggum"],
+    "correct_answer": "Nelson Muntz",
+    "flavor_wrong": "Ha-ha! Wrong answer!"
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is Homer's favorite food besides donuts?",
+    "options": ["Pork chops", "Lobster", "Roasted pig", "Everything"],
+    "correct_answer": "Roasted pig",
+    "flavor_wrong": "That answer is half-baked."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Lisa Simpson play in the school band?",
+    "options": ["Trumpet", "Violin", "Saxophone", "Clarinet"],
+    "correct_answer": "Saxophone",
+    "flavor_wrong": "That answer is out of tune."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What does Bart call himself in prank calls?",
+    "options": ["Bart Simpson", "Fake names", "Alex Munday", "No real name"],
+    "correct_answer": "Fake names",
+    "flavor_wrong": "That answer couldn't tell a lie."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of the character who's always eating?",
+    "options": ["Homer Simpson", "Barney Gumble", "Ralph Wiggum", "Jimbo Jones"],
+    "correct_answer": "Homer Simpson",
+    "flavor_wrong": "That answer tastes like a miss."
+  },
+  {
+    "deep_cut_topic_label": "simpsons",
+    "text": "What is the name of the character who's always breaking things?",
+    "options": ["Homer Simpson", "Bart Simpson", "Ralph Wiggum", "Nelson Muntz"],
+    "correct_answer": "Homer Simpson",
+    "flavor_wrong": "That answer broke under pressure."
+  }
+]
