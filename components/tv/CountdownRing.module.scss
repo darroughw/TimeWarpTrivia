@@ -1,15 +1,19 @@
 @use "theme" as *;
 @use "mixins" as *;
 
+// Auto height, not a fixed square, so .points below the ring is part of
+// normal flow instead of overflowing past a fixed-height box — it was
+// previously rendering outside .wrap's box entirely, which meant nothing
+// upstream (QuestionScreen's .header/.main gap) knew it was there, and on
+// short questions/short viewports it could visually collide with the
+// answer options below.
 .wrap {
   position: relative;
   width: 9rem;
-  height: 9rem;
   flex-shrink: 0;
 
   &.sm {
     width: 4rem;
-    height: 4rem;
 
     .seconds {
       font-size: 1.3rem;
@@ -27,8 +31,9 @@
 }
 
 .svg {
+  display: block;
   width: 100%;
-  height: 100%;
+  aspect-ratio: 1 / 1;
   transform: rotate(-90deg);
 }
 
@@ -52,9 +57,15 @@
   }
 }
 
+// Absolute, but sized to just the ring's square footprint (not inset: 0
+// on the now-taller .wrap) — otherwise the seconds/label would center
+// across the ring-plus-points box instead of inside the ring itself.
 .readout {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  aspect-ratio: 1 / 1;
   display: flex;
   align-items: center;
   justify-content: center;

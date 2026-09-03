@@ -20,8 +20,17 @@ const READY_LINES = [
   "Here we go again.",
 ];
 
+// "Same rules, higher stakes" implies a previous round to raise the
+// stakes from — nonsensical on Round 1's countdown, which has nothing
+// before it. Excluded from that round's pool only; every other line still
+// works on Round 1.
+const FIRST_ROUND_READY_LINES = READY_LINES.filter((line) => line !== "Same rules, higher stakes.");
+
 export default function RoundStartScreen({ roundLabel, secondsRemaining }: RoundStartScreenProps) {
-  const [readyLine] = useState(() => READY_LINES[Math.floor(Math.random() * READY_LINES.length)]);
+  const [readyLine] = useState(() => {
+    const pool = roundLabel === "Round 1" ? FIRST_ROUND_READY_LINES : READY_LINES;
+    return pool[Math.floor(Math.random() * pool.length)];
+  });
 
   return (
     <div className={styles.screen}>

@@ -46,6 +46,44 @@
     height: clamp(3.5rem, 12vh, 8rem);
     font-size: clamp(1.75rem, 5.5vh, 3.75rem);
   }
+
+  // Gold medal ring — a double border (marigold, then a dark gap, then a
+  // second marigold hairline) instead of the usual single player-color
+  // ring, so the winner reads as "the winner" independent of whatever
+  // color they happened to be assigned at join time.
+  &.winner {
+    border-width: 5px;
+    border-color: $marigold;
+    box-shadow:
+      0 0 0 4px $void,
+      0 0 0 7px $marigold,
+      0 0 45px rgba(255, 178, 56, 0.7);
+    animation: winner-ring-pulse 2.2s ease-in-out infinite;
+  }
+}
+
+@keyframes winner-ring-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow:
+      0 0 0 4px $void,
+      0 0 0 7px $marigold,
+      0 0 45px rgba(255, 178, 56, 0.7);
+  }
+  50% {
+    transform: scale(1.04);
+    box-shadow:
+      0 0 0 4px $void,
+      0 0 0 7px $marigold,
+      0 0 65px rgba(255, 178, 56, 0.95);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ring.winner {
+    animation: none;
+  }
 }
 
 .name {

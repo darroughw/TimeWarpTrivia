@@ -58,11 +58,30 @@
 
   &.first {
     border-color: $marigold;
-    box-shadow: $shadow-glow-marigold;
+    // Brighter/bigger than the base token, plus a slow pulse — the leader
+    // row should read as "hot" at a glance from across the room.
+    box-shadow: 0 0 60px rgba(255, 178, 56, 0.55);
+    animation: leader-glow-pulse 2.4s ease-in-out infinite;
   }
 
   &.left {
     opacity: 0.45;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &.first {
+      animation: none;
+    }
+  }
+}
+
+@keyframes leader-glow-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 60px rgba(255, 178, 56, 0.55);
+  }
+  50% {
+    box-shadow: 0 0 90px rgba(255, 178, 56, 0.85);
   }
 }
 

@@ -1,7 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import { useDpadNavigation } from "@/hooks/useDpadNavigation";
 import { rankedByScore } from "@/lib/mockData";
+import { pickEndGameLine } from "@/lib/taunts";
 import type { Player } from "@/lib/types";
 import CancelGameButton from "./CancelGameButton";
 import PlayerAvatar from "./PlayerAvatar";
@@ -24,6 +26,10 @@ export default function EndGameScreen({ players, onPlayAgain, onCancelGame }: En
   const podium = ranked.slice(0, 3);
   const rest = ranked.slice(3);
   const containerRef = useDpadNavigation<HTMLDivElement>();
+  // Picked once per mount, not per-render — same reasoning as
+  // RoundStartScreen's readyLine — so it doesn't reshuffle under a
+  // player's eyes while this screen sits up.
+  const [smackTalk] = useState(() => pickEndGameLine(players));
 
   return (
     <div className={styles.screen} ref={containerRef}>
@@ -36,7 +42,7 @@ export default function EndGameScreen({ players, onPlayAgain, onCancelGame }: En
       <div className={styles.podium}>
         {podium.map((player, index) => (
           <div key={player.id} className={`${styles.podiumSpot} ${PODIUM_CLASS[index]}`}>
-            <PlayerAvatar player={player} size="lg" showScore />
+            <PlayerAvatar player={player} size="lg" showScore isWinner={index === 0} />
             <div className={styles.podiumBlock}>
               <span className={styles.place}>{index + 1}</span>
             </div>
@@ -59,6 +65,7 @@ export default function EndGameScreen({ players, onPlayAgain, onCancelGame }: En
       )}
 
       <div className={styles.actions}>
+        {smackTalk && <p className={styles.smackTalk}>{smackTalk}</p>}
         <button type="button" data-dpad-focusable className={styles.playAgainButton} onClick={onPlayAgain}>
           Play Again
         </button>

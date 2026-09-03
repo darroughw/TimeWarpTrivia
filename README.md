@@ -272,6 +272,7 @@ lib/
   decadeColors.ts                             # per-decade accent color map
   deepCutColors.ts                              # per-topic accent color map (Deep Cuts equivalent)
   helpContent.ts                                  # copy for the illustrated Help modal (TIM-39)
+  taunts.ts                                          # dry between-question/end-game commentary (TIM-13)
   feedbackService.ts                                # writes to the feedback table (TIM-28)
   avatar.ts                                      # deterministic emoji/color from a name
   supabaseClient.ts                                 # Supabase client + isSupabaseConfigured
