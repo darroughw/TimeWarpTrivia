@@ -10,17 +10,30 @@
 		23BFAEE4821B2D8E219AFAE3 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B20F5DBEE2139E2ADFCBA59 /* WebViewController.swift */; };
 		48BE6673861386986B890231 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E764136AB37D6DE4DE2B7B5 /* Assets.xcassets */; };
 		6BC7994D79838736BCFF5524 /* TimeWarpTriviaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2E139B066EF380E5EF1392 /* TimeWarpTriviaApp.swift */; };
+		B371206E7ED788B1084B2F8E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 103613B5377FE7084AC91152 /* WebKit.framework */; };
 		CBEC80E8C15387E670C795FE /* WebViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B2065DE0C99A8598AA3C62 /* WebViewScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0E764136AB37D6DE4DE2B7B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		103613B5377FE7084AC91152 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		3BD264D3E0202109662FCB42 /* Signing.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Signing.xcconfig; sourceTree = "<group>"; };
 		4B20F5DBEE2139E2ADFCBA59 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		5D2E139B066EF380E5EF1392 /* TimeWarpTriviaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeWarpTriviaApp.swift; sourceTree = "<group>"; };
 		62B2065DE0C99A8598AA3C62 /* WebViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewScreen.swift; sourceTree = "<group>"; };
 		EFA7BD53969434BF6D7241EA /* TimeWarpTrivia.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = TimeWarpTrivia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2143BD78D20736419D0FF8A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B371206E7ED788B1084B2F8E /* WebKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		2882A2397E16C274F1A5BA03 /* apple-tv */ = {
@@ -37,8 +50,17 @@
 			children = (
 				2882A2397E16C274F1A5BA03 /* apple-tv */,
 				A33AD9CF6C78A42912ACBB44 /* TimeWarpTrivia */,
+				45D455AE9AA7D044B1D298B1 /* Frameworks */,
 				5D385DF7C0602D82725019C3 /* Products */,
 			);
+			sourceTree = "<group>";
+		};
+		45D455AE9AA7D044B1D298B1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				103613B5377FE7084AC91152 /* WebKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		5D385DF7C0602D82725019C3 /* Products */ = {
@@ -69,6 +91,7 @@
 			buildPhases = (
 				CCDFC3B6A3951CFC2F3B912D /* Sources */,
 				38F3598503AA7E870C34AFE2 /* Resources */,
+				2143BD78D20736419D0FF8A3 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -91,7 +114,7 @@
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					6707E5C8D56C4623883693E0 = {
-						DevelopmentTeam = "";
+						DevelopmentTeam = Y9HYKHB3X9;
 						ProvisioningStyle = Automatic;
 					};
 				};

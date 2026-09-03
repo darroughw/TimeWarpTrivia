@@ -18,4 +18,4 @@
 // a future `xcodegen generate` would discard a value Xcode wrote there
 // instead of here.
 CODE_SIGN_STYLE = Automatic
-DEVELOPMENT_TEAM =
+DEVELOPMENT_TEAM = Y9HYKHB3X9
