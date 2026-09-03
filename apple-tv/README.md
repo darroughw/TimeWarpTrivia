@@ -117,19 +117,26 @@ main document.
 
 ## What's deliberately not built
 
-- **App icon exists but is unverified.** `Assets.xcassets/App Icon &
-  Top Shelf Image.brandassets/` has the layered Front/Middle/Back home
-  screen icon, built from the same brand mark as `android-tv/`'s
-  `playstore/icon-512.png` (see [`icon-source/`](icon-source) for the
-  three subset SVGs it's rasterized from — the TV frame silhouette as
-  Middle, the wordmark as Front, both via `rsvg-convert`, over a solid
-  void-navy Back). The `.imagestack`/`.imagestacklayer`/`.imageset`
-  folder structure and their `Contents.json` files were hand-written
-  against documented tvOS asset catalog conventions, same unverified-
-  until-a-real-build caveat as everything else in this directory — actool
-  hasn't compiled this catalog yet. **No Top Shelf Image** (the wide
-  banner shown when the icon is focused/highlighted on the home screen)
-  — only the app icon itself was built.
+- **App icon and Top Shelf Image exist but are unverified.**
+  `Assets.xcassets/App Icon & Top Shelf Image.brandassets/` has the
+  layered Front/Middle/Back home screen icon, built from the same brand
+  mark as `android-tv/`'s `playstore/icon-512.png` (see
+  [`icon-source/`](icon-source) for the three subset SVGs it's
+  rasterized from — the TV frame silhouette as Middle, the wordmark as
+  Front, both via `rsvg-convert`, over a solid void-navy Back;
+  `combined-icon.svg` is the flattened composite of all three, kept only
+  as the source the Top Shelf Image was rasterized from). The Top Shelf
+  Image (the wide banner shown when the icon is focused/highlighted on
+  the home screen, at `Top Shelf Image.imageset`) reuses that same
+  composite artwork centered on the void-navy field, 80% height with
+  margin on all sides, rather than unique wide key art — same fallback
+  reasoning as reusing the app icon mark instead of designing a second
+  asset. Both are 1x/2x pairs (1920x720 / 3840x1440). The
+  `.imagestack`/`.imagestacklayer`/`.imageset` folder structure and their
+  `Contents.json` files were hand-written against documented tvOS asset
+  catalog conventions, same unverified-until-a-real-build caveat as
+  everything else in this directory — actool hasn't compiled this
+  catalog yet.
 - **No settings screen, no App Store listing.** Same reasoning as
   `android-tv/`: nothing to configure, and store submission is a manual
   step outside this repo.
