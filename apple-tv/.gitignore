@@ -1,0 +1,16 @@
+# Xcode
+xcuserdata/
+*.xcuserstate
+*.xcscmblueprint
+DerivedData/
+.build/
+*.xcworkspace/xcuserdata/
+
+# Only relevant once a real .xcodeproj exists here (see README) —
+# xcuserdata/xcuserstate are per-developer scheme/window state, never
+# meant to be shared.
+
+# Signing (mirrors android-tv/'s keystore.properties handling — never
+# commit certs/provisioning profiles)
+*.p12
+*.mobileprovision
