@@ -79,6 +79,12 @@
   letter-spacing: normal;
 }
 
+.hint {
+  font-family: $paper-font;
+  color: $text-lo;
+  font-size: 0.8rem;
+}
+
 .error {
   font-family: $paper-font;
   color: $coral;

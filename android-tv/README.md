@@ -128,9 +128,25 @@ rather than flashing back to a broken WebView. Sub-resource failures
 ## What's deliberately not built
 
 - **No settings screen.** Nothing to configure — the app does one thing.
-- **No Play Store listing yet.** `playstore/icon-512.png` is ready for
-  one; TIM-10's "set up Google Play developer account" is a manual step
-  outside this repo, not something to script.
+
+## Google Play (TIM-10)
+
+`store-assets/google-play/` has the store listing content: `screenshots/`
+(five 1920x1080 mock-mode captures — intro, lobby, question, scoreboard,
+final results — same approach and same five moments as the Fire TV set
+below, captured by scripting the `/host` mock flow with a headless
+browser rather than by hand, since it self-advances on a timer),
+`short-description.txt` (80-char cap), `long-description.txt` (4000-char
+cap), and `play-console-checklist.txt` — everything Play Console's
+submission form asks for that doesn't have a repo-file equivalent (data
+safety form answers, content rating questionnaire, target audience, the
+new-developer-account closed-testing requirement). `playstore/icon-512.png`
+and `playstore/feature-graphic-1024x500.png` were already in place.
+
+Still outside this repo, same as the Fire TV submission: actually filling
+out Play Console with the above, running the closed test track a new
+developer account requires, and doing the first real signed-`.aab` install
+on a device or the Android TV emulator.
 
 ## Fire TV / Amazon Appstore (TIM-43)
 

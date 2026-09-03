@@ -1,0 +1,115 @@
+Play Console fields Amazon's submission form doesn't have an equivalent
+for — filled in directly in Play Console, not as repo files, but noted
+here so nothing gets missed during submission.
+
+STORE LISTING
+- App name: TimeWarp Trivia
+- Short description: short-description.txt (77/80 chars)
+- Full description: long-description.txt (2632/4000 chars)
+- App icon (512x512): ../../playstore/icon-512.png
+- Feature graphic (1024x500): ../../playstore/feature-graphic-1024x500.png
+- TV banner (1280x720): reuse ../fire-tv/app-icon-1280x720.png,
+  or export the same logo-on-$void render at 1280x720 if Play rejects the
+  Fire TV file's exact crop.
+- Screenshots: screenshots/*.png (five, 1920x1080, mock/demo captures of
+  /tv and /host — same approach as the Fire TV set, see that folder's
+  README note for how they were made)
+- Category: Trivia (under Games) or Entertainment — check which shows
+  competitor apps like Jackbox/Trivia Crack for the closer fit
+- Contact details: needs a support email and the site URL
+  (timewarptrivia.com); no phone number required
+
+PRIVACY POLICY
+- URL: https://www.timewarptrivia.com/privacy (already live, covers
+  Android TV explicitly)
+
+DATA SAFETY FORM
+Top-level "Does your app collect or share any of the required user data
+types?" question: answer YES. Breakdown for the category checklist that
+follows, based on app/privacy/page.tsx and Google's actual Data Safety
+category definitions:
+
+- Personal info > Name — the chosen display name. Google's own
+  definition of this category explicitly covers "how a user refers to
+  themselves... or nickname," not just a legal name, so this counts even
+  though there's no real-name field anywhere in the app. Required to
+  join/host.
+- Personal info > Email address — only if a player uses the in-app
+  feedback form and opts to include it. Optional.
+- App activity > Other user-generated content — feedback message text;
+  gameplay data (room code, questions shown, answers, timing, scores).
+  Required (gameplay) / optional (feedback).
+- App info and performance > Crash logs, Diagnostics — Sentry.
+  Automatic.
+- App info and performance / App activity > Other app performance data /
+  App interactions — Vercel Analytics & Speed Insights, PostHog
+  gameplay events. Automatic.
+- Location > Approximate location — Yes. app/providers.tsx's
+  posthog.init() doesn't set disable_geoip: true, so PostHog's default
+  IP-based geoip enrichment ($geoip_country_name, $geoip_city_name,
+  $geoip_latitude/longitude) applies to every event; Vercel Analytics'
+  dashboard geography breakdown works the same way. Precise location is
+  a clean No — no navigator.geolocation call anywhere, no
+  ACCESS_FINE_LOCATION/ACCESS_COARSE_LOCATION in the Android manifest.
+  To avoid declaring location at all, add disable_geoip: true to that
+  posthog.init() call instead.
+- Data NOT collected: no accounts, no real legal name field, no phone
+  number, no address, no financial info, no health data.
+
+- Data shared with third parties: No for Sentry and Vercel Analytics —
+  Google's definition excludes transfers to a "service provider" that
+  processes data on your behalf, under your instructions, which is what
+  both are. Double-check before answering No for PostHog specifically:
+  Google's own example of what DOES count as sharing is "analytics SDKs
+  that build profiles across multiple customers," which is aimed
+  squarely at tools like PostHog Cloud depending on its terms. Check
+  PostHog's DPA; if it's a standard processor agreement, No still holds,
+  otherwise answer Yes for that one row rather than guess.
+- Is data encrypted in transit: yes (HTTPS/WSS throughout, Supabase +
+  Vercel).
+- Can users request data deletion: yes, manually (no self-service
+  account to delete from). Delete data URL field:
+  https://www.timewarptrivia.com/privacy#data-deletion — the "Your
+  choices" section, anchor added in app/privacy/page.tsx. Deploy that
+  change before submitting the form, or the anchor won't resolve yet.
+
+CONTENT RATING QUESTIONNAIRE
+- No violence, no gambling, no in-app purchases. Expect ESRB "Everyone" /
+  IARC equivalent.
+- The one UGC-adjacent surface is the free-text display-name field
+  (JoinScreen.tsx). Google Play's User Generated Content policy is
+  written broadly enough to technically cover any user-visible text, so
+  when the questionnaire or Play Console's UGC declaration asks about it,
+  answer honestly ("yes, a free-text nickname, no chat/messaging") and
+  point to what's actually in place: lib/nicknameFilter.ts blocks a
+  slur/profanity list client-side (JoinScreen) and server-side
+  (roomService.joinRoom, so it can't be bypassed via devtools), the name
+  is capped at 20 characters, it's only ever visible to players inside
+  that one ephemeral room (no public/global visibility), and the host
+  can remove any player in two presses (RemovePlayerButton). That's the
+  moderation + "block" half of the policy's ask; there's no separate
+  player-to-player reporting flow, which is the one thing to watch for
+  if a reviewer pushes back.
+
+TARGET AUDIENCE & ADS
+- Target age group: not primarily designed for children (13+ is the
+  safer answer given open-text nicknames aren't moderated)
+- Ads: none
+- In-app purchases: none
+
+RELEASE TRACK
+- New Play Console developer accounts are required to run a closed
+  test with at least 12 testers opted in continuously for 14 days
+  before Production is unlocked. Budget for that before expecting a
+  same-week public launch, unlike the Fire TV submission which went
+  straight to review.
+- Use internal testing first to sanity-check the signed .aab installs
+  and launches correctly on a real device/emulator, then promote to
+  closed testing to satisfy the above.
+
+APP BUNDLE FORMAT
+- Play Console wants an .aab (Android App Bundle), not an .apk — unlike
+  the Fire TV submission, which needed a universal .apk because Amazon's
+  ingestion pipeline choked on the AGP-produced .aab. `./gradlew
+  bundleRelease` (see android-tv/README.md) already produces the right
+  format for Play; no extra step needed here.

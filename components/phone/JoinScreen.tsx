@@ -4,6 +4,7 @@ import { useState } from "react";
 import HelpButton from "@/components/shared/HelpButton";
 import SoundToggle from "@/components/shared/SoundToggle";
 import ScanlineOverlay from "@/components/tv/ScanlineOverlay";
+import { isNicknameAllowed } from "@/lib/nicknameFilter";
 import LogoFooter from "./LogoFooter";
 import styles from "./JoinScreen.module.scss";
 
@@ -26,13 +27,20 @@ function formatRoomCode(raw: string): string {
 export default function JoinScreen({ onJoin, error, submitting = false }: JoinScreenProps) {
   const [roomCode, setRoomCode] = useState("");
   const [name, setName] = useState("");
+  const [nameError, setNameError] = useState<string>();
 
   const canJoin = roomCode.trim().length > 0 && name.trim().length > 0 && !submitting;
 
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
     if (!canJoin) return;
-    onJoin(name.trim(), roomCode.trim().toUpperCase());
+    const trimmedName = name.trim();
+    if (!isNicknameAllowed(trimmedName)) {
+      setNameError("Pick a different display name — that one's not allowed.");
+      return;
+    }
+    setNameError(undefined);
+    onJoin(trimmedName, roomCode.trim().toUpperCase());
   }
 
   return (
@@ -75,10 +83,15 @@ export default function JoinScreen({ onJoin, error, submitting = false }: JoinSc
             placeholder="What should we call you?"
             maxLength={20}
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => {
+              setName(e.target.value);
+              setNameError(undefined);
+            }}
           />
+          <p className={styles.hint}>Keep it friendly — hosts can remove any player.</p>
         </div>
 
+        {nameError && <p className={styles.error}>{nameError}</p>}
         {error && <p className={styles.error}>{error}</p>}
 
         <div className={styles.spacer} />

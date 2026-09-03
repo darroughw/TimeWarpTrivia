@@ -1,3 +1,4 @@
+import { isNicknameAllowed } from "./nicknameFilter";
 import { supabase } from "./supabaseClient";
 import type { PlayerRow, RoomRow, RoomStatus } from "./database.types";
 import type { DecadeId } from "./types";
@@ -40,6 +41,9 @@ export async function fetchRoomByCode(code: string): Promise<RoomRow | null> {
 }
 
 export async function joinRoom(roomId: string, name: string, avatar: string): Promise<PlayerRow> {
+  // JoinScreen already blocks this in the UI — re-checked here so the
+  // filter still holds for anything that calls joinRoom directly.
+  if (!isNicknameAllowed(name)) throw new Error("Nickname not allowed");
   const { data, error } = await supabase
     .from("players")
     .insert({ room_id: roomId, name, avatar, score: 0 })

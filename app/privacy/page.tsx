@@ -114,11 +114,13 @@ export default function PrivacyPolicy() {
           provided us with personal information, contact us and we&rsquo;ll remove it.
         </p>
 
-        <h2>Your choices</h2>
+        <h2 id="data-deletion">Your choices</h2>
         <p>
           Since there&rsquo;s no account system, there&rsquo;s nothing to log into or delete
           yourself. To ask what data we have tied to a game or nickname, or to request it be
-          deleted, email us using the address below.
+          deleted, email{" "}
+          <a href="mailto:privacy@timewarptrivia.com">privacy@timewarptrivia.com</a> with the
+          room code or nickname involved.
         </p>
 
         <h2>Security</h2>
