@@ -96,6 +96,15 @@
   white-space: nowrap;
 }
 
+// The winner ring's glow (see .ring.winner above) reaches ~45px past its
+// own edge — well past .wrap's shared $space-xs gap — so on its own the
+// name sits crowded right against that glow. Extra clearance here, scoped
+// to just this case via the sibling combinator, rather than growing the
+// gap for every other avatar that never has a winner ring next to it.
+.ring.winner + .name {
+  margin-top: $space-sm;
+}
+
 .score {
   @include mono-figure;
   color: var(--player-color, #{$marigold});

@@ -31,15 +31,15 @@ export type SoundName =
 // - block    -> "Cartoon string suspense"           (mixkit.co/free-sound-effects/suspense/)
 // - fanfare  -> "Grand brass fanfare"               (mixkit.co/free-sound-effects/fanfare/)
 //
-// Decade stings are trimmed (~2.5s, faded in/out) from full CC0 tracks on
-// opengameart.org, NOT Mixkit — Mixkit's *music* license (distinct from
-// its SFX license, which does allow games) explicitly excludes video
-// games, and this app ships as a packaged game on the Fire TV Appstore.
-// CC0 needs no attribution either way.
-// - decade60s   -> "Espionage" by brandon75689 (opengameart.org/content/espionage)
+// Decade stings are trimmed (~1.6s, faded in/out, peak-normalized) from
+// full CC0 tracks on opengameart.org, NOT Mixkit — Mixkit's *music*
+// license (distinct from its SFX license, which does allow games)
+// explicitly excludes video games, and this app ships as a packaged game
+// on the Fire TV Appstore. CC0 needs no attribution either way.
+// - decade60s   -> "vintage hawaii" by Tarush Singhal (opengameart.org/content/vintage-hawaii) — beach/surf vibe
 // - decade70s   -> "Funked Up" by Joth (opengameart.org/content/funked-up)
-// - decade80s   -> "Synth Wave" by Pro Sensory (opengameart.org/content/synth-wave)
-// - decade90s   -> "lofi hip hop" by omfgdude (opengameart.org/content/lofi-hip-hop)
+// - decade80s   -> "Investigation" by Umplix (opengameart.org/content/investigation-0) — noir sax
+// - decade90s   -> "death - w4ck (punk rock metal)" by madworldgames (opengameart.org/content/punk-rock-metal-background-music) — grunge-adjacent
 // - decade2000s -> "1-UP Nightclub" by neonarkade (opengameart.org/content/1-up-nightclub)
 // - decade2010s -> "Vengeance Electro" by Of Far Different Nature (opengameart.org/content/vengeance-electro)
 const SOUND_FILES: Record<SoundName, string> = {

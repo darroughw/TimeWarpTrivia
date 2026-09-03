@@ -266,6 +266,10 @@
     height: clamp(2.25rem, 7.5vh, 7.5rem);
     background: linear-gradient(180deg, rgba(255, 90, 95, 0.2), $void-raised);
     border-color: $coral;
+    // Still the shortest of the three even with the shared clamp() above —
+    // needs its own tighter floor so .place has room to sit above the
+    // bottom edge instead of pushing into it.
+    padding-top: 0.25rem;
 
     .place {
       color: $coral;
