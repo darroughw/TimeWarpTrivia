@@ -87,19 +87,40 @@ export function setSoundEnabled(enabled: boolean): void {
 // once a second for 5 seconds straight).
 const audioCache = new Map<SoundName, HTMLAudioElement>();
 
-export function playSound(name: SoundName): void {
-  if (typeof window === "undefined" || !isSoundEnabled()) return;
-
+function getOrCreateAudio(name: SoundName): HTMLAudioElement {
   let audio = audioCache.get(name);
   if (!audio) {
     audio = new Audio(SOUND_FILES[name]);
     audioCache.set(name, audio);
   }
+  return audio;
+}
+
+export function playSound(name: SoundName): void {
+  if (typeof window === "undefined" || !isSoundEnabled()) return;
+
+  const audio = getOrCreateAudio(name);
   audio.currentTime = 0;
   // Browsers can reject play() without a preceding user gesture in this
   // tick (e.g. the very first sound of a session) — that's expected and
   // fine to swallow, not a real error.
   void audio.play().catch(() => {});
+}
+
+// Warms audioCache ahead of time so playSound's first real call doesn't
+// pay for the network fetch — without this, every sound's *first* play
+// had a fetch-then-decode delay before anything was audible, which read
+// as "the sound starts late" (worst on the decade stings: clicking a
+// pill is a tight, direct cause-and-effect interaction, so any lag there
+// is far more noticeable than the same delay on a full-screen transition
+// like the trombone or fanfare). Call once, early — see SoundToggle.
+export function preloadAllSounds(): void {
+  if (typeof window === "undefined") return;
+  for (const name of Object.keys(SOUND_FILES) as SoundName[]) {
+    const audio = getOrCreateAudio(name);
+    audio.preload = "auto";
+    audio.load();
+  }
 }
 
 const DECADE_STING_SOUND: Partial<Record<DecadeId, SoundName>> = {
