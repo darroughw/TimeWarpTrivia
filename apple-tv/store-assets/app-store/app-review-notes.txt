@@ -1,0 +1,18 @@
+TimeWarp Trivia is a shared-screen party trivia game: this Apple TV app hosts the game on the TV, and players join and answer using their own phone's (or any) web browser — no phone app, account, login, or credentials are used anywhere in the app. No demo account is needed or applicable.
+
+To test using only the Apple TV plus one other browser:
+
+1. Launch the app. It opens to an intro screen with a "Start" button — click the Siri Remote's touch surface to select it.
+2. This opens the lobby, which shows a room code in the top right (format: 4 letters + 2 digits, e.g. "WARP-72").
+3. On any phone, tablet, or computer browser, go to https://www.timewarptrivia.com/play
+4. Enter any nickname and the room code shown on the TV, then submit. The player appears in the TV lobby within a couple seconds.
+5. Repeat step 3–4 in a second browser tab or window with a different nickname. Starting a game requires at least 2 joined players — the "Start Game" button on the TV stays disabled until then.
+6. On the TV, swipe to "Start Game" on the Siri Remote's touch surface and click to select it.
+7. The game proceeds automatically: each round shows a question on the TV with a countdown timer, and players answer on their own joined browser (not the TV). Between rounds the TV auto-advances after a short delay; swiping right or clicking on the Siri Remote also advances these transition/scoreboard screens manually.
+8. The game ends on a final results screen with a "Play Again" option, which resets the same room for another round.
+
+Every screen (lobby, question, scoreboard, and the offline/error screen if the network drops) is fully operable with the Siri Remote's touch surface alone — no keyboard, mouse, or paired game controller is required anywhere in the app. The remote's Menu button is intentionally left to tvOS's own system handling (e.g. Home) rather than mapped to anything in-app.
+
+If the app can't reach the server (no connection), it shows a native "Lost the signal" screen with a Retry button instead of a broken page or WebKit's default error rendering.
+
+Moderation note for the free-text nickname field: nicknames are filtered against a slur/profanity list both client-side and server-side (so it can't be bypassed), capped at 20 characters, and only ever visible to players inside that one ephemeral room — never public or global. The host can also remove any player from the lobby in two remote clicks if a nickname or a player's behavior is a problem.

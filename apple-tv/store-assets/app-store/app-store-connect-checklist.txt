@@ -1,0 +1,145 @@
+App Store Connect fields with no repo-file equivalent — filled in
+directly in App Store Connect, not as text files, but noted here so
+nothing gets missed during submission. Mirrors
+../../../android-tv/store-assets/google-play/play-console-checklist.txt's
+structure; see that file for the Play/Data-Safety side of the same app.
+
+APP RECORD
+- Create at appstoreconnect.apple.com > My Apps > + > New App.
+- Platform: tvOS.
+- Bundle ID: com.timewarptrivia.appletv (already set in
+  ../../project.yml — must be registered under your team before it
+  appears in this dropdown; automatic signing does that on first Xcode
+  build, see the main README's "Signing / building a release archive").
+- Name: TimeWarp Trivia
+- Primary language: English (U.S.)
+- SKU: any internal identifier, e.g. timewarptrivia-appletv
+
+STORE LISTING
+- Subtitle: subtitle.txt (30/30 chars)
+- Promotional text: promotional-text.txt (165/170 chars) — the one field
+  editable anytime without a new build or review, worth revisiting per
+  season/decade-pack launch.
+- Description: description.txt (2519/4000 chars)
+- Keywords: keywords.txt (92/100 chars)
+- App icon: pulled automatically from
+  ../../TimeWarpTrivia/Assets.xcassets/App Icon & Top Shelf Image.brandassets/
+  at archive/upload time — no separate upload needed here, unlike Play's
+  Console-side 512x512 icon field.
+- Screenshots: tvOS requires at least one 1920x1080 (or 3840x2160)
+  screenshot. `screenshots/*.png` has five (intro, lobby, question,
+  scoreboard, final results), matching the other two platforms' sets —
+  captured the same way as the Fire TV/Google Play ones (headless Chrome
+  against this machine's own `npm run dev`, mock/demo mode via
+  MockTvFlow, 1920x1080 viewport), except driven with puppeteer-core
+  (attached to the system Chrome.app rather than a bundled download)
+  instead of a one-off CLI screenshot, since MockTvFlow needs real
+  ArrowRight/Enter keydowns to pass the transition/scoreboard/block
+  screens — it isn't purely timer-driven the way "self-advances on a
+  timer" might suggest; only the question screens' own countdown auto-
+  advances on its own. `capture-screenshots.js` in this same folder is
+  that script, kept (unlike Fire TV's/Google Play's, which apparently
+  weren't) so regenerating after a UI change doesn't mean rebuilding
+  this from scratch — see its header comment for exact usage. These are
+  real captures of the real web app in mock mode,
+  not mockups, same caveat as the other two platforms' sets: if App
+  Review wants device-sourced screenshots specifically, recapture from
+  the tvOS simulator or a real Apple TV instead.
+- Category: Games > Trivia, or Entertainment — same open question noted
+  in the Play checklist; check which shows closer tvOS competitors.
+- Copyright: © 2026 TimeWarp Trivia (adjust year at submission time)
+- Support URL: https://www.timewarptrivia.com (no dedicated support page
+  exists yet — same site root Play/Fire TV listings point contact to)
+- Marketing URL: https://www.timewarptrivia.com (optional field; site
+  root doubles as this, nothing tvOS-specific to link instead)
+
+PRIVACY POLICY
+- URL: https://www.timewarptrivia.com/privacy
+- Was Android TV/Fire TV-only language ("the Android TV / Fire TV app");
+  updated in this same batch of work (app/privacy/page.tsx) to also name
+  the Apple TV app explicitly, and bumped its "Last updated" date —
+  deploy that change before submitting this form, same dependency the
+  Play checklist flagged for the data-deletion anchor.
+
+APP PRIVACY ("Nutrition label")
+Apple's categories differ from Google's Data Safety wording but the
+underlying facts are the same app, same three surfaces (web, phone,
+TV wrapper) — see the Play checklist's DATA SAFETY FORM section for the
+full reasoning; summarized here in Apple's category names:
+
+- Contact Info > Name — the chosen nickname. Same judgment call the Play
+  checklist made: Apple's own guidance covers any name-like identifier a
+  user provides, not just a legal name, so this counts even with no
+  real-name field anywhere. Required to join/host.
+- Contact Info > Email Address — only if a player uses the in-app
+  feedback form and opts to include one. Optional.
+- User Content > Other User Content — gameplay data (room code,
+  questions shown, answers, timing, scores) and free-text feedback
+  message text. Gameplay: required. Feedback text: optional.
+- Diagnostics > Crash Data — Sentry. Automatic.
+- Diagnostics > Performance Data, Usage Data > Product Interaction —
+  Vercel Analytics & Speed Insights, PostHog gameplay events. Automatic.
+- Location > Coarse Location — Yes, same finding as the Play checklist:
+  app/providers.tsx's posthog.init() call still doesn't set
+  disable_geoip: true as of this check, so PostHog's IP-based geoip
+  enrichment applies to every event, and Vercel Analytics' geography
+  breakdown works the same way. Precise Location: No — no
+  navigator.geolocation call anywhere in the app. Add disable_geoip:
+  true to that posthog.init() call instead if the goal is to avoid
+  declaring Location at all (same fix noted, still not applied, on the
+  Play side).
+- Not collected: Health & Fitness, Financial Info, Sensitive Info,
+  Contacts, Browsing History, Search History, Purchases — no accounts,
+  no payment flow, no address book access anywhere in the app.
+- "Data Used to Track You" (Apple's cross-app/site ad-tracking
+  question, distinct from anything Play's form asks): No — no
+  advertising, no data sharing with data brokers or ad networks, no use
+  of IDFA. This is a clean No independent of the geoip/analytics answer
+  above, which is first-party product analytics, not tracking.
+- Linked to your identity vs. not linked: most of the above is not
+  linked to a persistent identity — there's no account, and a nickname
+  only exists for the lifetime of one ephemeral room. Apple's form asks
+  this per data type; default to "Not Linked" unless a specific
+  reviewer pushback says otherwise, since nothing here persists or
+  re-identifies a player across sessions.
+
+APP REVIEW INFORMATION
+- Notes: paste app-review-notes.txt into the "Notes" field.
+- Demo account: not applicable — toggle "Sign-In not required."
+- Contact info: needs a name, phone number, and email App Review can
+  reach if they have questions.
+
+AGE RATING QUESTIONNAIRE
+- No violence, no gambling, no in-app purchases, no unrestricted web
+  access (the app never opens arbitrary URLs, only /tv on
+  timewarptrivia.com). Expect 4+.
+- User Generated Content: the free-text nickname field is the one
+  UGC-adjacent surface (JoinScreen.tsx-equivalent web flow) — answer the
+  questionnaire's UGC question honestly. Apple's Guideline 1.2 (Safety —
+  User-Generated Content) specifically wants a way to filter objectionable
+  content and remove abusive users for any UGC surface; both already
+  exist and are worth citing if App Review asks: lib/nicknameFilter.ts
+  blocks a slur/profanity list client- and server-side (so it can't be
+  bypassed via devtools), nicknames are capped at 20 characters and only
+  ever visible inside that one ephemeral room (never public/global), and
+  the host can remove any player in two presses. There's no separate
+  player-to-player reporting flow — the host-removal path is the
+  moderation mechanism in place, same gap the Play checklist flagged for
+  Android.
+
+PRICING & AVAILABILITY
+- Price: Free.
+- Availability: all territories, or start narrower (US) and expand —
+  no territory-specific content restrictions in the app.
+
+BUILD & SUBMISSION
+- No separate "app bundle format" step the way Play (.aab) vs. Fire TV
+  (.apk) needed different outputs — App Store Connect only takes a
+  signed archive uploaded via Xcode Organizer, per the main README's
+  "Signing / building a release archive" section.
+- First submission should go through TestFlight internal testing before
+  hitting Submit for Review, same "sanity-check on a real device first"
+  step the Play checklist recommends before promoting past internal
+  testing — except tvOS has no forced minimum tester count/duration the
+  way a new Play Console developer account's closed-testing requirement
+  does, so there's no equivalent multi-week gate here.

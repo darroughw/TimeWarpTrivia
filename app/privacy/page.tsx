@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 // Last-updated stamp is manual, not derived from git, so it only moves
 // when someone deliberately revises the policy text below.
-const LAST_UPDATED = "August 13, 2026";
+const LAST_UPDATED = "September 3, 2026";
 
 export default function PrivacyPolicy() {
   return (
@@ -29,9 +29,9 @@ export default function PrivacyPolicy() {
 
         <p>
           This policy covers TimeWarp Trivia at every place you can play it: the website
-          (timewarptrivia.com), the phone screens players use to join a game, and the Android TV
-          / Fire TV app — which is a thin wrapper around the same website, so the same practices
-          below apply there too.
+          (timewarptrivia.com), the phone screens players use to join a game, and the Android TV /
+          Fire TV / Apple TV apps — each a thin wrapper around the same website, so the same
+          practices below apply there too.
         </p>
 
         <h2>Information we collect</h2>

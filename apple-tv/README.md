@@ -199,9 +199,43 @@ main document.
   catalog conventions, same unverified-until-a-real-build caveat as
   everything else in this directory — actool hasn't compiled this
   catalog yet.
-- **No settings screen, no App Store listing copy.** Same reasoning as
-  `android-tv/`: nothing to configure. See "Signing / building a release
-  archive" above for the App Store Connect app *record* (required to
-  upload a build at all) — store listing copy (description, keywords,
-  screenshots) is still a separate, later, manual step outside this repo,
-  same as `android-tv/`'s Fire TV listing copy was for that platform.
+- **No settings screen.** Same reasoning as `android-tv/`: nothing to
+  configure. Store listing copy *is* built now — see "App Store listing"
+  below — what's still outside this repo is actually filling out App
+  Store Connect with it and submitting for review.
+
+## App Store listing (TIM-23)
+
+`store-assets/app-store/` has the store listing content, same role
+`android-tv/`'s `store-assets/google-play/` and `store-assets/fire-tv/`
+play for those platforms: `subtitle.txt` (30-char cap),
+`promotional-text.txt` (170-char cap, the one field App Store Connect
+lets you edit anytime without a new build or review), `description.txt`
+(4000-char cap), `keywords.txt` (100-char cap, comma-separated, no
+spaces to save characters), `app-review-notes.txt` (paste-ready text for
+the App Review "Notes" field — same role Fire TV's
+`testing-instructions.txt` plays, adapted for the Siri Remote and "no
+demo account needed"), and `app-store-connect-checklist.txt` (everything
+App Store Connect's submission form asks for that doesn't have a
+repo-file equivalent — the app record, category, age rating
+questionnaire, and an App Privacy "nutrition label" section mapped
+straight from `android-tv/`'s Data Safety form reasoning, since it's the
+same app and the same actual data practices behind both).
+
+`screenshots/` has the same five moments as the other two platforms'
+sets (intro, lobby, question, scoreboard, final results) at 1920x1080,
+captured the same way — headless Chrome against `npm run dev` in
+mock/demo mode (`MockTvFlow`, the same no-backend scripted flow the
+Fire TV/Google Play sets used) — except via `capture-screenshots.js`
+(puppeteer-core driving the system Chrome.app) rather than a one-off CLI
+screenshot, since advancing past the transition/scoreboard/block screens
+needs real `ArrowRight`/`Enter` keydowns; only the question screens'
+own countdown timer advances on its own. That script is checked in
+(unlike whatever produced the Fire TV/Google Play sets, apparently), so
+regenerating after a UI change is a re-run, not a rebuild.
+
+Still outside this repo, same as the other two platforms: actually
+filling out App Store Connect with the above and submitting for review —
+and unlike Fire TV's straight-to-review submission or even Google Play's
+closed-testing gate, this also needs the first real signed archive from
+"Signing / building a release archive" above to exist at all first.
