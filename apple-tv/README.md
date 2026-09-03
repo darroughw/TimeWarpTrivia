@@ -117,12 +117,19 @@ main document.
 
 ## What's deliberately not built
 
-- **No app icon / launch assets.** tvOS app icons need a layered
-  Front/Middle/Back structure for the home-screen parallax effect —
-  meaningfully more work than Android's flat `mipmap` icons, and not
-  started. There's no `Assets.xcassets` in the project at all yet
-  (the xcodegen-generated project skips it rather than shipping an
-  empty placeholder) — add one once real icon artwork exists.
+- **App icon exists but is unverified.** `Assets.xcassets/App Icon &
+  Top Shelf Image.brandassets/` has the layered Front/Middle/Back home
+  screen icon, built from the same brand mark as `android-tv/`'s
+  `playstore/icon-512.png` (see [`icon-source/`](icon-source) for the
+  three subset SVGs it's rasterized from — the TV frame silhouette as
+  Middle, the wordmark as Front, both via `rsvg-convert`, over a solid
+  void-navy Back). The `.imagestack`/`.imagestacklayer`/`.imageset`
+  folder structure and their `Contents.json` files were hand-written
+  against documented tvOS asset catalog conventions, same unverified-
+  until-a-real-build caveat as everything else in this directory — actool
+  hasn't compiled this catalog yet. **No Top Shelf Image** (the wide
+  banner shown when the icon is focused/highlighted on the home screen)
+  — only the app icon itself was built.
 - **No settings screen, no App Store listing.** Same reasoning as
   `android-tv/`: nothing to configure, and store submission is a manual
   step outside this repo.

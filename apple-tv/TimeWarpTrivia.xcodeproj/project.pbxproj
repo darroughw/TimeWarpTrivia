@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		23BFAEE4821B2D8E219AFAE3 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B20F5DBEE2139E2ADFCBA59 /* WebViewController.swift */; };
+		48BE6673861386986B890231 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E764136AB37D6DE4DE2B7B5 /* Assets.xcassets */; };
 		6BC7994D79838736BCFF5524 /* TimeWarpTriviaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2E139B066EF380E5EF1392 /* TimeWarpTriviaApp.swift */; };
 		CBEC80E8C15387E670C795FE /* WebViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B2065DE0C99A8598AA3C62 /* WebViewScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E764136AB37D6DE4DE2B7B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B20F5DBEE2139E2ADFCBA59 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		5D2E139B066EF380E5EF1392 /* TimeWarpTriviaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeWarpTriviaApp.swift; sourceTree = "<group>"; };
 		62B2065DE0C99A8598AA3C62 /* WebViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewScreen.swift; sourceTree = "<group>"; };
@@ -39,6 +41,7 @@
 		A33AD9CF6C78A42912ACBB44 /* TimeWarpTrivia */ = {
 			isa = PBXGroup;
 			children = (
+				0E764136AB37D6DE4DE2B7B5 /* Assets.xcassets */,
 				5D2E139B066EF380E5EF1392 /* TimeWarpTriviaApp.swift */,
 				4B20F5DBEE2139E2ADFCBA59 /* WebViewController.swift */,
 				62B2065DE0C99A8598AA3C62 /* WebViewScreen.swift */,
@@ -54,6 +57,7 @@
 			buildConfigurationList = 68BBE28A6AAFFA28207E8F68 /* Build configuration list for PBXNativeTarget "TimeWarpTrivia" */;
 			buildPhases = (
 				CCDFC3B6A3951CFC2F3B912D /* Sources */,
+				38F3598503AA7E870C34AFE2 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -95,6 +99,17 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		38F3598503AA7E870C34AFE2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48BE6673861386986B890231 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CCDFC3B6A3951CFC2F3B912D /* Sources */ = {
