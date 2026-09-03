@@ -1,6 +1,9 @@
-import type { CSSProperties } from "react";
+"use client";
+
+import { useEffect, type CSSProperties } from "react";
 import { DECADE_COLORS } from "@/lib/decadeColors";
 import { pickBlockChooser } from "@/lib/mockData";
+import { playSound } from "@/lib/sounds";
 import type { Player, Question } from "@/lib/types";
 import LoadingState from "@/components/shared/LoadingState";
 import PlayerAvatar from "./PlayerAvatar";
@@ -16,6 +19,11 @@ interface BlockScreenProps {
 // The TV just shows the room who's choosing and what they're choosing from.
 export default function BlockScreen({ players, candidates }: BlockScreenProps) {
   const chooser = pickBlockChooser(players);
+
+  // Once per reveal — a dramatic sting for the "you're up, alone" moment.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => playSound("block"), []);
+
   // Only reachable if every player has been removed mid-game — min 2 to
   // start makes it vanishingly unlikely, but this beats crashing on
   // chooser.name.

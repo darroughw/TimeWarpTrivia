@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useCountdown } from "@/hooks/useCountdown";
+import { playSound } from "@/lib/sounds";
 import { OPTION_LETTERS, type Player, type Question } from "@/lib/types";
 import CountdownRing from "./CountdownRing";
 import PassiveAdvanceHint from "./PassiveAdvanceHint";
@@ -72,6 +73,17 @@ export default function QuestionScreen({
       setLowTimeAnnouncement(`${LOW_TIME_ANNOUNCE_SECONDS} seconds left.`);
     }
   }, [secondsRemaining, lowTimeAnnouncement]);
+
+  // Urgency tick — same last-5-seconds window as CountdownRing's own
+  // `urgent` visual state and the announcement above, once per second.
+  // Skipped in manualAdvance mode: the ring's frozen there, so there's no
+  // real countdown to tick along with.
+  useEffect(() => {
+    if (manualAdvance) return;
+    if (secondsRemaining <= LOW_TIME_ANNOUNCE_SECONDS && secondsRemaining > 0) {
+      playSound("tick");
+    }
+  }, [secondsRemaining, manualAdvance]);
 
   // Nobody left to wait on — don't burn the rest of the clock. Skipped
   // entirely in manualAdvance mode: the whole point of that mode is that

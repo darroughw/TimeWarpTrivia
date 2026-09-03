@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { playSound } from "@/lib/sounds";
 import ScanlineOverlay from "./ScanlineOverlay";
 import styles from "./RoundStartScreen.module.scss";
 
@@ -31,6 +32,13 @@ export default function RoundStartScreen({ roundLabel, secondsRemaining }: Round
     const pool = roundLabel === "Round 1" ? FIRST_ROUND_READY_LINES : READY_LINES;
     return pool[Math.floor(Math.random() * pool.length)];
   });
+
+  // Fires right as the countdown hits 0 and the room's about to swap to
+  // the question status — a beat before this screen actually unmounts,
+  // since the status transition round-trips through Realtime.
+  useEffect(() => {
+    if (secondsRemaining === 0) playSound("whoosh");
+  }, [secondsRemaining]);
 
   return (
     <div className={styles.screen}>

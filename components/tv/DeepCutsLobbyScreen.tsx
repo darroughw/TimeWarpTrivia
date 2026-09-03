@@ -1,7 +1,9 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { useDpadNavigation } from "@/hooks/useDpadNavigation";
 import FeedbackButton from "@/components/shared/FeedbackButton";
+import { playSound } from "@/lib/sounds";
 import type { DeepCutTopic, Player } from "@/lib/types";
 import DeepCutTopicFilter from "./DeepCutTopicFilter";
 import PlayerAvatar from "./PlayerAvatar";
@@ -38,6 +40,16 @@ export default function DeepCutsLobbyScreen({
   const containerRef = useDpadNavigation<HTMLDivElement>();
   const activeCount = players.filter((p) => p.status === "active").length;
   const canStart = activeCount >= 2 && selectedTopicId !== null;
+
+  // Chime once per active-player increase — see LobbyScreen's identical
+  // logic/comment.
+  const prevActiveCountRef = useRef<number | null>(null);
+  useEffect(() => {
+    if (prevActiveCountRef.current !== null && activeCount > prevActiveCountRef.current) {
+      playSound("join");
+    }
+    prevActiveCountRef.current = activeCount;
+  }, [activeCount]);
 
   return (
     <div className={styles.screen} ref={containerRef}>

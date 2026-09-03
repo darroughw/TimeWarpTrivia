@@ -1,6 +1,7 @@
 "use client";
 
-import { useMemo, type CSSProperties } from "react";
+import { useEffect, useMemo, type CSSProperties } from "react";
+import { playSound } from "@/lib/sounds";
 import { pickTaunt } from "@/lib/taunts";
 import { OPTION_LETTERS, type Player, type RoundResult } from "@/lib/types";
 import PlayerAvatar from "./PlayerAvatar";
@@ -21,6 +22,14 @@ export default function RoundTransitionScreen({ result, players }: RoundTransiti
   // screen (TIM-13: randomize between questions, not while one is showing).
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const taunt = useMemo(() => pickTaunt(players), [result]);
+
+  // TIM-13's "everyone got it wrong" edge case — the sad trombone, once
+  // per question resolution. Requires at least one result so an empty
+  // (shouldn't-happen) results array doesn't vacuously count as "wrong."
+  useEffect(() => {
+    const everyoneWrong = results.length > 0 && results.every((r) => !r.correct);
+    if (everyoneWrong) playSound("trombone");
+  }, [results]);
 
   return (
     <div className={styles.screen}>

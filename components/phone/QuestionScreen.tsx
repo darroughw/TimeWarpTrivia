@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import SoundToggle from "@/components/shared/SoundToggle";
 import CountdownRing from "@/components/tv/CountdownRing";
 import ScanlineOverlay from "@/components/tv/ScanlineOverlay";
 import { useCountdown } from "@/hooks/useCountdown";
@@ -50,6 +51,7 @@ export default function QuestionScreen({ question, onAnswer }: QuestionScreenPro
   return (
     <div className={styles.screen}>
       <ScanlineOverlay />
+      <SoundToggle />
       <div className={styles.header}>
         <div>
           <span className={styles.roundLabel}>{question.roundLabel}</span>

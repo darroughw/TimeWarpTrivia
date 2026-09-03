@@ -19,6 +19,7 @@ import { getAvatarForName, playerRowToPlayer } from "@/lib/avatar";
 import { pickBlockChooser, rankedByScore } from "@/lib/mockData";
 import { fetchRoomByCode, joinRoom, submitAnswer, updateRoom } from "@/lib/roomService";
 import { computeScore } from "@/lib/scoring";
+import { playSound } from "@/lib/sounds";
 import { OPTION_LETTERS, ROUND_START_COUNTDOWN_SECONDS, type FinalStanding } from "@/lib/types";
 
 export default function LivePlayFlow() {
@@ -91,6 +92,10 @@ export default function LivePlayFlow() {
 
     setLastPickedLetter(OPTION_LETTERS[index]);
     setAnsweredQuestionIds((current) => new Set(current).add(question.id));
+    // Instant feedback the moment the answer's locked in, not on the later
+    // TV reveal — the player already can't change it, so there's no reason
+    // to make them wait to hear whether they got it.
+    playSound(correct ? "correct" : "wrong");
 
     await submitAnswer({
       roomId: room.id,

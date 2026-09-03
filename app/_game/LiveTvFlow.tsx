@@ -12,6 +12,7 @@ import RoundStartScreen from "@/components/tv/RoundStartScreen";
 import RoundTransitionScreen from "@/components/tv/RoundTransitionScreen";
 import ScoreboardScreen from "@/components/tv/ScoreboardScreen";
 import LoadingState from "@/components/shared/LoadingState";
+import SoundToggle from "@/components/shared/SoundToggle";
 import { useBlockCandidates } from "@/hooks/useBlockCandidates";
 import { useCountdown } from "@/hooks/useCountdown";
 import { useCurrentQuestion } from "@/hooks/useCurrentQuestion";
@@ -327,6 +328,8 @@ export default function LiveTvFlow({ mode = "decade" }: LiveTvFlowProps) {
 
   return (
     <>
+      <SoundToggle />
+
       {room.status === "lobby" &&
         (mode === "deepCuts" ? (
           <DeepCutsLobbyScreen

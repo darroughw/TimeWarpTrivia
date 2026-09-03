@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import { DECADE_COLORS } from "@/lib/decadeColors";
+import { playDecadeSting } from "@/lib/sounds";
 import type { Decade, DecadeId } from "@/lib/types";
 import styles from "./DecadeFilter.module.scss";
 
@@ -24,7 +25,13 @@ export default function DecadeFilter({ decades, selectedId, onSelect }: DecadeFi
             aria-checked={selected}
             className={`${styles.pill} ${selected ? styles.selected : ""}`}
             style={style}
-            onClick={() => onSelect(decade.id)}
+            onClick={() => {
+              // Only on an actual change — clicking the already-selected
+              // pill again shouldn't re-trigger the "you just picked
+              // this" sting.
+              if (!selected) playDecadeSting(decade.id);
+              onSelect(decade.id);
+            }}
           >
             {decade.label}
           </button>

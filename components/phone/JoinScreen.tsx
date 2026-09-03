@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import HelpButton from "@/components/shared/HelpButton";
+import SoundToggle from "@/components/shared/SoundToggle";
 import ScanlineOverlay from "@/components/tv/ScanlineOverlay";
 import LogoFooter from "./LogoFooter";
 import styles from "./JoinScreen.module.scss";
@@ -37,6 +38,7 @@ export default function JoinScreen({ onJoin, error, submitting = false }: JoinSc
   return (
     <div className={styles.screen}>
       <ScanlineOverlay />
+      <SoundToggle />
       <div className={styles.brand}>
         <span className={styles.eyebrow}>TimeWarp Trivia</span>
         <h1 className={styles.title}>Join the Game</h1>

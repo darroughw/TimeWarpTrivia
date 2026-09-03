@@ -11,6 +11,7 @@ import RoundTransitionScreen from "@/components/tv/RoundTransitionScreen";
 import ScoreboardScreen from "@/components/tv/ScoreboardScreen";
 import SimulatorBadge from "@/components/tv/SimulatorBadge";
 import LoadingState from "@/components/shared/LoadingState";
+import SoundToggle from "@/components/shared/SoundToggle";
 import { useBlockCandidates } from "@/hooks/useBlockCandidates";
 import { useCountdown } from "@/hooks/useCountdown";
 import { useCurrentQuestion } from "@/hooks/useCurrentQuestion";
@@ -274,6 +275,7 @@ export default function SimulatorTvFlow() {
   return (
     <>
       <SimulatorBadge />
+      <SoundToggle />
 
       {room.status === "lobby" && (
         <LobbyScreen

@@ -8,6 +8,7 @@ import PassiveAdvanceHint from "@/components/tv/PassiveAdvanceHint";
 import QuestionScreen from "@/components/tv/QuestionScreen";
 import RoundTransitionScreen from "@/components/tv/RoundTransitionScreen";
 import ScoreboardScreen from "@/components/tv/ScoreboardScreen";
+import SoundToggle from "@/components/shared/SoundToggle";
 import {
   MOCK_BLOCK_CANDIDATE_QUESTIONS,
   MOCK_BLOCK_ROUND_RESULT,
@@ -111,6 +112,8 @@ export default function MockTvFlow() {
 
   return (
     <>
+      <SoundToggle />
+
       {stage === "lobby" && (
         <LobbyScreen
           roomCode={ROOM_CODE}

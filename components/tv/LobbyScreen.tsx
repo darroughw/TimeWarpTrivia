@@ -1,8 +1,10 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { useDpadNavigation } from "@/hooks/useDpadNavigation";
 import HelpButton from "@/components/shared/HelpButton";
 import { DECADES } from "@/lib/mockData";
+import { playSound } from "@/lib/sounds";
 import type { Decade, DecadeId, Player } from "@/lib/types";
 import DecadeFilter from "./DecadeFilter";
 import PlayerAvatar from "./PlayerAvatar";
@@ -35,6 +37,17 @@ export default function LobbyScreen({
 }: LobbyScreenProps) {
   const containerRef = useDpadNavigation<HTMLDivElement>();
   const activeCount = players.filter((p) => p.status === "active").length;
+
+  // Chime once per active-player increase — null until the first render so
+  // the room's starting headcount (e.g. rejoining a lobby already at 3)
+  // doesn't itself sound like a join.
+  const prevActiveCountRef = useRef<number | null>(null);
+  useEffect(() => {
+    if (prevActiveCountRef.current !== null && activeCount > prevActiveCountRef.current) {
+      playSound("join");
+    }
+    prevActiveCountRef.current = activeCount;
+  }, [activeCount]);
 
   return (
     <div className={styles.screen} ref={containerRef}>

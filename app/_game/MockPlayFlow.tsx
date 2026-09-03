@@ -14,6 +14,7 @@ import {
   MOCK_PICKED_BLOCK_QUESTION,
   MOCK_QUESTION,
 } from "@/lib/mockData";
+import { playSound } from "@/lib/sounds";
 import { OPTION_LETTERS } from "@/lib/types";
 
 // The scripted, no-backend version of the phone flow — used when
@@ -56,6 +57,7 @@ export default function MockPlayFlow() {
           question={MOCK_QUESTION}
           onAnswer={(index) => {
             setAnsweredIndex(index);
+            playSound(index === MOCK_QUESTION.correctIndex ? "correct" : "wrong");
             setStage("answered");
           }}
         />

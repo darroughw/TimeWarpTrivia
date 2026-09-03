@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDpadNavigation } from "@/hooks/useDpadNavigation";
 import { rankedByScore } from "@/lib/mockData";
+import { playSound } from "@/lib/sounds";
 import { pickEndGameLine } from "@/lib/taunts";
 import type { Player } from "@/lib/types";
 import CancelGameButton from "./CancelGameButton";
@@ -30,6 +31,10 @@ export default function EndGameScreen({ players, onPlayAgain, onCancelGame }: En
   // RoundStartScreen's readyLine — so it doesn't reshuffle under a
   // player's eyes while this screen sits up.
   const [smackTalk] = useState(() => pickEndGameLine(players));
+
+  // Once per game-over reveal.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => playSound("fanfare"), []);
 
   return (
     <div className={styles.screen} ref={containerRef}>

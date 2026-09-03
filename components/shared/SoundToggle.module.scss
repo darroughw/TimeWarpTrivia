@@ -1,0 +1,26 @@
+@use "theme" as *;
+@use "mixins" as *;
+
+.button {
+  @include dpad-focusable;
+  position: fixed;
+  top: $space-sm;
+  right: $space-sm;
+  z-index: $z-overlay;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: $void-raised;
+  border: 1px solid $void-line;
+  color: $text-hi;
+  font-size: 1.3rem;
+  line-height: 1;
+
+  &:hover,
+  &:focus-visible {
+    border-color: $marigold-dim;
+  }
+}
