@@ -16,42 +16,36 @@ screen in SwiftUI natively would mean rebuilding the whole focus system
 and the Supabase Realtime wiring a second time for no functional gain.
 This directory is intentionally just a shell.
 
-## There is no `.xcodeproj` here yet — read this before opening Xcode
+## `.xcodeproj` is generated, not hand-written — still unverified by a real build
 
-Every other file in this directory (the Swift source, `.gitignore`) was
-hand-written against standard Xcode/SwiftUI/WKWebView conventions, same
-as `android-tv/`'s Kotlin was written unverified — **but this went one
-step further than that project did.** The machine this was authored on
-has only Xcode's Command Line Tools, not full Xcode.app, and is on
-macOS 12 — too old for the Xcode version modern tooling (`xcodegen`, a
-CLI project-file generator that was the first thing tried) requires. That
-means the actual `.xcodeproj`/`.pbxproj` project file — the part that's
-genuinely risky to hand-write blind, unlike source files — could not be
-generated or opened here at all, not even to check that it parses.
+The Swift source and `.gitignore` were hand-written against standard
+Xcode/SwiftUI/WKWebView conventions, same as `android-tv/`'s Kotlin was
+written unverified. The `.xcodeproj`/`.pbxproj` itself — the part that's
+genuinely risky to hand-write blind — is **generated from
+[`project.yml`](project.yml) by [xcodegen](https://github.com/yonaskolb/XcodeGen)**
+instead, which this machine (now on a current macOS, `brew install
+xcodegen`) could actually run and produce a structurally valid project
+file (`plutil -lint` on `project.pbxproj` passes). What this machine still
+lacks is full `Xcode.app` (only the Command Line Tools are installed), so
+`xcodebuild` itself has no tvOS SDK to build against here — the project
+has been generated but not yet opened, built, or run by real Xcode.
+Treat that first build in real Xcode as the actual first test of
+everything in this directory, same caveat `android-tv/`'s Kotlin carries.
 
-**First step on a machine with real Xcode:**
+**On a machine with real Xcode:**
 
-1. `File > New > Project… > tvOS > App`.
-2. Product Name: `TimeWarpTrivia`. Interface: **SwiftUI**. Language:
-   **Swift**. Uncheck any tests/Core Data options — none are needed.
-3. Save it **as this `apple-tv/` directory** (or create it elsewhere and
-   move `TimeWarpTrivia.xcodeproj` into `apple-tv/` after) so the project
-   lives alongside this README.
-4. Xcode's template drops in its own `TimeWarpTriviaApp.swift`,
-   `ContentView.swift`, and `Assets.xcassets` — **delete the template's
-   versions of the two Swift files** (this directory's own
-   `TimeWarpTriviaApp.swift`/`WebViewScreen.swift`/`WebViewController.swift`
-   replace them) and **add this directory's three `.swift` files to the
-   target** (`File > Add Files to "TimeWarpTrivia"…`). Keep the
-   template's `Assets.xcassets` — there's no app icon here yet (see
-   below).
-5. Build and run — Xcode manages the tvOS SDK and simulator device for
+1. Just open `TimeWarpTrivia.xcodeproj` — it's already checked in,
+   generated from `project.yml`. No `File > New > Project…` needed.
+2. Build and run — Xcode manages the tvOS SDK and simulator device for
    you (`Product > Destination > Apple TV` simulator, or a physical
    Apple TV in developer mode over the network).
-
-Treat that first build as the real first test of everything in this
-directory, same caveat `android-tv/`'s README gives its own
-unverified-by-a-real-build Kotlin.
+3. If you change `project.yml` (new target settings, new source files
+   outside the existing `TimeWarpTrivia/` folder, etc.), regenerate with
+   `xcodegen generate` from this directory rather than hand-editing
+   `project.pbxproj` — xcodegen owns that file now. Plain new `.swift`
+   files dropped into `TimeWarpTrivia/` are picked up automatically by
+   the folder-reference source path in `project.yml`, no regeneration
+   needed.
 
 ## The Siri Remote → web app bridge
 
@@ -126,7 +120,9 @@ main document.
 - **No app icon / launch assets.** tvOS app icons need a layered
   Front/Middle/Back structure for the home-screen parallax effect —
   meaningfully more work than Android's flat `mipmap` icons, and not
-  started. Xcode's template `Assets.xcassets` is a placeholder for now.
+  started. There's no `Assets.xcassets` in the project at all yet
+  (the xcodegen-generated project skips it rather than shipping an
+  empty placeholder) — add one once real icon artwork exists.
 - **No settings screen, no App Store listing.** Same reasoning as
   `android-tv/`: nothing to configure, and store submission is a manual
   step outside this repo.
