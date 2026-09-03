@@ -15,6 +15,7 @@
 
 /* Begin PBXFileReference section */
 		0E764136AB37D6DE4DE2B7B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3BD264D3E0202109662FCB42 /* Signing.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Signing.xcconfig; sourceTree = "<group>"; };
 		4B20F5DBEE2139E2ADFCBA59 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		5D2E139B066EF380E5EF1392 /* TimeWarpTriviaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeWarpTriviaApp.swift; sourceTree = "<group>"; };
 		62B2065DE0C99A8598AA3C62 /* WebViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewScreen.swift; sourceTree = "<group>"; };
@@ -22,9 +23,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
+		2882A2397E16C274F1A5BA03 /* apple-tv */ = {
+			isa = PBXGroup;
+			children = (
+				3BD264D3E0202109662FCB42 /* Signing.xcconfig */,
+			);
+			name = "apple-tv";
+			path = .;
+			sourceTree = "<group>";
+		};
 		3179513D8A59966337BE01D6 = {
 			isa = PBXGroup;
 			children = (
+				2882A2397E16C274F1A5BA03 /* apple-tv */,
 				A33AD9CF6C78A42912ACBB44 /* TimeWarpTrivia */,
 				5D385DF7C0602D82725019C3 /* Products */,
 			);
@@ -79,6 +90,10 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					6707E5C8D56C4623883693E0 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = DD1450D165DCCE286C96DCA0 /* Build configuration list for PBXProject "TimeWarpTrivia" */;
@@ -183,6 +198,7 @@
 		};
 		60E8B3354EEF367BB64E05AA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3BD264D3E0202109662FCB42 /* Signing.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -206,6 +222,7 @@
 		};
 		D92BB8D46A981CD440F8B896 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3BD264D3E0202109662FCB42 /* Signing.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

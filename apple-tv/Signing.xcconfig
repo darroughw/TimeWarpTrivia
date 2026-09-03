@@ -1,0 +1,21 @@
+// Local signing settings, read by project.yml's target-level configFiles
+// and applied via xcodegen's generated baseConfigurationReference — see
+// the "Signing / building a release archive" section of README.md.
+//
+// DEVELOPMENT_TEAM is your 10-character Apple Developer Team ID (Apple
+// Developer > Membership, or the account menu in Xcode > Settings >
+// Accounts). It is not a secret — visible in App Store Connect URLs and
+// exported archive metadata — but it's account-specific, so it stays out
+// of project.yml itself and lives here instead where it won't collide
+// with anyone else building this project under their own team.
+//
+// Fill in your own Team ID below. Leaving it blank is fine for opening
+// and editing the project — Xcode will prompt for a team the first time
+// it actually needs to sign something (running on a device, archiving).
+//
+// Edit this file directly rather than picking a team in Xcode's Signing
+// & Capabilities tab — xcodegen owns project.pbxproj (see README.md) and
+// a future `xcodegen generate` would discard a value Xcode wrote there
+// instead of here.
+CODE_SIGN_STYLE = Automatic
+DEVELOPMENT_TEAM =

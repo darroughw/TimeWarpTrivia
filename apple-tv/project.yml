@@ -10,6 +10,9 @@ targets:
     deploymentTarget: "16.0"
     sources:
       - path: TimeWarpTrivia
+    configFiles:
+      Debug: Signing.xcconfig
+      Release: Signing.xcconfig
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.timewarptrivia.appletv

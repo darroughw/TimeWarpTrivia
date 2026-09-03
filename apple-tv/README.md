@@ -47,6 +47,68 @@ everything in this directory, same caveat `android-tv/`'s Kotlin carries.
    the folder-reference source path in `project.yml`, no regeneration
    needed.
 
+## Signing / building a release archive
+
+Unlike `android-tv/`'s keystore (a file you generate once and must never
+lose), tvOS signing runs through an Apple Developer account, and the
+identity that matters — the bundle ID (`com.timewarptrivia.appletv`,
+already set in [`project.yml`](project.yml)) plus your Team ID — isn't
+tied to a single certificate the way an Android upload key is. Certs can
+be revoked and regenerated from the developer portal at any time without
+breaking the app's identity or its ability to update on the App Store.
+
+1. **Enroll in the Apple Developer Program** (developer.apple.com,
+   $99/year) if you haven't — required for running on a physical Apple
+   TV, TestFlight, and App Store submission alike. A free account can
+   still build and run in the simulator.
+2. **Sign into that Apple ID in Xcode** (Xcode > Settings > Accounts)
+   before opening this project. Automatic signing (already the default
+   here — see below) resolves your Team from that signed-in account and
+   registers the bundle ID for you on first build; nothing needs to be
+   pre-registered by hand in the developer portal.
+3. **Set your Team ID in [`Signing.xcconfig`](Signing.xcconfig)**, not in
+   Xcode's Signing & Capabilities tab. `project.yml` wires this file in
+   via xcodegen's `configFiles` (`baseConfigurationReference` in the
+   generated `.pbxproj`), which is what lets it survive `xcodegen
+   generate` — a team picked through the Xcode UI instead gets written
+   into `project.pbxproj`, which xcodegen owns and will silently discard
+   on the next regeneration. Find your Team ID at developer.apple.com >
+   Account > Membership, or in Xcode's Accounts settings under your Apple
+   ID. `Signing.xcconfig` is committed (it's already in this repo, blank
+   `DEVELOPMENT_TEAM`) rather than gitignored like `android-tv/`'s
+   `keystore.properties` — a Team ID isn't a credential (it's visible in
+   App Store Connect URLs and exported archive metadata already), and
+   xcodegen hard-fails `generate` if a `configFiles` path doesn't exist,
+   so an out-of-the-box checkout needs *some* file there even before
+   anyone's filled in their own team.
+4. **Archive**: `Product > Destination > Any tvOS Device (arm64)` (real
+   device or App Store distribution both need a device destination, not
+   the simulator), then `Product > Archive`. Xcode's Organizer opens on
+   success; `Distribute App > App Store Connect > Upload` handles export
+   and upload in one flow, resolving a distribution certificate and
+   provisioning profile automatically under automatic signing.
+5. **Create the App Store Connect record** before or after that first
+   archive (either order works) — appstoreconnect.apple.com > My Apps >
+   `+` > New App, platform tvOS, matching bundle ID
+   `com.timewarptrivia.appletv`, plus a name, primary language, and SKU
+   (any internal identifier, e.g. `timewarptrivia-appletv`).
+6. **TestFlight** is the natural next step after an upload, same role
+   Play Console's internal testing track plays for `android-tv/`: once a
+   build finishes processing in App Store Connect's TestFlight tab,
+   internal testers (up to 100, your own team) get it with no review;
+   external testers need a lightweight Beta App Review first (usually
+   under a day), same as `android-tv/`'s closed testing track needing
+   Play's review before external testers can join.
+
+**None of this has been exercised against a real Apple Developer
+account** — same unverified-until-a-real-build caveat as the rest of
+this directory, and more so here since it also depends on an active paid
+enrollment this machine doesn't have. A command-line path exists too
+(`xcodebuild archive` + `xcodebuild -exportArchive` with an
+`exportOptions.plist`, for scripting or CI later) but is unverified for
+the same reason — no full Xcode/tvOS SDK on this machine to try it
+against, per the top of this README.
+
 ## The Siri Remote → web app bridge
 
 This is the one piece of real design work in `WebViewController.swift`,
@@ -137,11 +199,9 @@ main document.
   catalog conventions, same unverified-until-a-real-build caveat as
   everything else in this directory — actool hasn't compiled this
   catalog yet.
-- **No settings screen, no App Store listing.** Same reasoning as
-  `android-tv/`: nothing to configure, and store submission is a manual
-  step outside this repo.
-- **No signing/release-build docs yet** — `android-tv/`'s README has a
-  full section on generating and safely storing an upload key; the tvOS
-  equivalent (an Apple Developer account, a distribution certificate,
-  App Store Connect) is a later step once the app itself is verified
-  working.
+- **No settings screen, no App Store listing copy.** Same reasoning as
+  `android-tv/`: nothing to configure. See "Signing / building a release
+  archive" above for the App Store Connect app *record* (required to
+  upload a build at all) — store listing copy (description, keywords,
+  screenshots) is still a separate, later, manual step outside this repo,
+  same as `android-tv/`'s Fire TV listing copy was for that platform.
