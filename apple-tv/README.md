@@ -153,12 +153,19 @@ reconnect in that case).
 - **No settings screen.** Nothing to configure.
 
 App icon and Top Shelf Image: `Assets.xcassets/App Icon & Top Shelf
-Image.brandassets/` has the layered Front/Middle/Back home screen icon,
-built from the same brand mark as `android-tv/`'s `playstore/icon-512.png`
-(see [`icon-source/`](icon-source) for the source SVGs). The Top Shelf Image
-reuses that same composite artwork centered on the void-navy field rather
-than unique wide key art. Both verified building/rendering correctly in the
-tvOS Simulator.
+Image.brandassets/` has all four assets tvOS requires — the layered
+Front/Middle/Back home screen icon (`App Icon.imagestack`, 400x240/800x480),
+the flattened App Store listing icon (`App Icon - App Store.imagestack`,
+1280x768, single scale, same three layers rasterized larger), and both
+Top Shelf banners (`Top Shelf Image.imageset` 1920x720/3840x1440 and
+`Top Shelf Image Wide.imageset` 2320x720/4640x1440) — all built from the
+same brand mark as `android-tv/`'s `playstore/icon-512.png` (see
+[`icon-source/`](icon-source) for the source SVGs). Both Top Shelf images
+reuse that same composite artwork centered on the void-navy field (80% of
+canvas height) rather than unique wide key art. All four asset roles are
+required by App Store Connect's binary validation — missing any one of them
+(as an earlier upload attempt did, for the App Store icon and the wide Top
+Shelf image) fails upload with error 90471/90513, not just a warning.
 
 ## App Store listing (TIM-23)
 
