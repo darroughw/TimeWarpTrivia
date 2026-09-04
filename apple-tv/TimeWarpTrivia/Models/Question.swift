@@ -66,8 +66,8 @@ enum OptionLetter {
 let roundStartCountdownSeconds = 5
 
 struct PlayerPointResult: Identifiable, Equatable {
-    var id: String { playerId }
-    let playerId: String
+    var id: UUID { playerId }
+    let playerId: UUID
     let pointsGained: Int
     let correct: Bool
     let answeredIndex: Int?

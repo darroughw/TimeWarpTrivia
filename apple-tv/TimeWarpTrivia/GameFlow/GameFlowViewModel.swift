@@ -8,14 +8,30 @@ import Foundation
 final class GameFlowViewModel: ObservableObject {
     @Published private(set) var room: Room?
     @Published private(set) var players: [Player] = []
+    @Published private(set) var answers: [Answer] = []
     @Published private(set) var decades: [Decade] = []
     @Published private(set) var isStartingGame = false
+    @Published private(set) var countdownSecondsRemaining = roundStartCountdownSeconds
+    @Published private(set) var lastRoundResult: RoundResult?
     @Published var lastError: String?
 
     // Fresh per app-launch, mirrors LiveTvFlow.tsx's `useState(() => crypto.randomUUID())`.
     private let hostId = UUID().uuidString
 
     private let roomRealtime = RoomRealtimeManager()
+    private let answersRealtime = AnswersRealtimeManager()
+
+    // The whole game's 18 questions (15 main + 3 block candidates) are
+    // picked once at Start Game and never change again for the life of
+    // the room — cached locally by id rather than re-fetched per
+    // question. Meta (roundLabel/timeLimitSeconds/pointsMultiplier) is
+    // computed once, at cache time, straight from each question's
+    // position in the picks — equivalent to, but cheaper than, calling
+    // QuestionService.questionMeta(room:questionId:) again later.
+    private var questionCache: [String: Question] = [:]
+
+    private var countdownTask: Task<Void, Never>?
+    private var countdownResetKey: String?
 
     var activePlayerCount: Int {
         players.filter { $0.status == .active }.count
@@ -25,19 +41,39 @@ final class GameFlowViewModel: ObservableObject {
         activePlayerCount >= 2
     }
 
+    var currentQuestion: Question? {
+        room?.currentQuestionId.flatMap { questionCache[$0] }
+    }
+
+    var soloPlayer: Player? {
+        guard let blockerPlayerId = room?.blockerPlayerId else { return nil }
+        return players.first { $0.id == blockerPlayerId }
+    }
+
+    func answeredCount(for questionId: String) -> Int {
+        answers.filter { $0.questionId == questionId }.count
+    }
+
     // Creates a fresh room the moment the app boots up — mirrors
     // LiveTvFlow.tsx's mount-time createRoom effect.
     func bootstrap() async {
+        SoundPlayer.shared.preloadAll()
+
         roomRealtime.onRoomChange = { [weak self] room in
             self?.room = room
+            self?.syncCountdown()
         }
         roomRealtime.onPlayersChange = { [weak self] players in
             self?.players = players
+        }
+        answersRealtime.onAnswersChange = { [weak self] answers in
+            self?.answers = answers
         }
 
         do {
             let newRoom = try await RoomService.createRoom(hostId: hostId)
             try await roomRealtime.start(roomId: newRoom.id)
+            try await answersRealtime.start(roomId: newRoom.id)
         } catch {
             lastError = error.localizedDescription
         }
@@ -88,17 +124,148 @@ final class GameFlowViewModel: ObservableObject {
                 count: totalMainQuestions + 3,
                 excludeIds: room.askedQuestionIds
             )
-            let questionIds = picks.prefix(totalMainQuestions).map { $0.id.uuidString.lowercased() }
-            let blockCandidateIds = picks.suffix(from: totalMainQuestions).map { $0.id.uuidString.lowercased() }
+            let mainPicks = Array(picks.prefix(totalMainQuestions))
+            let blockPicks = Array(picks.suffix(from: totalMainQuestions))
+
+            for (index, row) in mainPicks.enumerated() {
+                let round = index / questionsPerRound + 1
+                let isFinal = round == 3
+                let meta = QuestionMeta(
+                    roundLabel: isFinal ? "Final Round" : "Round \(round)",
+                    timeLimitSeconds: isFinal ? 15 : 20,
+                    pointsMultiplier: isFinal ? 2 : 1
+                )
+                let question = Question(row: row, meta: meta)
+                questionCache[question.id] = question
+            }
+            for row in blockPicks {
+                let meta = QuestionMeta(roundLabel: "Solo Round", timeLimitSeconds: 15, pointsMultiplier: 1)
+                let question = Question(row: row, meta: meta)
+                questionCache[question.id] = question
+            }
+
+            let questionIds = mainPicks.map { $0.id.uuidString.lowercased() }
+            let blockCandidateIds = blockPicks.map { $0.id.uuidString.lowercased() }
 
             try await RoomService.updateRoom(
                 roomId: room.id,
                 patch: StartGamePatch(
-                    questionIds: Array(questionIds),
+                    questionIds: questionIds,
                     currentQuestionId: questionIds[0],
-                    blockCandidateIds: Array(blockCandidateIds)
+                    blockCandidateIds: blockCandidateIds
                 )
             )
+        } catch {
+            lastError = error.localizedDescription
+        }
+    }
+
+    // The host's Select/swipe-right input on a passive screen
+    // (transition/scoreboard/soloTransition) — the one method every
+    // PassiveAdvanceContainer-wrapped screen calls.
+    func handleAdvance() {
+        guard let room, let step = RoundStepLogic.nextPassiveStep(from: room.status, questionIndex: room.questionIndex) else {
+            return
+        }
+        Task {
+            do {
+                if (step.status == .question || step.status == .countdown),
+                   let index = step.questionIndex,
+                   let questionIds = room.questionIds,
+                   index < questionIds.count {
+                    try await RoomService.updateRoom(
+                        roomId: room.id,
+                        patch: AdvanceToQuestionPatch(status: step.status, questionIndex: index, currentQuestionId: questionIds[index])
+                    )
+                } else {
+                    try await RoomService.updateRoom(roomId: room.id, patch: StatusPatch(status: step.status))
+                }
+            } catch {
+                lastError = error.localizedDescription
+            }
+        }
+    }
+
+    // Builds the results breakdown for whichever question just ended,
+    // purely from the answers already collected — each phone already
+    // applied its own score to its own player row when it answered (see
+    // RoomService.submitAnswer's JS counterpart), so this is for
+    // *display* only. Called by QuestionView once, whether the question
+    // ended by clock or by everyone answering.
+    func handleQuestionTimeUp() async {
+        guard let room, let question = currentQuestion, let currentQuestionId = room.currentQuestionId else { return }
+        let nextStatus: RoomStatus = room.status == .soloQuestion ? .soloTransition : .transition
+
+        let relevantAnswers = answers.filter { $0.questionId == currentQuestionId }
+        let participants: [Player] =
+            if room.status == .soloQuestion {
+                players.filter { $0.id == room.blockerPlayerId }
+            } else {
+                players.filter { $0.status == .active }
+            }
+
+        let results: [PlayerPointResult] = participants.map { player in
+            guard let answer = relevantAnswers.first(where: { $0.playerId == player.id }) else {
+                return PlayerPointResult(playerId: player.id, pointsGained: 0, correct: false, answeredIndex: nil)
+            }
+            let correct = answer.answer == question.correctIndex
+            let points = Scoring.computeScore(
+                correct: correct,
+                responseTimeMs: answer.responseTimeMs,
+                timeLimitSeconds: question.timeLimitSeconds,
+                multiplier: question.pointsMultiplier
+            )
+            return PlayerPointResult(playerId: player.id, pointsGained: points, correct: correct, answeredIndex: answer.answer)
+        }
+
+        let nextRoundLabel = RoundStepLogic.label(for: RoundStepLogic.nextPassiveStep(from: nextStatus, questionIndex: room.questionIndex))
+        lastRoundResult = RoundResult(question: question, results: results, nextRoundLabel: nextRoundLabel)
+
+        do {
+            try await RoomService.updateRoom(roomId: room.id, patch: StatusPatch(status: nextStatus))
+        } catch {
+            lastError = error.localizedDescription
+        }
+    }
+
+    // Round-start countdown auto-advances once it hits 0 — nobody presses
+    // a button for this one, unlike the other passive stages. Keyed the
+    // same way the web's useCountdown resetKey is
+    // (room-status-questionIndex), so re-entering "countdown" at a
+    // different question_index restarts the 5s clock cleanly, and a
+    // realtime update that doesn't actually change any of those three
+    // doesn't restart an already-running timer.
+    private func syncCountdown() {
+        guard let room, room.status == .countdown else {
+            countdownTask?.cancel()
+            countdownTask = nil
+            countdownResetKey = nil
+            return
+        }
+        let key = "\(room.id.uuidString)-\(room.status.rawValue)-\(room.questionIndex ?? -1)"
+        guard key != countdownResetKey else { return }
+        countdownResetKey = key
+        countdownTask?.cancel()
+        countdownSecondsRemaining = roundStartCountdownSeconds
+
+        countdownTask = Task { [weak self] in
+            var remaining = roundStartCountdownSeconds
+            while remaining > 0 {
+                try? await Task.sleep(nanoseconds: 1_000_000_000)
+                if Task.isCancelled { return }
+                remaining -= 1
+                self?.countdownSecondsRemaining = remaining
+            }
+            await self?.handleCountdownFinished()
+        }
+    }
+
+    // Guarded on status so a stale timer (e.g. left running from a prior
+    // countdown) can't fire a redundant status write.
+    private func handleCountdownFinished() async {
+        guard let room, room.status == .countdown else { return }
+        do {
+            try await RoomService.updateRoom(roomId: room.id, patch: StatusPatch(status: .question))
         } catch {
             lastError = error.localizedDescription
         }

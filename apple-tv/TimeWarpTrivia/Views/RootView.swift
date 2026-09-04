@@ -14,9 +14,29 @@ struct RootView: View {
                 switch room.status {
                 case .lobby:
                     LobbyView()
+                case .countdown:
+                    if let question = flow.currentQuestion {
+                        RoundStartView(roundLabel: question.roundLabel, secondsRemaining: flow.countdownSecondsRemaining)
+                    } else {
+                        LoadingStateView(message: "Loading question…")
+                    }
+                case .question, .soloQuestion:
+                    if let question = flow.currentQuestion {
+                        QuestionView(question: question, soloPlayer: room.status == .soloQuestion ? flow.soloPlayer : nil)
+                            .id(question.id)
+                    } else {
+                        LoadingStateView(message: "Loading question…")
+                    }
+                case .transition, .soloTransition:
+                    if let result = flow.lastRoundResult {
+                        RoundTransitionView(result: result)
+                    } else {
+                        LoadingStateView(message: "Tallying scores…")
+                    }
+                case .scoreboard:
+                    ScoreboardView(roundLabel: flow.currentQuestion?.roundLabel ?? "")
                 default:
-                    // Rounds/scoreboard/block/end screens land in Phases
-                    // 2-3 — see the plan file.
+                    // Block/end screens land in Phase 3 — see the plan file.
                     Text(room.status.rawValue)
                         .foregroundStyle(TWTColor.textHi)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
