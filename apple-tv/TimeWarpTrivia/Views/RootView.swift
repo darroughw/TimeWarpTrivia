@@ -35,12 +35,14 @@ struct RootView: View {
                     }
                 case .scoreboard:
                     ScoreboardView(roundLabel: flow.currentQuestion?.roundLabel ?? "")
-                default:
-                    // Block/end screens land in Phase 3 — see the plan file.
-                    Text(room.status.rawValue)
-                        .foregroundStyle(TWTColor.textHi)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .background(TWTColor.void)
+                case .block:
+                    if flow.blockCandidates.isEmpty {
+                        LoadingStateView(message: "Picking questions…")
+                    } else {
+                        BlockView(candidates: flow.blockCandidates)
+                    }
+                case .end:
+                    EndGameView()
                 }
             } else {
                 IntroView()

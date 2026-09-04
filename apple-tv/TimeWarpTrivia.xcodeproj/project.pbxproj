@@ -12,12 +12,14 @@
 		0B77E502321279ACC5959027 /* fanfare.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 44AD369B88FCE9C013798933 /* fanfare.mp3 */; };
 		0E1B2FE77413C0A75729A841 /* block.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BEE9026987B5C64A570A74C5 /* block.mp3 */; };
 		0ECF01FEFC4DB888BB348739 /* trombone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 205B590D88DC70F2287EC2E9 /* trombone.mp3 */; };
+		17D4B48C0B22467311AB33DB /* EndGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F764DFE68B593BBBB8D26A /* EndGameView.swift */; };
 		1F9860323A97F5C87C7D9B28 /* whoosh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2ABF8BC615A48B464F9CAAF7 /* whoosh.mp3 */; };
 		2456A98994538296C3130558 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 97C186C570DC4A520F288BBE /* Supabase */; };
 		2B5141C17DBAC4F34779DB25 /* decade-2010s.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 582D35D63205E6EF1BCA735F /* decade-2010s.mp3 */; };
 		2BF2A872DB458F083C5F87BC /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B3AB5B76B7840EDDEE09C2 /* IntroView.swift */; };
 		3482018E3DCF4393A5E37D21 /* join.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8523A44512294DD23239BD27 /* join.mp3 */; };
 		3829D7672E2B51909E938D73 /* AnswersRealtimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E8F0A87B0A7A1D5FE1E571 /* AnswersRealtimeManager.swift */; };
+		398AF70B36DF5E9AF00D7C5B /* ArmConfirmButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A871EBE0749DF37B586F66E /* ArmConfirmButtonView.swift */; };
 		457DDC1570C6A1AFA826F2A6 /* tick.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 62BB6FE21EE4015C59A36A5E /* tick.mp3 */; };
 		4614F5B4C2913D000B0FAA4E /* correct.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AABDCA03E1492C84A8B7457D /* correct.mp3 */; };
 		48BE6673861386986B890231 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E764136AB37D6DE4DE2B7B5 /* Assets.xcassets */; };
@@ -58,6 +60,7 @@
 		DB7425ABD0A24666DD63FF93 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1739487A6D85C3AF9AA210D /* Player.swift */; };
 		E2170D2EBE4E5DFDA62073D5 /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780A42450625B1E00378F8DA /* SoundPlayer.swift */; };
 		E4FE974F07462B82C8C13FDB /* decade-90s.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2CC29D092EFD231EC416FB97 /* decade-90s.mp3 */; };
+		E7561A5C93B616A9332C5F6A /* BlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CC881FF560938C1565DFE8 /* BlockView.swift */; };
 		E7CDD164A6F056418504A7E8 /* QuestionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABE3B1B254C92F3D41A471F /* QuestionService.swift */; };
 		EA3273D63152BC20E6EBC454 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B8E84237D0125631D2213 /* Config.swift */; };
 /* End PBXBuildFile section */
@@ -70,6 +73,7 @@
 		205B590D88DC70F2287EC2E9 /* trombone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = trombone.mp3; sourceTree = "<group>"; };
 		2373B0072DF82EA124EC3799 /* Decade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decade.swift; sourceTree = "<group>"; };
 		28A1079944F472AF911FE081 /* RoomService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomService.swift; sourceTree = "<group>"; };
+		2A871EBE0749DF37B586F66E /* ArmConfirmButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmConfirmButtonView.swift; sourceTree = "<group>"; };
 		2ABF8BC615A48B464F9CAAF7 /* whoosh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = whoosh.mp3; sourceTree = "<group>"; };
 		2CC29D092EFD231EC416FB97 /* decade-90s.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "decade-90s.mp3"; sourceTree = "<group>"; };
 		2D020DD26156B81650A6C71C /* RoundTransitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundTransitionView.swift; sourceTree = "<group>"; };
@@ -99,6 +103,7 @@
 		A0B3AB5B76B7840EDDEE09C2 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		A24F8AA7A24A9AD1067BF230 /* GameFlowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFlowViewModel.swift; sourceTree = "<group>"; };
 		A5E06ED99FCE1F4AA457356B /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		A9CC881FF560938C1565DFE8 /* BlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockView.swift; sourceTree = "<group>"; };
 		AABDCA03E1492C84A8B7457D /* correct.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct.mp3; sourceTree = "<group>"; };
 		ACA1788FFB0A614D28920AB5 /* wrong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wrong.mp3; sourceTree = "<group>"; };
 		B10B8E84237D0125631D2213 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -113,6 +118,7 @@
 		D1739487A6D85C3AF9AA210D /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		E01FC2DFEE9116768707E8E1 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		E13D0C7BC1013006D6ECFAE7 /* ScoreboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreboardView.swift; sourceTree = "<group>"; };
+		E4F764DFE68B593BBBB8D26A /* EndGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameView.swift; sourceTree = "<group>"; };
 		EC859C245DC4A35FFF0CD912 /* PassiveAdvanceContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassiveAdvanceContainer.swift; sourceTree = "<group>"; };
 		EFA7BD53969434BF6D7241EA /* TimeWarpTrivia.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = TimeWarpTrivia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7DF853E3FF4FA40A9906577 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
@@ -248,6 +254,8 @@
 		CA5957D41FD846422FACCBAC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A9CC881FF560938C1565DFE8 /* BlockView.swift */,
+				E4F764DFE68B593BBBB8D26A /* EndGameView.swift */,
 				A0B3AB5B76B7840EDDEE09C2 /* IntroView.swift */,
 				49D9A301A7C3E358A870CBF8 /* LobbyView.swift */,
 				5F531DE34FEB8C1AC0993B89 /* QuestionView.swift */,
@@ -295,6 +303,7 @@
 		FD21E21797BAFEB0B21BFC01 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				2A871EBE0749DF37B586F66E /* ArmConfirmButtonView.swift */,
 				6B1088D4E31A53B2D2451350 /* CountdownRingView.swift */,
 				3AF08ED8B10F340283ECF98E /* DecadeFilterPillsView.swift */,
 				3E4CDEF348D7FD41E8DF4618 /* LoadingStateView.swift */,
@@ -396,13 +405,16 @@
 			files = (
 				98B35331FD75ED7F1828F4FE /* Answer.swift in Sources */,
 				3829D7672E2B51909E938D73 /* AnswersRealtimeManager.swift in Sources */,
+				398AF70B36DF5E9AF00D7C5B /* ArmConfirmButtonView.swift in Sources */,
 				556018495B46C6B84E7AECDD /* AvatarColor.swift in Sources */,
+				E7561A5C93B616A9332C5F6A /* BlockView.swift in Sources */,
 				C38926D981990D38A7BAD7DC /* Colors.swift in Sources */,
 				EA3273D63152BC20E6EBC454 /* Config.swift in Sources */,
 				94812ECDBD411A005BA41252 /* CountdownRingView.swift in Sources */,
 				4D2B7033240A83CBD0D5E112 /* Decade.swift in Sources */,
 				ACF0F5889DC57A2898139645 /* DecadeFilterPillsView.swift in Sources */,
 				7F72A816501842C846EFF711 /* DecadeId.swift in Sources */,
+				17D4B48C0B22467311AB33DB /* EndGameView.swift in Sources */,
 				B3C70BD1D2AD6FA634527F7D /* GameFlowViewModel.swift in Sources */,
 				2BF2A872DB458F083C5F87BC /* IntroView.swift in Sources */,
 				A578D0003049FBD6E12D5D85 /* LoadingStateView.swift in Sources */,

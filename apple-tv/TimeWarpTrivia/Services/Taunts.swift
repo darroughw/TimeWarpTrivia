@@ -32,4 +32,30 @@ enum Taunts {
         guard let target = trailing.randomElement(), let template = templates.randomElement() else { return nil }
         return template.replacingOccurrences(of: "{name}", with: target.name)
     }
+
+    private static let endGameTemplates = [
+        "{winner} wins it. {loser} already has excuses queued up for the rematch.",
+        "{winner} takes the crown. Everyone else takes the L. Run it back.",
+        "Congratulations, {winner}. The rest of you — we should talk. After another round.",
+        "{winner} peaked at exactly the right moment. {loser} peaked during the lobby screen. Go again.",
+        "That's a wrap. {loser} is already asking for a recount that will not be happening. Rematch instead.",
+        "{winner} wins. {loser} would like it noted that the questions were unfair. Prove it — play again.",
+        "History will remember {winner}. History will forget {loser} almost immediately. Fix that. Go again.",
+        "Somewhere, {loser} is blaming the WiFi. Prove them wrong. Play again.",
+    ]
+
+    // Picks a random smack-talk line pairing the game's actual winner and
+    // last-place finisher. Returns nil when there aren't at least two
+    // active players to compare (nothing to say about a field of one).
+    static func pickEndGameLine(players: [Player]) -> String? {
+        let active = players.filter { $0.status == .active }
+        guard active.count >= 2 else { return nil }
+        let ranked = active.rankedByScore()
+        guard let winner = ranked.first, let loser = ranked.last, let template = endGameTemplates.randomElement() else {
+            return nil
+        }
+        return template
+            .replacingOccurrences(of: "{winner}", with: winner.name)
+            .replacingOccurrences(of: "{loser}", with: loser.name)
+    }
 }
