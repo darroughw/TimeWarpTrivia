@@ -3,6 +3,10 @@ options:
   bundleIdPrefix: com.timewarptrivia
   deploymentTarget:
     tvOS: "16.0"
+packages:
+  Supabase:
+    url: https://github.com/supabase/supabase-swift
+    from: 2.55.1
 targets:
   TimeWarpTrivia:
     type: application
@@ -11,7 +15,7 @@ targets:
     sources:
       - path: TimeWarpTrivia
     dependencies:
-      - sdk: WebKit.framework
+      - package: Supabase
     configFiles:
       Debug: Signing.xcconfig
       Release: Signing.xcconfig

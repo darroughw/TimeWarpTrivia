@@ -7,21 +7,60 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		23BFAEE4821B2D8E219AFAE3 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B20F5DBEE2139E2ADFCBA59 /* WebViewController.swift */; };
+		0859831987C4D080CBFBD987 /* RoomPatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45570721CD322B08AD099300 /* RoomPatch.swift */; };
+		2456A98994538296C3130558 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 97C186C570DC4A520F288BBE /* Supabase */; };
+		2BF2A872DB458F083C5F87BC /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B3AB5B76B7840EDDEE09C2 /* IntroView.swift */; };
 		48BE6673861386986B890231 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E764136AB37D6DE4DE2B7B5 /* Assets.xcassets */; };
+		4A8204768CE4B3DC8D1385EB /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E06ED99FCE1F4AA457356B /* Question.swift */; };
+		4D2B7033240A83CBD0D5E112 /* Decade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2373B0072DF82EA124EC3799 /* Decade.swift */; };
+		556018495B46C6B84E7AECDD /* AvatarColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4FD218D554CE91449A71A7 /* AvatarColor.swift */; };
+		594D76827D8A2611ADD446AF /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01FC2DFEE9116768707E8E1 /* Room.swift */; };
 		6BC7994D79838736BCFF5524 /* TimeWarpTriviaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2E139B066EF380E5EF1392 /* TimeWarpTriviaApp.swift */; };
-		B371206E7ED788B1084B2F8E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 103613B5377FE7084AC91152 /* WebKit.framework */; };
-		CBEC80E8C15387E670C795FE /* WebViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B2065DE0C99A8598AA3C62 /* WebViewScreen.swift */; };
+		705F804E097C83348013ECD6 /* LobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D9A301A7C3E358A870CBF8 /* LobbyView.swift */; };
+		7E860E440006706257FA65BE /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC8F4806F19AE2416630288 /* RootView.swift */; };
+		7F72A816501842C846EFF711 /* DecadeId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393B215A11E74F830E3391F7 /* DecadeId.swift */; };
+		8309B899AD9791341C23AE45 /* RoomRealtimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B4B99C402DCFD96F6CFC6 /* RoomRealtimeManager.swift */; };
+		98B35331FD75ED7F1828F4FE /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DF853E3FF4FA40A9906577 /* Answer.swift */; };
+		9E834A3F5B349837E4DB9ACE /* RoomService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1079944F472AF911FE081 /* RoomService.swift */; };
+		A430C33CE22BDBE154070003 /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8A2F110C7F0ADAE889F84F /* Spacing.swift */; };
+		AB4E6D22A946B39DB5F1C276 /* SupabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2048680FD295F5CB29012BB /* SupabaseService.swift */; };
+		ACF0F5889DC57A2898139645 /* DecadeFilterPillsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF08ED8B10F340283ECF98E /* DecadeFilterPillsView.swift */; };
+		B1CFA3DBEB0E637E1585DABC /* PlayerAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02630661BA8C179F2244C50 /* PlayerAvatarView.swift */; };
+		B3C70BD1D2AD6FA634527F7D /* GameFlowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24F8AA7A24A9AD1067BF230 /* GameFlowViewModel.swift */; };
+		C3121F443279B1A41CC74122 /* RoomStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD873FEF660D95A2B50271 /* RoomStatus.swift */; };
+		C38926D981990D38A7BAD7DC /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF89744CCF667E580899BABA /* Colors.swift */; };
+		DB7425ABD0A24666DD63FF93 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1739487A6D85C3AF9AA210D /* Player.swift */; };
+		E7CDD164A6F056418504A7E8 /* QuestionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABE3B1B254C92F3D41A471F /* QuestionService.swift */; };
+		EA3273D63152BC20E6EBC454 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B8E84237D0125631D2213 /* Config.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0E764136AB37D6DE4DE2B7B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		103613B5377FE7084AC91152 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		1ABE3B1B254C92F3D41A471F /* QuestionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionService.swift; sourceTree = "<group>"; };
+		2373B0072DF82EA124EC3799 /* Decade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decade.swift; sourceTree = "<group>"; };
+		28A1079944F472AF911FE081 /* RoomService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomService.swift; sourceTree = "<group>"; };
+		393B215A11E74F830E3391F7 /* DecadeId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecadeId.swift; sourceTree = "<group>"; };
+		3AF08ED8B10F340283ECF98E /* DecadeFilterPillsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecadeFilterPillsView.swift; sourceTree = "<group>"; };
 		3BD264D3E0202109662FCB42 /* Signing.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Signing.xcconfig; sourceTree = "<group>"; };
-		4B20F5DBEE2139E2ADFCBA59 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		45570721CD322B08AD099300 /* RoomPatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPatch.swift; sourceTree = "<group>"; };
+		49D9A301A7C3E358A870CBF8 /* LobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyView.swift; sourceTree = "<group>"; };
+		5B8A2F110C7F0ADAE889F84F /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
 		5D2E139B066EF380E5EF1392 /* TimeWarpTriviaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeWarpTriviaApp.swift; sourceTree = "<group>"; };
-		62B2065DE0C99A8598AA3C62 /* WebViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewScreen.swift; sourceTree = "<group>"; };
+		9F4FD218D554CE91449A71A7 /* AvatarColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarColor.swift; sourceTree = "<group>"; };
+		A0B3AB5B76B7840EDDEE09C2 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
+		A24F8AA7A24A9AD1067BF230 /* GameFlowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFlowViewModel.swift; sourceTree = "<group>"; };
+		A5E06ED99FCE1F4AA457356B /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		B10B8E84237D0125631D2213 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		C2048680FD295F5CB29012BB /* SupabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseService.swift; sourceTree = "<group>"; };
+		C9FD873FEF660D95A2B50271 /* RoomStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomStatus.swift; sourceTree = "<group>"; };
+		CE3B4B99C402DCFD96F6CFC6 /* RoomRealtimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomRealtimeManager.swift; sourceTree = "<group>"; };
+		CF89744CCF667E580899BABA /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		D02630661BA8C179F2244C50 /* PlayerAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerAvatarView.swift; sourceTree = "<group>"; };
+		D1739487A6D85C3AF9AA210D /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		E01FC2DFEE9116768707E8E1 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		EFA7BD53969434BF6D7241EA /* TimeWarpTrivia.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = TimeWarpTrivia.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7DF853E3FF4FA40A9906577 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
+		FBC8F4806F19AE2416630288 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,13 +68,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B371206E7ED788B1084B2F8E /* WebKit.framework in Frameworks */,
+				2456A98994538296C3130558 /* Supabase in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00CAD2CAF2A56C7BF2580A22 /* Realtime */ = {
+			isa = PBXGroup;
+			children = (
+				CE3B4B99C402DCFD96F6CFC6 /* RoomRealtimeManager.swift */,
+			);
+			path = Realtime;
+			sourceTree = "<group>";
+		};
+		1611C590578BA431A61A20D4 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				CF89744CCF667E580899BABA /* Colors.swift */,
+				5B8A2F110C7F0ADAE889F84F /* Spacing.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		194D2945C9580EB8AED77063 /* GameFlow */ = {
+			isa = PBXGroup;
+			children = (
+				A24F8AA7A24A9AD1067BF230 /* GameFlowViewModel.swift */,
+			);
+			path = GameFlow;
+			sourceTree = "<group>";
+		};
 		2882A2397E16C274F1A5BA03 /* apple-tv */ = {
 			isa = PBXGroup;
 			children = (
@@ -50,17 +114,8 @@
 			children = (
 				2882A2397E16C274F1A5BA03 /* apple-tv */,
 				A33AD9CF6C78A42912ACBB44 /* TimeWarpTrivia */,
-				45D455AE9AA7D044B1D298B1 /* Frameworks */,
 				5D385DF7C0602D82725019C3 /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		45D455AE9AA7D044B1D298B1 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				103613B5377FE7084AC91152 /* WebKit.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		5D385DF7C0602D82725019C3 /* Products */ = {
@@ -76,10 +131,69 @@
 			children = (
 				0E764136AB37D6DE4DE2B7B5 /* Assets.xcassets */,
 				5D2E139B066EF380E5EF1392 /* TimeWarpTriviaApp.swift */,
-				4B20F5DBEE2139E2ADFCBA59 /* WebViewController.swift */,
-				62B2065DE0C99A8598AA3C62 /* WebViewScreen.swift */,
+				CA9C65ACC01ED6C081D52A01 /* Config */,
+				194D2945C9580EB8AED77063 /* GameFlow */,
+				F36E20866CC4C07095504F62 /* Models */,
+				00CAD2CAF2A56C7BF2580A22 /* Realtime */,
+				B1A85270EC8A53A5B357AB07 /* Services */,
+				1611C590578BA431A61A20D4 /* Theme */,
+				CA5957D41FD846422FACCBAC /* Views */,
 			);
 			path = TimeWarpTrivia;
+			sourceTree = "<group>";
+		};
+		B1A85270EC8A53A5B357AB07 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9F4FD218D554CE91449A71A7 /* AvatarColor.swift */,
+				1ABE3B1B254C92F3D41A471F /* QuestionService.swift */,
+				28A1079944F472AF911FE081 /* RoomService.swift */,
+				C2048680FD295F5CB29012BB /* SupabaseService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CA5957D41FD846422FACCBAC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A0B3AB5B76B7840EDDEE09C2 /* IntroView.swift */,
+				49D9A301A7C3E358A870CBF8 /* LobbyView.swift */,
+				FBC8F4806F19AE2416630288 /* RootView.swift */,
+				FD21E21797BAFEB0B21BFC01 /* Components */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CA9C65ACC01ED6C081D52A01 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				B10B8E84237D0125631D2213 /* Config.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		F36E20866CC4C07095504F62 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F7DF853E3FF4FA40A9906577 /* Answer.swift */,
+				2373B0072DF82EA124EC3799 /* Decade.swift */,
+				393B215A11E74F830E3391F7 /* DecadeId.swift */,
+				D1739487A6D85C3AF9AA210D /* Player.swift */,
+				A5E06ED99FCE1F4AA457356B /* Question.swift */,
+				E01FC2DFEE9116768707E8E1 /* Room.swift */,
+				45570721CD322B08AD099300 /* RoomPatch.swift */,
+				C9FD873FEF660D95A2B50271 /* RoomStatus.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FD21E21797BAFEB0B21BFC01 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				3AF08ED8B10F340283ECF98E /* DecadeFilterPillsView.swift */,
+				D02630661BA8C179F2244C50 /* PlayerAvatarView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -99,6 +213,7 @@
 			);
 			name = TimeWarpTrivia;
 			packageProductDependencies = (
+				97C186C570DC4A520F288BBE /* Supabase */,
 			);
 			productName = TimeWarpTrivia;
 			productReference = EFA7BD53969434BF6D7241EA /* TimeWarpTrivia.app */;
@@ -128,6 +243,9 @@
 			);
 			mainGroup = 3179513D8A59966337BE01D6;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				4C3467507F07A8F37B3A6B5B /* XCRemoteSwiftPackageReference "supabase-swift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5D385DF7C0602D82725019C3 /* Products */;
 			projectDirPath = "";
@@ -154,9 +272,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98B35331FD75ED7F1828F4FE /* Answer.swift in Sources */,
+				556018495B46C6B84E7AECDD /* AvatarColor.swift in Sources */,
+				C38926D981990D38A7BAD7DC /* Colors.swift in Sources */,
+				EA3273D63152BC20E6EBC454 /* Config.swift in Sources */,
+				4D2B7033240A83CBD0D5E112 /* Decade.swift in Sources */,
+				ACF0F5889DC57A2898139645 /* DecadeFilterPillsView.swift in Sources */,
+				7F72A816501842C846EFF711 /* DecadeId.swift in Sources */,
+				B3C70BD1D2AD6FA634527F7D /* GameFlowViewModel.swift in Sources */,
+				2BF2A872DB458F083C5F87BC /* IntroView.swift in Sources */,
+				705F804E097C83348013ECD6 /* LobbyView.swift in Sources */,
+				DB7425ABD0A24666DD63FF93 /* Player.swift in Sources */,
+				B1CFA3DBEB0E637E1585DABC /* PlayerAvatarView.swift in Sources */,
+				4A8204768CE4B3DC8D1385EB /* Question.swift in Sources */,
+				E7CDD164A6F056418504A7E8 /* QuestionService.swift in Sources */,
+				594D76827D8A2611ADD446AF /* Room.swift in Sources */,
+				0859831987C4D080CBFBD987 /* RoomPatch.swift in Sources */,
+				8309B899AD9791341C23AE45 /* RoomRealtimeManager.swift in Sources */,
+				9E834A3F5B349837E4DB9ACE /* RoomService.swift in Sources */,
+				C3121F443279B1A41CC74122 /* RoomStatus.swift in Sources */,
+				7E860E440006706257FA65BE /* RootView.swift in Sources */,
+				A430C33CE22BDBE154070003 /* Spacing.swift in Sources */,
+				AB4E6D22A946B39DB5F1C276 /* SupabaseService.swift in Sources */,
 				6BC7994D79838736BCFF5524 /* TimeWarpTriviaApp.swift in Sources */,
-				23BFAEE4821B2D8E219AFAE3 /* WebViewController.swift in Sources */,
-				CBEC80E8C15387E670C795FE /* WebViewScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +490,25 @@
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4C3467507F07A8F37B3A6B5B /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.55.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		97C186C570DC4A520F288BBE /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4C3467507F07A8F37B3A6B5B /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = ED7280E3E1B298305BA56875 /* Project object */;
 }
