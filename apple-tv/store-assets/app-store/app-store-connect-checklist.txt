@@ -56,46 +56,49 @@ PRIVACY POLICY
   Play checklist flagged for the data-deletion anchor.
 
 APP PRIVACY ("Nutrition label")
-Apple's categories differ from Google's Data Safety wording but the
-underlying facts are the same app, same three surfaces (web, phone,
-TV wrapper) — see the Play checklist's DATA SAFETY FORM section for the
-full reasoning; summarized here in Apple's category names:
+This form is filled out per App Store Connect app record, so it should
+describe what the Apple TV *binary* actually does — not the web app's
+footprint. Checked directly against the Swift source: the only
+dependency in apple-tv/project.yml is supabase-swift. No Sentry, no
+PostHog, no Vercel Analytics, no ad SDK, no location API anywhere in
+TimeWarpTrivia/ — those only exist in the Next.js web app, and the
+Android TV/Fire TV apps inherit them by loading that website in a
+WebView, but this native app never does. (Contrast the Play checklist's
+DATA SAFETY FORM section, which is correct for Android TV/Fire TV but
+should not be copied here as-is.)
 
-- Contact Info > Name — the chosen nickname. Same judgment call the Play
-  checklist made: Apple's own guidance covers any name-like identifier a
-  user provides, not just a legal name, so this counts even with no
-  real-name field anywhere. Required to join/host.
-- Contact Info > Email Address — only if a player uses the in-app
-  feedback form and opts to include one. Optional.
+- Contact Info > Name — the chosen nickname. Never entered on the TV
+  itself (no nickname field anywhere in the Apple TV app — that only
+  happens on a player's own phone/browser); the TV app receives and
+  displays it live via Supabase Realtime to run the shared-screen game.
+  Declare it anyway, since it's still data this app's functionality
+  depends on and displays.
+- Contact Info > Email Address — not applicable to this binary. The
+  Feedback modal was deliberately cut from the Apple TV app (on-screen
+  keyboard text entry is bad UX on a Siri Remote); only the Help modal
+  exists. No email is ever collected here.
 - User Content > Other User Content — gameplay data (room code,
-  questions shown, answers, timing, scores) and free-text feedback
-  message text. Gameplay: required. Feedback text: optional.
-- Diagnostics > Crash Data — Sentry. Automatic.
+  questions shown, answers, timing, scores). Required — this is the
+  entire point of the app.
+- Diagnostics > Crash Data — Not Collected. No Sentry (or any crash
+  reporter) is linked into this target.
 - Diagnostics > Performance Data, Usage Data > Product Interaction —
-  Vercel Analytics & Speed Insights, PostHog gameplay events. Automatic.
-- Location > Coarse Location — Yes, same finding as the Play checklist:
-  app/providers.tsx's posthog.init() call still doesn't set
-  disable_geoip: true as of this check, so PostHog's IP-based geoip
-  enrichment applies to every event, and Vercel Analytics' geography
-  breakdown works the same way. Precise Location: No — no
-  navigator.geolocation call anywhere in the app. Add disable_geoip:
-  true to that posthog.init() call instead if the goal is to avoid
-  declaring Location at all (same fix noted, still not applied, on the
-  Play side).
+  Not Collected. No Vercel Analytics/Speed Insights or PostHog in this
+  target.
+- Location > Coarse or Precise — Not Collected. No location API of any
+  kind, and no geoip-enriching analytics SDK (the PostHog/Vercel geoip
+  finding on the Play checklist doesn't apply here — those SDKs aren't
+  present).
 - Not collected: Health & Fitness, Financial Info, Sensitive Info,
   Contacts, Browsing History, Search History, Purchases — no accounts,
   no payment flow, no address book access anywhere in the app.
-- "Data Used to Track You" (Apple's cross-app/site ad-tracking
-  question, distinct from anything Play's form asks): No — no
-  advertising, no data sharing with data brokers or ad networks, no use
-  of IDFA. This is a clean No independent of the geoip/analytics answer
-  above, which is first-party product analytics, not tracking.
-- Linked to your identity vs. not linked: most of the above is not
-  linked to a persistent identity — there's no account, and a nickname
-  only exists for the lifetime of one ephemeral room. Apple's form asks
-  this per data type; default to "Not Linked" unless a specific
-  reviewer pushback says otherwise, since nothing here persists or
-  re-identifies a player across sessions.
+- "Data Used to Track You" — No. No advertising, no data sharing with
+  data brokers or ad networks, no IDFA use, no analytics SDK at all on
+  this binary.
+- Linked to your identity vs. not linked: the nickname/gameplay data
+  above is not linked to a persistent identity — there's no account,
+  and a nickname only exists for the lifetime of one ephemeral room.
+  Default to "Not Linked."
 
 APP REVIEW INFORMATION
 - Notes: paste app-review-notes.txt into the "Notes" field.

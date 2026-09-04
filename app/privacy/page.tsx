@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 // Last-updated stamp is manual, not derived from git, so it only moves
 // when someone deliberately revises the policy text below.
-const LAST_UPDATED = "September 3, 2026";
+const LAST_UPDATED = "September 4, 2026";
 
 export default function PrivacyPolicy() {
   return (
@@ -29,9 +29,11 @@ export default function PrivacyPolicy() {
 
         <p>
           This policy covers TimeWarp Trivia at every place you can play it: the website
-          (timewarptrivia.com), the phone screens players use to join a game, and the Android TV /
-          Fire TV / Apple TV apps — each a thin wrapper around the same website, so the same
-          practices below apply there too.
+          (timewarptrivia.com), the phone screens players use to join a game, the Android TV /
+          Fire TV apps (each a thin wrapper loading that same website), and the Apple TV app (a
+          native app that talks directly to the same backend, without loading the website itself)
+          — the practices below apply everywhere, with one difference called out below for the
+          Apple TV app specifically.
         </p>
 
         <h2>Information we collect</h2>
@@ -83,6 +85,13 @@ export default function PrivacyPolicy() {
           Each of these providers may incidentally see standard technical data that any web
           request carries, like IP address, as part of operating their service &mdash; we
           don&rsquo;t separately log or store that ourselves.
+        </p>
+        <p>
+          <strong>The Apple TV app is the one exception.</strong> Since it&rsquo;s a native app
+          that talks directly to our database rather than loading timewarptrivia.com, none of the
+          three services above run on it &mdash; no analytics, no crash reporting, nothing
+          collected automatically. It only sends and receives the gameplay data described above
+          (room code, questions, answers, scores) over an encrypted connection to our database.
         </p>
 
         <h2>How we use this information</h2>
