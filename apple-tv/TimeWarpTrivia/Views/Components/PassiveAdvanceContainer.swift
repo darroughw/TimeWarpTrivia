@@ -38,7 +38,7 @@ struct PassiveAdvanceContainer<Content: View>: View {
             .prefersDefaultFocus(true, in: namespace)
 
             Text("Press → or Select to continue")
-                .font(.caption)
+                .font(TWTFont.mono(13))
                 .foregroundStyle(TWTColor.textLo)
                 .padding(.bottom, TWTSpacing.md)
         }

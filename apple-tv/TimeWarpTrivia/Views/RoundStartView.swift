@@ -25,13 +25,14 @@ struct RoundStartView: View {
         VStack(spacing: TWTSpacing.md) {
             Spacer()
             Text(readyLine)
-                .font(.title3)
+                .font(TWTFont.body(24))
                 .foregroundStyle(TWTColor.textLo)
             Text(roundLabel)
-                .font(.system(size: 56, weight: .black))
-                .foregroundStyle(TWTColor.marigold)
+                .font(TWTFont.headline(56))
+                .textCase(.uppercase)
+                .foregroundStyle(TWTColor.textHi)
             Text("\(secondsRemaining)")
-                .font(.system(size: 120, weight: .bold, design: .monospaced))
+                .font(TWTFont.monoBold(120))
                 .foregroundStyle(TWTColor.textHi)
             Spacer()
         }

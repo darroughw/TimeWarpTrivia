@@ -30,16 +30,16 @@ struct CountdownRingView: View {
                     .animation(.linear(duration: 1), value: ratio)
                 VStack(spacing: 0) {
                     Text("\(clamped)")
-                        .font(.system(.largeTitle, design: .monospaced).bold())
+                        .font(TWTFont.monoBold(40))
                         .foregroundStyle(urgent ? TWTColor.coral : TWTColor.textHi)
                     Text("SEC")
-                        .font(.caption2)
+                        .font(TWTFont.body(11))
                         .foregroundStyle(TWTColor.textLo)
                 }
             }
             .frame(width: 140, height: 140)
             Text("\(points) pts")
-                .font(.system(.callout, design: .monospaced).bold())
+                .font(TWTFont.monoBold(16))
                 .foregroundStyle(TWTColor.marigold)
         }
     }

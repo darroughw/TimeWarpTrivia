@@ -13,11 +13,12 @@ struct ScoreboardView: View {
         PassiveAdvanceContainer {
             VStack(alignment: .leading, spacing: TWTSpacing.lg) {
                 VStack(alignment: .leading, spacing: TWTSpacing.xs) {
-                    Text("STANDINGS AFTER \(roundLabel.uppercased())")
-                        .font(.caption)
+                    Text("STANDINGS AFTER \(roundLabel)")
+                        .font(TWTFont.body(13))
+                        .textCase(.uppercase)
                         .foregroundStyle(TWTColor.textLo)
                     Text("Scoreboard")
-                        .font(.system(size: 44, weight: .black))
+                        .font(TWTFont.headline(44))
                         .foregroundStyle(TWTColor.textHi)
                 }
                 ScrollView {
@@ -37,16 +38,16 @@ struct ScoreboardView: View {
     private func row(rank: Int, player: Player, isFirst: Bool) -> some View {
         HStack(spacing: TWTSpacing.md) {
             Text("\(rank)")
-                .font(.system(.title2, design: .monospaced).bold())
+                .font(TWTFont.monoBold(24))
                 .foregroundStyle(isFirst ? TWTColor.marigold : TWTColor.textLo)
                 .frame(width: 44, alignment: .leading)
             PlayerAvatarView(player: player, size: .sm)
             Text(player.name)
-                .font(.title3)
+                .font(TWTFont.body(20))
                 .foregroundStyle(TWTColor.textHi)
             Spacer()
             Text(player.score.formatted())
-                .font(.system(.title2, design: .monospaced).bold())
+                .font(TWTFont.monoBold(24))
                 .foregroundStyle(TWTColor.marigold)
         }
         .padding(TWTSpacing.md)

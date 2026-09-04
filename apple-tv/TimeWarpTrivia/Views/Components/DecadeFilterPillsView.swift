@@ -1,9 +1,7 @@
 import SwiftUI
 
 // Direct port of components/tv/DecadeFilter.tsx: a radio-group row of
-// decade-colored pills. Sound (playDecadeSting on an actual change, never
-// on re-selecting the already-selected pill) lands in Phase 4 alongside
-// the rest of the sound system — see SoundPlayer.
+// decade-colored pills.
 struct DecadeFilterPillsView: View {
     let decades: [Decade]
     let selectedId: DecadeId
@@ -14,10 +12,16 @@ struct DecadeFilterPillsView: View {
             ForEach(decades) { decade in
                 let selected = decade.id == selectedId
                 Button {
+                    // Only on an actual change — clicking the
+                    // already-selected pill again shouldn't re-trigger
+                    // the "you just picked this" sting.
+                    if !selected, let sting = decade.id.stingSound {
+                        SoundPlayer.shared.play(sting)
+                    }
                     onSelect(decade.id)
                 } label: {
                     Text(decade.label)
-                        .font(.headline)
+                        .font(TWTFont.bodyBold(18))
                         .padding(.horizontal, TWTSpacing.md)
                         .padding(.vertical, TWTSpacing.xs)
                 }

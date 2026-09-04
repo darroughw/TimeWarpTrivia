@@ -48,6 +48,7 @@ struct RootView: View {
                 IntroView()
             }
         }
+        .overlay(ScanlineOverlayView())
         .alert(
             "Something went wrong",
             isPresented: Binding(get: { flow.lastError != nil }, set: { if !$0 { flow.lastError = nil } })

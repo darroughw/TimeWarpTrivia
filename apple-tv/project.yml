@@ -19,6 +19,27 @@ targets:
     configFiles:
       Debug: Signing.xcconfig
       Release: Signing.xcconfig
+    # UIAppFonts needs a real plist array, which the INFOPLIST_KEY_*
+    # build-setting bridge can't carry (confirmed empirically — it just
+    # silently drops it, same failure mode Config.swift hit with
+    # GENERATE_INFOPLIST_FILE earlier). Switched to xcodegen's physical
+    # Info.plist mechanism instead; UILaunchScreen/UIApplicationSceneManifest
+    # below are the raw-key equivalents of the two
+    # INFOPLIST_KEY_*_Generation build settings this replaces — xcodegen
+    # still auto-populates the standard keys (CFBundleIdentifier etc.)
+    # either way.
+    info:
+      path: TimeWarpTrivia/Info.plist
+      properties:
+        UILaunchScreen: {}
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+        UIAppFonts:
+          - Archivo-Regular.ttf
+          - Archivo-Bold.ttf
+          - ArchivoBlack-Regular.ttf
+          - SpaceMono-Regular.ttf
+          - SpaceMono-Bold.ttf
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.timewarptrivia.appletv
@@ -26,8 +47,5 @@ targets:
         ASSETCATALOG_COMPILER_APPICON_NAME: "App Icon & Top Shelf Image"
         SWIFT_VERSION: "5.0"
         TARGETED_DEVICE_FAMILY: "3"
-        GENERATE_INFOPLIST_FILE: YES
-        INFOPLIST_KEY_UILaunchScreen_Generation: YES
-        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
         MARKETING_VERSION: "1.0"
         CURRENT_PROJECT_VERSION: "1"

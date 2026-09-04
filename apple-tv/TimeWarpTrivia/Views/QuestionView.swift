@@ -73,14 +73,22 @@ struct QuestionView: View {
             VStack(alignment: .leading, spacing: TWTSpacing.sm) {
                 if let soloPlayer {
                     Text("⚡ Solo round: only \(soloPlayer.name) can answer")
-                        .font(.headline)
+                        .font(TWTFont.bodyBold(20))
                         .foregroundStyle(TWTColor.marigold)
                 }
-                Text(question.roundLabel.uppercased())
-                    .font(.caption)
-                    .foregroundStyle(TWTColor.textLo)
+                Text(question.roundLabel)
+                    .font(TWTFont.bodyBold(18))
+                    .textCase(.uppercase)
+                    .foregroundStyle(TWTColor.marigold)
+                // question-heading (app/styles/_mixins.scss): Archivo
+                // Bold, sentence case — deliberately NOT the Archivo
+                // Black marquee-heading font every other title on this
+                // screen uses. All-caps at question length loses the
+                // letterform cues fast readers rely on, and Archivo
+                // Black runs wide enough to force more scrolling before
+                // every answer option is visible.
                 Text(question.text)
-                    .font(.system(size: 40, weight: .bold))
+                    .font(TWTFont.bodyBold(36))
                     .foregroundStyle(TWTColor.textHi)
             }
             Spacer()
@@ -97,11 +105,11 @@ struct QuestionView: View {
             ForEach(Array(question.options.enumerated()), id: \.offset) { index, option in
                 HStack(spacing: TWTSpacing.md) {
                     Text(OptionLetter.all[index])
-                        .font(.system(.title2, design: .monospaced).bold())
+                        .font(TWTFont.monoBold(24))
                         .foregroundStyle(TWTColor.marigold)
                         .frame(width: 44)
                     Text(option)
-                        .font(.title3)
+                        .font(TWTFont.body(22))
                         .foregroundStyle(TWTColor.textHi)
                     Spacer()
                 }
@@ -122,6 +130,7 @@ struct QuestionView: View {
                     Text("\(answeredCount) of \(flow.activePlayerCount) players answered")
                 }
             }
+            .font(TWTFont.body(17))
             .foregroundStyle(TWTColor.textLo)
 
             GeometryReader { geometry in

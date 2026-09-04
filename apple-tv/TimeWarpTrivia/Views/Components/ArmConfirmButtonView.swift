@@ -22,6 +22,8 @@ struct ArmConfirmButtonView: View {
     var body: some View {
         Button(action: handleTap) {
             Text(armed ? armedLabel : label)
+                .font(TWTFont.bodyBold(14))
+                .textCase(.uppercase)
         }
         .focused($isFocused)
         .onChange(of: isFocused) { focused in

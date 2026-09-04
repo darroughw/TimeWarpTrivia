@@ -7,7 +7,7 @@ struct LoadingStateView: View {
 
     var body: some View {
         Text(message)
-            .font(.title3)
+            .font(TWTFont.body(24))
             .foregroundStyle(TWTColor.textLo)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(TWTColor.void)

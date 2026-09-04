@@ -43,7 +43,7 @@ struct PlayerAvatarView: View {
         VStack(spacing: TWTSpacing.xs) {
             if let rank {
                 Text("#\(rank)")
-                    .font(.caption2)
+                    .font(TWTFont.mono(13))
                     .foregroundStyle(TWTColor.textLo)
             }
             Text(player.avatar)
@@ -53,14 +53,20 @@ struct PlayerAvatarView: View {
                 .overlay(Circle().strokeBorder(isWinner ? TWTColor.marigold : ringColor, lineWidth: isWinner ? twtBorderWidth + 1 : twtBorderWidth))
             if showName {
                 Text(player.name)
-                    .font(.caption)
+                    .font(TWTFont.bodyBold(15))
                     .foregroundStyle(TWTColor.textHi)
                     .lineLimit(1)
             }
             if showScore {
+                // .score (PlayerAvatar.module.scss): mono-figure, colored
+                // to match this player's own ring color (falls back to
+                // marigold only when no player color is set — which
+                // never actually happens here, every player always has
+                // one, but matches the web's var(--player-color, marigold)
+                // fallback for parity).
                 Text("\(player.score.formatted()) pts")
-                    .font(.caption2.monospaced())
-                    .foregroundStyle(TWTColor.marigold)
+                    .font(TWTFont.mono(15))
+                    .foregroundStyle(ringColor)
             }
         }
     }

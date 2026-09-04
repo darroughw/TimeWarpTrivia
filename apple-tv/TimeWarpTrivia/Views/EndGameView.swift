@@ -14,10 +14,11 @@ struct EndGameView: View {
         VStack(spacing: TWTSpacing.lg) {
             VStack(spacing: TWTSpacing.xs) {
                 Text("GAME OVER")
-                    .font(.caption)
-                    .foregroundStyle(TWTColor.textLo)
+                    .font(TWTFont.bodyBold(18))
+                    .textCase(.uppercase)
+                    .foregroundStyle(TWTColor.marigold)
                 Text("Final Results")
-                    .font(.system(size: 48, weight: .black))
+                    .font(TWTFont.headline(48))
                     .foregroundStyle(TWTColor.marigold)
             }
 
@@ -27,12 +28,12 @@ struct EndGameView: View {
                 VStack(spacing: TWTSpacing.xs) {
                     ForEach(Array(rest.enumerated()), id: \.element.id) { index, player in
                         HStack {
-                            Text("#\(index + 4)  \(player.name)")
-                                .foregroundStyle(TWTColor.textHi)
+                            (Text("#\(index + 4)  ").font(TWTFont.mono(16)).foregroundColor(TWTColor.textLo)
+                                + Text(player.name).font(TWTFont.body(16)).foregroundColor(TWTColor.textHi))
                             Spacer()
                             Text(player.score.formatted())
-                                .font(.system(.body, design: .monospaced))
-                                .foregroundStyle(TWTColor.textLo)
+                                .font(TWTFont.mono(16))
+                                .foregroundStyle(TWTColor.teal)
                         }
                         .padding(.horizontal, TWTSpacing.md)
                     }
@@ -45,7 +46,7 @@ struct EndGameView: View {
             VStack(spacing: TWTSpacing.md) {
                 if let smackTalk {
                     Text(smackTalk)
-                        .font(.callout)
+                        .font(TWTFont.bodyBold(20))
                         .foregroundStyle(TWTColor.coral)
                         .multilineTextAlignment(.center)
                         .frame(maxWidth: 800)
@@ -53,7 +54,8 @@ struct EndGameView: View {
                 HStack(spacing: TWTSpacing.md) {
                     Button(action: { Task { await flow.handlePlayAgain() } }) {
                         Text("Play Again")
-                            .font(.headline)
+                            .font(TWTFont.headline(22))
+                            .textCase(.uppercase)
                             .padding(.horizontal, TWTSpacing.xl)
                             .padding(.vertical, TWTSpacing.sm)
                     }
@@ -90,7 +92,7 @@ struct EndGameView: View {
                 .frame(width: 120, height: height)
                 .overlay(
                     Text("\(place)")
-                        .font(.system(.title, design: .monospaced).bold())
+                        .font(TWTFont.monoBold(32))
                         .foregroundStyle(place == 1 ? TWTColor.marigold : TWTColor.textLo)
                 )
         }

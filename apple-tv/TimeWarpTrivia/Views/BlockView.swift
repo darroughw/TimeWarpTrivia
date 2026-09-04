@@ -29,21 +29,24 @@ struct BlockView: View {
         VStack(alignment: .leading, spacing: TWTSpacing.lg) {
             VStack(alignment: .leading, spacing: TWTSpacing.xs) {
                 Text("BEFORE THE FINAL ROUND")
-                    .font(.caption)
-                    .foregroundStyle(TWTColor.textLo)
-                // .foregroundStyle on a Text segment being concatenated
-                // needs tvOS 17 — .foregroundColor is the tvOS-16-safe
-                // equivalent for this specific Text + Text case.
-                (Text(chooser.name).foregroundColor(TWTColor.marigold)
+                    .font(TWTFont.bodyBold(18))
+                    .textCase(.uppercase)
+                    .foregroundStyle(TWTColor.coral)
+                // .title/.highlight (BlockScreen.module.scss): marquee-
+                // heading with the chooser's name in coral. .foregroundStyle
+                // on a Text segment being concatenated needs tvOS 17 —
+                // .foregroundColor is the tvOS-16-safe equivalent here.
+                (Text(chooser.name).foregroundColor(TWTColor.coral)
                     + Text(" is in last place and is picking one question to answer alone.")
                     .foregroundColor(TWTColor.textHi))
-                    .font(.system(size: 34, weight: .bold))
+                    .font(TWTFont.headline(34))
             }
 
             HStack(alignment: .top, spacing: TWTSpacing.xl) {
                 VStack(spacing: TWTSpacing.sm) {
                     Text("LAST PLACE")
-                        .font(.caption2)
+                        .font(TWTFont.monoBold(13))
+                        .textCase(.uppercase)
                         .foregroundStyle(TWTColor.coral)
                     PlayerAvatarView(player: chooser, size: .lg, showName: true, showScore: true)
                 }
@@ -52,8 +55,9 @@ struct BlockView: View {
                     ForEach(candidates) { candidate in
                         HStack(spacing: TWTSpacing.md) {
                             if let decadeId = candidate.decadeId {
-                                Text(decadeId.rawValue.uppercased())
-                                    .font(.caption2.bold())
+                                Text(decadeId.rawValue)
+                                    .font(TWTFont.monoBold(13))
+                                    .textCase(.uppercase)
                                     .foregroundStyle(TWTColor.ink)
                                     .padding(.horizontal, TWTSpacing.xs)
                                     .padding(.vertical, 2)
@@ -61,7 +65,7 @@ struct BlockView: View {
                                     .clipShape(Capsule())
                             }
                             Text(candidate.text)
-                                .font(.title3)
+                                .font(TWTFont.body(20))
                                 .foregroundStyle(TWTColor.textHi)
                         }
                         .padding(TWTSpacing.md)
@@ -75,7 +79,7 @@ struct BlockView: View {
             Spacer()
 
             Text("Whichever one they pick, only \(chooser.name) can answer it. Everyone else sits this one out. Correct and fast still scores full points.")
-                .font(.callout)
+                .font(TWTFont.body(17))
                 .foregroundStyle(TWTColor.textLo)
         }
         .padding(TWTSpacing.xl)

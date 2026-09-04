@@ -11,7 +11,7 @@ struct RoundTransitionView: View {
         PassiveAdvanceContainer {
             VStack(spacing: TWTSpacing.lg) {
                 Text("CORRECT ANSWER")
-                    .font(.caption)
+                    .font(TWTFont.body(13))
                     .foregroundStyle(TWTColor.textLo)
                 answerCard
                 resultsGrid
@@ -32,17 +32,24 @@ struct RoundTransitionView: View {
     private var answerCard: some View {
         HStack(spacing: TWTSpacing.md) {
             Text(OptionLetter.all[result.question.correctIndex])
-                .font(.system(.title, design: .monospaced).bold())
+                .font(TWTFont.monoBold(28))
                 .foregroundStyle(TWTColor.ink)
                 .frame(width: 56, height: 56)
                 .background(Circle().fill(TWTColor.teal))
+            // .answerText (app/styles/_mixins.scss): marquee-heading, same
+            // Archivo Black treatment as every other title on this screen.
+            // .textCase(.uppercase), not a manual .uppercased() on the
+            // string, mirrors CSS text-transform: uppercase — visual only,
+            // doesn't touch the underlying string VoiceOver reads.
             Text(result.question.options[result.question.correctIndex])
-                .font(.title2.bold())
-                .foregroundStyle(TWTColor.ink)
+                .font(TWTFont.headline(28))
+                .textCase(.uppercase)
+                .foregroundStyle(TWTColor.paper)
         }
         .padding(TWTSpacing.md)
-        .background(TWTColor.paper)
-        .clipShape(RoundedRectangle(cornerRadius: TWTRadius.lg))
+        .background(TWTColor.voidRaised)
+        .overlay(RoundedRectangle(cornerRadius: TWTRadius.md).strokeBorder(TWTColor.teal, lineWidth: twtBorderWidth))
+        .clipShape(RoundedRectangle(cornerRadius: TWTRadius.md))
     }
 
     private var resultsGrid: some View {
@@ -52,10 +59,10 @@ struct RoundTransitionView: View {
                     VStack(spacing: TWTSpacing.xs) {
                         PlayerAvatarView(player: player, size: .sm)
                         Text(player.name)
-                            .font(.caption)
+                            .font(TWTFont.body(15))
                             .foregroundStyle(TWTColor.textHi)
                         Text(pointResult.pointsGained > 0 ? "+\(pointResult.pointsGained)" : "+0")
-                            .font(.system(.title3, design: .monospaced).bold())
+                            .font(TWTFont.monoBold(22))
                             .foregroundStyle(pointResult.pointsGained > 0 ? TWTColor.teal : TWTColor.textLo)
                     }
                     .padding(TWTSpacing.sm)
@@ -78,7 +85,7 @@ struct RoundTransitionView: View {
         HStack {
             if let taunt {
                 Text(taunt)
-                    .font(.callout)
+                    .font(TWTFont.body(17))
                     .foregroundStyle(TWTColor.coral)
                     .frame(maxWidth: 600, alignment: .leading)
             } else {
@@ -87,10 +94,12 @@ struct RoundTransitionView: View {
             Spacer()
             VStack(alignment: .trailing) {
                 Text("UP NEXT")
-                    .font(.caption2)
+                    .font(TWTFont.body(11))
                     .foregroundStyle(TWTColor.textLo)
+                // .nextRound (app/styles/_mixins.scss): marquee-heading.
                 Text(result.nextRoundLabel)
-                    .font(.title3.bold())
+                    .font(TWTFont.headline(22))
+                    .textCase(.uppercase)
                     .foregroundStyle(TWTColor.marigold)
             }
         }

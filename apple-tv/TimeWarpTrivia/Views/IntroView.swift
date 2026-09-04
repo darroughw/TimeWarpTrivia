@@ -14,10 +14,10 @@ struct IntroView: View {
         VStack(spacing: TWTSpacing.lg) {
             Spacer()
             Text("TIMEWARP TRIVIA")
-                .font(.system(size: 64, weight: .black))
+                .font(TWTFont.headline(64))
                 .foregroundStyle(TWTColor.marigold)
             Text("Six decades of pop culture trivia on the big screen — everyone else's phone is the buzzer.")
-                .font(.title3)
+                .font(TWTFont.body(28))
                 .foregroundStyle(TWTColor.textHi)
                 .multilineTextAlignment(.center)
                 .frame(maxWidth: 900)
@@ -27,7 +27,7 @@ struct IntroView: View {
                 Task { await flow.bootstrap() }
             } label: {
                 Text("Start")
-                    .font(.headline)
+                    .font(TWTFont.bodyBold(24))
                     .padding(.horizontal, TWTSpacing.xl)
                     .padding(.vertical, TWTSpacing.sm)
             }
