@@ -34,6 +34,11 @@ targets:
         UILaunchScreen: {}
         UIApplicationSceneManifest:
           UIApplicationSupportsMultipleScenes: false
+        # Only HTTPS via URLSession (through the supabase-swift package) —
+        # no proprietary or self-implemented crypto — so this is exempt
+        # and set here to skip App Store Connect's encryption prompt on
+        # every future upload.
+        ITSAppUsesNonExemptEncryption: false
         UIAppFonts:
           - Archivo-Regular.ttf
           - Archivo-Bold.ttf
