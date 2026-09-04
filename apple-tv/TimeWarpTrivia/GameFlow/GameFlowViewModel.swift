@@ -16,6 +16,13 @@ final class GameFlowViewModel: ObservableObject {
     @Published private(set) var currentQuestion: Question?
     @Published private(set) var blockCandidates: [Question] = []
     @Published var lastError: String?
+    // Set specifically when the app can't even create its room — the
+    // native equivalent of the old WebViewController's "main-frame load
+    // fails" case (no DOM/page-load concept exists here, but "can we
+    // reach Supabase at all, at launch" is the same moment). Mid-game
+    // realtime drops aren't handled here — supabase-swift's Realtime
+    // client reconnects on its own, same as the web app's JS client.
+    @Published private(set) var connectionFailed = false
 
     // Fresh per app-launch, mirrors LiveTvFlow.tsx's `useState(() => crypto.randomUUID())`.
     private let hostId = UUID().uuidString
@@ -57,6 +64,7 @@ final class GameFlowViewModel: ObservableObject {
     // Creates a fresh room the moment the app boots up — mirrors
     // LiveTvFlow.tsx's mount-time createRoom effect.
     func bootstrap() async {
+        connectionFailed = false
         SoundPlayer.shared.preloadAll()
 
         roomRealtime.onRoomChange = { [weak self] room in
@@ -77,12 +85,19 @@ final class GameFlowViewModel: ObservableObject {
             try await roomRealtime.start(roomId: newRoom.id)
             try await answersRealtime.start(roomId: newRoom.id)
         } catch {
-            lastError = error.localizedDescription
+            // Can't even create the room — nothing else about the app is
+            // usable from here, so this is the dedicated offline/error
+            // screen, not just the generic lastError alert.
+            connectionFailed = true
+            return
         }
 
         // The lobby's decade filter is data-driven — fetched once, not
         // hardcoded — so a new decade becomes a data change, not a code
-        // deploy.
+        // deploy. A failure here isn't fatal the way room creation
+        // failing is — the room already exists and is usable, just
+        // without a populated decade list yet — so this stays a
+        // non-blocking lastError rather than connectionFailed.
         do {
             decades = try await QuestionService.fetchDecades()
         } catch {

@@ -44,6 +44,8 @@ struct RootView: View {
                 case .end:
                     EndGameView()
                 }
+            } else if flow.connectionFailed {
+                OfflineErrorView()
             } else {
                 IntroView()
             }
