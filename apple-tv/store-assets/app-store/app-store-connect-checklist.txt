@@ -29,22 +29,16 @@ STORE LISTING
 - Screenshots: tvOS requires at least one 1920x1080 (or 3840x2160)
   screenshot. `screenshots/*.png` has five (intro, lobby, question,
   scoreboard, final results), matching the other two platforms' sets —
-  captured the same way as the Fire TV/Google Play ones (headless Chrome
-  against this machine's own `npm run dev`, mock/demo mode via
-  MockTvFlow, 1920x1080 viewport), except driven with puppeteer-core
-  (attached to the system Chrome.app rather than a bundled download)
-  instead of a one-off CLI screenshot, since MockTvFlow needs real
-  ArrowRight/Enter keydowns to pass the transition/scoreboard/block
-  screens — it isn't purely timer-driven the way "self-advances on a
-  timer" might suggest; only the question screens' own countdown auto-
-  advances on its own. `capture-screenshots.js` in this same folder is
-  that script, kept (unlike Fire TV's/Google Play's, which apparently
-  weren't) so regenerating after a UI change doesn't mean rebuilding
-  this from scratch — see its header comment for exact usage. These are
-  real captures of the real web app in mock mode,
-  not mockups, same caveat as the other two platforms' sets: if App
-  Review wants device-sourced screenshots specifically, recapture from
-  the tvOS simulator or a real Apple TV instead.
+  captured at 3840x2160 against the real native SwiftUI app (not a
+  WebView, not the web app's mock flow) running in the tvOS Simulator,
+  driven via direct Supabase REST calls (insert players, patch room
+  status) since there's no scriptable/headless run mode for a native
+  app the way a browser has. `screenshots/README.md` documents the
+  exact manual process for whenever these need retaking. These are real
+  captures of the real app, not mockups, same caveat as the other two
+  platforms' sets: if App Review wants device-sourced screenshots
+  specifically, recapture from a real Apple TV instead of the
+  Simulator.
 - Category: Games > Trivia, or Entertainment — same open question noted
   in the Play checklist; check which shows closer tvOS competitors.
 - Copyright: © 2026 TimeWarp Trivia (adjust year at submission time)

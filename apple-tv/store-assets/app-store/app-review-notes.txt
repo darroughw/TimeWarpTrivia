@@ -13,6 +13,6 @@ To test using only the Apple TV plus one other browser:
 
 Every screen (lobby, question, scoreboard, and the offline/error screen if the network drops) is fully operable with the Siri Remote's touch surface alone — no keyboard, mouse, or paired game controller is required anywhere in the app. The remote's Menu button is intentionally left to tvOS's own system handling (e.g. Home) rather than mapped to anything in-app.
 
-If the app can't reach the server (no connection), it shows a native "Lost the signal" screen with a Retry button instead of a broken page or WebKit's default error rendering.
+If the app can't reach the server at launch (no connection), it shows a native "Lost the signal" screen with a Retry button rather than getting stuck on a blank screen.
 
 Moderation note for the free-text nickname field: nicknames are filtered against a slur/profanity list both client-side and server-side (so it can't be bypassed), capped at 20 characters, and only ever visible to players inside that one ephemeral room — never public or global. The host can also remove any player from the lobby in two remote clicks if a nickname or a player's behavior is a problem.
