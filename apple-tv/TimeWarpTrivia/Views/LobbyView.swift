@@ -1,5 +1,21 @@
 import SwiftUI
 
+// Named focus targets for LobbyView's two widely-separated focusable
+// regions (the decade-pill sidebar, top-right; the footer, bottom).
+// tvOS's automatic geometric focus engine turned out to be unreliable
+// across that gap in BOTH directions depending on configuration —
+// .focusSection() on both regions fixed sidebar-\>footer but broke
+// footer-\>sidebar (and no .focusSection() was the exact reverse) — so
+// rather than keep chasing the automatic engine, .onMoveCommand on each
+// region explicitly redirects focus via this enum when the engine hits
+// a dead end. Same technique PassiveAdvanceContainer already uses
+// elsewhere in this app.
+enum LobbyFocusTarget: Hashable {
+    case decade(DecadeId)
+    case help
+    case startGame
+}
+
 // Direct port of components/tv/LobbyScreen.tsx (decade mode — Deep Cuts'
 // DeepCutsLobbyScreen equivalent is deferred, see the plan).
 struct LobbyView: View {
@@ -9,6 +25,7 @@ struct LobbyView: View {
     // (e.g. reopening a lobby already at 3) doesn't itself sound like a
     // join — mirrors the web's prevActiveCountRef starting at null.
     @State private var previousActiveCount: Int?
+    @FocusState private var focusedControl: LobbyFocusTarget?
 
     private var activeCount: Int { flow.activePlayerCount }
 
@@ -77,7 +94,16 @@ struct LobbyView: View {
                 }
             }
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
+        // No .frame(maxWidth: .infinity) here — on tvOS a "greedy"
+        // maxWidth-.infinity frame on this view broke the focus engine's
+        // directional navigation into `sidebar` (its HStack sibling below),
+        // even though nothing visually overlapped: DecadeFilterPillsView's
+        // buttons became permanently unreachable by remote/D-pad, focus
+        // stuck on the footer's Help button with nowhere else to go.
+        // Confirmed by bisection — removing just this modifier restored
+        // navigation with no other change. LazyVGrid's own .adaptive
+        // columns already claim the width they're proposed, so dropping
+        // this doesn't change the empty/populated layout either way.
     }
 
     private var sidebar: some View {
@@ -88,7 +114,8 @@ struct LobbyView: View {
             DecadeFilterPillsView(
                 decades: flow.decades + [allDecadesOption],
                 selectedId: flow.room?.decadeFilter ?? .all,
-                onSelect: flow.selectDecade
+                onSelect: flow.selectDecade,
+                focusedControl: $focusedControl
             )
         }
     }
@@ -100,6 +127,7 @@ struct LobbyView: View {
                 .foregroundStyle(TWTColor.textLo)
             Button("Help") { showHelp = true }
                 .font(TWTFont.body(15))
+                .focused($focusedControl, equals: .help)
             Spacer()
             if activeCount < 2 {
                 Text("Need 2 players to start")
@@ -116,6 +144,20 @@ struct LobbyView: View {
             }
             .tint(TWTColor.marigold)
             .disabled(!flow.canStartGame || flow.isStartingGame)
+            // Mirrors startButton's &:disabled rule in
+            // LobbyScreen.module.scss (opacity: 0.4) — without this a
+            // disabled Start Game looks fully active and reads as a bug
+            // (nothing on screen shows it can't be pressed).
+            .opacity(flow.canStartGame && !flow.isStartingGame ? 1 : 0.4)
+            .focused($focusedControl, equals: .startGame)
+        }
+        .onMoveCommand { direction in
+            // Fires only when the engine finds no natural next
+            // focusable item in that direction — see
+            // PassiveAdvanceContainer's identical use of this fallback
+            // semantics.
+            guard direction == .up else { return }
+            focusedControl = .decade(flow.room?.decadeFilter ?? .all)
         }
     }
 }

@@ -85,7 +85,7 @@ struct RoundTransitionView: View {
         HStack {
             if let taunt {
                 Text(taunt)
-                    .font(TWTFont.body(17))
+                    .font(TWTFont.bodyBold(20))
                     .foregroundStyle(TWTColor.coral)
                     .frame(maxWidth: 600, alignment: .leading)
             } else {

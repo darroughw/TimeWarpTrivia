@@ -16,3 +16,42 @@ Every screen (lobby, question, scoreboard, and the offline/error screen if the n
 If the app can't reach the server at launch (no connection), it shows a native "Lost the signal" screen with a Retry button rather than getting stuck on a blank screen.
 
 Moderation note for the free-text nickname field: nicknames are filtered against a slur/profanity list both client-side and server-side (so it can't be bypassed), capped at 20 characters, and only ever visible to players inside that one ephemeral room — never public or global. The host can also remove any player from the lobby in two remote clicks if a nickname or a player's behavior is a problem.
+
+--- Additional info requested by App Review, Guideline 2.1 (2026-09-05 submission) ---
+
+App purpose & target audience: TimeWarp Trivia is a shared-screen party
+trivia game. One TV (the Apple TV app) hosts the game and displays
+questions/scores to the whole room; everyone else answers from their own
+phone's browser, no phone app required. It's built for casual social
+settings — parties, family gatherings, game nights — for groups of
+roughly 2 to 10 players, general audience (rated 4+, no accounts,
+no purchases, no unrestricted web access).
+
+Setup / accessing main features: No login, account, or credentials of
+any kind exist anywhere in the app or the wider product — "Sign-In not
+required" is the correct toggle in this App Review Information section.
+Launch the app, press Select on the intro screen's Start button, and a
+room code appears. Every feature (starting a game, picking decades,
+answering, scoring, the block round, final results, Play Again) is
+reachable from that one flow with the Siri Remote alone; see the
+numbered walkthrough above for the exact steps, including how a second
+device joins via timewarptrivia.com/play.
+
+External services this app depends on: Supabase (Postgres database +
+Realtime subscriptions) is the only external service the Apple TV binary
+talks to — it's the sole dependency in apple-tv/project.yml
+(supabase-swift). No analytics, crash reporting, ads, or geolocation SDK
+of any kind is linked into this native target (Sentry/PostHog/Vercel
+Analytics only exist in the companion Next.js web app that phones use to
+join, not in this tvOS binary).
+
+Regional differences: None. The app functions identically in every
+region/territory — no region-gated content, features, or pricing (the
+app is free, with no in-app purchases).
+
+Regulated industry / protected third-party material: Not applicable.
+Trivia content in this build is decade-themed pop-culture questions
+(music/movies/TV/toys/trends) written as original factual trivia, not
+reproduced copyrighted media. (The web app separately offers "Deep
+Cuts" topic packs referencing specific existing shows/games — that mode
+is not built into this Apple TV app for v1, decade mode only.)

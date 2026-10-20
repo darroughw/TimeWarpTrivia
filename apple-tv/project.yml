@@ -54,3 +54,17 @@ targets:
         TARGETED_DEVICE_FAMILY: "3"
         MARKETING_VERSION: "1.0"
         CURRENT_PROJECT_VERSION: "1"
+# Explicit, not left to Xcode's auto-create-and-share-on-first-open —
+# that scheme lived only in a gitignored-by-accident xcshareddata/
+# directory (never committed), so `xcodegen generate` silently wiped it
+# the moment a source file was removed from the target, breaking every
+# `xcodebuild -scheme TimeWarpTrivia` invocation with no warning.
+schemes:
+  TimeWarpTrivia:
+    build:
+      targets:
+        TimeWarpTrivia: all
+    run:
+      config: Debug
+    archive:
+      config: Release
