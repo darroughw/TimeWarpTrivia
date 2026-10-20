@@ -8,6 +8,7 @@ import PassiveAdvanceHint from "@/components/tv/PassiveAdvanceHint";
 import QuestionScreen from "@/components/tv/QuestionScreen";
 import RoundTransitionScreen from "@/components/tv/RoundTransitionScreen";
 import ScoreboardScreen from "@/components/tv/ScoreboardScreen";
+import MusicToggle from "@/components/shared/MusicToggle";
 import SoundToggle from "@/components/shared/SoundToggle";
 import {
   MOCK_BLOCK_CANDIDATE_QUESTIONS,
@@ -20,6 +21,7 @@ import {
   ROOM_CODE,
   rankedByScore,
 } from "@/lib/mockData";
+import { playBackgroundMusic, stopBackgroundMusic } from "@/lib/music";
 import type { DecadeId, Player, RoundResult } from "@/lib/types";
 
 const JOIN_INTERVAL_MS = 900;
@@ -83,6 +85,17 @@ export default function MockTvFlow() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [stage, handleAdvance]);
 
+  // Same "plays throughout the game once it's started" rule as LiveTvFlow.
+  useEffect(() => {
+    if (stage === "lobby" || stage === "end") {
+      stopBackgroundMusic();
+      return;
+    }
+    playBackgroundMusic();
+  }, [stage]);
+
+  useEffect(() => stopBackgroundMusic, []);
+
   // Simulate the lobby's live "players joining" feed. Re-runs whenever we
   // land back on "lobby" (e.g. Play Again).
   useEffect(() => {
@@ -113,6 +126,7 @@ export default function MockTvFlow() {
   return (
     <>
       <SoundToggle />
+      <MusicToggle />
 
       {stage === "lobby" && (
         <LobbyScreen

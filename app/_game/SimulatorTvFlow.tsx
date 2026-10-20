@@ -11,6 +11,7 @@ import RoundTransitionScreen from "@/components/tv/RoundTransitionScreen";
 import ScoreboardScreen from "@/components/tv/ScoreboardScreen";
 import SimulatorBadge from "@/components/tv/SimulatorBadge";
 import LoadingState from "@/components/shared/LoadingState";
+import MusicToggle from "@/components/shared/MusicToggle";
 import SoundToggle from "@/components/shared/SoundToggle";
 import { useBlockCandidates } from "@/hooks/useBlockCandidates";
 import { useCountdown } from "@/hooks/useCountdown";
@@ -22,6 +23,7 @@ import { getAvatarForName, playerRowToPlayer } from "@/lib/avatar";
 import type { RoomStatus } from "@/lib/database.types";
 import { ALL_DECADES_OPTION } from "@/lib/decadeColors";
 import { pickBlockChooser, pickRandomContestantNames } from "@/lib/mockData";
+import { playBackgroundMusic, stopBackgroundMusic } from "@/lib/music";
 import { fetchDecades, fetchRandomQuestionSet } from "@/lib/questionService";
 import {
   clearRoomAnswers,
@@ -240,6 +242,18 @@ export default function SimulatorTvFlow() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [room, players, answers, fakePlayerIds, blockCandidates, currentQuestion]);
 
+  // Same "plays throughout the game once it's started" rule as LiveTvFlow.
+  const roomStatus = room?.status;
+  useEffect(() => {
+    if (!roomStatus || roomStatus === "lobby" || roomStatus === "end") {
+      stopBackgroundMusic();
+      return;
+    }
+    playBackgroundMusic();
+  }, [roomStatus]);
+
+  useEffect(() => stopBackgroundMusic, []);
+
   async function handlePlayAgain() {
     if (!room) return;
     setLastRoundResult(null);
@@ -276,6 +290,7 @@ export default function SimulatorTvFlow() {
     <>
       <SimulatorBadge />
       <SoundToggle />
+      <MusicToggle />
 
       {room.status === "lobby" && (
         <LobbyScreen

@@ -72,6 +72,7 @@ final class GameFlowViewModel: ObservableObject {
             self?.syncCountdown()
             self?.resolveCurrentQuestion()
             self?.resolveBlockCandidates()
+            self?.syncBackgroundMusic()
         }
         roomRealtime.onPlayersChange = { [weak self] players in
             self?.players = players
@@ -275,6 +276,21 @@ final class GameFlowViewModel: ObservableObject {
             }
             await self?.handleCountdownFinished()
         }
+    }
+
+    // Low-volume background music plays for the whole active game —
+    // everything between the lobby and the end screen — and is silent
+    // on both of those, matching "throughout the game once it's
+    // started." Idempotent either way (MusicPlayer.play() no-ops if
+    // already playing, .stop() no-ops if already stopped), so this is
+    // safe to call on every single Realtime room update rather than
+    // only on an actual status transition.
+    private func syncBackgroundMusic() {
+        guard let room, room.status != .lobby, room.status != .end else {
+            MusicPlayer.shared.stop()
+            return
+        }
+        MusicPlayer.shared.play()
     }
 
     // Resolves room.currentQuestionId into a full Question, mirroring

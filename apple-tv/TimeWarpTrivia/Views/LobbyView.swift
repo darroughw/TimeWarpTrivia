@@ -13,6 +13,7 @@ import SwiftUI
 enum LobbyFocusTarget: Hashable {
     case decade(DecadeId)
     case help
+    case musicToggle
     case startGame
 }
 
@@ -26,6 +27,10 @@ struct LobbyView: View {
     // join — mirrors the web's prevActiveCountRef starting at null.
     @State private var previousActiveCount: Int?
     @FocusState private var focusedControl: LobbyFocusTarget?
+    // Local, not derived from MusicPlayer.shared directly — it isn't an
+    // ObservableObject, so this view needs its own @State to redraw the
+    // button label when it's pressed.
+    @State private var musicEnabled = MusicPlayer.shared.isEnabled
 
     private var activeCount: Int { flow.activePlayerCount }
 
@@ -128,6 +133,12 @@ struct LobbyView: View {
             Button("Help") { showHelp = true }
                 .font(TWTFont.body(15))
                 .focused($focusedControl, equals: .help)
+            Button(musicEnabled ? "🎵 Music: On" : "🎵 Music: Off") {
+                musicEnabled.toggle()
+                MusicPlayer.shared.isEnabled = musicEnabled
+            }
+            .font(TWTFont.body(15))
+            .focused($focusedControl, equals: .musicToggle)
             Spacer()
             if activeCount < 2 {
                 Text("Need 2 players to start")

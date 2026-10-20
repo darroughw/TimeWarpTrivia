@@ -12,6 +12,7 @@ import RoundStartScreen from "@/components/tv/RoundStartScreen";
 import RoundTransitionScreen from "@/components/tv/RoundTransitionScreen";
 import ScoreboardScreen from "@/components/tv/ScoreboardScreen";
 import LoadingState from "@/components/shared/LoadingState";
+import MusicToggle from "@/components/shared/MusicToggle";
 import SoundToggle from "@/components/shared/SoundToggle";
 import { useBlockCandidates } from "@/hooks/useBlockCandidates";
 import { useCountdown } from "@/hooks/useCountdown";
@@ -32,6 +33,7 @@ import {
   resetActivePlayerScores,
   clearRoomAnswers,
 } from "@/lib/roomService";
+import { playBackgroundMusic, stopBackgroundMusic } from "@/lib/music";
 import { computeScore } from "@/lib/scoring";
 import {
   ROUND_START_COUNTDOWN_SECONDS,
@@ -240,6 +242,22 @@ export default function LiveTvFlow({ mode = "decade" }: LiveTvFlowProps) {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [room, handleAdvance]);
 
+  // Background music plays for the whole active game — everything
+  // between the lobby and the end screen — matching "throughout the
+  // game once it's started." Stopped on unmount too (navigating away
+  // from the TV route entirely), not just on status, so it can't keep
+  // looping after the game screen itself is gone.
+  const roomStatus = room?.status;
+  useEffect(() => {
+    if (!roomStatus || roomStatus === "lobby" || roomStatus === "end") {
+      stopBackgroundMusic();
+      return;
+    }
+    playBackgroundMusic();
+  }, [roomStatus]);
+
+  useEffect(() => stopBackgroundMusic, []);
+
   // Same-room rematch (TIM-38): keep the code, reset only still-active
   // players' scores, clear answer history, and send the room back to
   // "lobby" — the same status LobbyScreen already renders for a brand
@@ -329,6 +347,7 @@ export default function LiveTvFlow({ mode = "decade" }: LiveTvFlowProps) {
   return (
     <>
       <SoundToggle />
+      <MusicToggle />
 
       {room.status === "lobby" &&
         (mode === "deepCuts" ? (
