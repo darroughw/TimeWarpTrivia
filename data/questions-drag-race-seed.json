@@ -1,0 +1,1402 @@
+[
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who won the very first season of RuPaul's Drag Race?",
+    "options": ["BeBe Zahara Benet", "Nina Flowers", "Shannel", "Rebecca Glasscock"],
+    "correct_answer": "BeBe Zahara Benet",
+    "flavor_wrong": "Sashay away. From this answer, specifically."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who was crowned the winner of season 2?",
+    "options": ["Tyra Sanchez", "Raven", "Jujubee", "Tatianna"],
+    "correct_answer": "Tyra Sanchez",
+    "flavor_wrong": "The crown went somewhere else. So did your point."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Which queen won season 3?",
+    "options": ["Raja", "Manila Luzon", "Alexis Mateo", "Yara Sofia"],
+    "correct_answer": "Raja",
+    "flavor_wrong": "Close. Well, no. Not close."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who won season 4?",
+    "options": ["Sharon Needles", "Phi Phi O'Hara", "Chad Michaels", "Latrice Royale"],
+    "correct_answer": "Sharon Needles",
+    "flavor_wrong": "Spooky. Mostly the part where that was wrong."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who took the crown on season 5?",
+    "options": ["Jinkx Monsoon", "Alaska", "Roxxxy Andrews", "Detox"],
+    "correct_answer": "Jinkx Monsoon",
+    "flavor_wrong": "Water off a duck's back. Your points, too."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who won season 6?",
+    "options": ["Bianca Del Rio", "Adore Delano", "Courtney Act", "BenDeLaCreme"],
+    "correct_answer": "Bianca Del Rio",
+    "flavor_wrong": "Bianca would have something to say about that. You don't want to hear it."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who won season 7?",
+    "options": ["Violet Chachki", "Ginger Minj", "Pearl", "Katya"],
+    "correct_answer": "Violet Chachki",
+    "flavor_wrong": "That answer needed more cinching."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who won season 8?",
+    "options": ["Bob the Drag Queen", "Kim Chi", "Naomi Smalls", "Thorgy Thor"],
+    "correct_answer": "Bob the Drag Queen",
+    "flavor_wrong": "Purse first. Answer second. Apparently."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who won season 9?",
+    "options": ["Sasha Velour", "Shea Couleé", "Peppermint", "Trinity Taylor"],
+    "correct_answer": "Sasha Velour",
+    "flavor_wrong": "No rose petals for that one."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who won season 10?",
+    "options": ["Aquaria", "Kameron Michaels", "Eureka", "Asia O'Hara"],
+    "correct_answer": "Aquaria",
+    "flavor_wrong": "The crown has been reassigned. To someone else. Correctly."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who won season 11?",
+    "options": ["Yvie Oddly", "Brooke Lynn Hytes", "Silky Nutmeg Ganache", "A'keria C. Davenport"],
+    "correct_answer": "Yvie Oddly",
+    "flavor_wrong": "Odd choice. Not the right kind of odd."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who won season 12?",
+    "options": ["Jaida Essence Hall", "Gigi Goode", "Crystal Methyd", "Jackie Cox"],
+    "correct_answer": "Jaida Essence Hall",
+    "flavor_wrong": "Wrong. You're not a winner, baby. Not this round."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who won season 13?",
+    "options": ["Symone", "Kandy Muse", "Gottmik", "Rosé"],
+    "correct_answer": "Symone",
+    "flavor_wrong": "The tea was cold, and so was that guess."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who won season 14?",
+    "options": ["Willow Pill", "Lady Camden", "Angeria Paris VanMicheals", "Daya Betty"],
+    "correct_answer": "Willow Pill",
+    "flavor_wrong": "A bitter pill. Not the one you needed."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who won season 15?",
+    "options": ["Sasha Colby", "Anetra", "Luxx Noir London", "Mistress Isabelle Brooks"],
+    "correct_answer": "Sasha Colby",
+    "flavor_wrong": "That answer has been gently escorted off the runway."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who won season 16?",
+    "options": ["Nymphia Wind", "Sapphira Cristál", "Plane Jane", "Q"],
+    "correct_answer": "Nymphia Wind",
+    "flavor_wrong": "You slipped on the banana. Metaphorically."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who won the first season of All Stars?",
+    "options": ["Chad Michaels", "Raven", "Shannel", "Jujubee"],
+    "correct_answer": "Chad Michaels",
+    "flavor_wrong": "If I could turn back time. You'd still be wrong."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who won All Stars 2?",
+    "options": ["Alaska", "Detox", "Katya", "Roxxxy Andrews"],
+    "correct_answer": "Alaska",
+    "flavor_wrong": "Hieee. Wrong."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who won All Stars 3?",
+    "options": ["Trixie Mattel", "Kennedy Davenport", "Shangela", "BenDeLaCreme"],
+    "correct_answer": "Trixie Mattel",
+    "flavor_wrong": "That one's going straight back in the box."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "All Stars 4 ended with a tie for the crown. Which two queens shared it?",
+    "options": ["Trinity the Tuck and Monét X Change", "Naomi Smalls and Monique Heart", "Valentina and Manila Luzon", "Latrice Royale and Gia Gunn"],
+    "correct_answer": "Trinity the Tuck and Monét X Change",
+    "flavor_wrong": "Two winners, and you still missed both."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who won All Stars 5?",
+    "options": ["Shea Couleé", "Jujubee", "Miz Cracker", "Alexis Mateo"],
+    "correct_answer": "Shea Couleé",
+    "flavor_wrong": "The crown has left the building."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who won All Stars 6?",
+    "options": ["Kylie Sonique Love", "Eureka!", "Ginger Minj", "Ra'Jah O'Hara"],
+    "correct_answer": "Kylie Sonique Love",
+    "flavor_wrong": "History was made. You weren't part of it."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who was crowned the \"Queen of All Queens\" on All Stars 7?",
+    "options": ["Jinkx Monsoon", "Monét X Change", "Raja", "Trinity the Tuck"],
+    "correct_answer": "Jinkx Monsoon",
+    "flavor_wrong": "A field of winners, and you picked the wrong one. Statistically impressive."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "What made the All Stars 7 cast unlike any before it?",
+    "options": ["Every queen was a previous winner", "Every queen was a former Miss Congeniality", "Every queen had been eliminated first in her season", "Every queen came from outside the US"],
+    "correct_answer": "Every queen was a previous winner",
+    "flavor_wrong": "Nope. It was a room full of crowns. You'd think that'd stand out."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who won All Stars 8?",
+    "options": ["Jimbo", "Kandy Muse", "Alexis Mateo", "Jaymes Mansfield"],
+    "correct_answer": "Jimbo",
+    "flavor_wrong": "The clown won. The joke's on that answer."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who won All Stars 9?",
+    "options": ["Angeria Paris VanMicheals", "Roxxxy Andrews", "Gottmik", "Vanessa Vanjie Mateo"],
+    "correct_answer": "Angeria Paris VanMicheals",
+    "flavor_wrong": "Wrong, but for a good cause. Probably."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "What was the big format change on All Stars 9?",
+    "options": ["No one was eliminated, and queens competed for charity", "Queens competed in pairs the whole season", "The judges were all former winners", "Every episode ended in a group lip sync"],
+    "correct_answer": "No one was eliminated, and queens competed for charity",
+    "flavor_wrong": "Nobody went home that season. Except your point."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who won RuPaul's Drag Race Global All Stars?",
+    "options": ["Alyssa Edwards", "Kitty Scott-Claus", "Pythia", "Gala Varo"],
+    "correct_answer": "Alyssa Edwards",
+    "flavor_wrong": "Back rolls? Back to the drawing board."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Which season 1 queen was named both runner-up and Miss Congeniality?",
+    "options": ["Nina Flowers", "Ongina", "Shannel", "Akashia"],
+    "correct_answer": "Nina Flowers",
+    "flavor_wrong": "She was congenial. That answer was not."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who was Miss Congeniality on season 2?",
+    "options": ["Pandora Boxx", "Jujubee", "Sahara Davenport", "Morgan McMichaels"],
+    "correct_answer": "Pandora Boxx",
+    "flavor_wrong": "You opened the wrong box."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who was voted Miss Congeniality on season 3?",
+    "options": ["Yara Sofia", "Shangela", "Delta Work", "Carmen Carrera"],
+    "correct_answer": "Yara Sofia",
+    "flavor_wrong": "The sisters voted. They didn't vote for that."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who was Miss Congeniality on season 4?",
+    "options": ["Latrice Royale", "Jiggly Caliente", "Willam", "Kenya Michaels"],
+    "correct_answer": "Latrice Royale",
+    "flavor_wrong": "Good God, get a grip, girl."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who was Miss Congeniality on season 5?",
+    "options": ["Ivy Winters", "Lineysha Sparx", "Coco Montrese", "Jade Jolie"],
+    "correct_answer": "Ivy Winters",
+    "flavor_wrong": "Cold. Like the season she's named after."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who was Miss Congeniality on season 6?",
+    "options": ["BenDeLaCreme", "Darienne Lake", "Joslyn Fox", "Trinity K. Bonet"],
+    "correct_answer": "BenDeLaCreme",
+    "flavor_wrong": "That was not the cream of the crop."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who was Miss Congeniality on season 7?",
+    "options": ["Katya", "Trixie Mattel", "Kennedy Davenport", "Max"],
+    "correct_answer": "Katya",
+    "flavor_wrong": "Close. In the sense that they're friends."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who was Miss Congeniality on season 8?",
+    "options": ["Cynthia Lee Fontaine", "Chi Chi DeVayne", "Derrick Barry", "Robbie Turner"],
+    "correct_answer": "Cynthia Lee Fontaine",
+    "flavor_wrong": "Cucu would be disappointed. Gently."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who was Miss Congeniality on season 9?",
+    "options": ["Valentina", "Alexis Michelle", "Nina Bo'nina Brown", "Eureka"],
+    "correct_answer": "Valentina",
+    "flavor_wrong": "Take off the mask. Then pick again."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who was Miss Congeniality on season 10?",
+    "options": ["Monét X Change", "Monique Heart", "Miz Cracker", "The Vixen"],
+    "correct_answer": "Monét X Change",
+    "flavor_wrong": "Soak that one up. With a sponge."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who was Miss Congeniality on season 11?",
+    "options": ["Nina West", "Vanessa Vanjie Mateo", "Plastique Tiara", "Ra'Jah O'Hara"],
+    "correct_answer": "Nina West",
+    "flavor_wrong": "The nicest queen. Not the nicest guess."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who was Miss Congeniality on season 12?",
+    "options": ["Heidi N Closet", "Jan", "Widow Von'Du", "Brita"],
+    "correct_answer": "Heidi N Closet",
+    "flavor_wrong": "That answer can go hide in the closet."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "In the season 9 finale, Sasha Velour's famous rose-petal reveal came during a lip sync to which Whitney Houston song?",
+    "options": ["So Emotional", "I Wanna Dance with Somebody", "How Will I Know", "I'm Every Woman"],
+    "correct_answer": "So Emotional",
+    "flavor_wrong": "That song is not the one that made a grown internet cry."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "What spilled out of Sasha Velour's wig in her iconic season 9 finale reveal?",
+    "options": ["Rose petals", "Glitter", "Confetti", "Feathers"],
+    "correct_answer": "Rose petals",
+    "flavor_wrong": "Wrong. And now someone has to sweep that up."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who did Sasha Velour beat in the final lip sync for the season 9 crown?",
+    "options": ["Peppermint", "Shea Couleé", "Trinity Taylor", "Alexis Michelle"],
+    "correct_answer": "Peppermint",
+    "flavor_wrong": "That queen was already gone by then. So is this point."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who was runner-up to Yvie Oddly on season 11?",
+    "options": ["Brooke Lynn Hytes", "Silky Nutmeg Ganache", "A'keria C. Davenport", "Vanessa Vanjie Mateo"],
+    "correct_answer": "Brooke Lynn Hytes",
+    "flavor_wrong": "Wrong. The ballerina is pirouetting in disappointment."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Which Australian queen was a finalist on season 6?",
+    "options": ["Courtney Act", "Art Simone", "Kita Mean", "Karen from Finance"],
+    "correct_answer": "Courtney Act",
+    "flavor_wrong": "Right continent. Wrong answer."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Courtney Act won which UK reality show in 2018?",
+    "options": ["Celebrity Big Brother", "Strictly Come Dancing", "I'm a Celebrity... Get Me Out of Here!", "Dancing on Ice"],
+    "correct_answer": "Celebrity Big Brother",
+    "flavor_wrong": "Big Brother was watching. He saw that."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Before Drag Race, Adore Delano was a contestant on which singing competition?",
+    "options": ["American Idol", "The Voice", "The X Factor", "America's Got Talent"],
+    "correct_answer": "American Idol",
+    "flavor_wrong": "Party? No. Not for that answer."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "How did Adore Delano's run on All Stars 2 come to an end?",
+    "options": ["She chose to leave the competition", "She was disqualified", "She lost a lip sync to Alaska", "She was eliminated by a jury vote"],
+    "correct_answer": "She chose to leave the competition",
+    "flavor_wrong": "She left on her own terms. Unlike your point."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "What happened to Willam on season 4?",
+    "options": ["She was disqualified", "She quit before the finale", "She won Miss Congeniality", "She tied for the crown"],
+    "correct_answer": "She was disqualified",
+    "flavor_wrong": "Beat down. By a multiple choice question."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Which season 12 queen was disqualified before the season finished airing?",
+    "options": ["Sherry Pie", "Jan", "Brita", "Aiden Zhane"],
+    "correct_answer": "Sherry Pie",
+    "flavor_wrong": "Wrong slice."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "During a season 3 lip sync, Mimi Imfurst infamously did what to India Ferrah?",
+    "options": ["Picked her up", "Pulled off her wig", "Pushed her offstage", "Kissed her"],
+    "correct_answer": "Picked her up",
+    "flavor_wrong": "She lifted a queen. You couldn't lift this answer."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "On season 9, what did RuPaul ask Valentina to remove mid-lip sync?",
+    "options": ["Her mask", "Her wig", "Her heels", "Her gloves"],
+    "correct_answer": "Her mask",
+    "flavor_wrong": "It was covering her mouth. It's a lip sync. That was the whole problem."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Valentina's season 9 elimination lip sync was to which Ariana Grande song?",
+    "options": ["Greedy", "Into You", "Problem", "Side to Side"],
+    "correct_answer": "Greedy",
+    "flavor_wrong": "You wanted that point. Greedy of you."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Which queen became an instant meme by walking backward out of the season 10 premiere repeating her own name?",
+    "options": ["Vanessa Vanjie Mateo", "Kalorie Karbdashian-Williams", "Dusty Ray Bottoms", "Mayhem Miller"],
+    "correct_answer": "Vanessa Vanjie Mateo",
+    "flavor_wrong": "Miss... not her."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Which queen is known for the catchphrase \"Halleloo\"?",
+    "options": ["Shangela", "Latrice Royale", "Alyssa Edwards", "Jujubee"],
+    "correct_answer": "Shangela",
+    "flavor_wrong": "Hallelo-no."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Which queen is known for saying \"Not today, Satan\"?",
+    "options": ["Bianca Del Rio", "Bob the Drag Queen", "Katya", "Jinkx Monsoon"],
+    "correct_answer": "Bianca Del Rio",
+    "flavor_wrong": "Not today. Not this answer."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Which queen made \"Purse first!\" a catchphrase?",
+    "options": ["Bob the Drag Queen", "Monét X Change", "Naomi Smalls", "Kim Chi"],
+    "correct_answer": "Bob the Drag Queen",
+    "flavor_wrong": "Your purse came first. Your answer came last."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Which season 5 queen shrugged off criticism with \"Water off a duck's back\"?",
+    "options": ["Jinkx Monsoon", "Alaska", "Detox", "Coco Montrese"],
+    "correct_answer": "Jinkx Monsoon",
+    "flavor_wrong": "Let it roll off you. Like that point did."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "\"Good God, get a grip, girl\" is a famous line from which queen?",
+    "options": ["Latrice Royale", "Shangela", "Tatianna", "Raja"],
+    "correct_answer": "Latrice Royale",
+    "flavor_wrong": "Get a grip, girl. Then try again next question."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Tatianna's All Stars 2 rant made which single word a fan catchphrase?",
+    "options": ["Choices", "Respect", "Loyalty", "Drama"],
+    "correct_answer": "Choices",
+    "flavor_wrong": "You made a choice. It was not the right one."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Which queen is known for her drawn-out greeting \"Hieeee\" and her tongue pop?",
+    "options": ["Alyssa Edwards", "Alaska", "Trixie Mattel", "Pandora Boxx"],
+    "correct_answer": "Alyssa Edwards",
+    "flavor_wrong": "Byeeee, point."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "What is the name of Alyssa Edwards' Netflix docuseries about her dance studio?",
+    "options": ["Dancing Queen", "Studio Queen", "Beyond Belief", "Dance Moms: Texas"],
+    "correct_answer": "Dancing Queen",
+    "flavor_wrong": "Five, six, seven, wrong."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Alyssa Edwards' dance studio is in which Texas city?",
+    "options": ["Mesquite", "Austin", "El Paso", "Lubbock"],
+    "correct_answer": "Mesquite",
+    "flavor_wrong": "Wrong part of Texas. Texas is big. This was still wrong."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Season 5 rivals Coco Montrese and Alyssa Edwards faced off in a lip sync to which Paula Abdul song?",
+    "options": ["Cold Hearted", "Opposites Attract", "Straight Up", "Forever Your Girl"],
+    "correct_answer": "Cold Hearted",
+    "flavor_wrong": "Right singer. Cold answer."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "How does RuPaul famously kick off each challenge?",
+    "options": ["\"Gentlemen, start your engines, and may the best woman win!\"", "\"Ladies, grab your wigs and start the clock!\"", "\"Queens, it's time to werk!\"", "\"On your marks, get set, sashay!\""],
+    "correct_answer": "\"Gentlemen, start your engines, and may the best woman win!\"",
+    "flavor_wrong": "Your engine stalled."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "What does RuPaul say to the queen who wins a lip sync for her life?",
+    "options": ["\"Shantay, you stay.\"", "\"Sashay away.\"", "\"Condragulations.\"", "\"You better work.\""],
+    "correct_answer": "\"Shantay, you stay.\"",
+    "flavor_wrong": "Sashay away. From the leaderboard."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "What does RuPaul say to the queen who loses a lip sync for her life?",
+    "options": ["\"Sashay away.\"", "\"Shantay, you stay.\"", "\"Pack your heels.\"", "\"Back to the werk room.\""],
+    "correct_answer": "\"Sashay away.\"",
+    "flavor_wrong": "Ironically, the answer is what just happened to your point."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Finish RuPaul's pre-lip sync instruction: \"Good luck, and don't...\"",
+    "options": ["\"...f*** it up.\"", "\"...forget the words.\"", "\"...lose your wig.\"", "\"...trip in those heels.\""],
+    "correct_answer": "\"...f*** it up.\"",
+    "flavor_wrong": "Well. You did the thing she said not to do."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "In RuPaul's four key drag qualities, what does the \"C\" stand for?",
+    "options": ["Charisma", "Confidence", "Class", "Courage"],
+    "correct_answer": "Charisma",
+    "flavor_wrong": "You had one letter to get right."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "In RuPaul's four key drag qualities, what does the \"U\" stand for?",
+    "options": ["Uniqueness", "Undeniability", "Unity", "Underwear"],
+    "correct_answer": "Uniqueness",
+    "flavor_wrong": "Unique answer. Unfortunately."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "In RuPaul's four key drag qualities, what does the \"N\" stand for?",
+    "options": ["Nerve", "Nails", "Nuance", "Nonsense"],
+    "correct_answer": "Nerve",
+    "flavor_wrong": "Bold guess. Wrong, but bold."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "After \"If you can't love yourself, how in the hell you gonna love somebody else?\", what does RuPaul ask?",
+    "options": ["\"Can I get an amen?\"", "\"Can I get a witness?\"", "\"Who's with me?\"", "\"Do you hear me?\""],
+    "correct_answer": "\"Can I get an amen?\"",
+    "flavor_wrong": "No amen for that one."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "What announcement opens the reading mini challenge?",
+    "options": ["\"The library is officially open!\"", "\"The tea is now being served!\"", "\"School is in session!\"", "\"The shade room is open!\""],
+    "correct_answer": "\"The library is officially open!\"",
+    "flavor_wrong": "Your library card has been revoked."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "The phrase \"reading is fundamental\" in drag culture was popularized by which 1990 documentary?",
+    "options": ["Paris Is Burning", "Wigstock: The Movie", "The Queen", "Kiki"],
+    "correct_answer": "Paris Is Burning",
+    "flavor_wrong": "Read up. Literally."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Drag Race's celebrity impersonation challenge, Snatch Game, parodies which classic game show?",
+    "options": ["Match Game", "Hollywood Squares", "Family Feud", "Password"],
+    "correct_answer": "Match Game",
+    "flavor_wrong": "No match there."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Bianca Del Rio won season 6's Snatch Game impersonating which TV personality?",
+    "options": ["Judge Judy", "Joan Rivers", "Bette Midler", "Sharon Osbourne"],
+    "correct_answer": "Judge Judy",
+    "flavor_wrong": "The court finds you wrong. Case dismissed."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Chad Michaels, a professional impersonator, played which diva in season 4's Snatch Game?",
+    "options": ["Cher", "Madonna", "Liza Minnelli", "Barbra Streisand"],
+    "correct_answer": "Cher",
+    "flavor_wrong": "Do you believe in life after a wrong answer?"
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Kennedy Davenport won season 7's Snatch Game as which rock and roll legend?",
+    "options": ["Little Richard", "Chuck Berry", "James Brown", "Tina Turner"],
+    "correct_answer": "Little Richard",
+    "flavor_wrong": "A-wop-bop-a-loo-bop, a-wrong-bam-boo."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Jinkx Monsoon won season 5's Snatch Game as Little Edie, a figure from which documentary?",
+    "options": ["Grey Gardens", "Paris Is Burning", "Gates of Heaven", "Salesman"],
+    "correct_answer": "Grey Gardens",
+    "flavor_wrong": "Wrong. That is not the best costume for the day."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Bob the Drag Queen won season 8's Snatch Game playing Carol Channing and which other star?",
+    "options": ["Uzo Aduba", "Oprah Winfrey", "Whoopi Goldberg", "Maya Angelou"],
+    "correct_answer": "Uzo Aduba",
+    "flavor_wrong": "Two characters, and you missed the other one."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "BenDeLaCreme won All Stars 3's Snatch Game as which Hollywood Squares regular?",
+    "options": ["Paul Lynde", "Charles Nelson Reilly", "Joan Rivers", "Rip Taylor"],
+    "correct_answer": "Paul Lynde",
+    "flavor_wrong": "Wrong square."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "What is RuPaul's full name?",
+    "options": ["RuPaul Andre Charles", "Paul Rudolph Charles", "Andre RuPaul Davis", "Rudolph Paul Charleston"],
+    "correct_answer": "RuPaul Andre Charles",
+    "flavor_wrong": "Mama Ru would like a word. Her actual name, ideally."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "In which city was RuPaul born?",
+    "options": ["San Diego", "Atlanta", "New York City", "Los Angeles"],
+    "correct_answer": "San Diego",
+    "flavor_wrong": "He moved around a lot. Not to there first, though."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "What was RuPaul's breakout 1993 hit single?",
+    "options": ["Supermodel (You Better Work)", "Covergirl", "Glamazon", "Sissy That Walk"],
+    "correct_answer": "Supermodel (You Better Work)",
+    "flavor_wrong": "You better work. On that answer."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Which RuPaul song from the 2014 album Born Naked became a runway anthem?",
+    "options": ["Sissy That Walk", "Supermodel (You Better Work)", "Glamazon", "Jealous of My Boogie"],
+    "correct_answer": "Sissy That Walk",
+    "flavor_wrong": "Wrong walk."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "RuPaul was the first-ever face of which cosmetics campaign that raises money for HIV/AIDS causes?",
+    "options": ["MAC Viva Glam", "Revlon Love Is On", "CoverGirl Pride", "Maybelline Kiss for Life"],
+    "correct_answer": "MAC Viva Glam",
+    "flavor_wrong": "Wrong lipstick, wrong cause."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "RuPaul hosted a talk show in the late 1990s on which network?",
+    "options": ["VH1", "MTV", "Comedy Central", "BET"],
+    "correct_answer": "VH1",
+    "flavor_wrong": "Wrong channel. Change it."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "RuPaul played guidance counselor Mrs. Cummings in which 1995 movie?",
+    "options": ["The Brady Bunch Movie", "Clueless", "Mrs. Doubtfire", "The Birdcage"],
+    "correct_answer": "The Brady Bunch Movie",
+    "flavor_wrong": "Here's the story. It doesn't end with a point."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "What is the name of RuPaul's husband?",
+    "options": ["Georges LeBar", "Michael Sanchez", "Ross Hamilton", "David Charles"],
+    "correct_answer": "Georges LeBar",
+    "flavor_wrong": "That's not the man. That's not even a man she's met."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "In what year did RuPaul host Saturday Night Live?",
+    "options": ["2020", "2016", "2018", "2022"],
+    "correct_answer": "2020",
+    "flavor_wrong": "Live from New York, it's the wrong year."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "In which Netflix series did RuPaul star as a drag queen on a cross-country road trip?",
+    "options": ["AJ and the Queen", "Pose", "Queen of the Road", "Dragnificent"],
+    "correct_answer": "AJ and the Queen",
+    "flavor_wrong": "Wrong road. Recalculating."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "What is the title of RuPaul's 2024 memoir?",
+    "options": ["The House of Hidden Meanings", "Lettin' It All Hang Out", "GuRu", "Workin' It!"],
+    "correct_answer": "The House of Hidden Meanings",
+    "flavor_wrong": "The hidden meaning: wrong."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "What was the title of RuPaul's 1995 autobiography?",
+    "options": ["Lettin' It All Hang Out", "The House of Hidden Meanings", "Born Naked", "Supermodel of the World"],
+    "correct_answer": "Lettin' It All Hang Out",
+    "flavor_wrong": "Let it all hang out. Including that wrong answer."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "RuPaul and Michelle Visage co-host which podcast?",
+    "options": ["What's the Tee?", "Spill the Tea", "Werk Room Radio", "Reading Is Fundamental"],
+    "correct_answer": "What's the Tee?",
+    "flavor_wrong": "That tea's gone cold."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Starting with which season did Michelle Visage become a regular judge?",
+    "options": ["Season 3", "Season 1", "Season 5", "Season 7"],
+    "correct_answer": "Season 3",
+    "flavor_wrong": "Michelle would raise an eyebrow at that. A big one."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Michelle Visage was a member of which late-'80s pop group?",
+    "options": ["Seduction", "Exposé", "Sweet Sensation", "The Cover Girls"],
+    "correct_answer": "Seduction",
+    "flavor_wrong": "That answer did not seduce the judges."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Michelle Visage competed on which UK dance show in 2019?",
+    "options": ["Strictly Come Dancing", "Dancing on Ice", "So You Think You Can Dance", "Got to Dance"],
+    "correct_answer": "Strictly Come Dancing",
+    "flavor_wrong": "Strictly speaking, no."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Original judge Santino Rice first became famous on which show?",
+    "options": ["Project Runway", "America's Next Top Model", "Fashion Police", "Queer Eye for the Straight Guy"],
+    "correct_answer": "Project Runway",
+    "flavor_wrong": "Auf wiedersehen to that point."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Which fashion journalist was a judge on Drag Race's first two seasons?",
+    "options": ["Merle Ginsberg", "Nina Garcia", "Robin Givhan", "Isaac Mizrahi"],
+    "correct_answer": "Merle Ginsberg",
+    "flavor_wrong": "That's not who was at the table. Check the tapes."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Judge Ross Mathews first got famous as an intern on which late-night show?",
+    "options": ["The Tonight Show with Jay Leno", "Late Show with David Letterman", "Late Night with Conan O'Brien", "Jimmy Kimmel Live!"],
+    "correct_answer": "The Tonight Show with Jay Leno",
+    "flavor_wrong": "Wrong desk. Wrong host. Wrong answer."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Judge Carson Kressley was one of the original Fab Five on which show?",
+    "options": ["Queer Eye for the Straight Guy", "What Not to Wear", "Extreme Makeover", "How Do I Look?"],
+    "correct_answer": "Queer Eye for the Straight Guy",
+    "flavor_wrong": "That answer needs a makeover."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Which network originally aired RuPaul's Drag Race?",
+    "options": ["Logo", "Bravo", "VH1", "MTV"],
+    "correct_answer": "Logo",
+    "flavor_wrong": "It got there eventually. It didn't start there."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "With which season did Drag Race move from Logo to VH1?",
+    "options": ["Season 9", "Season 5", "Season 7", "Season 12"],
+    "correct_answer": "Season 9",
+    "flavor_wrong": "The channel changed. Your answer should have too."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "With which season did Drag Race move to MTV?",
+    "options": ["Season 15", "Season 12", "Season 13", "Season 16"],
+    "correct_answer": "Season 15",
+    "flavor_wrong": "Video killed the radio star. That answer killed your streak."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "In what year did RuPaul's Drag Race premiere?",
+    "options": ["2009", "2007", "2011", "2013"],
+    "correct_answer": "2009",
+    "flavor_wrong": "Wrong year. Time is a drag."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "How many queens competed in season 1?",
+    "options": ["9", "12", "10", "14"],
+    "correct_answer": "9",
+    "flavor_wrong": "Count again. Slowly."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Season 1 is notorious among fans for what visual quirk?",
+    "options": ["A blurry, soft-focus filter", "It was shot in black and white", "It was filmed on VHS camcorders", "It was shot entirely in one room"],
+    "correct_answer": "A blurry, soft-focus filter",
+    "flavor_wrong": "Your answer is about as clear as season 1."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "What was the cash prize for the season 1 winner?",
+    "options": ["$20,000", "$100,000", "$50,000", "$5,000"],
+    "correct_answer": "$20,000",
+    "flavor_wrong": "Inflation hit the prize later. It hit your answer now."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "The grand prize was raised to how much for season 15?",
+    "options": ["$200,000", "$100,000", "$150,000", "$250,000"],
+    "correct_answer": "$200,000",
+    "flavor_wrong": "That's not the number. Nobody's cashing that check."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "What is the name of the companion series showing the queens backstage during judging?",
+    "options": ["Untucked", "Unzipped", "Backstage Pass", "Behind the Wig"],
+    "correct_answer": "Untucked",
+    "flavor_wrong": "Wrong. Something has come untucked, and it's your score."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "What is the workroom where the queens prepare their looks called?",
+    "options": ["The Werk Room", "The Glam Lab", "The Dressing Den", "The Tuck Shop"],
+    "correct_answer": "The Werk Room",
+    "flavor_wrong": "Wrong room. Werk harder."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "What does an eliminated queen traditionally leave behind on the workroom mirror?",
+    "options": ["A message written in lipstick", "Her wig", "A Polaroid photo", "A single heel"],
+    "correct_answer": "A message written in lipstick",
+    "flavor_wrong": "You left the wrong thing on the mirror."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "What are the show's shirtless male assistants called?",
+    "options": ["The Pit Crew", "The Ru Crew", "The Dream Team", "The Grid Boys"],
+    "correct_answer": "The Pit Crew",
+    "flavor_wrong": "They're very helpful. You were not."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "What is the name of RuPaul's drag fan convention, first held in Los Angeles in 2015?",
+    "options": ["DragCon", "QueenCon", "RuCon", "WigFest"],
+    "correct_answer": "DragCon",
+    "flavor_wrong": "No badge for you."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "In what year did RuPaul's Drag Race first win the Emmy for Outstanding Competition Program?",
+    "options": ["2018", "2014", "2016", "2020"],
+    "correct_answer": "2018",
+    "flavor_wrong": "No trophy for that guess."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "In All Stars, the top two queens lip sync for the power to eliminate someone. What is that lip sync called?",
+    "options": ["Lip Sync for Your Legacy", "Lip Sync for Your Life", "Lip Sync for the Crown", "Lip Sync Smackdown"],
+    "correct_answer": "Lip Sync for Your Legacy",
+    "flavor_wrong": "Your legacy will not include this answer."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "In a shocking All Stars 3 move, which queen chose to eliminate herself?",
+    "options": ["BenDeLaCreme", "Shangela", "Aja", "Thorgy Thor"],
+    "correct_answer": "BenDeLaCreme",
+    "flavor_wrong": "Wrong. She sent herself home. You sent your point home."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "What twist decided the All Stars 3 finalists?",
+    "options": ["A jury of eliminated queens voted", "The fans voted online", "A sudden-death lip sync tournament", "RuPaul flipped a coin"],
+    "correct_answer": "A jury of eliminated queens voted",
+    "flavor_wrong": "The jury has returned a verdict on your answer. It's not good."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "What household item is Monét X Change famous for turning into fashion?",
+    "options": ["Sponges", "Trash bags", "Duct tape", "Bubble wrap"],
+    "correct_answer": "Sponges",
+    "flavor_wrong": "Absorb this: that's wrong."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Monét X Change and Bob the Drag Queen co-host which podcast?",
+    "options": ["Sibling Rivalry", "Sister Act", "The Pit Stop", "Shady Siblings"],
+    "correct_answer": "Sibling Rivalry",
+    "flavor_wrong": "Family feud. You lost."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Bob the Drag Queen, Shangela, and Eureka starred in which HBO series that brought drag to small towns?",
+    "options": ["We're Here", "Drag Me to Town", "Small Town Queens", "Queens on the Road"],
+    "correct_answer": "We're Here",
+    "flavor_wrong": "We're here. Your point is not."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "What is the name of Trixie Mattel and Katya's comedy web series?",
+    "options": ["UNHhhh", "Hey Qween", "Fashion Photo RuView", "Bald Ambition"],
+    "correct_answer": "UNHhhh",
+    "flavor_wrong": "Unhhh. No."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Trixie Mattel hails from which city?",
+    "options": ["Milwaukee", "Chicago", "Minneapolis", "Detroit"],
+    "correct_answer": "Milwaukee",
+    "flavor_wrong": "Wrong Midwestern city. They're not interchangeable, apparently."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Trixie Mattel bought and renovated a retro motel in which desert city?",
+    "options": ["Palm Springs", "Las Vegas", "Phoenix", "Tucson"],
+    "correct_answer": "Palm Springs",
+    "flavor_wrong": "No vacancy for that answer."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Outside of drag, Trixie Mattel is best known for releasing music in which genre?",
+    "options": ["Country/folk", "Punk", "Opera", "EDM"],
+    "correct_answer": "Country/folk",
+    "flavor_wrong": "Wrong genre. Somewhere an autoharp weeps."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Katya Zamolodchikova's drag persona is from which country?",
+    "options": ["Russia", "Poland", "Ukraine", "Germany"],
+    "correct_answer": "Russia",
+    "flavor_wrong": "Katya is stressed now. Thanks."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Jinkx Monsoon made her Broadway debut in Chicago playing which role?",
+    "options": ["Matron \"Mama\" Morton", "Roxie Hart", "Velma Kelly", "Mary Sunshine"],
+    "correct_answer": "Matron \"Mama\" Morton",
+    "flavor_wrong": "When you're good to Mama, Mama's good to you. You weren't."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Jinkx Monsoon represented which city on season 5?",
+    "options": ["Seattle", "Chicago", "Atlanta", "Pittsburgh"],
+    "correct_answer": "Seattle",
+    "flavor_wrong": "Cloudy with a chance of wrong."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Season 4 winner Sharon Needles came from which city's drag scene?",
+    "options": ["Pittsburgh", "Philadelphia", "Cleveland", "Baltimore"],
+    "correct_answer": "Pittsburgh",
+    "flavor_wrong": "Spooky how wrong that was."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Alaska was dating which drag queen when she competed on season 5?",
+    "options": ["Sharon Needles", "Willam", "Detox", "Phi Phi O'Hara"],
+    "correct_answer": "Sharon Needles",
+    "flavor_wrong": "That's not who she was with. Awkward."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Season 5's \"Rolaskatox\" alliance was made up of Roxxxy Andrews, Alaska, and which other queen?",
+    "options": ["Detox", "Jinkx Monsoon", "Coco Montrese", "Ivy Winters"],
+    "correct_answer": "Detox",
+    "flavor_wrong": "That queen was very much not in the alliance."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "What is the title of Bianca Del Rio's 2016 feature film?",
+    "options": ["Hurricane Bianca", "Bianca Takes Manhattan", "Del Rio Rising", "Not Today Satan: The Movie"],
+    "correct_answer": "Hurricane Bianca",
+    "flavor_wrong": "The storm passed. So did your point."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Before winning season 3, Raja worked as a makeup artist on which show?",
+    "options": ["America's Next Top Model", "Project Runway", "The Real Housewives", "Glee"],
+    "correct_answer": "America's Next Top Model",
+    "flavor_wrong": "Wrong set. Smize harder."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Which queen was the first trans man to compete on the US version of Drag Race?",
+    "options": ["Gottmik", "Kerri Colby", "Peppermint", "Utica Queen"],
+    "correct_answer": "Gottmik",
+    "flavor_wrong": "History was made. Not by that answer."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Which season 9 runner-up was the first queen to enter the US competition as an openly trans woman?",
+    "options": ["Peppermint", "Shea Couleé", "Trinity Taylor", "Nina Bo'nina Brown"],
+    "correct_answer": "Peppermint",
+    "flavor_wrong": "Not her. Look it up. Peppermint is right there."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who became the first trans woman to win a US season of Drag Race?",
+    "options": ["Kylie Sonique Love", "Peppermint", "Gia Gunn", "Monica Beverly Hillz"],
+    "correct_answer": "Kylie Sonique Love",
+    "flavor_wrong": "Not quite. The crown went to a season 2 alum on All Stars 6."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Season 14's Maddy Morphosis made Drag Race history as the first what?",
+    "options": ["Straight cisgender man to compete", "Queen to win every challenge", "Contestant to compete from outside the US", "Queen to be eliminated twice"],
+    "correct_answer": "Straight cisgender man to compete",
+    "flavor_wrong": "That's a different kind of history. Also not true."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Season 11 winner Yvie Oddly and season 14 winner Willow Pill both came up in which city's drag scene?",
+    "options": ["Denver", "Portland", "Austin", "Phoenix"],
+    "correct_answer": "Denver",
+    "flavor_wrong": "Wrong altitude."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Season 16 winner Nymphia Wind is famous for which signature color and fruit motif?",
+    "options": ["Yellow banana", "Red cherry", "Pink peach", "Green apple"],
+    "correct_answer": "Yellow banana",
+    "flavor_wrong": "You slipped. On the wrong fruit."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Nymphia Wind is originally from which country?",
+    "options": ["Taiwan", "Japan", "South Korea", "Thailand"],
+    "correct_answer": "Taiwan",
+    "flavor_wrong": "Wrong country. Check the map."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Before Drag Race, season 15 winner Sasha Colby held which pageant title?",
+    "options": ["Miss Continental", "Miss Gay America", "Miss International Queen", "Miss Drag Universe"],
+    "correct_answer": "Miss Continental",
+    "flavor_wrong": "Wrong sash."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Sasha Colby is originally from which state?",
+    "options": ["Hawaii", "California", "Florida", "Texas"],
+    "correct_answer": "Hawaii",
+    "flavor_wrong": "Aloha, wrong answer."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Season 14's Kerri Colby is the drag daughter of which queen?",
+    "options": ["Sasha Colby", "Kennedy Davenport", "Asia O'Hara", "Chad Michaels"],
+    "correct_answer": "Sasha Colby",
+    "flavor_wrong": "Check the last name. It's right there."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Brooke Lynn Hytes trained professionally in what before drag?",
+    "options": ["Ballet", "Figure skating", "Gymnastics", "Opera"],
+    "correct_answer": "Ballet",
+    "flavor_wrong": "Wrong discipline. She's very disciplined. You were not."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Brooke Lynn Hytes became the host and head judge of which Drag Race spinoff?",
+    "options": ["Canada's Drag Race", "Drag Race Down Under", "RuPaul's Drag Race UK", "Drag Race Holland"],
+    "correct_answer": "Canada's Drag Race",
+    "flavor_wrong": "Sorry. That's the Canadian way of saying wrong."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "All Stars 8 winner Jimbo is known for what type of drag?",
+    "options": ["Clown", "Pageant", "Horror", "Club kid"],
+    "correct_answer": "Clown",
+    "flavor_wrong": "Honk. Wrong."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Which pop superstar was a guest judge on the season 9 premiere?",
+    "options": ["Lady Gaga", "Katy Perry", "Ariana Grande", "Miley Cyrus"],
+    "correct_answer": "Lady Gaga",
+    "flavor_wrong": "Wrong pop star. Poker face that one."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Season 13 winner Symone is from which state?",
+    "options": ["Arkansas", "Georgia", "Mississippi", "Tennessee"],
+    "correct_answer": "Arkansas",
+    "flavor_wrong": "Wrong state. She repped hers hard, too."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "What is the name of season 8 runner-up Kim Chi's makeup brand?",
+    "options": ["Kim Chi Chic Beauty", "Kimchi Kosmetics", "Seoul Glam", "Fermented Face"],
+    "correct_answer": "Kim Chi Chic Beauty",
+    "flavor_wrong": "That wasn't the product. That was barely a guess."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Season 8's Thorgy Thor is known for playing which instrument?",
+    "options": ["Violin", "Piano", "Harp", "Saxophone"],
+    "correct_answer": "Violin",
+    "flavor_wrong": "Off-key."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Season 8's Derrick Barry built a career impersonating which pop star?",
+    "options": ["Britney Spears", "Christina Aguilera", "Madonna", "Jessica Simpson"],
+    "correct_answer": "Britney Spears",
+    "flavor_wrong": "Oops. You did it again."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Why did Eureka leave season 9 partway through?",
+    "options": ["A knee injury", "She was disqualified", "She quit to tour", "A family emergency"],
+    "correct_answer": "A knee injury",
+    "flavor_wrong": "Wrong. She came back the next season. Your point won't."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Shangela was the first queen eliminated on season 2. How did she make her surprise return on season 3?",
+    "options": ["She popped out of a box", "She crashed through a wall", "She was lowered from the ceiling", "She arrived in a limousine"],
+    "correct_answer": "She popped out of a box",
+    "flavor_wrong": "Halleloo, no."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Shangela and Willam both appeared in which 2018 Oscar-nominated film?",
+    "options": ["A Star Is Born", "Bohemian Rhapsody", "The Favourite", "Green Book"],
+    "correct_answer": "A Star Is Born",
+    "flavor_wrong": "A star was born. Your point was not."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Which season 7 runner-up appeared in Hocus Pocus 2's drag witch costume contest?",
+    "options": ["Ginger Minj", "Pearl", "Katya", "Kennedy Davenport"],
+    "correct_answer": "Ginger Minj",
+    "flavor_wrong": "Amok, amok, amok. Wrong, wrong, wrong."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Season 7 winner Violet Chachki is famous for what signature fashion element?",
+    "options": ["Tightly cinched corsets", "Oversized shoulder pads", "Floor-length capes", "Platform sneakers"],
+    "correct_answer": "Tightly cinched corsets",
+    "flavor_wrong": "That answer has no waist. Or point."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Season 8 runner-up Naomi Smalls is best known for which physical asset?",
+    "options": ["Her very long legs", "Her signature eyebrows", "Her powerful voice", "Her tiny waist"],
+    "correct_answer": "Her very long legs",
+    "flavor_wrong": "Wrong. That answer didn't have a leg to stand on."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Season 16 runner-up Sapphira Cristál is a trained performer in which art form?",
+    "options": ["Opera", "Ballet", "Stand-up comedy", "Figure skating"],
+    "correct_answer": "Opera",
+    "flavor_wrong": "That answer hit a sour note."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Anetra's viral season 15 lip sync is best remembered for which move?",
+    "options": ["The duck walk", "The splits off a ladder", "A cartwheel into a death drop", "A wig reveal"],
+    "correct_answer": "The duck walk",
+    "flavor_wrong": "Quack. Wrong."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "What's the name of the dramatic move where a queen collapses backward to the floor with one leg tucked?",
+    "options": ["Death drop", "Shablam", "Swan dive", "Floor kiss"],
+    "correct_answer": "Death drop",
+    "flavor_wrong": "Your score just did one."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "What is the name of the tournament-style lip sync smackdown featured on season 13 and All Stars 6?",
+    "options": ["Lip Sync LaLaPaRUza", "Battle of the Bops", "The Lip Sync Lottery", "Smackdown Supreme"],
+    "correct_answer": "Lip Sync LaLaPaRUza",
+    "flavor_wrong": "Wrong tournament. Bracket busted."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "What are Drag Race's musical theater challenges called?",
+    "options": ["Rusicals", "Dragicals", "Glamicals", "Queenicals"],
+    "correct_answer": "Rusicals",
+    "flavor_wrong": "That musical closed in previews."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "What phrase does RuPaul use to announce the runway theme?",
+    "options": ["\"Category is...\"", "\"The look is...\"", "\"Tonight we serve...\"", "\"The theme is...\""],
+    "correct_answer": "\"Category is...\"",
+    "flavor_wrong": "Category is: wrong."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "What does RuPaul say to call the queens back onto the main stage after deliberations?",
+    "options": ["\"Bring back my girls!\"", "\"Send in the queens!\"", "\"Ladies, return!\"", "\"Back to the runway!\""],
+    "correct_answer": "\"Bring back my girls!\"",
+    "flavor_wrong": "Your girls are not coming back with that answer."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "What is RuPaul's drag-ified word for \"congratulations\"?",
+    "options": ["Condragulations", "Congratuqueens", "Conglamulations", "Congrattitudes"],
+    "correct_answer": "Condragulations",
+    "flavor_wrong": "No condragulations for you."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "How does RuPaul introduce the two queens about to lip sync?",
+    "options": ["\"Two queens stand before me.\"", "\"Two queens must battle.\"", "\"Only one can stay.\"", "\"Let the battle begin.\""],
+    "correct_answer": "\"Two queens stand before me.\"",
+    "flavor_wrong": "Wrong ritual. The lip sync gods are displeased."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "How does RuPaul famously sign off at the end of each episode?",
+    "options": ["\"Everybody say love!\"", "\"Stay fierce!\"", "\"Goodnight, queens!\"", "\"Keep on werkin'!\""],
+    "correct_answer": "\"Everybody say love!\"",
+    "flavor_wrong": "Everybody say... wrong."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Season 12's finale was unlike any before it. Why?",
+    "options": ["It was filmed remotely from the queens' homes", "It was broadcast live from Las Vegas", "The fans picked the winner", "There was no lip sync"],
+    "correct_answer": "It was filmed remotely from the queens' homes",
+    "flavor_wrong": "Wrong. It was 2020. Everyone was at home. Remember?"
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "What is the name of Trixie Mattel's cosmetics line?",
+    "options": ["Trixie Cosmetics", "Mattel Beauty", "Barbie Glam by Trixie", "Doll Face Cosmetics"],
+    "correct_answer": "Trixie Cosmetics",
+    "flavor_wrong": "That's not the brand. Mattel's lawyers thank you for asking, though."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "In which Las Vegas hotel did the RuPaul's Drag Race Live! residency open?",
+    "options": ["The Flamingo", "Caesars Palace", "The Bellagio", "The Venetian"],
+    "correct_answer": "The Flamingo",
+    "flavor_wrong": "What happens in Vegas stays wrong."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who won the first season of RuPaul's Drag Race UK?",
+    "options": ["The Vivienne", "Baga Chipz", "Divina de Campo", "Cheryl Hole"],
+    "correct_answer": "The Vivienne",
+    "flavor_wrong": "Wrong side of the pond."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who won season 2 of Drag Race UK?",
+    "options": ["Lawrence Chaney", "Bimini Bon Boulash", "Tayce", "Ellie Diamond"],
+    "correct_answer": "Lawrence Chaney",
+    "flavor_wrong": "Not quite, love."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who won season 3 of Drag Race UK?",
+    "options": ["Krystal Versace", "Kitty Scott-Claus", "Ella Vaday", "Vanity Milan"],
+    "correct_answer": "Krystal Versace",
+    "flavor_wrong": "Wrong. Put the kettle on and reflect."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who won season 4 of Drag Race UK, becoming the first bearded winner of the UK show?",
+    "options": ["Danny Beard", "Cheddar Gorgeous", "Black Peppa", "Jonbers Blonde"],
+    "correct_answer": "Danny Beard",
+    "flavor_wrong": "The clue was in the name. Right there."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who won season 5 of Drag Race UK?",
+    "options": ["Ginger Johnson", "Michael Marouli", "Tomara Thomas", "DeDeLicious"],
+    "correct_answer": "Ginger Johnson",
+    "flavor_wrong": "Not the winner. Not even the right biscuit."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Which two British TV personalities rotate as judges alongside RuPaul and Michelle on Drag Race UK?",
+    "options": ["Alan Carr and Graham Norton", "James Corden and Stephen Fry", "Ant and Dec", "Simon Cowell and David Walliams"],
+    "correct_answer": "Alan Carr and Graham Norton",
+    "flavor_wrong": "Wrong panel. Right country, though."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who won the first season of Canada's Drag Race?",
+    "options": ["Priyanka", "Rita Baga", "Scarlett BoBo", "Jimbo"],
+    "correct_answer": "Priyanka",
+    "flavor_wrong": "Sorry. Very Canadian of you, but wrong."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who won season 2 of Canada's Drag Race?",
+    "options": ["Icesis Couture", "Pythia", "Kendall Gender", "Synthia Kiss"],
+    "correct_answer": "Icesis Couture",
+    "flavor_wrong": "Wrong. Ice cold."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who won season 3 of Canada's Drag Race?",
+    "options": ["Gisèle Lullaby", "Jada Shada Hudson", "Kimmy Couture", "Irma Gerd"],
+    "correct_answer": "Gisèle Lullaby",
+    "flavor_wrong": "That answer can go to sleep."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who won the first season of Canada's Drag Race: Canada vs the World?",
+    "options": ["Ra'Jah O'Hara", "Silky Nutmeg Ganache", "Rita Baga", "Kendall Gender"],
+    "correct_answer": "Ra'Jah O'Hara",
+    "flavor_wrong": "The world disagrees with you."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who won the first season of RuPaul's Drag Race UK vs the World?",
+    "options": ["Blu Hydrangea", "Mo Heart", "Janey Jacké", "Pangina Heals"],
+    "correct_answer": "Blu Hydrangea",
+    "flavor_wrong": "You're feeling blue. Your answer was the wrong shade of it."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who won the first season of RuPaul's Drag Race Down Under?",
+    "options": ["Kita Mean", "Art Simone", "Karen from Finance", "Anita Wigl'it"],
+    "correct_answer": "Kita Mean",
+    "flavor_wrong": "Wrong hemisphere of thought."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Which comedian joined RuPaul and Michelle Visage as a judge on Drag Race Down Under?",
+    "options": ["Rhys Nicholson", "Hannah Gadsby", "Adam Hills", "Rove McManus"],
+    "correct_answer": "Rhys Nicholson",
+    "flavor_wrong": "Wrong comedian. This one isn't laughing."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who won the first season of Drag Race Thailand?",
+    "options": ["Natalia Pliacam", "Angele Anang", "Kana Warrior", "Bunny Be Fly"],
+    "correct_answer": "Natalia Pliacam",
+    "flavor_wrong": "Wrong crown. Wrong country, possibly."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Which two queens hosted Drag Race Thailand?",
+    "options": ["Art Arya and Pangina Heals", "Natalia Pliacam and Angele Anang", "Kana Warrior and Silly Fears", "Priscilla and Nicky Doll"],
+    "correct_answer": "Art Arya and Pangina Heals",
+    "flavor_wrong": "Those queens weren't holding the mic."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who won the first season of Drag Race Holland?",
+    "options": ["Envy Peru", "Janey Jacké", "Ma'Ma Queen", "Miss Abby OMG"],
+    "correct_answer": "Envy Peru",
+    "flavor_wrong": "Wrong. Even the windmills know."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who hosts Drag Race Holland?",
+    "options": ["Fred van Leer", "Nicky Doll", "Supremme de Luxe", "Paolo Ballesteros"],
+    "correct_answer": "Fred van Leer",
+    "flavor_wrong": "Wrong host. Wrong country, even."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who won the first season of Drag Race España?",
+    "options": ["Carmen Farala", "Killer Queen", "Sagittaria", "Hugáceo Crujiente"],
+    "correct_answer": "Carmen Farala",
+    "flavor_wrong": "Olé? No. Oh no."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who hosts Drag Race España?",
+    "options": ["Supremme de Luxe", "Priscilla", "Nicky Doll", "Fred van Leer"],
+    "correct_answer": "Supremme de Luxe",
+    "flavor_wrong": "That host works in a different country entirely."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who hosts Drag Race France?",
+    "options": ["Nicky Doll", "Paloma", "Supremme de Luxe", "Priscilla"],
+    "correct_answer": "Nicky Doll",
+    "flavor_wrong": "Non."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who won the first season of Drag Race France?",
+    "options": ["Paloma", "Nicky Doll", "La Grande Dame", "Lolita Banana"],
+    "correct_answer": "Paloma",
+    "flavor_wrong": "C'est faux."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who won the first season of Drag Race Italia?",
+    "options": ["Elecktra Bionic", "Farida Kant", "Le Riche", "Luquisha Lubamba"],
+    "correct_answer": "Elecktra Bionic",
+    "flavor_wrong": "Mamma mia. No."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who hosts Drag Race Philippines?",
+    "options": ["Paolo Ballesteros", "Precious Paula Nicole", "Marina Summers", "Pangina Heals"],
+    "correct_answer": "Paolo Ballesteros",
+    "flavor_wrong": "Wrong host. Wrong archipelago, maybe."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Who won the first season of Drag Race Philippines?",
+    "options": ["Precious Paula Nicole", "Marina Summers", "Captivating Katkat", "Brigiding"],
+    "correct_answer": "Precious Paula Nicole",
+    "flavor_wrong": "Precious time, wasted on the wrong answer."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Which pair of season 6 runners-up lost the crown to Bianca Del Rio?",
+    "options": ["Adore Delano and Courtney Act", "Darienne Lake and BenDeLaCreme", "Trinity K. Bonet and Joslyn Fox", "Laganja Estranja and Milk"],
+    "correct_answer": "Adore Delano and Courtney Act",
+    "flavor_wrong": "Those queens were watching from home by then."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Which queen was runner-up on season 13?",
+    "options": ["Kandy Muse", "Gottmik", "Rosé", "Olivia Lux"],
+    "correct_answer": "Kandy Muse",
+    "flavor_wrong": "Sweet guess. Wrong, but sweet."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Which queen was runner-up on season 14?",
+    "options": ["Lady Camden", "Daya Betty", "Bosco", "Jorgeous"],
+    "correct_answer": "Lady Camden",
+    "flavor_wrong": "Not the lady you were looking for."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Which queen was runner-up on season 15?",
+    "options": ["Anetra", "Luxx Noir London", "Mistress Isabelle Brooks", "Loosey LaDuca"],
+    "correct_answer": "Anetra",
+    "flavor_wrong": "Wrong. Duck-walk it off."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Which queen was runner-up on season 2?",
+    "options": ["Raven", "Jujubee", "Tatianna", "Pandora Boxx"],
+    "correct_answer": "Raven",
+    "flavor_wrong": "Nevermore. Er, never correct."
+  },
+  {
+    "deep_cut_topic_label": "drag-race",
+    "text": "Which queen was runner-up on season 3?",
+    "options": ["Manila Luzon", "Alexis Mateo", "Yara Sofia", "Shangela"],
+    "correct_answer": "Manila Luzon",
+    "flavor_wrong": "Close geography. Wrong queen."
+  }
+]
