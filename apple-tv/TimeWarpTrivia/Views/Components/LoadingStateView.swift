@@ -10,6 +10,5 @@ struct LoadingStateView: View {
             .font(TWTFont.body(24))
             .foregroundStyle(TWTColor.textLo)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(TWTColor.void)
     }
 }

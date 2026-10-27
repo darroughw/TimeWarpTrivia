@@ -415,3 +415,76 @@ final class GameFlowViewModel: ObservableObject {
 // LiveTvFlow.tsx's QUESTIONS_PER_ROUND/TOTAL_MAIN_QUESTIONS.
 let questionsPerRound = 5
 let totalMainQuestions = questionsPerRound * 3
+
+#if DEBUG
+// Debug-only demo data so every screen can be viewed (and screenshotted)
+// in the simulator without creating a real room in the production
+// Supabase project or joining phones. Launch with e.g.
+//   xcrun simctl launch booted com.timewarptrivia.appletv -demoScreen question -demoDecade 80s
+// Lives in this file because the state it seeds is private(set).
+// Nothing here talks to the network, so pressing buttons on a demo
+// screen will just surface an error alert.
+extension GameFlowViewModel {
+    func loadDemo(screen: String, decade: DecadeId) {
+        let roomId = UUID()
+        let names = [("Dana", "🦄", 4_250), ("Marcus", "🍕", 3_900), ("Priya", "🎸", 3_120), ("Leo", "🛹", 2_480), ("Jo", "📼", 1_150)]
+        players = names.map { name, emoji, score in
+            Player(id: UUID(), roomId: roomId, name: name, avatar: emoji, score: score, status: .active, createdAt: Date())
+        }
+
+        let status: RoomStatus
+        switch screen {
+        case "countdown": status = .countdown
+        case "question": status = .question
+        case "transition": status = .transition
+        case "scoreboard": status = .scoreboard
+        case "block": status = .block
+        case "end": status = .end
+        default: status = .lobby
+        }
+
+        let question = Self.demoQuestion(
+            text: "In 1997, what did you have to do to keep a Tamagotchi from \u{201C}dying\u{201D}?",
+            options: [
+                "Feed it, clean up after it, and put it to sleep on a schedule",
+                "Plug it into a Game Boy once a day",
+                "Keep it within 10 feet of its charging pod",
+                "Say its name out loud every morning",
+            ],
+            decade: .nineties
+        )
+        currentQuestion = question
+        decades = DecadeId.allCases.filter { $0 != .all }.map { Decade(id: $0, label: $0.rawValue) }
+        countdownSecondsRemaining = 3
+        answers = players.prefix(2).map {
+            Answer(id: UUID(), roomId: roomId, playerId: $0.id, questionId: question.id, answer: 0, responseTimeMs: 3_000, createdAt: Date())
+        }
+        lastRoundResult = RoundResult(
+            question: question,
+            results: players.enumerated().map { index, player in
+                let correct = index != 2 && index != 4
+                return PlayerPointResult(playerId: player.id, pointsGained: correct ? 900 - index * 120 : 0, correct: correct, answeredIndex: correct ? 0 : 1)
+            },
+            nextRoundLabel: "Round 1"
+        )
+        blockCandidates = [
+            Self.demoQuestion(text: "Which band sang \u{201C}Take On Me\u{201D}?", options: ["a-ha", "Duran Duran", "Tears for Fears", "INXS"], decade: .eighties),
+            Self.demoQuestion(text: "What year did the first iPhone come out?", options: ["2005", "2006", "2007", "2008"], decade: .twoThousands),
+            Self.demoQuestion(text: "Who hosted the original Match Game?", options: ["Gene Rayburn", "Bob Barker", "Monty Hall", "Wink Martindale"], decade: .seventies),
+        ]
+        room = Room(
+            id: roomId, code: "WARP-72", hostId: hostId, status: status, currentQuestionId: question.id,
+            blockerPlayerId: nil, decadeFilter: decade, blockCandidateIds: nil, questionIds: nil,
+            questionIndex: 0, askedQuestionIds: [], deepCutTopicId: nil, createdAt: Date()
+        )
+    }
+
+    private static func demoQuestion(text: String, options: [String], decade: DecadeId) -> Question {
+        let row = QuestionRow(
+            id: UUID(), decadeId: decade, categoryId: nil, deepCutTopicId: nil, text: text, options: options,
+            correctIndex: 0, flavorWrong: nil, isActive: true, createdAt: Date()
+        )
+        return Question(row: row, meta: QuestionMeta(roundLabel: "Round 1", timeLimitSeconds: 20, pointsMultiplier: 1))
+    }
+}
+#endif

@@ -9,13 +9,24 @@ import SwiftUI
 struct IntroView: View {
     @EnvironmentObject private var flow: GameFlowViewModel
     @State private var isStarting = false
+    @State private var floating = false
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     var body: some View {
         VStack(spacing: TWTSpacing.lg) {
             Spacer()
-            Text("TIMEWARP TRIVIA")
-                .font(TWTFont.headline(64))
-                .foregroundStyle(TWTColor.marigold)
+            ZStack {
+                RetroSunView()
+                    .frame(width: 520, height: 520)
+                    .offset(y: 60)
+                Text("TIMEWARP TRIVIA")
+                    .font(TWTFont.headline(64))
+                    .foregroundStyle(TWTColor.textHi)
+                    .shadow(color: TWTColor.marigoldDim, radius: 0, x: 0, y: 6)
+                    .shadow(color: TWTColor.marigold.opacity(0.7), radius: 30)
+                    .offset(y: floating ? -8 : 8)
+                    .animation(reduceMotion ? nil : .easeInOut(duration: 2.4).repeatForever(autoreverses: true), value: floating)
+            }
             Text("Six decades of pop culture trivia on the big screen — everyone else's phone is the buzzer.")
                 .font(TWTFont.body(28))
                 .foregroundStyle(TWTColor.textHi)
@@ -31,13 +42,42 @@ struct IntroView: View {
                     .padding(.horizontal, TWTSpacing.xl)
                     .padding(.vertical, TWTSpacing.sm)
             }
-            .tint(TWTColor.marigold)
+            .buttonStyle(TWTPrimaryButtonStyle())
             .prefersDefaultFocus(true, in: namespace)
             Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(TWTColor.void)
+        .onAppear { floating = true }
     }
 
     @Namespace private var namespace
+}
+
+// Synthwave sunset disc: a marigold-to-coral gradient sliced by
+// horizontal gaps that widen toward the horizon — same motif as the
+// phone Join screen.
+private struct RetroSunView: View {
+    // (top, bottom) of each visible band, as fractions of the disc height.
+    private static let bands: [(CGFloat, CGFloat)] = [(0, 0.52), (0.56, 0.64), (0.69, 0.76), (0.82, 0.88)]
+
+    var body: some View {
+        GeometryReader { geometry in
+            let size = geometry.size
+            Circle()
+                .fill(LinearGradient(colors: [TWTColor.marigold, TWTColor.coral], startPoint: .top, endPoint: .bottom))
+                .mask(
+                    ZStack(alignment: .top) {
+                        ForEach(Array(Self.bands.enumerated()), id: \.offset) { _, band in
+                            Rectangle()
+                                .frame(height: (band.1 - band.0) * size.height)
+                                .offset(y: band.0 * size.height)
+                        }
+                    }
+                    .frame(width: size.width, height: size.height, alignment: .top)
+                )
+                .opacity(0.45)
+                .shadow(color: TWTColor.coral.opacity(0.4), radius: 60)
+        }
+        .accessibilityHidden(true)
+    }
 }

@@ -8,7 +8,24 @@ import SwiftUI
 struct RootView: View {
     @EnvironmentObject private var flow: GameFlowViewModel
 
+    private var decade: DecadeId? { flow.room?.decadeFilter }
+
     var body: some View {
+        ZStack {
+            // Drawn once here, beneath every screen, so its drift carries
+            // across screen changes instead of restarting on each one.
+            TWTBackground(decade: decade)
+            screen
+                // Crossfade between screens rather than hard-cutting on
+                // every Realtime status change.
+                .transition(.opacity)
+                .id(flow.room?.status)
+        }
+        .animation(.easeInOut(duration: 0.4), value: flow.room?.status)
+        .environment(\.twtAccent, TWTColor.decadeAccent(for: decade ?? .all))
+    }
+
+    private var screen: some View {
         Group {
             if let room = flow.room {
                 switch room.status {

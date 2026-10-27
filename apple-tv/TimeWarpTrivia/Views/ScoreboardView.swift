@@ -4,8 +4,12 @@ import SwiftUI
 // controls (RemovePlayerButton's arm/confirm pattern) are deferred —
 // same call as LobbyView's player grid for now.
 struct ScoreboardView: View {
+    @Environment(\.twtAccent) private var accent
     @EnvironmentObject private var flow: GameFlowViewModel
     let roundLabel: String
+
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @State private var shown = false
 
     private var ranked: [Player] { flow.players.rankedByScore() }
 
@@ -25,13 +29,22 @@ struct ScoreboardView: View {
                     VStack(spacing: TWTSpacing.sm) {
                         ForEach(Array(ranked.enumerated()), id: \.element.id) { index, player in
                             row(rank: index + 1, player: player, isFirst: index == 0)
+                                // Rows slide in from the left, last place
+                                // first, so the leader lands last.
+                                .offset(x: shown ? 0 : -120)
+                                .opacity(shown ? 1 : 0)
+                                .animation(
+                                    reduceMotion ? nil : .spring(response: 0.5, dampingFraction: 0.75)
+                                        .delay(Double(ranked.count - index) * 0.12),
+                                    value: shown
+                                )
                         }
                     }
                 }
             }
             .padding(TWTSpacing.xl)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-            .background(TWTColor.void)
+            .onAppear { shown = true }
         }
     }
 
@@ -39,23 +52,29 @@ struct ScoreboardView: View {
         HStack(spacing: TWTSpacing.md) {
             Text("\(rank)")
                 .font(TWTFont.monoBold(24))
-                .foregroundStyle(isFirst ? TWTColor.marigold : TWTColor.textLo)
+                .foregroundStyle(isFirst ? accent : TWTColor.textLo)
                 .frame(width: 44, alignment: .leading)
             PlayerAvatarView(player: player, size: .sm)
             Text(player.name)
-                .font(TWTFont.body(20))
+                .font(isFirst ? TWTFont.bodyBold(20) : TWTFont.body(20))
                 .foregroundStyle(TWTColor.textHi)
+            if isFirst {
+                Text("👑")
+                    .font(.system(size: 36))
+            }
             Spacer()
             Text(player.score.formatted())
                 .font(TWTFont.monoBold(24))
-                .foregroundStyle(TWTColor.marigold)
+                .foregroundStyle(accent)
         }
         .padding(TWTSpacing.md)
+        .background(isFirst ? accent.opacity(0.14) : .clear)
         .background(TWTColor.voidRaised)
         .clipShape(RoundedRectangle(cornerRadius: TWTRadius.md))
+        .shadow(color: isFirst ? accent.opacity(0.4) : .clear, radius: 24)
         .overlay(
             RoundedRectangle(cornerRadius: TWTRadius.md)
-                .strokeBorder(isFirst ? TWTColor.marigold : Color.clear, lineWidth: twtBorderWidth)
+                .strokeBorder(isFirst ? accent : Color.clear, lineWidth: twtBorderWidth)
         )
         .opacity(player.status == .active ? 1 : 0.4)
     }

@@ -2,6 +2,8 @@ import SwiftUI
 
 // Direct port of components/tv/RoundStartScreen.tsx.
 struct RoundStartView: View {
+    @Environment(\.twtAccent) private var accent
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     let roundLabel: String
     let secondsRemaining: Int
 
@@ -31,13 +33,30 @@ struct RoundStartView: View {
                 .font(TWTFont.headline(56))
                 .textCase(.uppercase)
                 .foregroundStyle(TWTColor.textHi)
-            Text("\(secondsRemaining)")
-                .font(TWTFont.monoBold(120))
-                .foregroundStyle(TWTColor.textHi)
+                .shadow(color: accent.opacity(0.6), radius: 24)
+            ZStack {
+                // A ring that bursts outward on every tick — re-created per
+                // second via .id so its appear animation replays.
+                if !reduceMotion {
+                    TickBurstView(color: accent)
+                        .id(secondsRemaining)
+                }
+                Circle()
+                    .fill(accent.opacity(0.15))
+                    .overlay(Circle().strokeBorder(accent, lineWidth: 6))
+                    .frame(width: 260, height: 260)
+                    .shadow(color: accent.opacity(0.5), radius: 40)
+                // Each new number punches in big and settles.
+                Text("\(secondsRemaining)")
+                    .font(TWTFont.monoBold(120))
+                    .foregroundStyle(TWTColor.textHi)
+                    .id(secondsRemaining)
+                    .transition(reduceMotion ? .opacity : .scale(scale: 1.8).combined(with: .opacity))
+            }
+            .animation(.spring(response: 0.35, dampingFraction: 0.6), value: secondsRemaining)
             Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(TWTColor.void)
         .onAppear {
             let pool = roundLabel == "Round 1" ? Self.firstRoundReadyLines : Self.readyLines
             readyLine = pool.randomElement() ?? ""
@@ -51,5 +70,21 @@ struct RoundStartView: View {
             // through Realtime.
             if newValue == 0 { SoundPlayer.shared.play(.whoosh) }
         }
+    }
+}
+
+private struct TickBurstView: View {
+    let color: Color
+    @State private var expanded = false
+
+    var body: some View {
+        Circle()
+            .stroke(color, lineWidth: 6)
+            .frame(width: 260, height: 260)
+            .scaleEffect(expanded ? 1.7 : 1)
+            .opacity(expanded ? 0 : 0.8)
+            .onAppear {
+                withAnimation(.easeOut(duration: 0.9)) { expanded = true }
+            }
     }
 }

@@ -2,10 +2,13 @@ import SwiftUI
 
 // Direct port of components/tv/RoundTransitionScreen.tsx.
 struct RoundTransitionView: View {
+    @Environment(\.twtAccent) private var accent
     @EnvironmentObject private var flow: GameFlowViewModel
     let result: RoundResult
 
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var taunt: String?
+    @State private var revealed = false
 
     var body: some View {
         PassiveAdvanceContainer {
@@ -20,8 +23,8 @@ struct RoundTransitionView: View {
             }
             .padding(TWTSpacing.xl)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(TWTColor.void)
             .onAppear {
+                revealed = true
                 taunt = Taunts.pickTaunt(players: flow.players)
                 let everyoneWrong = !result.results.isEmpty && result.results.allSatisfy { !$0.correct }
                 if everyoneWrong { SoundPlayer.shared.play(.trombone) }
@@ -47,17 +50,23 @@ struct RoundTransitionView: View {
                 .foregroundStyle(TWTColor.paper)
         }
         .padding(TWTSpacing.md)
+        .background(TWTColor.teal.opacity(0.12))
         .background(TWTColor.voidRaised)
         .overlay(RoundedRectangle(cornerRadius: TWTRadius.md).strokeBorder(TWTColor.teal, lineWidth: twtBorderWidth))
         .clipShape(RoundedRectangle(cornerRadius: TWTRadius.md))
+        .shadow(color: TWTColor.teal.opacity(0.45), radius: 32)
+        // The answer slams in first...
+        .scaleEffect(revealed ? 1 : 0.6)
+        .opacity(revealed ? 1 : 0)
+        .animation(reduceMotion ? nil : .spring(response: 0.45, dampingFraction: 0.6), value: revealed)
     }
 
     private var resultsGrid: some View {
-        LazyVGrid(columns: [GridItem(.adaptive(minimum: 160), spacing: TWTSpacing.md)], spacing: TWTSpacing.md) {
-            ForEach(result.results) { pointResult in
+        LazyVGrid(columns: [GridItem(.adaptive(minimum: 200), spacing: TWTSpacing.md)], spacing: TWTSpacing.md) {
+            ForEach(Array(result.results.enumerated()), id: \.element.id) { index, pointResult in
                 if let player = flow.players.first(where: { $0.id == pointResult.playerId }) {
                     VStack(spacing: TWTSpacing.xs) {
-                        PlayerAvatarView(player: player, size: .sm)
+                        PlayerAvatarView(player: player, size: .md)
                         Text(player.name)
                             .font(TWTFont.body(15))
                             .foregroundStyle(TWTColor.textHi)
@@ -65,12 +74,21 @@ struct RoundTransitionView: View {
                             .font(TWTFont.monoBold(22))
                             .foregroundStyle(pointResult.pointsGained > 0 ? TWTColor.teal : TWTColor.textLo)
                     }
+                    .frame(minWidth: 180)
                     .padding(TWTSpacing.sm)
                     .background(TWTColor.voidRaised)
                     .clipShape(RoundedRectangle(cornerRadius: TWTRadius.md))
                     .overlay(
                         RoundedRectangle(cornerRadius: TWTRadius.md)
                             .strokeBorder(pointResult.correct ? TWTColor.teal : Color.clear, lineWidth: twtBorderWidth)
+                    )
+                    .shadow(color: pointResult.correct ? TWTColor.teal.opacity(0.35) : .clear, radius: 18)
+                    // ...then each player's card pops in, one after another.
+                    .scaleEffect(revealed ? 1 : 0.3)
+                    .opacity(revealed ? (pointResult.correct ? 1 : 0.7) : 0)
+                    .animation(
+                        reduceMotion ? nil : .spring(response: 0.4, dampingFraction: 0.55).delay(0.45 + Double(index) * 0.12),
+                        value: revealed
                     )
                 }
             }
@@ -100,7 +118,7 @@ struct RoundTransitionView: View {
                 Text(result.nextRoundLabel)
                     .font(TWTFont.headline(22))
                     .textCase(.uppercase)
-                    .foregroundStyle(TWTColor.marigold)
+                    .foregroundStyle(accent)
             }
         }
     }

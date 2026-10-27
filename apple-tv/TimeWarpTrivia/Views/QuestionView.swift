@@ -32,12 +32,46 @@ struct QuestionView: View {
         }
         .padding(TWTSpacing.xl)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-        .background(TWTColor.void)
+        .overlay(UrgencyVignetteView(question: question))
         .accessibilityElement(children: .contain)
     }
 }
 
+// The coral edge pulse for the last 5 seconds. Its own view with its own
+// one-shot timer — rather than reading QuestionCountdownView's per-second
+// state — so it re-renders once when urgency starts, not every tick, and
+// leaves the rest of the screen alone (see QuestionView's doc comment).
+private struct UrgencyVignetteView: View {
+    let question: Question
+
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @State private var urgent = false
+    @State private var pulsing = false
+
+    var body: some View {
+        RoundedRectangle(cornerRadius: 0)
+            .strokeBorder(TWTColor.coral, lineWidth: 24)
+            .blur(radius: 40)
+            .opacity(urgent ? (pulsing ? 0.85 : 0.35) : 0)
+            .animation(.easeInOut(duration: 0.3), value: urgent)
+            .animation(reduceMotion ? nil : .easeInOut(duration: 0.5).repeatForever(autoreverses: true), value: pulsing)
+            .ignoresSafeArea()
+            .allowsHitTesting(false)
+            .accessibilityHidden(true)
+            .task(id: question.id) {
+                urgent = false
+                pulsing = false
+                let lead = max(0, question.timeLimitSeconds - 5)
+                try? await Task.sleep(nanoseconds: UInt64(lead) * 1_000_000_000)
+                if Task.isCancelled { return }
+                urgent = true
+                pulsing = true
+            }
+    }
+}
+
 private struct QuestionHeaderView: View {
+    @Environment(\.twtAccent) private var accent
     let question: Question
     let soloPlayer: Player?
 
@@ -47,12 +81,12 @@ private struct QuestionHeaderView: View {
                 if let soloPlayer {
                     Text("⚡ Solo round: only \(soloPlayer.name) can answer")
                         .font(TWTFont.bodyBold(20))
-                        .foregroundStyle(TWTColor.marigold)
+                        .foregroundStyle(accent)
                 }
                 Text(question.roundLabel)
                     .font(TWTFont.bodyBold(18))
                     .textCase(.uppercase)
-                    .foregroundStyle(TWTColor.marigold)
+                    .foregroundStyle(accent)
                 // question-heading (app/styles/_mixins.scss): Archivo
                 // Bold, sentence case — deliberately NOT the Archivo
                 // Black marquee-heading font every other title on this
@@ -139,29 +173,51 @@ private struct QuestionCountdownView: View {
 private struct QuestionOptionsGrid: View {
     let options: [String]
 
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @State private var dealtIn = false
+
     var body: some View {
         LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: TWTSpacing.md) {
             ForEach(Array(options.enumerated()), id: \.offset) { index, option in
+                // Same A/B/C/D colors as the phone buttons, so players can
+                // match "the blue one" at a glance between screens.
+                let color = TWTColor.options[index % TWTColor.options.count]
                 HStack(spacing: TWTSpacing.md) {
                     Text(OptionLetter.all[index])
                         .font(TWTFont.monoBold(24))
-                        .foregroundStyle(TWTColor.marigold)
-                        .frame(width: 44)
+                        .foregroundStyle(TWTColor.ink)
+                        .frame(width: 64, height: 64)
+                        .background(Circle().fill(color))
                     Text(option)
                         .font(TWTFont.body(22))
                         .foregroundStyle(TWTColor.textHi)
                     Spacer()
                 }
                 .padding(TWTSpacing.md)
+                .padding(.leading, 8)
+                .frame(minHeight: 130)
+                .background(color.opacity(0.12))
                 .background(TWTColor.voidRaised)
-                .overlay(RoundedRectangle(cornerRadius: TWTRadius.md).strokeBorder(TWTColor.voidLine, lineWidth: 1))
+                .overlay(alignment: .leading) { color.frame(width: 10) }
+                .overlay(RoundedRectangle(cornerRadius: TWTRadius.md).strokeBorder(color.opacity(0.45), lineWidth: twtBorderWidth))
                 .clipShape(RoundedRectangle(cornerRadius: TWTRadius.md))
+                .shadow(color: color.opacity(0.25), radius: 20)
+                // Answers deal in one after another.
+                .opacity(dealtIn ? 1 : 0)
+                .offset(y: dealtIn ? 0 : 40)
+                .scaleEffect(dealtIn ? 1 : 0.94)
+                .animation(
+                    reduceMotion ? nil : .spring(response: 0.5, dampingFraction: 0.7).delay(0.15 + Double(index) * 0.1),
+                    value: dealtIn
+                )
             }
         }
+        .onAppear { dealtIn = true }
     }
 }
 
 private struct QuestionFooterView: View {
+    @Environment(\.twtAccent) private var accent
     @EnvironmentObject private var flow: GameFlowViewModel
     let question: Question
     let soloPlayer: Player?
@@ -185,7 +241,7 @@ private struct QuestionFooterView: View {
                 let ratio = effectiveTotal > 0 ? Double(answeredCount) / Double(effectiveTotal) : 0
                 ZStack(alignment: .leading) {
                     Capsule().fill(TWTColor.voidLine)
-                    Capsule().fill(TWTColor.marigold).frame(width: geometry.size.width * ratio)
+                    Capsule().fill(accent).frame(width: geometry.size.width * ratio)
                 }
             }
             .frame(height: 8)

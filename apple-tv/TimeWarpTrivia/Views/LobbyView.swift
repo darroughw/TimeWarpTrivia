@@ -20,6 +20,7 @@ enum LobbyFocusTarget: Hashable {
 // Direct port of components/tv/LobbyScreen.tsx (decade mode — Deep Cuts'
 // DeepCutsLobbyScreen equivalent is deferred, see the plan).
 struct LobbyView: View {
+    @Environment(\.twtAccent) private var accent
     @EnvironmentObject private var flow: GameFlowViewModel
     @State private var showHelp = false
     // nil until the first onChange fires, so the room's starting headcount
@@ -46,7 +47,6 @@ struct LobbyView: View {
         }
         .padding(TWTSpacing.xl)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-        .background(TWTColor.void)
         .onChange(of: activeCount) { newValue in
             if let previousActiveCount, newValue > previousActiveCount {
                 SoundPlayer.shared.play(.join)
@@ -61,7 +61,7 @@ struct LobbyView: View {
             VStack(alignment: .leading, spacing: TWTSpacing.sm) {
                 Text("TIMEWARP TRIVIA")
                     .font(TWTFont.headline(24))
-                    .foregroundStyle(TWTColor.marigold)
+                    .foregroundStyle(accent)
                 Text("Grab your phone & join in")
                     .font(TWTFont.headline(40))
                     .foregroundStyle(TWTColor.textHi)
@@ -72,8 +72,13 @@ struct LobbyView: View {
                     .font(TWTFont.body(13))
                     .foregroundStyle(TWTColor.textLo)
                 Text(flow.room?.code ?? "----")
-                    .font(TWTFont.monoBold(40))
-                    .foregroundStyle(TWTColor.marigold)
+                    .font(TWTFont.monoBold(48))
+                    .foregroundStyle(accent)
+                    .shadow(color: accent.opacity(0.7), radius: 20)
+                    .padding(.horizontal, TWTSpacing.md)
+                    .padding(.vertical, TWTSpacing.xs)
+                    .background(RoundedRectangle(cornerRadius: TWTRadius.md).fill(accent.opacity(0.1)))
+                    .overlay(RoundedRectangle(cornerRadius: TWTRadius.md).strokeBorder(accent.opacity(0.6), lineWidth: twtBorderWidth))
                 Text("Join at timewarptrivia.com/play")
                     .font(TWTFont.body(13))
                     .foregroundStyle(TWTColor.textLo)
@@ -91,12 +96,15 @@ struct LobbyView: View {
                     .font(TWTFont.body(17))
                     .foregroundStyle(TWTColor.textLo)
             } else {
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 110), spacing: TWTSpacing.md)], spacing: TWTSpacing.md) {
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 140), spacing: TWTSpacing.md)], spacing: TWTSpacing.md) {
                     ForEach(flow.players) { player in
                         PlayerAvatarView(player: player, size: .md, showName: true)
                             .opacity(player.status == .active ? 1 : 0.4)
+                            // Each new player pops into the room.
+                            .transition(.scale(scale: 0.2).combined(with: .opacity))
                     }
                 }
+                .animation(.spring(response: 0.45, dampingFraction: 0.55), value: flow.players.map(\.id))
             }
         }
         // No .frame(maxWidth: .infinity) here — on tvOS a "greedy"
@@ -153,7 +161,7 @@ struct LobbyView: View {
                     .padding(.horizontal, TWTSpacing.xl)
                     .padding(.vertical, TWTSpacing.sm)
             }
-            .tint(TWTColor.marigold)
+            .buttonStyle(TWTPrimaryButtonStyle())
             .disabled(!flow.canStartGame || flow.isStartingGame)
             // Mirrors startButton's &:disabled rule in
             // LobbyScreen.module.scss (opacity: 0.4) — without this a

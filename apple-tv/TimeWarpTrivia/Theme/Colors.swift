@@ -52,4 +52,31 @@ enum TWTColor {
     static func decadeAccent(for decade: DecadeId) -> Color {
         decadeAccents[decade] ?? marigold
     }
+
+    // Mirrors $option-colors in app/styles/_theme.scss — the A/B/C/D
+    // answer colors players see on their phones, so "the pink one" means
+    // the same answer on both screens. Deliberately clear of teal/coral,
+    // which mean right/wrong.
+    static let options: [Color] = [
+        Color(hex: 0xFFB238),
+        Color(hex: 0x4D9FFF),
+        Color(hex: 0xA879FF),
+        Color(hex: 0xFF5FAE),
+    ]
+}
+
+// The session's marquee accent — marigold by default, or the picked
+// decade's color once one's chosen in the lobby. The native equivalent of
+// the web's `--marigold` custom property override (_decade-themes.scss):
+// RootView sets it once, and every screen reads it instead of
+// TWTColor.marigold, so the TV matches the decade theme the phones show.
+private struct TWTAccentKey: EnvironmentKey {
+    static let defaultValue = TWTColor.marigold
+}
+
+extension EnvironmentValues {
+    var twtAccent: Color {
+        get { self[TWTAccentKey.self] }
+        set { self[TWTAccentKey.self] = newValue }
+    }
 }

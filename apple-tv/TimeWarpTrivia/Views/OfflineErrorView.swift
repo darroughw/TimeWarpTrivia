@@ -39,7 +39,6 @@ struct OfflineErrorView: View {
             Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(TWTColor.void)
     }
 
     @Namespace private var namespace

@@ -99,8 +99,12 @@ private struct DecadePillButton: View {
             onSelect(decade.id)
         } label: {
             Text(decade.label)
-                .font(TWTFont.bodyBold(18))
-                .padding(.horizontal, TWTSpacing.md + (isFocused ? TWTSpacing.xs : 0))
+                .font(TWTFont.bodyBold(16))
+                // Never wrap mid-label ("200 / 0s") — all seven pills
+                // fit on one row at TV type size with this padding.
+                .lineLimit(1)
+                .fixedSize()
+                .padding(.horizontal, TWTSpacing.sm + (isFocused ? TWTSpacing.xs : 0))
                 .padding(.vertical, TWTSpacing.sm + (isFocused ? TWTSpacing.xs : 0))
                 .foregroundStyle(foregroundColor)
                 .background(backgroundColor)

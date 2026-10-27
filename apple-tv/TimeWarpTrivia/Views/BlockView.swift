@@ -84,6 +84,5 @@ struct BlockView: View {
         }
         .padding(TWTSpacing.xl)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-        .background(TWTColor.void)
     }
 }

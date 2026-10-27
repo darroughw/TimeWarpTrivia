@@ -6,6 +6,7 @@ import SwiftUI
 // the whole question); QuestionView posts a single low-time announcement
 // instead, same as the web version.
 struct CountdownRingView: View {
+    @Environment(\.twtAccent) private var accent
     let totalSeconds: Int
     let secondsRemaining: Int
     var pointsMultiplier: Int = 1
@@ -19,13 +20,14 @@ struct CountdownRingView: View {
         VStack(spacing: TWTSpacing.xs) {
             ZStack {
                 Circle()
-                    .stroke(TWTColor.voidLine, lineWidth: 10)
+                    .stroke(TWTColor.voidLine, lineWidth: 12)
                 Circle()
                     .trim(from: 0, to: ratio)
                     .stroke(
-                        urgent ? TWTColor.coral : TWTColor.marigold,
-                        style: StrokeStyle(lineWidth: 10, lineCap: .round)
+                        urgent ? TWTColor.coral : accent,
+                        style: StrokeStyle(lineWidth: 12, lineCap: .round)
                     )
+                    .shadow(color: (urgent ? TWTColor.coral : accent).opacity(0.6), radius: 12)
                     .rotationEffect(.degrees(-90))
                     .animation(.linear(duration: 1), value: ratio)
                 VStack(spacing: 0) {
@@ -37,10 +39,13 @@ struct CountdownRingView: View {
                         .foregroundStyle(TWTColor.textLo)
                 }
             }
-            .frame(width: 140, height: 140)
+            .frame(width: 180, height: 180)
+            // A heartbeat thump on every tick of the last 5 seconds.
+            .scaleEffect(urgent && clamped > 0 && clamped % 2 == 1 ? 1.1 : 1)
+            .animation(.spring(response: 0.25, dampingFraction: 0.5), value: clamped)
             Text("\(points) pts")
                 .font(TWTFont.monoBold(16))
-                .foregroundStyle(TWTColor.marigold)
+                .foregroundStyle(accent)
         }
     }
 }
