@@ -9,6 +9,7 @@
   flex-direction: column;
   gap: $space-lg;
   z-index: $z-content;
+  @include screen-enter;
 }
 
 .srOnly {
@@ -20,6 +21,10 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: $space-md;
+}
+
+.timer {
+  flex-shrink: 0;
 }
 
 .roundLabel {
@@ -46,33 +51,57 @@
 
 .option {
   @include tappable;
+  --option-color: #{nth($option-colors, 1)};
+  position: relative;
   display: flex;
   align-items: center;
   gap: $space-md;
   width: 100%;
   min-height: 4.5rem;
   padding: $space-md;
-  background: $void-raised;
-  border: $border-width solid $void-line;
+  background: color-mix(in srgb, var(--option-color) 10%, #{$void-raised});
+  border: $border-width solid color-mix(in srgb, var(--option-color) 35%, #{$void-line});
+  border-left-width: 0.5rem;
+  border-left-color: var(--option-color);
   border-radius: $radius-md;
   text-align: left;
+  transition:
+    transform 0.1s ease,
+    opacity 0.3s ease,
+    border-color 0.15s ease,
+    background-color 0.15s ease,
+    box-shadow 0.2s ease;
+  // Answers deal in one after another when the question appears.
+  // `backwards` so the held end state never blocks the :active press.
+  animation: option-enter 0.4s cubic-bezier(0.2, 0.9, 0.3, 1.2) backwards;
+
+  @for $i from 1 through length($option-colors) {
+    &:nth-child(#{$i}) {
+      --option-color: #{nth($option-colors, $i)};
+      animation-delay: #{0.08s + ($i - 1) * 0.07s};
+    }
+  }
 
   &.selected {
-    border-color: $marigold;
-    background: rgba(255, 178, 56, 0.12);
+    border-color: var(--option-color);
+    background: color-mix(in srgb, var(--option-color) 28%, #{$void-raised});
+    box-shadow: 0 0 32px color-mix(in srgb, var(--option-color) 45%, transparent);
+    animation: lock-pop 0.4s cubic-bezier(0.2, 0.9, 0.3, 1.4);
   }
 
   &:disabled:not(.selected) {
-    opacity: 0.4;
+    opacity: 0.25;
+    transform: scale(0.96);
   }
 }
 
 .optionLetter {
   @include mono-figure;
+  position: relative;
   font-weight: 700;
   font-size: 1.4rem;
   color: $ink;
-  background: $paper;
+  background: var(--option-color);
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
@@ -81,8 +110,34 @@
   justify-content: center;
   flex-shrink: 0;
 
-  .selected & {
-    background: $marigold;
+  // Lock-in burst: a ring and a starburst of rays fire outward from the
+  // picked letter once, then fade.
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  &::before {
+    border: 3px solid var(--option-color);
+  }
+
+  &::after {
+    inset: -60%;
+    background: repeating-conic-gradient(var(--option-color) 0deg 8deg, transparent 8deg 30deg);
+    mask: radial-gradient(circle, transparent 38%, #000 40%, #000 60%, transparent 72%);
+  }
+
+  .selected &::before {
+    animation: burst-ring 0.6s ease-out;
+  }
+
+  .selected &::after {
+    animation: burst-rays 0.6s ease-out;
   }
 }
 
@@ -91,4 +146,106 @@
   font-size: 1.1rem;
   color: $text-hi;
   font-weight: 500;
+}
+
+// Last few seconds with no answer in: the screen edges pulse coral and the
+// timer gives a nudge every tick.
+.urgent::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 60px 8px rgba(255, 90, 95, 0.55);
+  animation: urgent-pulse 1s ease-in-out infinite;
+}
+
+.urgent .timer {
+  animation: timer-nudge 1s ease-in-out infinite;
+}
+
+@keyframes option-enter {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes lock-pop {
+  0% {
+    transform: scale(0.97);
+  }
+  45% {
+    transform: scale(1.04);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes burst-ring {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2.6);
+  }
+}
+
+@keyframes burst-rays {
+  0% {
+    opacity: 0.9;
+    transform: scale(0.6) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.4) rotate(20deg);
+  }
+}
+
+@keyframes urgent-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes timer-nudge {
+  0%,
+  70%,
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+  78% {
+    transform: rotate(-8deg) scale(1.08);
+  }
+  86% {
+    transform: rotate(6deg) scale(1.08);
+  }
+  94% {
+    transform: rotate(-3deg) scale(1.02);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .option,
+  .option.selected,
+  .selected .optionLetter::before,
+  .selected .optionLetter::after,
+  .urgent .timer {
+    animation: none;
+  }
+
+  .urgent::after {
+    animation: none;
+    opacity: 0.7;
+  }
 }

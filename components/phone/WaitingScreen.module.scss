@@ -12,6 +12,7 @@
   gap: $space-lg;
   text-align: center;
   z-index: $z-content;
+  @include screen-enter;
 }
 
 .roomLabel {

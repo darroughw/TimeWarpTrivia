@@ -37,6 +37,11 @@ $marigold-dim: var(--marigold-dim, #8a5f18); // marigold at low emphasis (border
 $coral: #ff5a5f; // secondary accent — timer running out, wrong answer
 $teal: #2dd4bf; // tertiary accent — correct answer, success, points
 
+// Game-show answer colors for A/B/C/D on the phone controller. Fixed and
+// not decade-themed, and deliberately clear of $teal/$coral — those mean
+// right/wrong, and a "green B" would read as a spoiler.
+$option-colors: (#ffb238, #4d9fff, #a879ff, #ff5fae);
+
 $text-hi: #fbf6ec; // primary text on void
 $text-lo: #a7abc4; // secondary/muted text on void
 $text-placeholder: #666b87; // form placeholder text — dim enough not to read as already-filled-in

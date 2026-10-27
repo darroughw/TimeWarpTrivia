@@ -12,6 +12,7 @@
   gap: $space-md;
   text-align: center;
   z-index: $z-content;
+  @include screen-enter;
 }
 
 .eyebrow {

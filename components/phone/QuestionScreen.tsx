@@ -42,6 +42,11 @@ export default function QuestionScreen({ question, onAnswer }: QuestionScreenPro
     }
   }, [secondsRemaining, lowTimeAnnouncement]);
 
+  // Only while there's still a decision to make — once an answer's locked
+  // in, the countdown is no longer this player's problem.
+  const urgent =
+    selectedIndex === null && secondsRemaining > 0 && secondsRemaining <= LOW_TIME_ANNOUNCE_SECONDS;
+
   function handleSelect(index: number) {
     if (selectedIndex !== null) return;
     setSelectedIndex(index);
@@ -49,7 +54,7 @@ export default function QuestionScreen({ question, onAnswer }: QuestionScreenPro
   }
 
   return (
-    <div className={styles.screen}>
+    <div className={`${styles.screen} ${urgent ? styles.urgent : ""}`}>
       <ScanlineOverlay />
       <SoundToggle />
       <div className={styles.header}>
@@ -57,12 +62,14 @@ export default function QuestionScreen({ question, onAnswer }: QuestionScreenPro
           <span className={styles.roundLabel}>{question.roundLabel}</span>
           <h1 className={styles.questionText}>{question.text}</h1>
         </div>
-        <CountdownRing
-          totalSeconds={question.timeLimitSeconds}
-          secondsRemaining={secondsRemaining}
-          pointsMultiplier={question.pointsMultiplier}
-          size="sm"
-        />
+        <div className={styles.timer}>
+          <CountdownRing
+            totalSeconds={question.timeLimitSeconds}
+            secondsRemaining={secondsRemaining}
+            pointsMultiplier={question.pointsMultiplier}
+            size="sm"
+          />
+        </div>
       </div>
 
       <div className={styles.options} role="radiogroup" aria-label="Answer options">

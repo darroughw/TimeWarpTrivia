@@ -3,3 +3,18 @@
 .overlay {
   @include scanline-overlay;
 }
+
+// The TV-tuned 1px lines vanish on a high-DPI phone held at arm's length —
+// chunkier lines so the texture actually shows up on
+// the controller. No TV viewport is ever this narrow.
+@media (max-width: 600px) {
+  .overlay {
+    background: repeating-linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.03) 0px,
+      rgba(255, 255, 255, 0.03) 2px,
+      transparent 2px,
+      transparent 5px
+    );
+  }
+}

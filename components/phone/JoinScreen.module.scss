@@ -8,11 +8,54 @@
   display: flex;
   flex-direction: column;
   z-index: $z-content;
+  @include screen-enter;
 }
 
 .brand {
+  position: relative;
+  isolation: isolate;
   text-align: center;
   margin-bottom: $space-xl;
+
+  // Retro sunset rising behind the title: a marigold-to-coral disc sliced
+  // by horizontal bands that thicken toward the horizon.
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    top: 58%;
+    width: 10.5rem;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    transform: translate(-50%, -55%);
+    background: linear-gradient(to bottom, #{$marigold} 0%, #{$coral} 100%);
+    opacity: 0.45;
+    mask: linear-gradient(
+      to bottom,
+      #000 0% 52%,
+      transparent 52% 56%,
+      #000 56% 64%,
+      transparent 64% 69%,
+      #000 69% 76%,
+      transparent 76% 82%,
+      #000 82% 88%,
+      transparent 88%
+    );
+  }
+
+  // Horizon line the sun sits on.
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 10%;
+    right: 10%;
+    top: calc(58% + 2.3rem);
+    height: 2px;
+    background: linear-gradient(to right, transparent, #{$marigold}, transparent);
+    opacity: 0.6;
+  }
 }
 
 .eyebrow {
@@ -22,12 +65,17 @@
   color: $marigold;
   font-size: 0.8rem;
   font-weight: 700;
+  // Sits over the top of the sunset disc — keeps it legible there.
+  text-shadow: 0 1px 6px rgba(11, 14, 26, 0.9);
 }
 
 .title {
   @include marquee-heading;
   font-size: 2.5rem;
   margin-top: $space-xs;
+  text-shadow:
+    0 2px 0 #{$marigold-dim},
+    0 0 24px color-mix(in srgb, #{$marigold} 55%, transparent);
 }
 
 .form {

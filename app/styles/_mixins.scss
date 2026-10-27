@@ -143,3 +143,27 @@
     outline-offset: 2px;
   }
 }
+
+// Phone screens fade/slide in on mount instead of hard-cutting — the
+// controller swaps screens on every Realtime status change, and a short
+// entrance makes that read as a transition rather than a glitch.
+// `backwards`, not `both`: a held final transform would block the
+// tappable :active press on anything inside.
+@mixin screen-enter {
+  animation: screen-enter 0.35s ease-out backwards;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@keyframes screen-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

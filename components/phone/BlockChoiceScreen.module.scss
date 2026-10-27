@@ -9,6 +9,7 @@
   flex-direction: column;
   gap: $space-lg;
   z-index: $z-content;
+  @include screen-enter;
 }
 
 .eyebrow {

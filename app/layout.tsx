@@ -1,6 +1,6 @@
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Archivo, Archivo_Black, Space_Mono } from "next/font/google";
 import { Providers } from "./providers";
 import "./styles/globals.scss";
@@ -53,6 +53,13 @@ export const metadata: Metadata = {
     title: "TimeWarp Trivia",
     description,
   },
+};
+
+// Tints Safari's status bar and toolbar to the app's void background on
+// phones, so the controller doesn't sit inside white browser chrome.
+export const viewport: Viewport = {
+  themeColor: "#0b0e1a",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({

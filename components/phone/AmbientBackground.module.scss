@@ -1,0 +1,74 @@
+@use "theme" as *;
+
+// Sits under everything else on the phone controller (below the decade
+// motif on body::before and the scanlines). Soft radial gradients rather
+// than `filter: blur()` — a blur filter re-rasterizes every frame on
+// iOS Safari, a gradient that fades to transparent costs nothing — and
+// only `transform` animates, so the drift stays on the compositor.
+.ambient {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.blob {
+  position: absolute;
+  width: 120vw;
+  max-width: 600px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  will-change: transform;
+}
+
+// Follows the decade theme's accent (via --marigold), so a 60s session
+// glows green, an 80s one pink, and so on.
+.accent {
+  top: -35%;
+  left: -40%;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, #{$marigold} 32%, transparent) 0%,
+    transparent 65%
+  );
+  animation: drift-a 22s ease-in-out infinite alternate;
+}
+
+.violet {
+  top: 25%;
+  right: -55%;
+  background: radial-gradient(circle, rgba(138, 92, 255, 0.28) 0%, transparent 65%);
+  animation: drift-b 28s ease-in-out infinite alternate;
+}
+
+.blue {
+  bottom: -40%;
+  left: -20%;
+  background: radial-gradient(circle, rgba(64, 120, 255, 0.24) 0%, transparent 65%);
+  animation: drift-c 25s ease-in-out infinite alternate;
+}
+
+@keyframes drift-a {
+  to {
+    transform: translate(30%, 25%) scale(1.15);
+  }
+}
+
+@keyframes drift-b {
+  to {
+    transform: translate(-35%, -20%) scale(0.9);
+  }
+}
+
+@keyframes drift-c {
+  to {
+    transform: translate(25%, -30%) scale(1.1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blob {
+    animation: none;
+  }
+}

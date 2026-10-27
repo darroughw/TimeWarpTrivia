@@ -28,7 +28,9 @@ export default function AnsweredScreen({ pickedLetter, onRoundEnd }: AnsweredScr
         ✓
       </div>
       <h1 className={styles.title}>
-        Answer locked in: <span className={styles.pickedLetter}>{pickedLetter}</span>
+        Answer locked in: <span className={styles.pickedLetter} data-letter={pickedLetter}>
+          {pickedLetter}
+        </span>
       </h1>
       <p className={styles.status}>Waiting for other players…</p>
 
