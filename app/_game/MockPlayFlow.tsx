@@ -7,6 +7,7 @@ import BlockedSpectatorScreen from "@/components/phone/BlockedSpectatorScreen";
 import FinalResultsScreen from "@/components/phone/FinalResultsScreen";
 import JoinScreen from "@/components/phone/JoinScreen";
 import QuestionScreen from "@/components/phone/QuestionScreen";
+import RevealScreen from "@/components/phone/RevealScreen";
 import WaitingScreen from "@/components/phone/WaitingScreen";
 import {
   MOCK_BLOCK_CANDIDATE_QUESTIONS,
@@ -14,12 +15,13 @@ import {
   MOCK_PICKED_BLOCK_QUESTION,
   MOCK_QUESTION,
 } from "@/lib/mockData";
+import { computeScore } from "@/lib/scoring";
 import { playSound } from "@/lib/sounds";
 import { OPTION_LETTERS } from "@/lib/types";
 
 // The scripted, no-backend version of the phone flow — used when
 // Supabase isn't configured. See LivePlayFlow for the real one.
-type Stage = "join" | "waiting" | "question" | "answered" | "blockChoice" | "blockedSpectator" | "final";
+type Stage = "join" | "waiting" | "question" | "answered" | "reveal" | "blockChoice" | "blockedSpectator" | "final";
 
 export default function MockPlayFlow() {
   const [stage, setStage] = useState<Stage>("join");
@@ -66,7 +68,23 @@ export default function MockPlayFlow() {
       {stage === "answered" && (
         <AnsweredScreen
           pickedLetter={OPTION_LETTERS[answeredIndex ?? 0]}
-          onRoundEnd={() => setStage("blockChoice")}
+          onRoundEnd={() => setStage("reveal")}
+        />
+      )}
+
+      {stage === "reveal" && (
+        <RevealScreen
+          outcome={answeredIndex === MOCK_QUESTION.correctIndex ? "correct" : "wrong"}
+          question={MOCK_QUESTION}
+          // A fixed, plausible response time — the mock flow doesn't track one.
+          pointsGained={computeScore(
+            answeredIndex === MOCK_QUESTION.correctIndex,
+            4000,
+            MOCK_QUESTION.timeLimitSeconds,
+            MOCK_QUESTION.pointsMultiplier,
+          )}
+          streak={answeredIndex === MOCK_QUESTION.correctIndex ? 3 : 0}
+          onDone={() => setStage("blockChoice")}
         />
       )}
 

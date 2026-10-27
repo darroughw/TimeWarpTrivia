@@ -1,0 +1,230 @@
+@use "theme" as *;
+@use "mixins" as *;
+
+// Per-outcome accent: teal for correct, coral for wrong, muted for a
+// missed question (no answer isn't "wrong", just absent).
+.screen {
+  --reveal-color: #{$teal};
+  position: relative;
+  min-height: 100vh;
+  padding: $space-xl $space-md;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $space-md;
+  text-align: center;
+  overflow: hidden;
+  z-index: $z-content;
+  @include screen-enter;
+
+  &.wrong {
+    --reveal-color: #{$coral};
+  }
+
+  &.missed {
+    --reveal-color: #{$text-lo};
+  }
+}
+
+.badge {
+  width: 6.5rem;
+  height: 6.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.25rem;
+  color: var(--reveal-color);
+  background: color-mix(in srgb, var(--reveal-color) 14%, transparent);
+  border: $border-width solid var(--reveal-color);
+  box-shadow: 0 0 48px color-mix(in srgb, var(--reveal-color) 45%, transparent);
+  animation: badge-spring 0.55s cubic-bezier(0.2, 0.9, 0.3, 1.5) backwards;
+
+  .wrong & {
+    animation:
+      badge-spring 0.45s cubic-bezier(0.2, 0.9, 0.3, 1.5) backwards,
+      badge-shake 0.45s ease-in-out 0.45s;
+  }
+
+  .missed & {
+    font-size: 2.75rem;
+  }
+}
+
+.headline {
+  @include marquee-heading;
+  font-size: 2.25rem;
+  color: var(--reveal-color);
+  text-shadow: 0 0 24px color-mix(in srgb, var(--reveal-color) 45%, transparent);
+  animation: rise-in 0.4s ease-out 0.15s backwards;
+
+  .missed & {
+    color: $text-hi;
+  }
+}
+
+.points {
+  @include mono-figure;
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: $text-hi;
+  animation: rise-in 0.4s ease-out 0.25s backwards;
+
+  .correct & {
+    color: $teal;
+  }
+
+  .wrong &,
+  .missed & {
+    color: $text-lo;
+    font-size: 1.75rem;
+  }
+}
+
+.streak {
+  font-family: $head-font;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 1rem;
+  color: $ink;
+  background: linear-gradient(90deg, #ffb238, #ff5fae);
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  box-shadow: 0 0 24px rgba(255, 95, 174, 0.45);
+  animation: streak-pop 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.5) 0.6s backwards;
+}
+
+.answer {
+  font-family: $paper-font;
+  font-size: 1.1rem;
+  color: $text-hi;
+  max-width: 22rem;
+  line-height: 1.4;
+  animation: rise-in 0.4s ease-out 0.35s backwards;
+}
+
+.answerLetter {
+  @include mono-figure;
+  font-weight: 700;
+
+  @each $letter, $i in ("A": 1, "B": 2, "C": 3, "D": 4) {
+    &[data-letter="#{$letter}"] {
+      color: nth($option-colors, $i);
+    }
+  }
+}
+
+.hint {
+  margin-top: $space-md;
+  font-family: $paper-font;
+  font-size: 0.9rem;
+  color: $text-lo;
+}
+
+// Confetti only on a correct answer — one fall, no loop.
+.confetti {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.piece {
+  position: absolute;
+  top: -1.5rem;
+  width: 0.55rem;
+  height: 0.9rem;
+  border-radius: 2px;
+  opacity: 0;
+  animation-name: confetti-fall;
+  animation-timing-function: cubic-bezier(0.3, 0.5, 0.6, 1);
+  animation-fill-mode: forwards;
+
+  @for $i from 1 through length($option-colors) {
+    &:nth-child(#{length($option-colors)}n + #{$i}) {
+      background: nth($option-colors, $i);
+    }
+  }
+}
+
+@keyframes confetti-fall {
+  0% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(70vh) rotate(var(--spin));
+  }
+}
+
+@keyframes badge-spring {
+  from {
+    opacity: 0;
+    transform: scale(0.2) rotate(-25deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes badge-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-10px);
+  }
+  40% {
+    transform: translateX(9px);
+  }
+  60% {
+    transform: translateX(-6px);
+  }
+  80% {
+    transform: translateX(3px);
+  }
+}
+
+@keyframes streak-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .badge,
+  .wrong .badge,
+  .headline,
+  .points,
+  .streak,
+  .answer {
+    animation: none;
+  }
+
+  .confetti {
+    display: none;
+  }
+}

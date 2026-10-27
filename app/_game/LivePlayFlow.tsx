@@ -9,6 +9,7 @@ import FinalResultsScreen from "@/components/phone/FinalResultsScreen";
 import JoinScreen from "@/components/phone/JoinScreen";
 import QuestionScreen from "@/components/phone/QuestionScreen";
 import RemovedFromGameScreen from "@/components/phone/RemovedFromGameScreen";
+import RevealScreen from "@/components/phone/RevealScreen";
 import WaitingScreen from "@/components/phone/WaitingScreen";
 import { useBlockCandidates } from "@/hooks/useBlockCandidates";
 import { useCountdown } from "@/hooks/useCountdown";
@@ -30,6 +31,13 @@ export default function LivePlayFlow() {
   const [joining, setJoining] = useState(false);
   const [answeredQuestionIds, setAnsweredQuestionIds] = useState<Set<string>>(new Set());
   const [lastPickedLetter, setLastPickedLetter] = useState<string>("A");
+  // This player's own result for the question they last answered, held
+  // until the TV's reveal so the phone can show it too. Computed locally
+  // at answer time — the same numbers submitAnswer writes to the DB.
+  const [lastResult, setLastResult] = useState<{ questionId: string; correct: boolean; pointsGained: number } | null>(
+    null,
+  );
+  const [streak, setStreak] = useState(0);
 
   // Not state — these just need to persist across renders without
   // triggering any of their own, so a question's response time is
@@ -59,6 +67,17 @@ export default function LivePlayFlow() {
       questionShownAtRef.current = Date.now();
     }
   }, [room?.current_question_id]);
+
+  // A question that times out with no answer from this player breaks
+  // their streak, same as a wrong one. A rematch starts it over.
+  useEffect(() => {
+    if (room?.status === "lobby") {
+      setStreak(0);
+      setLastResult(null);
+    } else if (room?.status === "transition" && room.current_question_id !== lastResult?.questionId) {
+      setStreak(0);
+    }
+  }, [room?.status, room?.current_question_id, lastResult?.questionId]);
 
   async function handleJoin(name: string, code: string) {
     setJoining(true);
@@ -91,6 +110,8 @@ export default function LivePlayFlow() {
     const pointsGained = computeScore(correct, responseTimeMs, question.timeLimitSeconds, question.pointsMultiplier);
 
     setLastPickedLetter(OPTION_LETTERS[index]);
+    setLastResult({ questionId: question.id, correct, pointsGained });
+    setStreak((current) => (correct ? current + 1 : 0));
     setAnsweredQuestionIds((current) => new Set(current).add(question.id));
     // Instant feedback the moment the answer's locked in, not on the later
     // TV reveal — the player already can't change it, so there's no reason
@@ -136,6 +157,8 @@ export default function LivePlayFlow() {
     setPlayerId(null);
     setPlayerName("");
     setAnsweredQuestionIds(new Set());
+    setLastResult(null);
+    setStreak(0);
     trackedQuestionIdRef.current = null;
     questionShownAtRef.current = null;
   }
@@ -192,6 +215,22 @@ export default function LivePlayFlow() {
         playerName={playerName}
         roomCode={room.code}
         message="Waiting for the last-place player to choose a question…"
+      />
+    );
+  }
+
+  // The TV's answer reveal — mirror this player's own result on their
+  // phone. Solo-round spectators never answered, so they skip it.
+  const isRevealStage = room.status === "transition" || (room.status === "soloTransition" && isBlocker);
+  if (isRevealStage && currentQuestion) {
+    const answered = lastResult?.questionId === currentQuestion.id;
+    return (
+      <RevealScreen
+        key={currentQuestion.id}
+        outcome={!answered ? "missed" : lastResult.correct ? "correct" : "wrong"}
+        question={currentQuestion}
+        pointsGained={answered ? lastResult.pointsGained : 0}
+        streak={streak}
       />
     );
   }
