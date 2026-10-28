@@ -21,7 +21,7 @@ import {
   ROOM_CODE,
   rankedByScore,
 } from "@/lib/mockData";
-import { playBackgroundMusic, stopBackgroundMusic } from "@/lib/music";
+import { setBackgroundMusicWanted } from "@/lib/music";
 import type { DecadeId, Player, RoundResult } from "@/lib/types";
 
 const JOIN_INTERVAL_MS = 900;
@@ -85,16 +85,12 @@ export default function MockTvFlow() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [stage, handleAdvance]);
 
-  // Same "plays throughout the game once it's started" rule as LiveTvFlow.
+  // Same lobby-through-last-question music rule as LiveTvFlow.
   useEffect(() => {
-    if (stage === "lobby" || stage === "end") {
-      stopBackgroundMusic();
-      return;
-    }
-    playBackgroundMusic();
+    setBackgroundMusicWanted(stage !== "end");
   }, [stage]);
 
-  useEffect(() => stopBackgroundMusic, []);
+  useEffect(() => () => setBackgroundMusicWanted(false), []);
 
   // Simulate the lobby's live "players joining" feed. Re-runs whenever we
   // land back on "lobby" (e.g. Play Again).

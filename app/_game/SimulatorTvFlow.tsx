@@ -23,7 +23,7 @@ import { getAvatarForName, playerRowToPlayer } from "@/lib/avatar";
 import type { RoomStatus } from "@/lib/database.types";
 import { ALL_DECADES_OPTION } from "@/lib/decadeColors";
 import { pickBlockChooser, pickRandomContestantNames } from "@/lib/mockData";
-import { playBackgroundMusic, stopBackgroundMusic } from "@/lib/music";
+import { setBackgroundMusicWanted } from "@/lib/music";
 import { fetchDecades, fetchRandomQuestionSet } from "@/lib/questionService";
 import {
   clearRoomAnswers,
@@ -242,17 +242,13 @@ export default function SimulatorTvFlow() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [room, players, answers, fakePlayerIds, blockCandidates, currentQuestion]);
 
-  // Same "plays throughout the game once it's started" rule as LiveTvFlow.
+  // Same lobby-through-last-question music rule as LiveTvFlow.
   const roomStatus = room?.status;
   useEffect(() => {
-    if (!roomStatus || roomStatus === "lobby" || roomStatus === "end") {
-      stopBackgroundMusic();
-      return;
-    }
-    playBackgroundMusic();
+    setBackgroundMusicWanted(Boolean(roomStatus) && roomStatus !== "end");
   }, [roomStatus]);
 
-  useEffect(() => stopBackgroundMusic, []);
+  useEffect(() => () => setBackgroundMusicWanted(false), []);
 
   async function handlePlayAgain() {
     if (!room) return;

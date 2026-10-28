@@ -34,7 +34,7 @@ import {
   resetActivePlayerScores,
   clearRoomAnswers,
 } from "@/lib/roomService";
-import { playBackgroundMusic, stopBackgroundMusic } from "@/lib/music";
+import { setBackgroundMusicWanted } from "@/lib/music";
 import { computeScore } from "@/lib/scoring";
 import {
   ROUND_START_COUNTDOWN_SECONDS,
@@ -244,21 +244,16 @@ export default function LiveTvFlow({ mode = "decade" }: LiveTvFlowProps) {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [room, handleAdvance]);
 
-  // Background music plays for the whole active game — everything
-  // between the lobby and the end screen — matching "throughout the
-  // game once it's started." Stopped on unmount too (navigating away
-  // from the TV route entirely), not just on status, so it can't keep
-  // looping after the game screen itself is gone.
+  // Background music plays from the lobby through the last question, not
+  // on the end screen (same as the Apple TV app); lib/music handles the
+  // Music toggle and browsers' click-before-audio rule. Unwanted on
+  // unmount too, so it can't keep looping after the TV screen is gone.
   const roomStatus = room?.status;
   useEffect(() => {
-    if (!roomStatus || roomStatus === "lobby" || roomStatus === "end") {
-      stopBackgroundMusic();
-      return;
-    }
-    playBackgroundMusic();
+    setBackgroundMusicWanted(Boolean(roomStatus) && roomStatus !== "end");
   }, [roomStatus]);
 
-  useEffect(() => stopBackgroundMusic, []);
+  useEffect(() => () => setBackgroundMusicWanted(false), []);
 
   // Same-room rematch (TIM-38): keep the code, reset only still-active
   // players' scores, clear answer history, and send the room back to
