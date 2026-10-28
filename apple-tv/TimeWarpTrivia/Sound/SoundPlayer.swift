@@ -49,7 +49,7 @@ final class SoundPlayer {
 
     private func player(for id: SoundID) -> AVAudioPlayer? {
         if let existing = players[id] { return existing }
-        guard let url = Bundle.main.url(forResource: id.filename, withExtension: "mp3") else { return nil }
+        guard let url = Bundle.main.url(forResource: id.filename, withExtension: id.fileExtension) else { return nil }
         guard let player = try? AVAudioPlayer(contentsOf: url) else { return nil }
         player.prepareToPlay()
         players[id] = player

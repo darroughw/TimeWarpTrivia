@@ -1,10 +1,8 @@
 import type { DecadeId } from "@/lib/types";
 
-// Sound effects — all sourced from Mixkit's free SFX library (commercial
-// use OK, no attribution required; see each file's source below), never
-// embedded third-party video/audio, per CLAUDE.md's licensing note under
-// TIM-13. The decade* entries are the exception — see the CC0/opengameart
-// note further down for why those come from a different source.
+// Sound effects — all original, synthesized by scripts/compose-audio.mjs
+// in the same 80s synth palette as the background music. No samples or
+// third-party audio.
 export type SoundName =
   | "correct"
   | "wrong"
@@ -14,49 +12,22 @@ export type SoundName =
   | "whoosh"
   | "block"
   | "fanfare"
-  | "decade60s"
-  | "decade70s"
-  | "decade80s"
-  | "decade90s"
-  | "decade2000s"
-  | "decade2010s";
+  | "decadeSting";
 
-// Source: https://mixkit.co/free-sound-effects/ (Mixkit Free License)
-// - correct  -> "Correct answer tone"              (mixkit.co/free-sound-effects/correct/)
-// - wrong    -> "Game show wrong answer buzz"       (mixkit.co/free-sound-effects/wrong/)
-// - tick     -> "Clock ticker single"               (mixkit.co/free-sound-effects/clock/)
-// - trombone -> "Slow sad trombone fail"            (mixkit.co/free-sound-effects/wrong/)
-// - join     -> "Positive notification"             (mixkit.co/free-sound-effects/notification/)
-// - whoosh   -> "Cinematic whoosh fast transition"  (mixkit.co/free-sound-effects/whoosh/)
-// - block    -> "Cartoon string suspense"           (mixkit.co/free-sound-effects/suspense/)
-// - fanfare  -> "Grand brass fanfare"               (mixkit.co/free-sound-effects/fanfare/)
-//
-// Decade stings are trimmed (~1.6s, faded in/out, peak-normalized) from
-// full CC0 tracks on opengameart.org, NOT Mixkit — Mixkit's *music*
-// license (distinct from its SFX license, which does allow games)
-// explicitly excludes video games, and this app ships as a packaged game
-// on the Fire TV Appstore. CC0 needs no attribution either way.
-// - decade60s   -> "vintage hawaii" by Tarush Singhal (opengameart.org/content/vintage-hawaii) — beach/surf vibe
-// - decade70s   -> "Funked Up" by Joth (opengameart.org/content/funked-up)
-// - decade80s   -> "Investigation" by Umplix (opengameart.org/content/investigation-0) — noir sax
-// - decade90s   -> "death - w4ck (punk rock metal)" by madworldgames (opengameart.org/content/punk-rock-metal-background-music) — grunge-adjacent
-// - decade2000s -> "1-UP Nightclub" by neonarkade (opengameart.org/content/1-up-nightclub)
-// - decade2010s -> "Vengeance Electro" by Of Far Different Nature (opengameart.org/content/vengeance-electro)
+// Game sounds: rendered as AAC (.m4a) because no MP3 encoder is
+// available on the machine that renders them; every target browser and
+// WebView plays AAC natively. Re-render with `node scripts/compose-audio.mjs`.
+
 const SOUND_FILES: Record<SoundName, string> = {
-  correct: "/sounds/correct.mp3",
-  wrong: "/sounds/wrong.mp3",
-  tick: "/sounds/tick.mp3",
-  trombone: "/sounds/trombone.mp3",
-  join: "/sounds/join.mp3",
-  whoosh: "/sounds/whoosh.mp3",
-  block: "/sounds/block.mp3",
-  fanfare: "/sounds/fanfare.mp3",
-  decade60s: "/sounds/decade-60s.mp3",
-  decade70s: "/sounds/decade-70s.mp3",
-  decade80s: "/sounds/decade-80s.mp3",
-  decade90s: "/sounds/decade-90s.mp3",
-  decade2000s: "/sounds/decade-2000s.mp3",
-  decade2010s: "/sounds/decade-2010s.mp3",
+  correct: "/sounds/correct.m4a",
+  wrong: "/sounds/wrong.m4a",
+  tick: "/sounds/tick.m4a",
+  trombone: "/sounds/trombone.m4a",
+  join: "/sounds/join.m4a",
+  whoosh: "/sounds/whoosh.m4a",
+  block: "/sounds/block.m4a",
+  fanfare: "/sounds/fanfare.m4a",
+  decadeSting: "/sounds/decade-sting.m4a",
 };
 
 const STORAGE_KEY = "twt-sound-enabled";
@@ -123,18 +94,8 @@ export function preloadAllSounds(): void {
   }
 }
 
-const DECADE_STING_SOUND: Partial<Record<DecadeId, SoundName>> = {
-  "60s": "decade60s",
-  "70s": "decade70s",
-  "80s": "decade80s",
-  "90s": "decade90s",
-  "2000s": "decade2000s",
-  "2010s": "decade2010s",
-};
-
-// No entry for "all" — All Decades stays on the neutral/default theme
-// (TIM-14), so it gets no themed sting either.
+// One shared sting for picking any decade. None for "all" — All Decades
+// stays on the neutral/default theme (TIM-14), so it gets no sting either.
 export function playDecadeSting(decade: DecadeId): void {
-  const sound = DECADE_STING_SOUND[decade];
-  if (sound) playSound(sound);
+  if (decade !== "all") playSound("decadeSting");
 }
