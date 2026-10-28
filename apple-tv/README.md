@@ -40,9 +40,9 @@ real Xcode and needs network access.
    outside the existing `TimeWarpTrivia/` folder, new fonts/sounds under
    `Resources/`, etc.), regenerate with `xcodegen generate` from this
    directory rather than hand-editing `project.pbxproj` — xcodegen owns that
-   file now. Plain new `.swift` files dropped into `TimeWarpTrivia/` are
-   picked up automatically by the folder-reference source path in
-   `project.yml`, no regeneration needed.
+   file now. That includes adding, removing, or renaming any `.swift`
+   file: the generated project lists every source file explicitly, so a
+   new file isn't part of the build until you regenerate.
 
 ## Backend configuration
 
