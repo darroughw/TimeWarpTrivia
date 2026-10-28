@@ -1,6 +1,12 @@
 {
   "version": 1,
   "skills": {
+    "character-design-sheet": {
+      "source": "qu-skills/skills",
+      "sourceType": "github",
+      "skillPath": "guides/design/character-design-sheet/SKILL.md",
+      "computedHash": "903efdb9da49e68a939f3c016e7352f0c352cb593c049e955f62f8f41b64b2d7"
+    },
     "supabase": {
       "source": "supabase/agent-skills",
       "sourceType": "github",
