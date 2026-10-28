@@ -69,12 +69,19 @@ export default function RoundTransitionScreen({ result, players }: RoundTransiti
         })}
       </div>
 
+      {/* The room's running joke gets a centered banner, landing after the
+          last result card pops in — as small corner text, players missed it. */}
+      {taunt && (
+        <p
+          key={question.id}
+          className={styles.taunt}
+          style={{ "--taunt-delay": `${0.5 + results.length * 0.05}s` } as CSSProperties}
+        >
+          {taunt}
+        </p>
+      )}
+
       <footer className={styles.footer}>
-        {taunt ? (
-          <span className={styles.taunt}>{taunt}</span>
-        ) : (
-          <span />
-        )}
         <div className={styles.nextUp}>
           <span className={styles.nextLabel}>Up next</span>
           <span className={styles.nextRound}>{nextRoundLabel}</span>

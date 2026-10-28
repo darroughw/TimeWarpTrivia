@@ -256,40 +256,50 @@
 .footer {
   flex-shrink: 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: flex-end;
-  gap: $space-lg;
   padding-top: clamp(0.4rem, 1.5vh, #{$space-lg});
   border-top: 1px solid $void-line;
 }
 
-// Dry, deadpan jab at whoever's not in first (lib/taunts.ts) — sized to
-// actually read as a second headline from across the room, not a footnote,
-// while staying coral (not teal/marigold) so it doesn't get mistaken for
-// the correct-answer or up-next callouts above/beside it.
+// Dry, deadpan jab at whoever's not in first (lib/taunts.ts). A centered
+// marquee banner between the results and the footer, so it reads from
+// across the room — it used to be small footer text and players missed
+// it. Coral frame (not teal/marigold) so it can't be mistaken for the
+// correct-answer or up-next callouts. Takes its share of the screen's
+// fixed height from the results grid, whose rows shrink to fit.
 .taunt {
-  font-family: $paper-font;
-  font-weight: 700;
-  color: $coral;
-  text-shadow: 0 0 20px rgba(255, 90, 95, 0.5);
-  font-size: clamp(1.1rem, 2.8vh, 1.75rem);
-  line-height: 1.25;
-  max-width: 46rem;
-  animation: taunt-slide-in 0.4s ease-out 0.5s both;
+  flex-shrink: 0;
+  // Full content width, matching the answer card — fewer wrapped lines.
+  align-self: stretch;
+  margin: 0;
+  padding: clamp(0.6rem, 2.2vh, #{$space-lg}) clamp(1.25rem, 4vw, #{$space-xl});
+  @include marquee-heading;
+  text-transform: none;
+  text-align: center;
+  font-size: clamp(1.4rem, 4.4vh, 2.75rem);
+  line-height: 1.2;
+  color: $text-hi;
+  text-shadow: 0 0 18px rgba(255, 90, 95, 0.75);
+  background: $void-raised;
+  border: $border-width solid $coral;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-glow-coral;
+  animation: taunt-pop-in 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.3) var(--taunt-delay, 0.5s) both;
 
   @media (prefers-reduced-motion: reduce) {
     animation: none;
   }
 }
 
-@keyframes taunt-slide-in {
+@keyframes taunt-pop-in {
   0% {
     opacity: 0;
-    transform: translateX(-8px);
+    transform: scale(0.7);
   }
   100% {
     opacity: 1;
-    transform: translateX(0);
+    transform: scale(1);
   }
 }
 
