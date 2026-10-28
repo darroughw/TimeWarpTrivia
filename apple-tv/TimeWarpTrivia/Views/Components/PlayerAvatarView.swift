@@ -39,6 +39,23 @@ struct PlayerAvatarView: View {
         AvatarColor.color(forName: player.name)
     }
 
+    // A stored avatar that maps to a character draws it on a circle filled
+    // with the player's color (the art is black-and-white line work);
+    // anything else — avatars from before characters — stays an emoji.
+    @ViewBuilder private var avatarArt: some View {
+        if let character = PlayerCharacter.forAvatar(player.avatar) {
+            Image(character.imageName)
+                .resizable()
+                .scaledToFit()
+                .background(ringColor)
+        } else {
+            Text(player.avatar)
+                .font(.system(size: size.emojiSize))
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(TWTColor.voidRaised)
+        }
+    }
+
     var body: some View {
         VStack(spacing: TWTSpacing.xs) {
             if let rank {
@@ -46,10 +63,9 @@ struct PlayerAvatarView: View {
                     .font(TWTFont.mono(13))
                     .foregroundStyle(TWTColor.textLo)
             }
-            Text(player.avatar)
-                .font(.system(size: size.emojiSize))
+            avatarArt
                 .frame(width: size.diameter, height: size.diameter)
-                .background(Circle().fill(TWTColor.voidRaised))
+                .clipShape(Circle())
                 .overlay(Circle().strokeBorder(isWinner ? TWTColor.marigold : ringColor, lineWidth: isWinner ? twtBorderWidth + 1 : twtBorderWidth))
             if showName {
                 Text(player.name)

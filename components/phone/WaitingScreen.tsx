@@ -9,6 +9,9 @@ import styles from "./WaitingScreen.module.scss";
 
 interface WaitingScreenProps {
   playerName: string;
+  // The player's stored avatar (their chosen character's emoji). Falls
+  // back to the name-derived default before the player row has loaded.
+  avatar?: string;
   roomCode: string;
   message?: string;
   // Only used by the scripted mock flow, which has no real "host started"
@@ -21,11 +24,14 @@ const AUTO_START_DELAY_MS = 3000;
 
 export default function WaitingScreen({
   playerName,
+  avatar,
   roomCode,
   message = "Waiting for the host to start",
   onHostStart,
 }: WaitingScreenProps) {
-  const { emoji, color } = getAvatarForName(playerName);
+  const fallback = getAvatarForName(playerName);
+  const emoji = avatar ?? fallback.emoji;
+  const color = fallback.color;
 
   useEffect(() => {
     if (!onHostStart) return;

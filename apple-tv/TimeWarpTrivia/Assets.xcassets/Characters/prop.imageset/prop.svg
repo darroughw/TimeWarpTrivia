@@ -1,0 +1,19 @@
+<svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M120 74V48" stroke="#16131F" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M120 46C100 34 76 38 72 48C92 52 108 50 120 46Z" fill="#16131F"/>
+<path d="M120 46C140 34 164 38 168 48C148 52 132 50 120 46Z" fill="#16131F"/>
+<circle cx="120" cy="46" r="3.75" fill="white" stroke="#16131F" stroke-width="4.5"/>
+<circle cx="59" cy="129" r="10.25" fill="white" stroke="#16131F" stroke-width="5.5"/>
+<circle cx="59" cy="129" r="5" fill="#16131F"/>
+<circle cx="181" cy="129" r="10.25" fill="white" stroke="#16131F" stroke-width="5.5"/>
+<circle cx="181" cy="129" r="5" fill="#16131F"/>
+<circle cx="120" cy="128" r="53.25" fill="white" stroke="#16131F" stroke-width="5.5"/>
+<path d="M66 134H174C172 168 148 184 120 184C92 184 68 168 66 134Z" fill="#16131F"/>
+<path d="M102 148V166" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M114 148V166" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M126 148V166" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M138 148V166" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="120" cy="84" r="4" fill="#16131F"/>
+<circle cx="103" cy="110" r="6" fill="#16131F"/>
+<circle cx="137" cy="110" r="6" fill="#16131F"/>
+</svg>

@@ -1,7 +1,10 @@
+import { CHARACTERS } from "./characters";
 import type { PlayerRow } from "./database.types";
 import type { Player } from "./types";
 
-const AVATAR_EMOJIS = ["🎮", "🕹️", "📼", "💾", "📟", "🛸", "🦖", "👾"];
+// A name-derived default from the full character set (see lib/characters.ts)
+// — used wherever no explicit pick exists, e.g. simulated players.
+const AVATAR_EMOJIS = CHARACTERS.map((c) => c.emoji);
 const AVATAR_COLORS = ["#ff3fa4", "#7c5cff", "#33d6ff", "#ff8a3d", "#2dd4bf", "#ffb238"];
 
 function hashString(value: string): number {

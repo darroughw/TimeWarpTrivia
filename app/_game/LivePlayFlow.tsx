@@ -17,7 +17,7 @@ import { useCurrentQuestion } from "@/hooks/useCurrentQuestion";
 import { useDecadeTheme } from "@/hooks/useDecadeTheme";
 import { useDeepCutsTheme } from "@/hooks/useDeepCutsTheme";
 import { useRoomRealtime } from "@/hooks/useRoomRealtime";
-import { getAvatarForName, playerRowToPlayer } from "@/lib/avatar";
+import { playerRowToPlayer } from "@/lib/avatar";
 import { pickBlockChooser, rankedByScore } from "@/lib/mockData";
 import { fetchRoomByCode, joinRoom, submitAnswer, updateRoom } from "@/lib/roomService";
 import { computeScore } from "@/lib/scoring";
@@ -83,7 +83,7 @@ export default function LivePlayFlow() {
     }
   }, [room?.status, room?.current_question_id, lastResult?.questionId]);
 
-  async function handleJoin(name: string, code: string) {
+  async function handleJoin(name: string, code: string, avatar: string) {
     setJoining(true);
     setJoinError(undefined);
     try {
@@ -92,8 +92,7 @@ export default function LivePlayFlow() {
         setJoinError("Room not found. Check the code and try again.");
         return;
       }
-      const { emoji } = getAvatarForName(name);
-      const newPlayer = await joinRoom(foundRoom.id, name, emoji);
+      const newPlayer = await joinRoom(foundRoom.id, name, avatar);
       setPlayerName(name);
       setPlayerId(newPlayer.id);
       setRoomId(foundRoom.id);
@@ -178,7 +177,7 @@ export default function LivePlayFlow() {
   }
 
   if (room.status === "lobby") {
-    return <WaitingScreen playerName={playerName} roomCode={room.code} />;
+    return <WaitingScreen playerName={playerName} avatar={player?.emoji} roomCode={room.code} />;
   }
 
   if (room.status === "countdown") {
@@ -186,6 +185,7 @@ export default function LivePlayFlow() {
     return (
       <WaitingScreen
         playerName={playerName}
+        avatar={player?.emoji}
         roomCode={room.code}
         message={`${roundLabel} starts in ${countdownSecondsRemaining}…`}
       />
@@ -210,13 +210,14 @@ export default function LivePlayFlow() {
     const lowestScorer = pickBlockChooser(players);
     if (player && lowestScorer?.id === player.id) {
       if (blockCandidates.length === 0) {
-        return <WaitingScreen playerName={playerName} roomCode={room.code} message="Loading your questions…" />;
+        return <WaitingScreen playerName={playerName} avatar={player?.emoji} roomCode={room.code} message="Loading your questions…" />;
       }
       return <BlockChoiceScreen candidates={blockCandidates} onConfirm={handleBlockChoice} />;
     }
     return (
       <WaitingScreen
         playerName={playerName}
+        avatar={player?.emoji}
         roomCode={room.code}
         message="Waiting for the last-place player to choose a question…"
       />
@@ -240,7 +241,7 @@ export default function LivePlayFlow() {
   }
 
   if (room.status === "transition" || room.status === "soloTransition" || room.status === "scoreboard") {
-    return <WaitingScreen playerName={playerName} roomCode={room.code} message="Check the TV screen!" />;
+    return <WaitingScreen playerName={playerName} avatar={player?.emoji} roomCode={room.code} message="Check the TV screen!" />;
   }
 
   if (room.status === "end") {
@@ -258,5 +259,5 @@ export default function LivePlayFlow() {
     return <FinalResultsScreen standing={standing} onLeave={handleLeaveGame} />;
   }
 
-  return <WaitingScreen playerName={playerName} roomCode={room.code} message="One sec…" />;
+  return <WaitingScreen playerName={playerName} avatar={player?.emoji} roomCode={room.code} message="One sec…" />;
 }

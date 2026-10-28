@@ -1,0 +1,13 @@
+<svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M86 102C70 84 86 66 72 50" stroke="#16131F" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M104 92C96 72 110 60 100 40" stroke="#16131F" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M120 90C120 70 130 58 120 36" stroke="#16131F" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M136 92C144 72 130 60 140 40" stroke="#16131F" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M154 102C170 84 154 66 168 50" stroke="#16131F" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M120 86.75C147.057 86.75 169.25 109.996 169.25 139C169.25 168.004 147.057 191.25 120 191.25C92.9433 191.25 70.75 168.004 70.75 139C70.75 109.996 92.9433 86.75 120 86.75Z" fill="white" stroke="#16131F" stroke-width="5.5"/>
+<circle cx="120" cy="126" r="17.25" fill="white" stroke="#16131F" stroke-width="5.5"/>
+<circle cx="120" cy="126" r="9" fill="#16131F"/>
+<circle cx="121.8" cy="122.4" r="2.7" fill="white"/>
+<path d="M120 162.5C122.182 162.5 124.5 164.638 124.5 168C124.5 171.362 122.182 173.5 120 173.5C117.818 173.5 115.5 171.362 115.5 168C115.5 164.638 117.818 162.5 120 162.5Z" stroke="#16131F" stroke-width="5"/>
+<path d="M122.002 73.9689C122.709 68.0013 123.207 62.6888 123.498 58.0312" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

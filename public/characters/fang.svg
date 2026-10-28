@@ -1,0 +1,13 @@
+<svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M82 104C64 84 60 60 72 40C76 62 88 80 102 90L82 104Z" fill="#16131F"/>
+<path d="M158 104C176 84 180 60 168 40C164 62 152 80 138 90L158 104Z" fill="#16131F"/>
+<path d="M120 84.75C147.012 84.75 169.25 108.395 169.25 138C169.25 167.605 147.012 191.25 120 191.25C92.9883 191.25 70.75 167.605 70.75 138C70.75 108.395 92.9883 84.75 120 84.75Z" fill="white" stroke="#16131F" stroke-width="5.5"/>
+<path d="M92 122L108 128" stroke="#16131F" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M148 122L132 128" stroke="#16131F" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="103" cy="137" r="5" fill="#16131F"/>
+<circle cx="137" cy="137" r="5" fill="#16131F"/>
+<path d="M102 162C114 167.333 126 167.333 138 162" stroke="#16131F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M106 164L110 178L115 166L106 164Z" fill="white" stroke="#16131F" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M125 166L130 178L134 164L125 166Z" fill="white" stroke="#16131F" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M78.5166 89.5809C74.1859 82.0738 71.5081 74.3532 70.4833 66.4191" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

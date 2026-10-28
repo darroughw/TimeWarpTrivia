@@ -15,10 +15,10 @@ export const DECADES: Decade[] = [
 export const MOCK_PLAYERS: Player[] = [
   { id: "p1", name: "Deja View", emoji: "👾", color: "#ff3fa4", score: 340, status: "active" },
   { id: "p2", name: "Rad Wave", emoji: "🎸", color: "#7c5cff", score: 260, status: "active" },
-  { id: "p3", name: "Cassette Ghost", emoji: "👻", color: "#33d6ff", score: 410, status: "active" },
+  { id: "p3", name: "Cassette Ghost", emoji: "🛸", color: "#33d6ff", score: 410, status: "active" },
   { id: "p4", name: "Y2Kayla", emoji: "💿", color: "#ff8a3d", score: 180, status: "active" },
   { id: "p5", name: "Blorbo", emoji: "🦖", color: "#2dd4bf", score: 395, status: "active" },
-  { id: "p6", name: "Neon Dad", emoji: "🕺", color: "#ffb238", score: 120, status: "active" },
+  { id: "p6", name: "Neon Dad", emoji: "🎀", color: "#ffb238", score: 120, status: "active" },
 ];
 
 export const MOCK_QUESTION: Question = {

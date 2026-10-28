@@ -100,6 +100,14 @@ by hand (see `ClearDeepCutTopicPatch` in `Models/RoomPatch.swift`).
   views re-render each tick (see its doc comment). Keep new effects in
   their own small views rather than reading tick state higher up.
 
+## Player characters
+
+`PlayerAvatarView` draws `PlayerCharacter.forAvatar(player.avatar)` (see
+`Services/PlayerCharacter.swift`, a port of `../lib/characters.ts`) from
+`Assets.xcassets/Characters/<id>.imageset` on a circle in the player's
+color, falling back to the stored emoji. The artwork comes from the Figma
+file; keep these SVGs identical to `../public/characters/`.
+
 ## tvOS 16 API limits (target is 16, not 17)
 
 - `.onChange(of:)` — single-parameter closure form only.

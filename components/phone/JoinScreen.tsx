@@ -1,15 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import HelpButton from "@/components/shared/HelpButton";
 import SoundToggle from "@/components/shared/SoundToggle";
 import ScanlineOverlay from "@/components/tv/ScanlineOverlay";
+import { getAvatarForName } from "@/lib/avatar";
+import { randomCharacter } from "@/lib/characters";
 import { isNicknameAllowed } from "@/lib/nicknameFilter";
+import CharacterPicker from "./CharacterPicker";
 import LogoFooter from "./LogoFooter";
 import styles from "./JoinScreen.module.scss";
 
 interface JoinScreenProps {
-  onJoin: (name: string, roomCode: string) => void;
+  // avatar: the chosen character's emoji, stored as players.avatar.
+  onJoin: (name: string, roomCode: string, avatar: string) => void;
   error?: string;
   submitting?: boolean;
 }
@@ -28,8 +32,16 @@ export default function JoinScreen({ onJoin, error, submitting = false }: JoinSc
   const [roomCode, setRoomCode] = useState("");
   const [name, setName] = useState("");
   const [nameError, setNameError] = useState<string>();
+  const [avatar, setAvatar] = useState<string | null>(null);
 
-  const canJoin = roomCode.trim().length > 0 && name.trim().length > 0 && !submitting;
+  // Preselect a random character, after mount rather than as initial
+  // state: this page is prerendered, and a server-picked random value
+  // wouldn't match the browser's (hydration mismatch).
+  useEffect(() => {
+    setAvatar((current) => current ?? randomCharacter().emoji);
+  }, []);
+
+  const canJoin = roomCode.trim().length > 0 && name.trim().length > 0 && avatar !== null && !submitting;
 
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
@@ -40,7 +52,7 @@ export default function JoinScreen({ onJoin, error, submitting = false }: JoinSc
       return;
     }
     setNameError(undefined);
-    onJoin(trimmedName, roomCode.trim().toUpperCase());
+    onJoin(trimmedName, roomCode.trim().toUpperCase(), avatar ?? randomCharacter().emoji);
   }
 
   return (
@@ -90,6 +102,8 @@ export default function JoinScreen({ onJoin, error, submitting = false }: JoinSc
           />
           <p className={styles.hint}>Keep it friendly — hosts can remove any player.</p>
         </div>
+
+        <CharacterPicker value={avatar} onChange={setAvatar} color={getAvatarForName(name || "player").color} />
 
         {nameError && <p className={styles.error}>{nameError}</p>}
         {error && <p className={styles.error}>{error}</p>}

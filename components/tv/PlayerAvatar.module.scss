@@ -47,6 +47,13 @@
     font-size: clamp(1.75rem, 5.5vh, 3.75rem);
   }
 
+  // Characters are black-and-white line art, so the circle itself takes
+  // the player's color — the same look as the Figma avatar preview.
+  &.character {
+    background: var(--player-color, #{$marigold});
+    overflow: hidden;
+  }
+
   // Gold medal ring — a double border (marigold, then a dark gap, then a
   // second marigold hairline) instead of the usual single player-color
   // ring, so the winner reads as "the winner" independent of whatever
@@ -115,4 +122,11 @@
   font-family: $mono-font;
   color: $text-lo;
   font-size: 0.9rem;
+}
+
+.characterImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  user-select: none;
 }

@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import { characterForAvatar, characterImageSrc } from "@/lib/characters";
 import type { Player } from "@/lib/types";
 import styles from "./PlayerAvatar.module.scss";
 
@@ -24,12 +25,22 @@ export default function PlayerAvatar({
   isWinner = false,
 }: PlayerAvatarProps) {
   const style = { "--player-color": player.color } as CSSProperties;
+  // Stored avatars are emoji; the ones that map to a character draw it.
+  const character = characterForAvatar(player.emoji);
 
   return (
     <div className={styles.wrap} style={style}>
       {rank !== undefined && <span className={styles.rank}>#{rank}</span>}
-      <div className={`${styles.ring} ${styles[size]} ${isWinner ? styles.winner : ""}`} aria-hidden="true">
-        {player.emoji}
+      <div
+        className={`${styles.ring} ${styles[size]} ${character ? styles.character : ""} ${isWinner ? styles.winner : ""}`}
+        aria-hidden="true"
+      >
+        {character ? (
+          // eslint-disable-next-line @next/next/no-img-element -- tiny static SVGs; next/image adds nothing here
+          <img src={characterImageSrc(character)} alt="" className={styles.characterImage} draggable={false} />
+        ) : (
+          player.emoji
+        )}
       </div>
       {showName && (
         <span className={styles.name}>

@@ -475,7 +475,7 @@ let totalMainQuestions = questionsPerRound * 3
 extension GameFlowViewModel {
     func loadDemo(screen: String, decade: DecadeId) {
         let roomId = UUID()
-        let names = [("Dana", "🦄", 4_250), ("Marcus", "🍕", 3_900), ("Priya", "🎸", 3_120), ("Leo", "🛹", 2_480), ("Jo", "📼", 1_150)]
+        let names = [("Dana", "💿", 4_250), ("Marcus", "🎸", 3_900), ("Priya", "🍡", 3_120), ("Leo", "🛹", 2_480), ("Jo", "🕹️", 1_150)]
         players = names.map { name, emoji, score in
             Player(id: UUID(), roomId: roomId, name: name, avatar: emoji, score: score, status: .active, createdAt: Date())
         }

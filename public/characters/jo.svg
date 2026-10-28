@@ -1,0 +1,17 @@
+<svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M69 130.75C70.3278 130.75 71.8229 131.525 73.1025 133.373C74.3748 135.211 75.25 137.899 75.25 141C75.25 144.101 74.3748 146.789 73.1025 148.627C71.8229 150.475 70.3278 151.25 69 151.25C67.6722 151.25 66.1771 150.475 64.8975 148.627C63.6252 146.789 62.75 144.101 62.75 141C62.75 137.899 63.6252 135.211 64.8975 133.373C66.1771 131.525 67.6722 130.75 69 130.75Z" fill="white" stroke="#16131F" stroke-width="5.5"/>
+<path d="M171 130.75C172.328 130.75 173.823 131.525 175.103 133.373C176.375 135.211 177.25 137.899 177.25 141C177.25 144.101 176.375 146.789 175.103 148.627C173.823 150.475 172.328 151.25 171 151.25C169.672 151.25 168.177 150.475 166.897 148.627C165.625 146.789 164.75 144.101 164.75 141C164.75 137.899 165.625 135.211 166.897 133.373C168.177 131.525 169.672 130.75 171 130.75Z" fill="white" stroke="#16131F" stroke-width="5.5"/>
+<path d="M120 82.75C145.727 82.75 167.25 107.089 167.25 138C167.25 168.911 145.727 193.25 120 193.25C94.2734 193.25 72.75 168.911 72.75 138C72.75 107.089 94.2734 82.75 120 82.75Z" fill="white" stroke="#16131F" stroke-width="5.5"/>
+<circle cx="103.5" cy="142.5" r="4.5" fill="#16131F"/>
+<circle cx="136.5" cy="142.5" r="4.5" fill="#16131F"/>
+<path d="M60 124C56 40 184 40 180 124H60Z" fill="#16131F"/>
+<rect x="58" y="104" width="124" height="24" rx="10" fill="#16131F"/>
+<path d="M80 109V123" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M96 109V123" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M112 109V123" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M128 109V123" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M144 109V123" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M160 109V123" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="120" cy="54" r="14" fill="#16131F"/>
+<path d="M79 96C81.6667 86.6667 87.3333 79.6667 96 75" stroke="white" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

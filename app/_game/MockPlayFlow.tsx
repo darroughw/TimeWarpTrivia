@@ -27,11 +27,13 @@ export default function MockPlayFlow() {
   const [stage, setStage] = useState<Stage>("join");
   const [playerName, setPlayerName] = useState("");
   const [roomCode, setRoomCode] = useState("");
+  const [avatar, setAvatar] = useState<string | undefined>();
   const [answeredIndex, setAnsweredIndex] = useState<number | null>(null);
 
-  function handleJoin(name: string, code: string) {
+  function handleJoin(name: string, code: string, pickedAvatar: string) {
     setPlayerName(name);
     setRoomCode(code);
+    setAvatar(pickedAvatar);
     setStage("waiting");
   }
 
@@ -49,6 +51,7 @@ export default function MockPlayFlow() {
       {stage === "waiting" && (
         <WaitingScreen
           playerName={playerName}
+          avatar={avatar}
           roomCode={roomCode}
           onHostStart={() => setStage("question")}
         />

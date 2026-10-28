@@ -45,6 +45,21 @@ then open `/play` at phone width (≈390×844).
 - Animations respect `prefers-reduced-motion` (web) and Reduce Motion
   (tvOS), and animate only transform/opacity.
 
+## Player characters
+
+24 characters (robots, monsters, aliens, people) designed in the Figma
+file's "Player Characters" page, exported to `public/characters/<id>.svg`
+and the Apple TV asset catalog (`Assets.xcassets/Characters`). Players
+pick one on the phone's join screen (`components/phone/CharacterPicker`).
+**`players.avatar` still stores an emoji, never a character id**: each
+character is identified by its emoji (`lib/characters.ts`, mirrored in
+`apple-tv/.../Services/PlayerCharacter.swift`). Older Apple TV builds in
+the App Store render that column as text, so they keep showing the emoji;
+anything that isn't a character emoji renders as the emoji itself. Never
+reuse or reorder an emoji in that table — it would change existing
+players' characters. Characters are black-and-white line art drawn on a
+circle filled with the player's color.
+
 ## Checks before committing
 
 `npx tsc --noEmit`, `npm run lint`, and `npm run build` for web changes;
