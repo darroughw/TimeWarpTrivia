@@ -23,6 +23,7 @@
 		398AF70B36DF5E9AF00D7C5B /* ArmConfirmButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A871EBE0749DF37B586F66E /* ArmConfirmButtonView.swift */; };
 		48BE6673861386986B890231 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E764136AB37D6DE4DE2B7B5 /* Assets.xcassets */; };
 		4A8204768CE4B3DC8D1385EB /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E06ED99FCE1F4AA457356B /* Question.swift */; };
+		4C3AF6E457CE3F0D315EC171 /* Barrio-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 70DE2A9F605DB0E0E2716DF3 /* Barrio-Regular.ttf */; };
 		4D2B7033240A83CBD0D5E112 /* Decade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2373B0072DF82EA124EC3799 /* Decade.swift */; };
 		5294C8E15A9B841E7969EB9C /* decade-sting.m4a in Resources */ = {isa = PBXBuildFile; fileRef = E06320565769C25B27E056CC /* decade-sting.m4a */; };
 		556018495B46C6B84E7AECDD /* AvatarColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4FD218D554CE91449A71A7 /* AvatarColor.swift */; };
@@ -105,6 +106,7 @@
 		5F531DE34FEB8C1AC0993B89 /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 		6AB1DAAFE229617AFF20A5BD /* SpaceMono-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceMono-Bold.ttf"; sourceTree = "<group>"; };
 		6B1088D4E31A53B2D2451350 /* CountdownRingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownRingView.swift; sourceTree = "<group>"; };
+		70DE2A9F605DB0E0E2716DF3 /* Barrio-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Barrio-Regular.ttf"; sourceTree = "<group>"; };
 		757522EA28F8E6D02C0C8D33 /* Neon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Neon.swift; sourceTree = "<group>"; };
 		76E8F58EC8ADCDF2F6B473F1 /* wrong.m4a */ = {isa = PBXFileReference; path = wrong.m4a; sourceTree = "<group>"; };
 		780A42450625B1E00378F8DA /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 				E4BF6D95BE245735A20E5A7D /* Archivo-Bold.ttf */,
 				D9311F2E2883FB19D0D183FA /* Archivo-Regular.ttf */,
 				B11FF8D922B97C2DEBBD0648 /* ArchivoBlack-Regular.ttf */,
+				70DE2A9F605DB0E0E2716DF3 /* Barrio-Regular.ttf */,
 				6AB1DAAFE229617AFF20A5BD /* SpaceMono-Bold.ttf */,
 				B00130B3445F1305B9269886 /* SpaceMono-Regular.ttf */,
 			);
@@ -425,6 +428,7 @@
 				1344E7E3E6D82995EDF8EF11 /* Archivo-Regular.ttf in Resources */,
 				1247F53A7F4B09406F1862F7 /* ArchivoBlack-Regular.ttf in Resources */,
 				48BE6673861386986B890231 /* Assets.xcassets in Resources */,
+				4C3AF6E457CE3F0D315EC171 /* Barrio-Regular.ttf in Resources */,
 				EC6314FEF3A41723402D9CD1 /* SpaceMono-Bold.ttf in Resources */,
 				FBC35DA348042CF2ACE135CD /* SpaceMono-Regular.ttf in Resources */,
 				32C85B5ADF9FB9CD18412FF8 /* background-loop.m4a in Resources */,

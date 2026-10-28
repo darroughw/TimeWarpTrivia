@@ -19,7 +19,7 @@ struct IntroView: View {
                 RetroSunView()
                     .frame(width: 520, height: 520)
                     .offset(y: 60)
-                ChromeText(text: "TIMEWARP TRIVIA", font: TWTFont.headline(72))
+                ChromeText(text: "TIMEWARP TRIVIA", font: TWTFont.title(72))
                     .offset(y: floating ? -8 : 8)
                     .animation(reduceMotion ? nil : .easeInOut(duration: 2.4).repeatForever(autoreverses: true), value: floating)
             }

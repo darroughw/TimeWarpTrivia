@@ -23,6 +23,7 @@ enum TWTFont {
         static let archivoRegular = "Archivo-Regular"
         static let archivoBold = "Archivo-Bold"
         static let archivoBlack = "ArchivoBlack-Regular"
+        static let barrio = "Barrio-Regular"
         static let spaceMonoRegular = "SpaceMono-Regular"
         static let spaceMonoBold = "SpaceMono-Bold"
     }
@@ -40,6 +41,14 @@ enum TWTFont {
     // 400; there's no separate bold cut to ask for.
     static func headline(_ size: CGFloat) -> Font {
         .custom(PostScriptName.archivoBlack, size: tv(size))
+    }
+
+    // Barrio, the logo's hand-cut display face — only for the
+    // "TimeWarp Trivia" wordmark, the "Round N" countdown title, and the
+    // "Final Results" title. Every other heading stays on headline().
+    // Single weight.
+    static func title(_ size: CGFloat) -> Font {
+        .custom(PostScriptName.barrio, size: tv(size))
     }
 
     // Timers, scores, room codes — $mono-font.

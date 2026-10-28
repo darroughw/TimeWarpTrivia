@@ -1,7 +1,7 @@
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata, Viewport } from "next";
-import { Archivo, Archivo_Black, Space_Mono } from "next/font/google";
+import { Archivo, Archivo_Black, Barrio, Space_Mono } from "next/font/google";
 import { Providers } from "./providers";
 import "./styles/globals.scss";
 
@@ -15,6 +15,13 @@ const headFont = Archivo_Black({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-head",
+  display: "swap",
+});
+
+const titleFont = Barrio({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-title",
   display: "swap",
 });
 
@@ -69,7 +76,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${paperFont.variable} ${headFont.variable} ${monoFont.variable}`}>
+      <body className={`${paperFont.variable} ${headFont.variable} ${titleFont.variable} ${monoFont.variable}`}>
         <Providers>{children}</Providers>
         <Analytics />
         <SpeedInsights />

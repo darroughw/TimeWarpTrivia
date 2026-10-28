@@ -61,7 +61,7 @@ struct LobbyView: View {
         HStack(alignment: .top) {
             VStack(alignment: .leading, spacing: TWTSpacing.sm) {
                 Text("TIMEWARP TRIVIA")
-                    .font(TWTFont.headline(24))
+                    .font(TWTFont.title(24))
                     .foregroundStyle(accent)
                 Text("Grab your phone & join in")
                     .font(TWTFont.headline(40))

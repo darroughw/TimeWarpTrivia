@@ -29,7 +29,7 @@ struct RoundStartView: View {
             Text(readyLine)
                 .font(TWTFont.body(24))
                 .foregroundStyle(TWTColor.textLo)
-            ChromeText(text: roundLabel.uppercased(), font: TWTFont.headline(64), color: accent)
+            ChromeText(text: roundLabel.uppercased(), font: TWTFont.title(64), color: accent)
             ZStack {
                 // A ring that bursts outward on every tick — re-created per
                 // second via .id so its appear animation replays.

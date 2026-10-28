@@ -40,6 +40,9 @@ then open `/play` at phone width (≈390×844).
   room) also darkens the surfaces to violet. The web Deep Cuts lobby
   shares `LobbyScreen.module.scss` with the decade lobby.
 - Coral = wrong/urgent and teal = correct are fixed and never themed.
+- Barrio (the logo's face; `$title-font` / `TWTFont.title`) is only for
+  the "TimeWarp Trivia" wordmark, the "Round N" countdown title, and
+  "Final Results". Every other heading uses Archivo Black.
 - `$option-colors` are the A/B/C/D answer colors, used on the phone and
   the Apple TV. They deliberately avoid teal/coral.
 - Animations respect `prefers-reduced-motion` (web) and Reduce Motion

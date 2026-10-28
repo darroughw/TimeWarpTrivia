@@ -20,7 +20,7 @@ struct EndGameView: View {
                     .font(TWTFont.bodyBold(18))
                     .textCase(.uppercase)
                     .foregroundStyle(accent)
-                ChromeText(text: "FINAL RESULTS", font: TWTFont.headline(52), color: accent)
+                ChromeText(text: "FINAL RESULTS", font: TWTFont.title(52), color: accent)
             }
 
             podiumView

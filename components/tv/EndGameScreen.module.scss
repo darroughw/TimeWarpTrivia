@@ -29,6 +29,7 @@
 
 .title {
   @include marquee-heading;
+  font-family: $title-font;
   font-size: clamp(2rem, 6vh, 4.5rem);
 }
 

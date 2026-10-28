@@ -43,6 +43,7 @@ targets:
           - Archivo-Regular.ttf
           - Archivo-Bold.ttf
           - ArchivoBlack-Regular.ttf
+          - Barrio-Regular.ttf
           - SpaceMono-Regular.ttf
           - SpaceMono-Bold.ttf
     settings:

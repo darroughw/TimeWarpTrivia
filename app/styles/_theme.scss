@@ -8,6 +8,10 @@
 // Typography ------------------------------------------------------------
 $paper-font: var(--font-paper), "Helvetica Neue", Arial, sans-serif; // Archivo — body/UI copy
 $head-font: var(--font-head), "Arial Black", sans-serif; // Archivo Black — marquee headlines
+// Barrio — the logo's hand-cut face. Only for the "Round N" and "Final
+// Results" titles (the wordmark itself is logo.svg); mirrors the Apple TV
+// app's TWTFont.title.
+$title-font: var(--font-title), $head-font;
 $mono-font: var(--font-mono), "Courier New", monospace; // Space Mono — timers, scores, room codes
 
 // Color — "broadcast void" palette ---------------------------------------
