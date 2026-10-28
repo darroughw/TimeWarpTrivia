@@ -111,16 +111,20 @@ struct DeepCutsLobbyView: View {
         }
     }
 
-    // The decade sidebar's counterpart: topic pills, one per line since
-    // topic names run much longer than "80s".
+    // The decade sidebar's counterpart: one row of topic pills, side by
+    // side like DecadeFilterPillsView, with the same swoosh on a change.
     private var sidebar: some View {
         VStack(alignment: .leading, spacing: TWTSpacing.md) {
             Text("TOPIC")
                 .font(TWTFont.body(13))
                 .foregroundStyle(TWTColor.textLo)
-            VStack(alignment: .leading, spacing: TWTSpacing.sm) {
+            HStack(spacing: TWTSpacing.sm) {
                 ForEach(flow.deepCutTopics) { topic in
-                    Button { flow.selectDeepCutTopic(topic.id) } label: {
+                    let selected = selectedTopicId == topic.id
+                    Button {
+                        if !selected { SoundPlayer.shared.play(.decadeSting) }
+                        flow.selectDeepCutTopic(topic.id)
+                    } label: {
                         Text(topic.label)
                             .font(TWTFont.bodyBold(16))
                             .lineLimit(1)
@@ -130,7 +134,7 @@ struct DeepCutsLobbyView: View {
                         NeonButtonStyle(
                             color: TWTColor.deepCutAccent(for: topic.id),
                             size: .compact,
-                            isSelected: selectedTopicId == topic.id,
+                            isSelected: selected,
                             isFocused: focusedControl == .topic(topic.id)
                         )
                     )
@@ -139,8 +143,9 @@ struct DeepCutsLobbyView: View {
             }
         }
         .onMoveCommand { direction in
-            // Fires only when the engine finds nothing below on its own
-            // (same fallback as DecadeFilterPillsView).
+            // Fires on every move while a pill is focused — safe to send
+            // every "down" to the footer only because the pills are one row,
+            // so down always means "leave the row" (same as the decade pills).
             guard direction == .down else { return }
             focusedControl = .help
         }

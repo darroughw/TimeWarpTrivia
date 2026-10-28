@@ -27,7 +27,7 @@ struct ArmConfirmButtonView: View {
         }
         // Coral: it's destructive. Focus passed explicitly since it's
         // also tracked by @FocusState (see NeonButtonStyle.isFocused).
-        .buttonStyle(NeonButtonStyle(color: TWTColor.coral, isSelected: armed, isFocused: isFocused))
+        .buttonStyle(NeonButtonStyle(color: TWTColor.coral, isSelected: armed, showsCheckmark: false, isFocused: isFocused))
         .focused($isFocused)
         .onChange(of: isFocused) { focused in
             if !focused { disarm() }

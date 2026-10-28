@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import { DEEP_CUT_TOPIC_COLORS, DEFAULT_DEEP_CUT_COLOR } from "@/lib/deepCutColors";
+import { playSound } from "@/lib/sounds";
 import type { DeepCutTopic } from "@/lib/types";
 import styles from "./DeepCutTopicFilter.module.scss";
 
@@ -26,7 +27,11 @@ export default function DeepCutTopicFilter({ topics, selectedId, onSelect }: Dee
             aria-checked={selected}
             className={`${styles.pill} ${selected ? styles.selected : ""}`}
             style={style}
-            onClick={() => onSelect(topic.id)}
+            onClick={() => {
+              // Same swoosh as picking a decade — only on an actual change.
+              if (!selected) playSound("decadeSting");
+              onSelect(topic.id);
+            }}
           >
             {topic.label}
           </button>

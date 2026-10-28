@@ -34,13 +34,13 @@ struct DecadeFilterPillsView: View {
             }
         }
         .onMoveCommand { direction in
-            // Fires only when the engine finds no natural next focusable
-            // item in that direction (see LobbyView's matching .up
-            // handler on the footer, and PassiveAdvanceContainer's
-            // original use of this same fallback semantics) — tvOS's
-            // automatic geometric focus engine could not reliably bridge
-            // this row and the footer far below it in both directions at
-            // once, so this pins the "down" side explicitly.
+            // Note: this fires on every move while a pill is focused, not
+            // only when the focus engine is stuck — it's safe to redirect
+            // every "down" here only because the pills are a single row,
+            // so down always means "leave the row". tvOS's automatic
+            // geometric focus engine could not reliably bridge this row
+            // and the footer far below it, so this pins "down" explicitly
+            // (see LobbyView's matching .up handler on the footer).
             guard direction == .down else { return }
             focusedControl.wrappedValue = .help
         }

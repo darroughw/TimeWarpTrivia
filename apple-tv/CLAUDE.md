@@ -32,6 +32,7 @@ talks to prod; there is no dev backend):
 ```
 -demoScreen lobby|deepcuts|countdown|question|transition|scoreboard|block|end
 -demoDecade all|60s|70s|80s|90s|2000s|2010s
+-demoDeepCuts YES   # any screen, in Deep Cuts mode (purple theme)
 ```
 
 Set them in Edit Scheme → Run → Arguments, or
@@ -120,7 +121,12 @@ file; keep these SVGs identical to `../public/characters/`.
 The lobby's focus navigation is fragile. A `.frame(maxWidth: .infinity)` on
 `LobbyView`'s players panel once made the decade pills unreachable, and
 navigation between the pills and the footer is patched with
-`.onMoveCommand`. After any lobby layout change, check with the remote
+`.onMoveCommand`. That handler fires on **every** arrow press while
+something inside is focused (not only when the focus engine is stuck), so
+only redirect a direction that should always leave the region. That's
+why both the decade pills and the Deep Cuts topic pills are single rows:
+"down" always means "leave the row". A vertical list broke this (topics
+became unreachable or skipped). After any lobby layout change, check with the remote
 (arrow keys and Return in the simulator) that focus moves both ways
 between the decade pills and the footer.
 

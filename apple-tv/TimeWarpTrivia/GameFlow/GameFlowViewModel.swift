@@ -529,7 +529,8 @@ extension GameFlowViewModel {
         room = Room(
             id: roomId, code: "WARP-72", hostId: hostId, status: status, currentQuestionId: question.id,
             blockerPlayerId: nil, decadeFilter: decade, blockCandidateIds: nil, questionIds: nil,
-            questionIndex: 0, askedQuestionIds: [], deepCutTopicId: screen == "deepcuts" ? "drag-race" : nil, createdAt: Date()
+            questionIndex: 0, askedQuestionIds: [], deepCutTopicId: screen == "deepcuts" || UserDefaults.standard.bool(forKey: "demoDeepCuts") ? "drag-race" : nil,
+            createdAt: Date()
         )
     }
 

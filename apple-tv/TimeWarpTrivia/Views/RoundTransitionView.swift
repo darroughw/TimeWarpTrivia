@@ -19,6 +19,8 @@ struct RoundTransitionView: View {
                 answerCard
                 resultsGrid
                 Spacer()
+                tauntBanner
+                Spacer()
                 footer
             }
             .padding(TWTSpacing.xl)
@@ -93,16 +95,34 @@ struct RoundTransitionView: View {
         .id(result.question.id)
     }
 
+    // The between-question taunt — the room's running joke, so it gets
+    // the screen's centerpiece rather than a footnote (it used to sit
+    // small in the bottom-left corner and players missed it). Lands last,
+    // after every player's result card has popped in.
+    @ViewBuilder private var tauntBanner: some View {
+        if let taunt {
+            Text(taunt)
+                .font(TWTFont.headline(34))
+                .foregroundStyle(TWTColor.textHi)
+                .multilineTextAlignment(.center)
+                .lineSpacing(6)
+                .neonGlow(TWTColor.coral, intensity: 0.6)
+                .fixedSize(horizontal: false, vertical: true)
+                .padding(.horizontal, TWTSpacing.xl)
+                .padding(.vertical, TWTSpacing.lg)
+                .frame(maxWidth: 1500)
+                .neonPanel(TWTColor.coral, cornerRadius: TWTRadius.lg, lineWidth: 3, glow: 0.6)
+                .scaleEffect(revealed ? 1 : 0.7)
+                .opacity(revealed ? 1 : 0)
+                .animation(
+                    reduceMotion ? nil : .spring(response: 0.5, dampingFraction: 0.6).delay(0.6 + Double(result.results.count) * 0.12),
+                    value: revealed
+                )
+        }
+    }
+
     private var footer: some View {
         HStack {
-            if let taunt {
-                Text(taunt)
-                    .font(TWTFont.bodyBold(20))
-                    .foregroundStyle(TWTColor.coral)
-                    .frame(maxWidth: 600, alignment: .leading)
-            } else {
-                Spacer()
-            }
             Spacer()
             VStack(alignment: .trailing) {
                 Text("UP NEXT")

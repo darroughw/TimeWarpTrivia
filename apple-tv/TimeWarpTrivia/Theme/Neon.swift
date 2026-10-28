@@ -12,9 +12,10 @@ extension TWTColor {
 
 // Every button in the app. At rest: a dark pill with a glowing outline
 // and glowing label in its color. Focused: it fills with that color, the
-// label flips to ink, and the glow intensifies. Selected (radio-style
-// pills/cards): a tinted fill with a solid outline — clearly different
-// from focused, so "where the remote is" and "what's chosen" never blur.
+// label flips to ink, it grows, and it gets a white outline. Selected
+// (radio-style pills): a solid fill with ink text and a checkmark that
+// stays after the remote moves away — so "what's chosen" (checkmark) and
+// "where the remote is" (white outline, larger) never blur.
 //
 // A custom ButtonStyle (rather than .plain plus styling on top) is what
 // keeps tvOS's own white focus "lift" halo from appearing — that halo
@@ -36,6 +37,9 @@ struct NeonButtonStyle: ButtonStyle {
     var color: Color?
     var size: Size = .regular
     var isSelected = false
+    // The checkmark marks a chosen option; off for buttons that use
+    // isSelected for something else (ArmConfirmButtonView's armed state).
+    var showsCheckmark = true
     // Pass this whenever the button's focus is also steered by a
     // @FocusState binding: @Environment(\.isFocused) was found not to
     // flip for buttons whose focus is driven that way (see
@@ -65,24 +69,30 @@ private struct NeonButtonBody: View {
 
     private var fill: Color {
         if focused { return tint }
-        return style.isSelected ? tint.opacity(0.25) : TWTColor.void.opacity(0.6)
+        return style.isSelected ? tint : TWTColor.void.opacity(0.6)
     }
 
     private var labelColor: Color {
         if focused { return TWTColor.ink }
-        return style.isSelected ? TWTColor.textHi : tint
+        return style.isSelected ? TWTColor.ink : tint
     }
 
     var body: some View {
-        configuration.label
+        HStack(spacing: 8) {
+            if style.isSelected && style.showsCheckmark {
+                Image(systemName: "checkmark")
+                    .font(.system(size: 20, weight: .heavy))
+            }
+            configuration.label
+        }
             .foregroundStyle(labelColor)
-            // Neon-tube glow on the label itself while unfocused.
-            .shadow(color: focused ? .clear : tint.opacity(0.8), radius: 8)
+            // Neon-tube glow on the label itself while it's an outline.
+            .shadow(color: focused || style.isSelected ? .clear : tint.opacity(0.8), radius: 8)
             .padding(style.size.padding)
             .background(shape.fill(fill))
             .overlay(
                 shape.strokeBorder(
-                    focused ? Color.white.opacity(0.85) : tint.opacity(style.isSelected ? 1 : 0.75),
+                    focused ? Color.white.opacity(0.9) : tint.opacity(style.isSelected ? 1 : 0.75),
                     lineWidth: focused || style.isSelected || style.size == .large ? 3 : 2
                 )
             )
