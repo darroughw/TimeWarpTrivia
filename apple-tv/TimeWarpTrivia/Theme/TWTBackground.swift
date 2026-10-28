@@ -5,39 +5,54 @@ import SwiftUI
 // restarting on each one. Layers, bottom to top:
 //   1. the void base color
 //   2. slow-drifting color glows, tinted by the decade accent
-//   3. the decade's signature motif (_decade-themes.scss's body::before)
-//   4. CRT scanlines plus the slow sweep band (the scanline-overlay mixin)
-// Only offsets animate, and the motif/scanlines are static Canvas
+//   3. the decade's signature motif (_decade-themes.scss's body::before),
+//      in the sky above the horizon
+//   4. a synthwave neon grid floor rolling toward the viewer
+//   5. CRT scanlines plus the slow sweep band (the scanline-overlay mixin)
+// Only offsets animate, and the motif/grid/scanlines are static Canvas
 // drawings, so this stays cheap even on the A8 Apple TV HD.
 struct TWTBackground: View {
     let decade: DecadeId?
+    // Deep Cuts' darker, purple variant: near-black violet base, purple
+    // glows, and no decade motif.
+    var isDeepCuts = false
 
     @Environment(\.twtAccent) private var accent
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
-    @State private var drifting = false
+
+    // The three drifting glows, in this theme's colors.
+    private var glowColors: [Color] {
+        isDeepCuts
+            ? [accent.opacity(0.22), Color(hex: 0x6A2BD9).opacity(0.28), Color(hex: 0x3B1678).opacity(0.3)]
+            : [accent.opacity(0.30), Color(hex: 0x8A5CFF).opacity(0.24), Color(hex: 0x4078FF).opacity(0.20)]
+    }
 
     var body: some View {
         GeometryReader { geometry in
             let size = geometry.size
             ZStack {
-                TWTColor.void
+                isDeepCuts ? TWTColor.deepCutsVoid : TWTColor.void
 
-                glow(color: accent.opacity(0.30), diameter: size.width * 0.75)
-                    .offset(x: drifting ? -size.width * 0.18 : -size.width * 0.38, y: drifting ? -size.height * 0.15 : -size.height * 0.35)
-                    .animation(drift(22), value: drifting)
-                glow(color: Color(hex: 0x8A5CFF).opacity(0.24), diameter: size.width * 0.65)
-                    .offset(x: drifting ? size.width * 0.22 : size.width * 0.40, y: drifting ? size.height * 0.05 : size.height * 0.30)
-                    .animation(drift(28), value: drifting)
-                glow(color: Color(hex: 0x4078FF).opacity(0.20), diameter: size.width * 0.6)
-                    .offset(x: drifting ? -size.width * 0.05 : -size.width * 0.25, y: drifting ? size.height * 0.25 : size.height * 0.45)
-                    .animation(drift(25), value: drifting)
+                // Rebuilt whenever the theme changes: a view mid-way
+                // through a repeatForever animation kept the colors it
+                // started with (the glows stayed marigold after switching
+                // to Deep Cuts), so a fresh instance restarts the drift in
+                // the new colors instead.
+                DriftingGlows(colors: glowColors, size: size, animate: !reduceMotion)
+                    .id(glowColors)
 
-                if let decade, decade != .all {
+                if !isDeepCuts, let decade, decade != .all {
                     // Half the web's strength — at TV size and distance
                     // the full-strength bands competed with the content.
+                    // Faded out before the horizon so it reads as sky.
                     DecadeMotif(decade: decade)
                         .opacity(0.5)
+                        .mask(LinearGradient(colors: [.black, .black, .clear], startPoint: .top, endPoint: .init(x: 0.5, y: Self.horizon)))
                 }
+
+                NeonGridFloor(color: accent, animate: !reduceMotion)
+                    .frame(height: size.height * (1 - Self.horizon))
+                    .frame(maxHeight: .infinity, alignment: .bottom)
 
                 Scanlines()
                 if !reduceMotion {
@@ -49,8 +64,34 @@ struct TWTBackground: View {
         .ignoresSafeArea()
         .allowsHitTesting(false)
         .accessibilityHidden(true)
+    }
+
+    // Where the grid floor meets the sky, as a fraction of screen height.
+    static let horizon: CGFloat = 0.64
+
+}
+
+private struct DriftingGlows: View {
+    let colors: [Color]
+    let size: CGSize
+    let animate: Bool
+
+    @State private var drifting = false
+
+    var body: some View {
+        ZStack {
+            glow(color: colors[0], diameter: size.width * 0.75)
+                .offset(x: drifting ? -size.width * 0.18 : -size.width * 0.38, y: drifting ? -size.height * 0.15 : -size.height * 0.35)
+                .animation(drift(22), value: drifting)
+            glow(color: colors[1], diameter: size.width * 0.65)
+                .offset(x: drifting ? size.width * 0.22 : size.width * 0.40, y: drifting ? size.height * 0.05 : size.height * 0.30)
+                .animation(drift(28), value: drifting)
+            glow(color: colors[2], diameter: size.width * 0.6)
+                .offset(x: drifting ? -size.width * 0.05 : -size.width * 0.25, y: drifting ? size.height * 0.25 : size.height * 0.45)
+                .animation(drift(25), value: drifting)
+        }
         .onAppear {
-            if !reduceMotion { drifting = true }
+            if animate { drifting = true }
         }
     }
 
@@ -62,6 +103,62 @@ struct TWTBackground: View {
 
     private func drift(_ seconds: Double) -> Animation {
         .easeInOut(duration: seconds).repeatForever(autoreverses: true)
+    }
+}
+
+// The synthwave floor: a flat square grid drawn once, tipped back in 3D
+// so it recedes to the horizon, and slid one cell toward the viewer on a
+// loop — the classic endless-road effect, done as a compositor-only
+// offset animation rather than per-frame drawing.
+private struct NeonGridFloor: View {
+    let color: Color
+    let animate: Bool
+
+    private static let cell: CGFloat = 120
+    @State private var rolling = false
+
+    var body: some View {
+        GeometryReader { geometry in
+            let size = geometry.size
+            // Oversized so the tilted plane still covers the full width
+            // and depth after the perspective squeeze.
+            let planeWidth = size.width * 4
+            let planeHeight = size.height * 5
+            ZStack(alignment: .top) {
+                Group {
+                Canvas { context, canvasSize in
+                    var lines = Path()
+                    for x in stride(from: 0, through: canvasSize.width, by: Self.cell) {
+                        lines.addRect(CGRect(x: x - 1.5, y: 0, width: 3, height: canvasSize.height))
+                    }
+                    for y in stride(from: 0, through: canvasSize.height, by: Self.cell) {
+                        lines.addRect(CGRect(x: 0, y: y - 1.5, width: canvasSize.width, height: 3))
+                    }
+                    context.fill(lines, with: .color(color.opacity(0.85)))
+                }
+                .frame(width: planeWidth, height: planeHeight + Self.cell)
+                .offset(y: rolling ? 0 : -Self.cell)
+                .animation(animate ? .linear(duration: 1.6).repeatForever(autoreverses: false) : nil, value: rolling)
+                .frame(width: planeWidth, height: planeHeight, alignment: .top)
+                .clipped()
+                .rotation3DEffect(.degrees(68), axis: (x: 1, y: 0, z: 0), anchor: .top, perspective: 1)
+                .frame(width: size.width, height: size.height, alignment: .top)
+                }
+                .frame(width: size.width, height: size.height, alignment: .top)
+                .clipped()
+                // Fade the far rows into the haze at the horizon.
+                .mask(LinearGradient(stops: [.init(color: .clear, location: 0), .init(color: .black, location: 0.45)], startPoint: .top, endPoint: .bottom))
+                .opacity(0.7)
+
+                // Glowing horizon line, outside the fade so it stays crisp.
+                LinearGradient(colors: [.clear, color, .clear], startPoint: .leading, endPoint: .trailing)
+                    .frame(height: 3)
+                    .shadow(color: color, radius: 14)
+                    .opacity(0.8)
+            }
+            .frame(width: size.width, height: size.height, alignment: .top)
+        }
+        .onAppear { if animate { rolling = true } }
     }
 }
 

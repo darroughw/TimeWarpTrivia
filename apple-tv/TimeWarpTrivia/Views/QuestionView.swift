@@ -194,14 +194,8 @@ private struct QuestionOptionsGrid: View {
                     Spacer()
                 }
                 .padding(TWTSpacing.md)
-                .padding(.leading, 8)
                 .frame(minHeight: 130)
-                .background(color.opacity(0.12))
-                .background(TWTColor.voidRaised)
-                .overlay(alignment: .leading) { color.frame(width: 10) }
-                .overlay(RoundedRectangle(cornerRadius: TWTRadius.md).strokeBorder(color.opacity(0.45), lineWidth: twtBorderWidth))
-                .clipShape(RoundedRectangle(cornerRadius: TWTRadius.md))
-                .shadow(color: color.opacity(0.25), radius: 20)
+                .neonPanel(color, lineWidth: 3, glow: 0.55)
                 // Answers deal in one after another.
                 .opacity(dealtIn ? 1 : 0)
                 .offset(y: dealtIn ? 0 : 40)

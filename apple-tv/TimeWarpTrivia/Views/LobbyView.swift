@@ -66,6 +66,7 @@ struct LobbyView: View {
                 Text("Grab your phone & join in")
                     .font(TWTFont.headline(40))
                     .foregroundStyle(TWTColor.textHi)
+                    .neonGlow(accent, intensity: 0.5)
             }
             Spacer()
             VStack(alignment: .trailing, spacing: TWTSpacing.xs) {
@@ -140,20 +141,23 @@ struct LobbyView: View {
                 .font(TWTFont.body(17))
                 .foregroundStyle(TWTColor.textLo)
             Button("Help") { showHelp = true }
-                .font(TWTFont.body(15))
+                .font(TWTFont.bodyBold(15))
+                .buttonStyle(NeonButtonStyle(color: TWTColor.neonMagenta, isFocused: focusedControl == .help))
                 .focused($focusedControl, equals: .help)
-            Button(musicEnabled ? "🎵 Music: On" : "🎵 Music: Off") {
+            Button(musicEnabled ? "Music: On" : "Music: Off") {
                 musicEnabled.toggle()
                 flow.setMusicEnabled(musicEnabled)
             }
-            .font(TWTFont.body(15))
+            .font(TWTFont.bodyBold(15))
+            .buttonStyle(NeonButtonStyle(color: TWTColor.neonMagenta, isFocused: focusedControl == .musicToggle))
             .focused($focusedControl, equals: .musicToggle)
             // Into Deep Cuts mode, starting on the first topic. Lives here
             // in the footer rather than the decade sidebar, whose focus
             // navigation is already fragile (see LobbyFocusTarget).
             if let firstTopic = flow.deepCutTopics.first {
-                Button("🎯 Deep Cuts") { flow.selectDeepCutTopic(firstTopic.id) }
-                    .font(TWTFont.body(15))
+                Button("Deep Cuts") { flow.selectDeepCutTopic(firstTopic.id) }
+                    .font(TWTFont.bodyBold(15))
+                    .buttonStyle(NeonButtonStyle(color: TWTColor.neonMagenta, isFocused: focusedControl == .deepCuts))
                     .focused($focusedControl, equals: .deepCuts)
             }
             Spacer()
@@ -166,17 +170,11 @@ struct LobbyView: View {
                 Task { await flow.handleStartGame() }
             } label: {
                 Text("Start Game")
-                    .font(TWTFont.bodyBold(22))
-                    .padding(.horizontal, TWTSpacing.xl)
-                    .padding(.vertical, TWTSpacing.sm)
+                    .font(TWTFont.headline(20))
+                    .textCase(.uppercase)
             }
-            .buttonStyle(TWTPrimaryButtonStyle())
+            .buttonStyle(NeonButtonStyle(size: .large, isFocused: focusedControl == .startGame))
             .disabled(!flow.canStartGame || flow.isStartingGame)
-            // Mirrors startButton's &:disabled rule in
-            // LobbyScreen.module.scss (opacity: 0.4) — without this a
-            // disabled Start Game looks fully active and reads as a bug
-            // (nothing on screen shows it can't be pressed).
-            .opacity(flow.canStartGame && !flow.isStartingGame ? 1 : 0.4)
             .focused($focusedControl, equals: .startGame)
         }
         .onMoveCommand { direction in

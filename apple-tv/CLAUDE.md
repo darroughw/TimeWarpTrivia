@@ -49,9 +49,14 @@ The lobby switches between decade mode (`LobbyView`) and Deep Cuts mode
 whenever `room.deepCutTopicId` is set. (The web instead uses a separate
 `/deepcuts` route per TV session.) Picking a topic also resets
 `decade_filter` to `all`; the footer's "Decades" button nulls the topic.
-A Deep Cuts game's accent comes from `TWTColor.deepCutAccent`, mirroring
-`../lib/deepCutColors.ts`. Topic rows are `id, label` only — there is no
-emoji or description column.
+`DeepCutsLobbyView` mirrors `LobbyView`'s layout (players left, picker
+sidebar right, same footer) with the `DeepCutsLogo` asset
+(`public/logo-deepcuts.svg`) — keep the two lobbies in step. Deep Cuts
+games use their own darker purple theme: `TWTColor.deepCutsPurple` as the
+accent and `TWTBackground(isDeepCuts:)`, mirroring the web's
+`[data-deep-cuts-theme]`. Topic colors (`TWTColor.deepCutAccent`, from
+`../lib/deepCutColors.ts`) are only for the topic pills. Topic rows are
+`id, label` only — there is no emoji or description column.
 
 Room patches: synthesized `Encodable` **omits** nil optionals, so a patch
 field set to `nil` is not sent at all. To null a column, write the encode
@@ -60,7 +65,8 @@ by hand (see `ClearDeepCutTopicPatch` in `Models/RoomPatch.swift`).
 ## Visual conventions
 
 - **Backgrounds:** `RootView` draws `TWTBackground` once behind every
-  screen (drifting glows, the decade motif, scanlines). Screens must
+  screen (drifting glows, the decade motif, the rolling neon grid floor,
+  scanlines). Screens must
   **not** set their own `.background(TWTColor.void)` — it would cover it.
   Modal covers (`HelpModalView`) are the exception.
 - **Accent color:** read `@Environment(\.twtAccent) private var accent`
@@ -72,9 +78,20 @@ by hand (see `ClearDeepCutTopicPatch` in `Models/RoomPatch.swift`).
   the same colors. Change both together.
 - **Type sizes:** pass web-sized values to `TWTFont`; it scales them for
   10-foot viewing (1.4×, 22pt floor). Don't pre-scale.
-- **Primary buttons** (Start, Start Game, Play Again) use
-  `.buttonStyle(TWTPrimaryButtonStyle())`. Don't use `.tint()` on the
-  system style — it rendered tint-colored text on a tint-colored button.
+- **Look:** neon arcade / synthwave. Shared pieces live in
+  `Theme/Neon.swift`: `NeonButtonStyle`, `.neonPanel(color)` for cards and
+  rows, `.neonGlow(color)` for headings, and `ChromeText` for the few
+  marquee titles (intro logo, round countdown, final results) — keep
+  chrome rare.
+- **Buttons:** every button uses `NeonButtonStyle` — outline + glowing
+  label at rest, solid fill when focused, tinted fill when selected.
+  `size: .large` for the main action, `TWTColor.neonMagenta` for utility
+  buttons, `TWTColor.coral` for destructive ones. Never `.plain`,
+  `.tint()`, or the system style: those bring tvOS's white focus halo,
+  which tvOS 16 can't switch off. When a button's focus is also driven by
+  a `@FocusState` binding, pass `isFocused:` explicitly —
+  `@Environment(\.isFocused)` doesn't flip reliably for those.
+- **No emoji as icons** in buttons or labels.
 - **Motion:** honor `@Environment(\.accessibilityReduceMotion)`. Animate
   offsets/scale/opacity; prefer static `Canvas` drawings and gradients over
   `.blur` or per-frame drawing — the oldest supported hardware is the A8
@@ -103,3 +120,13 @@ between the decade pills and the footer.
 
 - Visual refresh not yet verified on a physical Apple TV: lobby remote
   navigation, and animation smoothness on an Apple TV HD.
+
+## Audio
+
+The background music and game sound effects are original 80s synth-pop
+audio rendered by `../scripts/compose-audio.mjs` (`node
+scripts/compose-audio.mjs` from the repo root writes `.m4a` files to both
+`public/sounds/` and `Resources/Sounds/`). Edit the music or sounds there
+and re-render; don't hand-replace the files. Picking any decade plays the
+one shared `decade-sting` (none for All Decades). Loudness is matched
+per file in the script's `LEVELS` table — keep new sounds in line with it.

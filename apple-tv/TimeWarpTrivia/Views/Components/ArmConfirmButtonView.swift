@@ -25,6 +25,9 @@ struct ArmConfirmButtonView: View {
                 .font(TWTFont.bodyBold(14))
                 .textCase(.uppercase)
         }
+        // Coral: it's destructive. Focus passed explicitly since it's
+        // also tracked by @FocusState (see NeonButtonStyle.isFocused).
+        .buttonStyle(NeonButtonStyle(color: TWTColor.coral, isSelected: armed, isFocused: isFocused))
         .focused($isFocused)
         .onChange(of: isFocused) { focused in
             if !focused { disarm() }

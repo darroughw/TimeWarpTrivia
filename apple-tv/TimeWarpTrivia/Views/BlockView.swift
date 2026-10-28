@@ -70,8 +70,7 @@ struct BlockView: View {
                         }
                         .padding(TWTSpacing.md)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .background(TWTColor.voidRaised)
-                        .clipShape(RoundedRectangle(cornerRadius: TWTRadius.md))
+                        .neonPanel(candidate.decadeId.map(TWTColor.decadeAccent(for:)) ?? TWTColor.neonMagenta)
                     }
                 }
             }

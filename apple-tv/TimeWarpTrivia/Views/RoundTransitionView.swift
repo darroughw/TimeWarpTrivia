@@ -50,11 +50,7 @@ struct RoundTransitionView: View {
                 .foregroundStyle(TWTColor.paper)
         }
         .padding(TWTSpacing.md)
-        .background(TWTColor.teal.opacity(0.12))
-        .background(TWTColor.voidRaised)
-        .overlay(RoundedRectangle(cornerRadius: TWTRadius.md).strokeBorder(TWTColor.teal, lineWidth: twtBorderWidth))
-        .clipShape(RoundedRectangle(cornerRadius: TWTRadius.md))
-        .shadow(color: TWTColor.teal.opacity(0.45), radius: 32)
+        .neonPanel(TWTColor.teal, lineWidth: 3, glow: 0.7)
         // The answer slams in first...
         .scaleEffect(revealed ? 1 : 0.6)
         .opacity(revealed ? 1 : 0)
@@ -76,13 +72,11 @@ struct RoundTransitionView: View {
                     }
                     .frame(minWidth: 180)
                     .padding(TWTSpacing.sm)
-                    .background(TWTColor.voidRaised)
-                    .clipShape(RoundedRectangle(cornerRadius: TWTRadius.md))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: TWTRadius.md)
-                            .strokeBorder(pointResult.correct ? TWTColor.teal : Color.clear, lineWidth: twtBorderWidth)
+                    .neonPanel(
+                        pointResult.correct ? TWTColor.teal : TWTColor.textLo.opacity(0.3),
+                        lineWidth: pointResult.correct ? 3 : 2,
+                        glow: pointResult.correct ? 0.55 : 0
                     )
-                    .shadow(color: pointResult.correct ? TWTColor.teal.opacity(0.35) : .clear, radius: 18)
                     // ...then each player's card pops in, one after another.
                     .scaleEffect(revealed ? 1 : 0.3)
                     .opacity(revealed ? (pointResult.correct ? 1 : 0.7) : 0)

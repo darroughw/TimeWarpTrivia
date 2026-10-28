@@ -62,6 +62,13 @@ enum TWTColor {
         "drag-race": Color(hex: 0xFF69B4),
     ]
 
+    // Deep Cuts mode's own darker, purple look — mirrors the
+    // [data-deep-cuts-theme] block in app/styles/_decade-themes.scss.
+    // The accent replaces the decade/topic accent for the whole session;
+    // topic colors stay on the topic pills.
+    static let deepCutsPurple = Color(hex: 0xA97CFF)
+    static let deepCutsVoid = Color(hex: 0x08050F)
+
     static func deepCutAccent(for topicId: String) -> Color {
         deepCutAccents[topicId] ?? marigold
     }

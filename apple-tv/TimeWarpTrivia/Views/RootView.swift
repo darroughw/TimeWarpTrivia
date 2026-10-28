@@ -10,12 +10,11 @@ struct RootView: View {
 
     private var decade: DecadeId? { flow.room?.decadeFilter }
 
-    // A Deep Cuts game takes its topic's color; otherwise the decade's.
+    private var isDeepCuts: Bool { flow.room?.deepCutTopicId != nil }
+
+    // Deep Cuts has its own purple theme; otherwise the decade's accent.
     private var accent: Color {
-        if let topicId = flow.room?.deepCutTopicId {
-            return TWTColor.deepCutAccent(for: topicId)
-        }
-        return TWTColor.decadeAccent(for: decade ?? .all)
+        isDeepCuts ? TWTColor.deepCutsPurple : TWTColor.decadeAccent(for: decade ?? .all)
     }
 
     // Changes on every status change, and when the lobby switches
@@ -28,7 +27,7 @@ struct RootView: View {
         ZStack {
             // Drawn once here, beneath every screen, so its drift carries
             // across screen changes instead of restarting on each one.
-            TWTBackground(decade: decade)
+            TWTBackground(decade: decade, isDeepCuts: isDeepCuts)
             screen
                 // Crossfade between screens rather than hard-cutting on
                 // every Realtime status change.

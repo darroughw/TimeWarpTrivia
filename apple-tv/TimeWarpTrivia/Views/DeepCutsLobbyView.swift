@@ -12,10 +12,11 @@ enum DeepCutsLobbyFocusTarget: Hashable {
     case startGame
 }
 
-// Port of components/tv/DeepCutsLobbyScreen.tsx: the lobby with topic
-// cards instead of decade pills. Shown by RootView whenever the room has
-// a Deep Cuts topic; "Decades" in the footer clears the topic, which
-// switches back to LobbyView.
+// Port of components/tv/DeepCutsLobbyScreen.tsx, laid out exactly like
+// LobbyView (players left, picker sidebar right, same footer) with the
+// Deep Cuts logo and a topic picker in place of the decade filter. Shown
+// by RootView whenever the room has a Deep Cuts topic; "Decades" in the
+// footer clears the topic, which switches back to LobbyView.
 struct DeepCutsLobbyView: View {
     @Environment(\.twtAccent) private var accent
     @EnvironmentObject private var flow: GameFlowViewModel
@@ -32,8 +33,10 @@ struct DeepCutsLobbyView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: TWTSpacing.lg) {
             header
-            playersPanel
-            topicsGrid
+            HStack(alignment: .top, spacing: TWTSpacing.xl) {
+                playersPanel
+                sidebar
+            }
             Spacer()
             footer
         }
@@ -51,12 +54,17 @@ struct DeepCutsLobbyView: View {
     private var header: some View {
         HStack(alignment: .top) {
             VStack(alignment: .leading, spacing: TWTSpacing.sm) {
-                Text("DEEP CUTS")
-                    .font(TWTFont.headline(24))
-                    .foregroundStyle(accent)
+                // public/logo-deepcuts.svg, kept as vector in the asset
+                // catalog (see DeepCutsLogo.imageset).
+                Image("DeepCutsLogo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 96)
+                    .accessibilityLabel("Deep Cuts Trivia")
                 Text("Pick a topic & grab your phone")
                     .font(TWTFont.headline(40))
                     .foregroundStyle(TWTColor.textHi)
+                    .neonGlow(accent, intensity: 0.5)
             }
             Spacer()
             VStack(alignment: .trailing, spacing: TWTSpacing.xs) {
@@ -78,8 +86,11 @@ struct DeepCutsLobbyView: View {
         }
     }
 
+    // Same as LobbyView's playersPanel — including deliberately no
+    // .frame(maxWidth: .infinity) (see the comment there: it breaks focus
+    // navigation into the sidebar).
     private var playersPanel: some View {
-        VStack(alignment: .leading, spacing: TWTSpacing.sm) {
+        VStack(alignment: .leading, spacing: TWTSpacing.md) {
             Text("PLAYERS IN THE ROOM")
                 .font(TWTFont.body(13))
                 .foregroundStyle(TWTColor.textLo)
@@ -88,9 +99,9 @@ struct DeepCutsLobbyView: View {
                     .font(TWTFont.body(17))
                     .foregroundStyle(TWTColor.textLo)
             } else {
-                HStack(spacing: TWTSpacing.md) {
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 140), spacing: TWTSpacing.md)], spacing: TWTSpacing.md) {
                     ForEach(flow.players) { player in
-                        PlayerAvatarView(player: player, size: .sm, showName: true)
+                        PlayerAvatarView(player: player, size: .md, showName: true)
                             .opacity(player.status == .active ? 1 : 0.4)
                             .transition(.scale(scale: 0.2).combined(with: .opacity))
                     }
@@ -100,26 +111,36 @@ struct DeepCutsLobbyView: View {
         }
     }
 
-    private var topicsGrid: some View {
-        // Extra room above the cards — a focused card scales up into it.
+    // The decade sidebar's counterpart: topic pills, one per line since
+    // topic names run much longer than "80s".
+    private var sidebar: some View {
         VStack(alignment: .leading, spacing: TWTSpacing.md) {
             Text("TOPIC")
                 .font(TWTFont.body(13))
                 .foregroundStyle(TWTColor.textLo)
-            LazyVGrid(columns: [GridItem(.adaptive(minimum: 300), spacing: TWTSpacing.md)], spacing: TWTSpacing.md) {
+            VStack(alignment: .leading, spacing: TWTSpacing.sm) {
                 ForEach(flow.deepCutTopics) { topic in
-                    DeepCutTopicCard(
-                        topic: topic,
-                        isSelected: selectedTopicId == topic.id,
-                        isFocused: focusedControl == .topic(topic.id),
-                        onSelect: { flow.selectDeepCutTopic(topic.id) }
+                    Button { flow.selectDeepCutTopic(topic.id) } label: {
+                        Text(topic.label)
+                            .font(TWTFont.bodyBold(16))
+                            .lineLimit(1)
+                            .fixedSize()
+                    }
+                    .buttonStyle(
+                        NeonButtonStyle(
+                            color: TWTColor.deepCutAccent(for: topic.id),
+                            size: .compact,
+                            isSelected: selectedTopicId == topic.id,
+                            isFocused: focusedControl == .topic(topic.id)
+                        )
                     )
                     .focused($focusedControl, equals: .topic(topic.id))
                 }
             }
         }
         .onMoveCommand { direction in
-            // Fires only when the engine finds nothing below on its own.
+            // Fires only when the engine finds nothing below on its own
+            // (same fallback as DecadeFilterPillsView).
             guard direction == .down else { return }
             focusedControl = .help
         }
@@ -131,16 +152,19 @@ struct DeepCutsLobbyView: View {
                 .font(TWTFont.body(17))
                 .foregroundStyle(TWTColor.textLo)
             Button("Help") { showHelp = true }
-                .font(TWTFont.body(15))
+                .font(TWTFont.bodyBold(15))
+                .buttonStyle(NeonButtonStyle(color: TWTColor.neonMagenta, isFocused: focusedControl == .help))
                 .focused($focusedControl, equals: .help)
-            Button(musicEnabled ? "🎵 Music: On" : "🎵 Music: Off") {
+            Button(musicEnabled ? "Music: On" : "Music: Off") {
                 musicEnabled.toggle()
                 flow.setMusicEnabled(musicEnabled)
             }
-            .font(TWTFont.body(15))
+            .font(TWTFont.bodyBold(15))
+            .buttonStyle(NeonButtonStyle(color: TWTColor.neonMagenta, isFocused: focusedControl == .musicToggle))
             .focused($focusedControl, equals: .musicToggle)
-            Button("📅 Decades") { flow.clearDeepCutTopic() }
-                .font(TWTFont.body(15))
+            Button("Decades") { flow.clearDeepCutTopic() }
+                .font(TWTFont.bodyBold(15))
+                .buttonStyle(NeonButtonStyle(color: TWTColor.neonMagenta, isFocused: focusedControl == .decades))
                 .focused($focusedControl, equals: .decades)
             Spacer()
             if activeCount < 2 {
@@ -152,13 +176,11 @@ struct DeepCutsLobbyView: View {
                 Task { await flow.handleStartGame() }
             } label: {
                 Text("Start Game")
-                    .font(TWTFont.bodyBold(22))
-                    .padding(.horizontal, TWTSpacing.xl)
-                    .padding(.vertical, TWTSpacing.sm)
+                    .font(TWTFont.headline(20))
+                    .textCase(.uppercase)
             }
-            .buttonStyle(TWTPrimaryButtonStyle())
+            .buttonStyle(NeonButtonStyle(size: .large, isFocused: focusedControl == .startGame))
             .disabled(!flow.canStartGame || flow.isStartingGame)
-            .opacity(flow.canStartGame && !flow.isStartingGame ? 1 : 0.4)
             .focused($focusedControl, equals: .startGame)
         }
         .onMoveCommand { direction in
@@ -167,44 +189,5 @@ struct DeepCutsLobbyView: View {
                 focusedControl = .topic(topicId)
             }
         }
-    }
-}
-
-// One topic card: the topic's own color when selected (matching the web's
-// DeepCutTopicFilter), paper when focused — focus and selection stay
-// visually distinct, same rule as the decade pills.
-private struct DeepCutTopicCard: View {
-    let topic: DeepCutTopic
-    let isSelected: Bool
-    let isFocused: Bool
-    let onSelect: () -> Void
-
-    private var topicColor: Color { TWTColor.deepCutAccent(for: topic.id) }
-
-    private var background: Color {
-        if isFocused { return TWTColor.paper }
-        return isSelected ? topicColor : TWTColor.voidRaised
-    }
-
-    var body: some View {
-        Button(action: onSelect) {
-            Text(topic.label)
-                .font(TWTFont.headline(20))
-                .foregroundStyle(isFocused || isSelected ? TWTColor.ink : TWTColor.textHi)
-                .multilineTextAlignment(.center)
-                .lineLimit(2)
-                .frame(maxWidth: .infinity, minHeight: 120)
-                .padding(TWTSpacing.md)
-                .background(background)
-                .clipShape(RoundedRectangle(cornerRadius: TWTRadius.md))
-                .overlay(
-                    RoundedRectangle(cornerRadius: TWTRadius.md)
-                        .strokeBorder(isSelected ? topicColor : TWTColor.voidLine, lineWidth: twtBorderWidth)
-                )
-                .shadow(color: isSelected ? topicColor.opacity(0.5) : .clear, radius: 24)
-                .scaleEffect(isFocused ? 1.05 : 1)
-                .animation(.easeOut(duration: 0.15), value: isFocused)
-        }
-        .buttonStyle(.plain)
     }
 }

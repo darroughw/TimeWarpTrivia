@@ -30,11 +30,10 @@ struct OfflineErrorView: View {
                 }
             } label: {
                 Text("Retry")
-                    .font(TWTFont.bodyBold(20))
-                    .padding(.horizontal, TWTSpacing.xl)
-                    .padding(.vertical, TWTSpacing.sm)
+                    .font(TWTFont.headline(20))
+                    .textCase(.uppercase)
             }
-            .tint(TWTColor.marigold)
+            .buttonStyle(NeonButtonStyle(size: .large))
             .prefersDefaultFocus(true, in: namespace)
             Spacer()
         }

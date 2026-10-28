@@ -46,6 +46,7 @@ struct HelpModalView: View {
                     Spacer()
                     Button("Close") { dismiss() }
                         .font(TWTFont.bodyBold(18))
+                        .buttonStyle(NeonButtonStyle(color: TWTColor.neonMagenta))
                 }
                 track(title: "Hosting", steps: Self.hostingSteps)
                 track(title: "Playing & Answering", steps: Self.playingSteps)

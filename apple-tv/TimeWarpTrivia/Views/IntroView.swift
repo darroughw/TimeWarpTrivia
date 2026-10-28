@@ -19,11 +19,7 @@ struct IntroView: View {
                 RetroSunView()
                     .frame(width: 520, height: 520)
                     .offset(y: 60)
-                Text("TIMEWARP TRIVIA")
-                    .font(TWTFont.headline(64))
-                    .foregroundStyle(TWTColor.textHi)
-                    .shadow(color: TWTColor.marigoldDim, radius: 0, x: 0, y: 6)
-                    .shadow(color: TWTColor.marigold.opacity(0.7), radius: 30)
+                ChromeText(text: "TIMEWARP TRIVIA", font: TWTFont.headline(72))
                     .offset(y: floating ? -8 : 8)
                     .animation(reduceMotion ? nil : .easeInOut(duration: 2.4).repeatForever(autoreverses: true), value: floating)
             }
@@ -38,11 +34,10 @@ struct IntroView: View {
                 Task { await flow.bootstrap() }
             } label: {
                 Text("Start")
-                    .font(TWTFont.bodyBold(24))
-                    .padding(.horizontal, TWTSpacing.xl)
-                    .padding(.vertical, TWTSpacing.sm)
+                    .font(TWTFont.headline(24))
+                    .textCase(.uppercase)
             }
-            .buttonStyle(TWTPrimaryButtonStyle())
+            .buttonStyle(NeonButtonStyle(size: .large))
             .prefersDefaultFocus(true, in: namespace)
             Spacer()
         }

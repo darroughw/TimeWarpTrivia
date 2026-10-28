@@ -20,10 +20,7 @@ struct EndGameView: View {
                     .font(TWTFont.bodyBold(18))
                     .textCase(.uppercase)
                     .foregroundStyle(accent)
-                Text("Final Results")
-                    .font(TWTFont.headline(48))
-                    .foregroundStyle(accent)
-                    .shadow(color: accent.opacity(0.6), radius: 24)
+                ChromeText(text: "FINAL RESULTS", font: TWTFont.headline(52), color: accent)
             }
 
             podiumView
@@ -63,10 +60,8 @@ struct EndGameView: View {
                         Text("Play Again")
                             .font(TWTFont.headline(22))
                             .textCase(.uppercase)
-                            .padding(.horizontal, TWTSpacing.xl)
-                            .padding(.vertical, TWTSpacing.sm)
                     }
-                    .buttonStyle(TWTPrimaryButtonStyle())
+                    .buttonStyle(NeonButtonStyle(size: .large))
 
                     ArmConfirmButtonView(label: "Cancel Game") {
                         Task { await flow.handleCancelGame() }

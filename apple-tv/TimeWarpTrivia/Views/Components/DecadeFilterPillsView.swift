@@ -51,42 +51,17 @@ struct DecadeFilterPillsView: View {
 // readability — see the isFocused comment above for why focus state is
 // passed in rather than read locally.
 //
-// Must be a Button, not a plain .focusable() + .onTapGesture view —
-// tried that specifically to dodge tvOS's built-in "lift card" focus
-// chrome, but a plain .focusable() view didn't reliably register as a
-// D-pad/remote focus target at all (confirmed: arrow-key navigation
-// stopped reaching this row entirely). So this keeps .buttonStyle(.plain)
-// and layers styling on top to match DecadeFilter.module.scss's
-// dpad-focusable pill design as closely as tvOS's own focus chrome
-// allows: dim border/text at rest, a solid fill + dark text swap on
-// focus (matching how the plain default-styled Help/Start Game buttons
-// already show focus), decade accent color reserved for the selected
-// state. The platform's own oversized focus-lift card behind a Button's
-// content isn't suppressible via public API on this deployment target
-// (tvOS 16) — confirmed .focusEffectDisabled() (tvOS 17+) has no effect
-// on it — so some system chrome bleed-through is an accepted platform
-// constraint here, not a bug to keep chasing.
+// Must be a Button, not a plain .focusable() + .onTapGesture view — a
+// plain .focusable() view didn't reliably register as a D-pad/remote
+// focus target at all (arrow-key navigation stopped reaching this row
+// entirely). NeonButtonStyle, being a custom ButtonStyle rather than
+// .plain, also avoids tvOS's own white focus "lift" halo, which .plain
+// adds and tvOS 16 has no public API to remove.
 private struct DecadePillButton: View {
     let decade: Decade
     let selected: Bool
     let isFocused: Bool
     let onSelect: (DecadeId) -> Void
-
-    private var shape: some InsettableShape { RoundedRectangle(cornerRadius: TWTRadius.lg, style: .continuous) }
-
-    private var borderColor: Color {
-        selected ? TWTColor.decadeAccent(for: decade.id) : TWTColor.voidLine
-    }
-
-    private var backgroundColor: Color {
-        if isFocused { return TWTColor.paper }
-        return selected ? TWTColor.decadeAccent(for: decade.id) : TWTColor.voidRaised
-    }
-
-    private var foregroundColor: Color {
-        if isFocused { return TWTColor.ink }
-        return selected ? TWTColor.ink : TWTColor.textLo
-    }
 
     var body: some View {
         Button {
@@ -104,14 +79,14 @@ private struct DecadePillButton: View {
                 // fit on one row at TV type size with this padding.
                 .lineLimit(1)
                 .fixedSize()
-                .padding(.horizontal, TWTSpacing.sm + (isFocused ? TWTSpacing.xs : 0))
-                .padding(.vertical, TWTSpacing.sm + (isFocused ? TWTSpacing.xs : 0))
-                .foregroundStyle(foregroundColor)
-                .background(backgroundColor)
-                .clipShape(shape)
-                .overlay(shape.strokeBorder(borderColor, lineWidth: twtBorderWidth))
-                .animation(.easeOut(duration: 0.15), value: isFocused)
         }
-        .buttonStyle(.plain)
+        .buttonStyle(
+            NeonButtonStyle(
+                color: TWTColor.decadeAccent(for: decade.id),
+                size: .compact,
+                isSelected: selected,
+                isFocused: isFocused
+            )
+        )
     }
 }

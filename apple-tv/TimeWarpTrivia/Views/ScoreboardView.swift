@@ -24,6 +24,7 @@ struct ScoreboardView: View {
                     Text("Scoreboard")
                         .font(TWTFont.headline(44))
                         .foregroundStyle(TWTColor.textHi)
+                        .neonGlow(accent, intensity: 0.5)
                 }
                 ScrollView {
                     VStack(spacing: TWTSpacing.sm) {
@@ -68,14 +69,8 @@ struct ScoreboardView: View {
                 .foregroundStyle(accent)
         }
         .padding(TWTSpacing.md)
-        .background(isFirst ? accent.opacity(0.14) : .clear)
-        .background(TWTColor.voidRaised)
-        .clipShape(RoundedRectangle(cornerRadius: TWTRadius.md))
-        .shadow(color: isFirst ? accent.opacity(0.4) : .clear, radius: 24)
-        .overlay(
-            RoundedRectangle(cornerRadius: TWTRadius.md)
-                .strokeBorder(isFirst ? accent : Color.clear, lineWidth: twtBorderWidth)
-        )
+        // The leader burns brightest; everyone else is a dim tube.
+        .neonPanel(isFirst ? accent : TWTColor.neonMagenta.opacity(0.35), lineWidth: isFirst ? 3 : 2, glow: isFirst ? 0.6 : 0.2)
         .opacity(player.status == .active ? 1 : 0.4)
     }
 }
