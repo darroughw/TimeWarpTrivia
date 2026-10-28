@@ -61,10 +61,12 @@
 		AE078AE1A7AA73E8E6EE2113 /* ConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E5FD6C356F3CB0E3F6FA43 /* ConfettiView.swift */; };
 		B1CFA3DBEB0E637E1585DABC /* PlayerAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02630661BA8C179F2244C50 /* PlayerAvatarView.swift */; };
 		B3C70BD1D2AD6FA634527F7D /* GameFlowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24F8AA7A24A9AD1067BF230 /* GameFlowViewModel.swift */; };
+		B55F02A9F6EB80178EA30798 /* DeepCutTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03583D96317E10AA0EC28141 /* DeepCutTopic.swift */; };
 		C3121F443279B1A41CC74122 /* RoomStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD873FEF660D95A2B50271 /* RoomStatus.swift */; };
 		C38926D981990D38A7BAD7DC /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF89744CCF667E580899BABA /* Colors.swift */; };
 		C812491B5DA87E570C8EC44B /* decade-80s.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9C38E6DD36E7F08E3DE0996B /* decade-80s.mp3 */; };
 		CF649F3F590DE151A2A5FD67 /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DE4656264570614EC96E4B /* MusicPlayer.swift */; };
+		D3CF806780C56EB2FDCAC200 /* DeepCutsLobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35727DF16CE70D467C23041A /* DeepCutsLobbyView.swift */; };
 		D8399524CF9E2ABBC2906043 /* ScoreboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13D0C7BC1013006D6ECFAE7 /* ScoreboardView.swift */; };
 		DB4BC0FA6824872920DF7BF5 /* RoundStepLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC2E41E60F83940921D2BE /* RoundStepLogic.swift */; };
 		DB7425ABD0A24666DD63FF93 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1739487A6D85C3AF9AA210D /* Player.swift */; };
@@ -79,6 +81,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		03583D96317E10AA0EC28141 /* DeepCutTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepCutTopic.swift; sourceTree = "<group>"; };
 		0E764136AB37D6DE4DE2B7B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0EB55ADD336360838B4B8141 /* Taunts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taunts.swift; sourceTree = "<group>"; };
 		15DF4BD2904AA7099CC333E5 /* Scoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scoring.swift; sourceTree = "<group>"; };
@@ -92,6 +95,7 @@
 		2D020DD26156B81650A6C71C /* RoundTransitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundTransitionView.swift; sourceTree = "<group>"; };
 		30E8F0A87B0A7A1D5FE1E571 /* AnswersRealtimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersRealtimeManager.swift; sourceTree = "<group>"; };
 		33493427EAA1A87EE7F9705A /* RoundStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundStartView.swift; sourceTree = "<group>"; };
+		35727DF16CE70D467C23041A /* DeepCutsLobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepCutsLobbyView.swift; sourceTree = "<group>"; };
 		393B215A11E74F830E3391F7 /* DecadeId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecadeId.swift; sourceTree = "<group>"; };
 		3AF08ED8B10F340283ECF98E /* DecadeFilterPillsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecadeFilterPillsView.swift; sourceTree = "<group>"; };
 		3BD264D3E0202109662FCB42 /* Signing.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Signing.xcconfig; sourceTree = "<group>"; };
@@ -287,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				A9CC881FF560938C1565DFE8 /* BlockView.swift */,
+				35727DF16CE70D467C23041A /* DeepCutsLobbyView.swift */,
 				E4F764DFE68B593BBBB8D26A /* EndGameView.swift */,
 				A0B3AB5B76B7840EDDEE09C2 /* IntroView.swift */,
 				49D9A301A7C3E358A870CBF8 /* LobbyView.swift */,
@@ -337,6 +342,7 @@
 				F7DF853E3FF4FA40A9906577 /* Answer.swift */,
 				2373B0072DF82EA124EC3799 /* Decade.swift */,
 				393B215A11E74F830E3391F7 /* DecadeId.swift */,
+				03583D96317E10AA0EC28141 /* DeepCutTopic.swift */,
 				D1739487A6D85C3AF9AA210D /* Player.swift */,
 				A5E06ED99FCE1F4AA457356B /* Question.swift */,
 				E01FC2DFEE9116768707E8E1 /* Room.swift */,
@@ -470,6 +476,8 @@
 				4D2B7033240A83CBD0D5E112 /* Decade.swift in Sources */,
 				ACF0F5889DC57A2898139645 /* DecadeFilterPillsView.swift in Sources */,
 				7F72A816501842C846EFF711 /* DecadeId.swift in Sources */,
+				B55F02A9F6EB80178EA30798 /* DeepCutTopic.swift in Sources */,
+				D3CF806780C56EB2FDCAC200 /* DeepCutsLobbyView.swift in Sources */,
 				17D4B48C0B22467311AB33DB /* EndGameView.swift in Sources */,
 				DEE6AEB9EA4CAC7821B628A5 /* Fonts.swift in Sources */,
 				B3C70BD1D2AD6FA634527F7D /* GameFlowViewModel.swift in Sources */,

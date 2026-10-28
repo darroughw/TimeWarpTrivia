@@ -87,6 +87,10 @@ enum RoomService {
     static func setDeepCutTopic(roomId: UUID, topicId: String) async throws {
         try await updateRoom(roomId: roomId, patch: DeepCutTopicPatch(deepCutTopicId: topicId))
     }
+
+    static func clearDeepCutTopic(roomId: UUID) async throws {
+        try await updateRoom(roomId: roomId, patch: ClearDeepCutTopicPatch())
+    }
 }
 
 enum RoomServiceError: Error, LocalizedError {

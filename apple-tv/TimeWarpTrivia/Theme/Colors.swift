@@ -53,6 +53,19 @@ enum TWTColor {
         decadeAccents[decade] ?? marigold
     }
 
+    // Mirrors lib/deepCutColors.ts's DEEP_CUT_TOPIC_COLORS — an open map,
+    // since topics are added as data; anything unlisted gets marigold
+    // (DEFAULT_DEEP_CUT_COLOR).
+    private static let deepCutAccents: [String: Color] = [
+        "west-wing": Color(hex: 0xC9A227),
+        "fallout": Color(hex: 0x00FF66),
+        "drag-race": Color(hex: 0xFF69B4),
+    ]
+
+    static func deepCutAccent(for topicId: String) -> Color {
+        deepCutAccents[topicId] ?? marigold
+    }
+
     // Mirrors $option-colors in app/styles/_theme.scss — the A/B/C/D
     // answer colors players see on their phones, so "the pink one" means
     // the same answer on both screens. Deliberately clear of teal/coral,

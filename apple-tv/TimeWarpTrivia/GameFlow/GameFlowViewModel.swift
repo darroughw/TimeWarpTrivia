@@ -10,6 +10,7 @@ final class GameFlowViewModel: ObservableObject {
     @Published private(set) var players: [Player] = []
     @Published private(set) var answers: [Answer] = []
     @Published private(set) var decades: [Decade] = []
+    @Published private(set) var deepCutTopics: [DeepCutTopic] = []
     @Published private(set) var isStartingGame = false
     @Published private(set) var countdownSecondsRemaining = roundStartCountdownSeconds
     @Published private(set) var lastRoundResult: RoundResult?
@@ -93,14 +94,20 @@ final class GameFlowViewModel: ObservableObject {
             return
         }
 
-        // The lobby's decade filter is data-driven — fetched once, not
-        // hardcoded — so a new decade becomes a data change, not a code
-        // deploy. A failure here isn't fatal the way room creation
-        // failing is — the room already exists and is usable, just
-        // without a populated decade list yet — so this stays a
-        // non-blocking lastError rather than connectionFailed.
+        // The lobby's decade filter and Deep Cuts topics are data-driven —
+        // fetched once, not hardcoded — so a new decade or topic becomes a
+        // data change, not a code deploy. A failure here isn't fatal the
+        // way room creation failing is — the room already exists and is
+        // usable, just without a populated list yet — so this stays a
+        // non-blocking lastError rather than connectionFailed. Fetched
+        // independently so one failing doesn't also empty the other.
         do {
             decades = try await QuestionService.fetchDecades()
+        } catch {
+            lastError = error.localizedDescription
+        }
+        do {
+            deepCutTopics = try await QuestionService.fetchDeepCutTopics()
         } catch {
             lastError = error.localizedDescription
         }
@@ -111,6 +118,28 @@ final class GameFlowViewModel: ObservableObject {
         Task {
             do {
                 try await RoomService.setDecadeFilter(roomId: room.id, decadeFilter: id)
+            } catch {
+                lastError = error.localizedDescription
+            }
+        }
+    }
+
+    func selectDeepCutTopic(_ topicId: String) {
+        guard let room else { return }
+        Task {
+            do {
+                try await RoomService.setDeepCutTopic(roomId: room.id, topicId: topicId)
+            } catch {
+                lastError = error.localizedDescription
+            }
+        }
+    }
+
+    func clearDeepCutTopic() {
+        guard let room else { return }
+        Task {
+            do {
+                try await RoomService.clearDeepCutTopic(roomId: room.id)
             } catch {
                 lastError = error.localizedDescription
             }
@@ -129,16 +158,24 @@ final class GameFlowViewModel: ObservableObject {
 
     // Picks the whole game's question set at once — 15 main questions (3
     // rounds of 5) plus 3 block candidates, all respecting the room's
-    // decade filter and all guaranteed distinct from one another and from
-    // anything asked in a previous rematch in this room.
+    // decade filter OR deep cut topic and all guaranteed distinct from one
+    // another and from anything asked in a previous rematch in this room.
     func handleStartGame() async {
         guard let room, canStartGame, !isStartingGame else { return }
         isStartingGame = true
         defer { isStartingGame = false }
 
         do {
+            // Determine the question source: either deep cut topic or decade filter
+            let source: QuestionSource
+            if let topicId = room.deepCutTopicId {
+                source = .deepCutTopic(topicId)
+            } else {
+                source = .decade(room.decadeFilter)
+            }
+            
             let picks = try await QuestionService.fetchRandomQuestionSet(
-                source: .decade(room.decadeFilter),
+                source: source,
                 count: totalMainQuestions + 3,
                 excludeIds: room.askedQuestionIds
             )
@@ -278,19 +315,30 @@ final class GameFlowViewModel: ObservableObject {
         }
     }
 
-    // Low-volume background music plays for the whole active game —
-    // everything between the lobby and the end screen — and is silent
-    // on both of those, matching "throughout the game once it's
-    // started." Idempotent either way (MusicPlayer.play() no-ops if
-    // already playing, .stop() no-ops if already stopped), so this is
-    // safe to call on every single Realtime room update rather than
-    // only on an actual status transition.
+    // Low-volume background music plays from the lobby through the last
+    // question, and is silent on the end screen. Unlike the web TV (which
+    // starts it only once the game begins), the lobby plays it too, so
+    // the lobby's Music toggle gives immediate feedback. Idempotent either
+    // way (MusicPlayer.play() no-ops if already playing, .stop() no-ops if
+    // already stopped), so this is safe to call on every single Realtime
+    // room update rather than only on an actual status transition.
+    // The lobby's Music toggle. Re-syncs right away so switching music
+    // back on starts it now, not on the next Realtime room update.
+    func setMusicEnabled(_ enabled: Bool) {
+        MusicPlayer.shared.isEnabled = enabled
+        syncBackgroundMusic()
+    }
+
     private func syncBackgroundMusic() {
-        guard let room, room.status != .lobby, room.status != .end else {
+        guard let room else {
             MusicPlayer.shared.stop()
             return
         }
-        MusicPlayer.shared.play()
+        if room.status == .end {
+            MusicPlayer.shared.stop()
+        } else {
+            MusicPlayer.shared.play()
+        }
     }
 
     // Resolves room.currentQuestionId into a full Question, mirroring
@@ -455,6 +503,12 @@ extension GameFlowViewModel {
         )
         currentQuestion = question
         decades = DecadeId.allCases.filter { $0 != .all }.map { Decade(id: $0, label: $0.rawValue) }
+        deepCutTopics = [
+            DeepCutTopic(id: "west-wing", label: "The West Wing"),
+            DeepCutTopic(id: "fallout", label: "Fallout"),
+            DeepCutTopic(id: "simpsons", label: "The Simpsons"),
+            DeepCutTopic(id: "drag-race", label: "RuPaul's Drag Race"),
+        ]
         countdownSecondsRemaining = 3
         answers = players.prefix(2).map {
             Answer(id: UUID(), roomId: roomId, playerId: $0.id, questionId: question.id, answer: 0, responseTimeMs: 3_000, createdAt: Date())
@@ -475,7 +529,7 @@ extension GameFlowViewModel {
         room = Room(
             id: roomId, code: "WARP-72", hostId: hostId, status: status, currentQuestionId: question.id,
             blockerPlayerId: nil, decadeFilter: decade, blockCandidateIds: nil, questionIds: nil,
-            questionIndex: 0, askedQuestionIds: [], deepCutTopicId: nil, createdAt: Date()
+            questionIndex: 0, askedQuestionIds: [], deepCutTopicId: screen == "deepcuts" ? "drag-race" : nil, createdAt: Date()
         )
     }
 

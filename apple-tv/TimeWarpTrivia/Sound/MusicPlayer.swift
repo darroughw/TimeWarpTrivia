@@ -1,15 +1,14 @@
 import AVFoundation
 
-// Low-volume looping background music, played only while a round is
-// actually in progress (not in the lobby, not on the end screen) —
-// see GameFlowViewModel's syncBackgroundMusic(). Separate from
-// SoundPlayer (one-shot SFX, a player per sound, reused via seek-to-0)
-// since this is a single continuously-looping track with its own
-// start/stop lifecycle and its own mute toggle (MusicToggleButton,
-// LobbyView) — distinct from the SFX mute, so a player can have one on
-// and the other off. background-loop.m4a is an original composition
-// generated for this app, not a recording or transcription of any
-// existing copyrighted work.
+// Low-volume looping background music, played from the lobby through the
+// last question (not on the end screen) — see GameFlowViewModel's
+// syncBackgroundMusic(). Separate from SoundPlayer (one-shot SFX, a
+// player per sound, reused via seek-to-0) since this is a single
+// continuously-looping track with its own start/stop lifecycle and its
+// own mute toggle (the lobbies' Music button) — distinct from the SFX
+// mute, so a player can have one on and the other off.
+// background-loop.m4a is an original composition generated for this app,
+// not a recording or transcription of any existing copyrighted work.
 @MainActor
 final class MusicPlayer {
     static let shared = MusicPlayer()
@@ -29,10 +28,8 @@ final class MusicPlayer {
             if !newValue { stop() }
             // Turning it back on doesn't resume playback here — whether
             // music should be playing right now is still governed by
-            // game state (syncBackgroundMusic), not just this flag. The
-            // toggle lives in the lobby, where nothing is playing
-            // anyway; the next real status change picks the new value
-            // up on its own.
+            // game state. Go through GameFlowViewModel.setMusicEnabled,
+            // which re-syncs immediately.
         }
     }
 

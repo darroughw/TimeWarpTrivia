@@ -17,8 +17,26 @@ struct DecadeFilterPatch: Encodable {
     let decadeFilter: DecadeId
 }
 
+// Picking a topic also resets the decade filter, so a decade picked
+// earlier in the same lobby doesn't keep theming the TV and phones
+// during a Deep Cuts game.
 struct DeepCutTopicPatch: Encodable {
     let deepCutTopicId: String
+    let decadeFilter = DecadeId.all
+}
+
+// Back to decade mode. Hand-written encode because the synthesized one
+// skips nil optionals entirely — it would send an empty patch instead of
+// actually nulling the column.
+struct ClearDeepCutTopicPatch: Encodable {
+    private enum CodingKeys: String, CodingKey {
+        case deepCutTopicId
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encodeNil(forKey: .deepCutTopicId)
+    }
 }
 
 struct StatusPatch: Encodable {

@@ -10,6 +10,20 @@ struct RootView: View {
 
     private var decade: DecadeId? { flow.room?.decadeFilter }
 
+    // A Deep Cuts game takes its topic's color; otherwise the decade's.
+    private var accent: Color {
+        if let topicId = flow.room?.deepCutTopicId {
+            return TWTColor.deepCutAccent(for: topicId)
+        }
+        return TWTColor.decadeAccent(for: decade ?? .all)
+    }
+
+    // Changes on every status change, and when the lobby switches
+    // between decade and Deep Cuts mode, so both crossfade.
+    private var screenKey: String {
+        "\(flow.room?.status.rawValue ?? "none")-\(flow.room?.deepCutTopicId != nil)"
+    }
+
     var body: some View {
         ZStack {
             // Drawn once here, beneath every screen, so its drift carries
@@ -19,10 +33,10 @@ struct RootView: View {
                 // Crossfade between screens rather than hard-cutting on
                 // every Realtime status change.
                 .transition(.opacity)
-                .id(flow.room?.status)
+                .id(screenKey)
         }
-        .animation(.easeInOut(duration: 0.4), value: flow.room?.status)
-        .environment(\.twtAccent, TWTColor.decadeAccent(for: decade ?? .all))
+        .animation(.easeInOut(duration: 0.4), value: screenKey)
+        .environment(\.twtAccent, accent)
     }
 
     private var screen: some View {
@@ -30,7 +44,15 @@ struct RootView: View {
             if let room = flow.room {
                 switch room.status {
                 case .lobby:
-                    LobbyView()
+                    // A room with a Deep Cuts topic is in Deep Cuts mode.
+                    // Unlike the web (a separate /deepcuts route per TV
+                    // session), the native app switches modes inside the
+                    // lobby, and the room's topic is the source of truth.
+                    if room.deepCutTopicId != nil {
+                        DeepCutsLobbyView()
+                    } else {
+                        LobbyView()
+                    }
                 case .countdown:
                     if let question = flow.currentQuestion {
                         RoundStartView(roundLabel: question.roundLabel, secondsRemaining: flow.countdownSecondsRemaining)

@@ -14,11 +14,12 @@ enum LobbyFocusTarget: Hashable {
     case decade(DecadeId)
     case help
     case musicToggle
+    case deepCuts
     case startGame
 }
 
-// Direct port of components/tv/LobbyScreen.tsx (decade mode — Deep Cuts'
-// DeepCutsLobbyScreen equivalent is deferred, see the plan).
+// Direct port of components/tv/LobbyScreen.tsx (decade mode). Deep Cuts
+// mode is DeepCutsLobbyView; RootView picks between them.
 struct LobbyView: View {
     @Environment(\.twtAccent) private var accent
     @EnvironmentObject private var flow: GameFlowViewModel
@@ -143,10 +144,18 @@ struct LobbyView: View {
                 .focused($focusedControl, equals: .help)
             Button(musicEnabled ? "🎵 Music: On" : "🎵 Music: Off") {
                 musicEnabled.toggle()
-                MusicPlayer.shared.isEnabled = musicEnabled
+                flow.setMusicEnabled(musicEnabled)
             }
             .font(TWTFont.body(15))
             .focused($focusedControl, equals: .musicToggle)
+            // Into Deep Cuts mode, starting on the first topic. Lives here
+            // in the footer rather than the decade sidebar, whose focus
+            // navigation is already fragile (see LobbyFocusTarget).
+            if let firstTopic = flow.deepCutTopics.first {
+                Button("🎯 Deep Cuts") { flow.selectDeepCutTopic(firstTopic.id) }
+                    .font(TWTFont.body(15))
+                    .focused($focusedControl, equals: .deepCuts)
+            }
             Spacer()
             if activeCount < 2 {
                 Text("Need 2 players to start")

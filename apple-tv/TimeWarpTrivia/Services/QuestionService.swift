@@ -99,6 +99,17 @@ enum QuestionService {
             .value
         return rows.map { Decade(id: $0.id, label: $0.label) }
     }
+
+    // Direct port of lib/questionService.ts's fetchDeepCutTopics.
+    static func fetchDeepCutTopics() async throws -> [DeepCutTopic] {
+        try await SupabaseService.client
+            .from("deep_cut_topics")
+            .select("id, label")
+            .eq("is_active", value: true)
+            .order("sort_order", ascending: true)
+            .execute()
+            .value
+    }
 }
 
 enum QuestionServiceError: Error, LocalizedError {

@@ -30,7 +30,7 @@ players/questions, so any screen can be checked without phones and
 talks to prod; there is no dev backend):
 
 ```
--demoScreen lobby|countdown|question|transition|scoreboard|block|end
+-demoScreen lobby|deepcuts|countdown|question|transition|scoreboard|block|end
 -demoDecade all|60s|70s|80s|90s|2000s|2010s
 ```
 
@@ -41,6 +41,21 @@ on demo screens don't work — nothing in demo mode talks to the network.
 **Don't commit demo arguments in the shared scheme file**
 (`xcshareddata/xcschemes/TimeWarpTrivia.xcscheme`) — every Run would open
 the demo screen for everyone.
+
+## Deep Cuts mode
+
+The lobby switches between decade mode (`LobbyView`) and Deep Cuts mode
+(`DeepCutsLobbyView`) in place — `RootView` shows the Deep Cuts lobby
+whenever `room.deepCutTopicId` is set. (The web instead uses a separate
+`/deepcuts` route per TV session.) Picking a topic also resets
+`decade_filter` to `all`; the footer's "Decades" button nulls the topic.
+A Deep Cuts game's accent comes from `TWTColor.deepCutAccent`, mirroring
+`../lib/deepCutColors.ts`. Topic rows are `id, label` only — there is no
+emoji or description column.
+
+Room patches: synthesized `Encodable` **omits** nil optionals, so a patch
+field set to `nil` is not sent at all. To null a column, write the encode
+by hand (see `ClearDeepCutTopicPatch` in `Models/RoomPatch.swift`).
 
 ## Visual conventions
 
