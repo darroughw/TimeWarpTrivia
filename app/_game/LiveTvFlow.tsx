@@ -18,6 +18,7 @@ import { useBlockCandidates } from "@/hooks/useBlockCandidates";
 import { useCountdown } from "@/hooks/useCountdown";
 import { useCurrentQuestion } from "@/hooks/useCurrentQuestion";
 import { useDecadeTheme } from "@/hooks/useDecadeTheme";
+import { useDeepCutsTheme } from "@/hooks/useDeepCutsTheme";
 import { useRoomAnswers } from "@/hooks/useRoomAnswers";
 import { useRoomRealtime } from "@/hooks/useRoomRealtime";
 import { playerRowToPlayer } from "@/lib/avatar";
@@ -123,6 +124,7 @@ export default function LiveTvFlow({ mode = "decade" }: LiveTvFlowProps) {
   const blockCandidates = useBlockCandidates(room);
   const { answers, clearAnswers } = useRoomAnswers(roomId);
   useDecadeTheme(room?.decade_filter);
+  useDeepCutsTheme(mode === "deepCuts");
 
   // Create a fresh room the moment the TV boots up.
   useEffect(() => {

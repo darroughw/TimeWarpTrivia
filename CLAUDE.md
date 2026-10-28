@@ -33,8 +33,13 @@ then open `/play` at phone width (≈390×844).
 
 - Tokens live in `app/styles/_theme.scss`; the Apple TV app mirrors them
   in `apple-tv/TimeWarpTrivia/Theme/Colors.swift`. Change both together.
-- `$marigold` is the decade-themeable accent (`_decade-themes.scss`);
-  coral = wrong/urgent and teal = correct are fixed and never themed.
+- `$marigold` and the `$void*` surfaces are CSS-variable-backed so mode
+  themes can override them (`_decade-themes.scss`): the decade themes
+  re-tint the accent; Deep Cuts' `[data-deep-cuts-theme]` (set by
+  `hooks/useDeepCutsTheme.ts` on `/deepcuts` and on phones in a Deep Cuts
+  room) also darkens the surfaces to violet. The web Deep Cuts lobby
+  shares `LobbyScreen.module.scss` with the decade lobby.
+- Coral = wrong/urgent and teal = correct are fixed and never themed.
 - `$option-colors` are the A/B/C/D answer colors, used on the phone and
   the Apple TV. They deliberately avoid teal/coral.
 - Animations respect `prefers-reduced-motion` (web) and Reduce Motion

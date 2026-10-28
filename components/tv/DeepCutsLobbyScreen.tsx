@@ -9,7 +9,9 @@ import DeepCutTopicFilter from "./DeepCutTopicFilter";
 import PlayerAvatar from "./PlayerAvatar";
 import RemovePlayerButton from "./RemovePlayerButton";
 import ScanlineOverlay from "./ScanlineOverlay";
-import styles from "./DeepCutsLobbyScreen.module.scss";
+// Shares LobbyScreen's stylesheet outright so the two lobbies can't drift
+// apart again — this copy had missed several later LobbyScreen fixes.
+import styles from "./LobbyScreen.module.scss";
 
 interface DeepCutsLobbyScreenProps {
   roomCode: string;
@@ -68,6 +70,7 @@ export default function DeepCutsLobbyScreen({
         <div className={styles.codeBlock}>
           <span className={styles.codeLabel}>Room Code</span>
           <span className={styles.code}>{roomCode}</span>
+          <span className={styles.joinHint}>Join at timewarptrivia.com/play</span>
         </div>
       </header>
 
@@ -111,15 +114,22 @@ export default function DeepCutsLobbyScreen({
           </span>
           <FeedbackButton />
         </div>
-        <button
-          type="button"
-          data-dpad-focusable
-          className={styles.startButton}
-          disabled={!canStart}
-          onClick={onStartGame}
-        >
-          Start Game
-        </button>
+        <div className={styles.startArea}>
+          {!canStart && (
+            <span className={styles.startHint} aria-live="polite">
+              {activeCount < 2 ? "Need 2 players to start" : "Pick a topic to start"}
+            </span>
+          )}
+          <button
+            type="button"
+            data-dpad-focusable
+            className={styles.startButton}
+            disabled={!canStart}
+            onClick={onStartGame}
+          >
+            Start Game
+          </button>
+        </div>
       </footer>
     </div>
   );

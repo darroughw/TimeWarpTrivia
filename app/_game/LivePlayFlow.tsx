@@ -15,6 +15,7 @@ import { useBlockCandidates } from "@/hooks/useBlockCandidates";
 import { useCountdown } from "@/hooks/useCountdown";
 import { useCurrentQuestion } from "@/hooks/useCurrentQuestion";
 import { useDecadeTheme } from "@/hooks/useDecadeTheme";
+import { useDeepCutsTheme } from "@/hooks/useDeepCutsTheme";
 import { useRoomRealtime } from "@/hooks/useRoomRealtime";
 import { getAvatarForName, playerRowToPlayer } from "@/lib/avatar";
 import { pickBlockChooser, rankedByScore } from "@/lib/mockData";
@@ -51,6 +52,9 @@ export default function LivePlayFlow() {
   const currentQuestion = useCurrentQuestion(room);
   const blockCandidates = useBlockCandidates(room);
   useDecadeTheme(room?.decade_filter);
+  // A phone can't see the TV's mode, only the room — any room with a
+  // topic is a Deep Cuts game (web or Apple TV host alike).
+  useDeepCutsTheme(Boolean(room?.deep_cut_topic_id));
   const posthog = usePostHog();
 
   // Purely cosmetic here — only the TV writes the status change that ends

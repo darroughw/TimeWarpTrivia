@@ -13,9 +13,12 @@ $mono-font: var(--font-mono), "Courier New", monospace; // Space Mono — timers
 // Color — "broadcast void" palette ---------------------------------------
 // A dark, CRT-glow base with warm game-show marigold as the hero accent,
 // coral for urgency/heat, and teal for correctness/success.
-$void: #0b0e1a; // background — the "off-air" black
-$void-raised: #131829; // panels/cards sitting on the void
-$void-line: #262c46; // hairline borders on dark surfaces
+// Routed through CSS custom properties (fallback = the base value), same
+// pattern as $marigold below, so a mode theme can re-tint the dark
+// surfaces too — Deep Cuts' darker purple look (_decade-themes.scss).
+$void: var(--void, #0b0e1a); // background — the "off-air" black
+$void-raised: var(--void-raised, #131829); // panels/cards sitting on the void
+$void-line: var(--void-line, #262c46); // hairline borders on dark surfaces
 
 $paper: #f4ecd8; // warm paper surface (cards, podium, lobby chrome)
 $paper-dim: #e4d9bd; // secondary paper surface / hover

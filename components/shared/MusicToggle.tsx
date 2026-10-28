@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { isMusicEnabled, setMusicEnabled } from "@/lib/music";
+import { MusicOffIcon, MusicOnIcon } from "./AudioIcons";
 import styles from "./MusicToggle.module.scss";
 
 // Persistent mute control for the low-volume background music track —
@@ -31,7 +32,7 @@ export default function MusicToggle() {
       aria-pressed={!enabled}
       aria-label={enabled ? "Mute background music" : "Unmute background music"}
     >
-      <span aria-hidden="true">{enabled ? "🎵" : "🎵🚫"}</span>
+      {enabled ? <MusicOnIcon /> : <MusicOffIcon />}
     </button>
   );
 }

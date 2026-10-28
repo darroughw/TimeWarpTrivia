@@ -156,3 +156,29 @@
   background-image: radial-gradient(circle, rgba(255, 138, 61, 0.16) 2px, transparent 3px);
   background-size: 48px 48px;
 }
+
+// Deep Cuts (TIM-41) — its own darker, purple mode theme rather than a
+// decade's. Set via `[data-deep-cuts-theme]` on <html> (see
+// hooks/useDeepCutsTheme.ts): on the /deepcuts TV route, and on phones
+// whenever their room is a Deep Cuts game. Unlike the decade themes it
+// also re-tints the void surfaces themselves (near-black violet), and its
+// backdrop is a soft purple glow from above rather than a pattern.
+[data-deep-cuts-theme] {
+  --marigold: #a97cff;
+  --marigold-dim: #4e3a86;
+  --shadow-glow-marigold: 0 0 40px rgba(169, 124, 255, 0.45);
+  --void: #08050f;
+  --void-raised: #150d26;
+  --void-line: #2d1f4a;
+}
+
+[data-deep-cuts-theme] body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: $z-scanlines;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 70% 55% at 50% -10%, rgba(120, 60, 220, 0.28), transparent 70%),
+    radial-gradient(ellipse 60% 45% at 100% 110%, rgba(90, 30, 170, 0.18), transparent 70%);
+}

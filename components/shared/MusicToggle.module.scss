@@ -18,8 +18,11 @@
   background: $void-raised;
   border: 1px solid $void-line;
   color: $text-hi;
-  font-size: 1.3rem;
-  line-height: 1;
+
+  svg {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
 
   &:hover,
   &:focus-visible {

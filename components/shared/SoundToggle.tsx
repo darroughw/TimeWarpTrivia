@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { isSoundEnabled, preloadAllSounds, setSoundEnabled } from "@/lib/sounds";
+import { SoundOffIcon, SoundOnIcon } from "./AudioIcons";
 import styles from "./SoundToggle.module.scss";
 
 // Persistent mute control for the game's sound effects (correct/wrong,
@@ -45,7 +46,7 @@ export default function SoundToggle() {
       aria-pressed={!enabled}
       aria-label={enabled ? "Mute sound effects" : "Unmute sound effects"}
     >
-      <span aria-hidden="true">{enabled ? "🔊" : "🔇"}</span>
+      {enabled ? <SoundOnIcon /> : <SoundOffIcon />}
     </button>
   );
 }
